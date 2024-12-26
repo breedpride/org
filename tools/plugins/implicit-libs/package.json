@@ -4,6 +4,9 @@
   "type": "module",
   "generators": "./generators.json",
   "dependencies": {
-    "@nx/devkit": "19.2.1"
+    "@nx/devkit": "20.3.0",
+    "nx": "^20.3.0",
+    "glob": "^11.0.0",
+    "tslib": "^2.4.0"
   }
 }
