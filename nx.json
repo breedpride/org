@@ -7,8 +7,8 @@
   "defaultBase": "main",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "workspaceLayout": {
-    "appsDir": "apps",
-    "libsDir": "libs"
+    "appsDir": "apps/**/*",
+    "libsDir": "libs/**/*"
   },
   "projects": {
     "angular.json": {
@@ -31,7 +31,10 @@
     }
   },
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -42,14 +45,21 @@
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ]
   },
-  "nxCloudId": "676d59bf5f5bc034e8f7bad7",
+  "nxCloudId": "676dc084ab077340d9ac4c76",
   "targetDefaults": {
     "@angular-devkit/build-angular:application": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
     },
     "lint": {
       "inputs": [
@@ -70,7 +80,11 @@
     },
     "@nx/jest:jest": {
       "cache": true,
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.cjs"],
+      "inputs": [
+        "default",
+        "^production",
+        "{workspaceRoot}/jest.preset.cjs"
+      ],
       "options": {
         "passWithNoTests": true
       },
@@ -82,12 +96,19 @@
       }
     },
     "e2e-ci--**/*": {
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        "^build"
+      ]
     },
     "@nx/js:tsc": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
     }
   },
   "plugins": [

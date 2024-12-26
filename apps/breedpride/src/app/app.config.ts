@@ -58,7 +58,7 @@ import { MENU_ORIENTATION } from '@bh/app/tokens';
 // if (environment.production) {
 //   enableProdMode();
 // }
-enableProdMode();
+//enableProdMode();
 const someOptions: ResizeOptions = {
   box: 'border-box',
   debounce: {
