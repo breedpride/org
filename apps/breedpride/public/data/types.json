@@ -1,0 +1,228 @@
+[
+  {
+    "name": "",
+    "type": "Boolean",
+    "deps": ["All_FieldDataType"],
+    "data": {
+      "component": 5
+    }
+  },
+  {
+    "name": "",
+    "type": "Color",
+    "deps": ["_String"]
+  },
+  {
+    "name": "",
+    "type": "DateTime",
+    "deps": ["_Date"]
+  },
+  {
+    "name": "",
+    "type": "Date",
+    "deps": ["All_FieldDataType"],
+    "component": 3
+  },
+  {
+    "name": "",
+    "type": "EmailText",
+    "deps": ["_String"]
+  },
+  {
+    "name": "",
+    "type": "MaxSizeText",
+    "deps": ["_String"]
+  },
+  {
+    "name": "",
+    "type": "ShortText",
+    "deps": ["_String"]
+  },
+  {
+    "name": "",
+    "type": "String",
+    "deps": ["All_FieldDataType"]
+  },
+  {
+    "name": "",
+    "type": "WebText",
+    "deps": ["_String"]
+  },
+
+  {
+    "name": "",
+    "type": "PhoneText",
+    "depss": ["_String"]
+  },
+
+  {
+    "name": "",
+    "type": "MediumText",
+    "deps": ["_String"]
+  },
+
+  {
+    "name": "",
+    "type": "Float",
+    "deps": ["_Number"]
+  },
+  {
+    "name": "",
+    "type": "Integer",
+    "deps": ["_Number"]
+  },
+  {
+    "name": "",
+    "type": "Number",
+    "deps": ["All_FieldDataType"],
+    "data": {
+      "component": 4
+    }
+  },
+  {
+    "name": "",
+    "type": "Guid",
+    "deps": ["_String"]
+  },
+  {
+    "name": "",
+    "type": "LongText",
+    "deps": ["_String"]
+  },
+  {
+    "name": "Lookup",
+    "type": "Base",
+    "deps": ["Lookup_Feature"],
+    "data": {
+      "component": 0,
+      "entitiesColumns": ["Id"],
+      "rows": 60
+    }
+  },
+  {
+    "name": "Name",
+    "type": "DisplayField",
+    "deps": ["Group_DisplayField"],
+    "data": {
+      "displayField": "Name",
+      "entitiesColumns": ["Name"]
+    }
+  },
+  {
+    "name": "Code",
+    "type": "DisplayField",
+    "deps": ["Group_DisplayField"],
+    "data": {
+      "displayField": "Code",
+      "entitiesColumns": ["Code"]
+    }
+  },
+  {
+    "name": "",
+    "type": "DisplayField",
+    "deps": ["Group_DisplayField"],
+    "data": {
+      "displayField": "",
+      "entitiesColumns": []
+    }
+  },
+  {
+    "name": "PublicName",
+    "type": "DisplayField",
+    "deps": ["Group_DisplayField"],
+    "data": {
+      "displayField": "PublicName",
+      "entitiesColumns": ["PublicName"]
+    }
+  },
+  {
+    "name": "Number",
+    "type": "DisplayField",
+    "deps": ["Group_DisplayField"],
+    "data": {
+      "displayField": "Number",
+      "entitiesColumns": ["Number"]
+    }
+  },
+  {
+    "name": "Title",
+    "type": "DisplayField",
+    "deps": ["Group_DisplayField"],
+    "data": {
+      "displayField": "Title",
+      "entitiesColumns": ["Title"]
+    }
+  },
+  {
+    "name": "Lookup",
+    "type": "NameDisplayField",
+    "deps": ["Lookup_Base", "Name_DisplayField"]
+  },
+  {
+    "name": "Lookup",
+    "type": "CodeDisplayField",
+    "deps": ["Lookup_Base", "Code_DisplayField"]
+  },
+  {
+    "name": "Lookup",
+    "type": "DisplayField",
+    "deps": ["Lookup_Base", "_DisplayField"]
+  },
+  {
+    "name": "Lookup",
+    "type": "NumberDisplayField",
+    "deps": ["Lookup_Base", "Number_DisplayField"]
+  },
+  {
+    "name": "Lookup",
+    "type": "PublicNameDisplayField",
+    "deps": ["Lookup_Base", "PublicName_DisplayField"]
+  },
+  {
+    "name": "Lookup",
+    "type": "TitleDisplayField",
+    "deps": ["Lookup_Base", "Title_DisplayField"]
+  },
+  {
+    "name": "Group",
+    "type": "DisplayField",
+    "deps": ["Lookup_Feature"]
+  },
+  {
+    "name": "Lookup",
+    "type": "Feature",
+    "deps": ["All_FieldDataType"]
+  },
+  {
+    "name": "All",
+    "type": "FieldName",
+    "deps": []
+  },
+  {
+    "name": "All",
+    "type": "Workspace",
+    "deps": []
+  },
+  {
+    "name": "All",
+    "type": "Space",
+    "deps": []
+  },
+  {
+    "name": "All",
+    "type": "Entity",
+    "deps": []
+  },
+  {
+    "name": "All",
+    "type": "FieldDataType",
+    "deps": []
+  },
+  {
+    "name": "PublicPets",
+    "type": "Space",
+    "deps": ["Public_Space", "Pet_Entity"]
+  },
+
+  { "name": "Public", "type": "Space", "deps": [] }
+]

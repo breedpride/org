@@ -1,0 +1,37 @@
+.card-surface {
+  background: rgb(var(--card-ground));
+  // box-shadow: var(--card-shadow);
+  border: 1px solid rgb(var(--surface-border));
+}
+
+.card {
+  @extend .card-surface;
+  display: flex;
+  overflow: hidden;
+
+  padding: 1rem;
+  @screen sm {
+    padding: 1.75rem;
+  }
+
+  @screen md {
+    border-radius: 12px;
+  }
+
+  // &:last-child {
+  //   margin-bottom: 0;
+  // }
+}
+
+.p-toast {
+  &.p-toast-top-right,
+  &.p-toast-top-left,
+  &.p-toast-top-center {
+    top: 70px;
+  }
+}
+
+.fake-card {
+  @extend .card-surface;
+  border-radius: 12px;
+}

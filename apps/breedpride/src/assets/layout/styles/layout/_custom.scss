@@ -1,0 +1,33 @@
+.bg-card {
+  background-color: white;
+}
+
+.rectangular-card {
+  display: flex;
+  overflow: hidden;
+  border-width: 1px;
+  @apply bg-card border-slate-200 dark:border-slate-500;
+  padding: 1.75rem;
+}
+
+.bp-search {
+  .p-inputtext {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 2rem;
+  }
+}
+
+.bp-small-button {
+  height: 2.6rem;
+}
+
+.bp-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.layout-container {
+  min-height: 100vh;
+  max-height: 100vh;
+}

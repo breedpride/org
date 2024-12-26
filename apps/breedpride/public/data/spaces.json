@@ -1,0 +1,10 @@
+[
+  {
+    "name": "",
+    "type": "Space",
+    "parents": ["All_Space"],
+    "data": {
+      "component": 5
+    }
+  }
+]
