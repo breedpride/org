@@ -158,7 +158,8 @@
       "@breedpride/shared": ["libs/schema/ui/shared-ui/index.ts"],
       "@breedpride/space-generator": ["libs/schema/pages/space/index.ts"],
       "@breedpride/tissue/note": ["libs/schema/ui/note/index.ts"],
-      "@breedpride/wrapper": ["libs/schema/ui/wrapper/index.ts"]
+      "@breedpride/wrapper": ["libs/schema/ui/wrapper/index.ts"],
+      "@org/recommended": ["tools/recommended/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

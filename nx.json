@@ -1,9 +1,34 @@
 {
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": true
+    }
+  },
   "defaultBase": "main",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "workspaceLayout": {
     "appsDir": "apps",
     "libsDir": "libs"
+  },
+  "projects": {
+    "angular.json": {
+      "implicitDependencies": "*"
+    },
+    "package.json": {
+      "implicitDependencies": {
+        "dependencies": "*",
+        "devDependencies": "*"
+      }
+    },
+    "tsconfig.base.json": {
+      "implicitDependencies": "*"
+    },
+    "tslint.json": {
+      "implicitDependencies": "*"
+    },
+    "nx.json": {
+      "implicitDependencies": "*"
+    }
   },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
@@ -58,6 +83,11 @@
     },
     "e2e-ci--**/*": {
       "dependsOn": ["^build"]
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "plugins": [
@@ -120,7 +150,5 @@
     "@nx/js:library": {
       "buildable": true
     }
-  }, 
-  "extends": "nx/presets/npm.json"
-
+  }
 }

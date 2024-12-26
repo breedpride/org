@@ -1,4 +1,5 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
-    "nxConsole.nxWorkspacePath": "",
+  "workbench.iconTheme": "material-icon-theme",
+  "nxConsole.nxWorkspacePath": "",
+  "eslint.validate": ["json"]
 }
