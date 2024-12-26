@@ -60,7 +60,7 @@ export function getProjectInfo(projectPath: string):
     logger.warn(
       `Invalid project path ${projectPath}. Last folder should be one of the allowed types: ${allowedLibraryTypes}`
     );
-    return;
+    // return;
   }
 
   return {

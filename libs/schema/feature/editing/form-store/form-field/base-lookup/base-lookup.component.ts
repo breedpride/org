@@ -4,7 +4,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { And, byNameContain } from '@bh/filter';
-import{ runFilterFn} from '@bh/filtering';
+import{ runFilterFn} from '@bh/filter';
 import { ApiHelper } from '@breedpride/api';
 import { getState } from '@ngrx/signals';
 import { BaseNGComponent } from '../base-ng/base-ng.component';

@@ -14,7 +14,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Params, Router } from '@angular/router';
-import { ME } from '@bh/filtering';
+
 import { TIERS } from '@bp/core/consts';
 import { ButtonModule } from 'primeng/button';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -24,6 +24,7 @@ import {
   YEARLY_NUMBER,
 } from './pricing.consts';
 import { Tier } from './pricing.types';
+import { ME } from '@bh/filter';
 
 @Component({
   imports: [CommonModule, ButtonModule, InputNumberModule, ReactiveFormsModule],
