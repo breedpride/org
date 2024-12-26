@@ -17,6 +17,8 @@
   },
   "workspaces": [
     "libs/**",
-    "packages/**"
+    "packages/**",
+    "apps/**",
+    "tools/**"
   ]
 }
