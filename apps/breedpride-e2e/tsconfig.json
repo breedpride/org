@@ -13,6 +13,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
+    "../../libs/**/*.ts",
     "**/*.ts",
     "**/*.js",
     "playwright.config.ts",
