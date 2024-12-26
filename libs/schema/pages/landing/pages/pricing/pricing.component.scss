@@ -1,0 +1,33 @@
+.header-features-grid {
+  grid-template-columns: auto 112px 112px 112px;
+
+  // @screen lg {
+  //   grid-template-columns: auto 148px 148px 148px;
+  // }
+}
+
+.row-features-grid {
+  grid-template-columns: auto 112px 112px 112px;
+
+  @screen lg {
+    grid-template-columns: 15px auto 112px 112px 112px;
+  }
+}
+
+.small-row-features-grid {
+  grid-template-columns: auto 64px;
+  @screen sm {
+    grid-template-columns: auto 84px;
+  }
+}
+
+.item {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.item-end {
+  align-self: end;
+  justify-self: end;
+}

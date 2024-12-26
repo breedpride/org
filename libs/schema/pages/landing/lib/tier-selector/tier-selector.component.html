@@ -1,0 +1,217 @@
+<div class="relative flex flex-col items-center">
+  @if (mode === "pricing") {
+    <div
+      class="text-center font-mono text-6xl font-extrabold leading-tight tracking-wide text-white md:text-7xl">
+      Get your awesome app
+    </div>
+  }
+  <div
+    class="flex items-center rounded-full border p-0.5"
+    [ngClass]="{
+      'border-white bg-white/50 mt-8  sm:mt-16': mode === 'pricing',
+      'border-primary-500 bg-primary-500/50 mt-6 sm:mt-10': mode === 'payment',
+    }">
+    <button
+      class="rounded-full px-6 py-2.5 hover:bg-opacity/30"
+      [ngClass]="{
+        'pointer-events-none bg-white shadow':
+          billingType() === threeYearly && mode === 'pricing',
+        'pointer-events-none bg-primary-500 shadow':
+          billingType() === threeYearly && mode === 'payment',
+        'bg-transparent': billingType() !== threeYearly,
+        'hover:bg-white': mode === 'pricing',
+        'hover:bg-primary-500': mode === 'payment',
+      }"
+      (click)="setBillingType(threeYearly)"
+      disableRipple>
+      <div
+        [ngClass]="{
+          '  text-slate-800': mode === 'pricing',
+          ' text-white': mode === 'payment',
+        }">
+        <span class="hidden md:block">3 yearly billing</span>
+        <span class="md:hidden">3 yearly</span>
+      </div>
+    </button>
+    <button
+      class="rounded-full px-6 py-2.5 hover:bg-opacity/30"
+      [ngClass]="{
+        'pointer-events-none bg-white shadow':
+          billingType() === yearly && mode === 'pricing',
+        'pointer-events-none bg-primary-500 shadow':
+          billingType() === yearly && mode === 'payment',
+
+        'bg-transparent': billingType() !== yearly,
+        'hover:bg-white': mode === 'pricing',
+        'hover:bg-primary-500': mode === 'payment',
+      }"
+      (click)="setBillingType(yearly)"
+      disableRipple>
+      <div
+        [ngClass]="{
+          '  text-slate-800': mode === 'pricing',
+          ' text-white': mode === 'payment',
+        }">
+        <span class="hidden md:block">Yearly billing</span>
+        <span class="md:hidden">Yearly</span>
+      </div>
+    </button>
+    <button
+      class="rounded-full px-6 py-2.5 hover:bg-opacity/30"
+      [ngClass]="{
+        'pointer-events-none bg-white shadow':
+          billingType() === monthly && mode === 'pricing',
+        'pointer-events-none bg-primary-500 shadow':
+          billingType() === monthly && mode === 'payment',
+
+        'bg-transparent': billingType() !== monthly,
+        'hover:bg-white': mode === 'pricing',
+        'hover:bg-primary-500': mode === 'payment',
+      }"
+      (click)="setBillingType(monthly)"
+      disableRipple>
+      <div
+        [ngClass]="{
+          '  text-slate-800': mode === 'pricing',
+          ' text-white': mode === 'payment',
+        }">
+        <span class="hidden md:block">Monthly billing</span>
+        <span class="md:hidden">Monthly</span>
+      </div>
+    </button>
+  </div>
+</div>
+
+<div
+  class="mt-10 flex justify-center"
+  [ngClass]="{
+    ' sm:mt-20': mode === 'pricing',
+    ' sm:mt-16': mode === 'payment',
+  }">
+  <div
+    class="grid gap-y-6 md:grid-cols-2 md:gap-x-6"
+    [ngClass]="{
+      ' lg:grid-cols-3': mode === 'payment',
+    }">
+    @for (tier of tiers.slice(starTier); track tier; let j = $index) {
+      <div
+        class="card relative h-full max-w-sm flex-col bg-white p-6 md:max-w-100 sm:px-10 sm:py-12"
+        [ngClass]="{
+          'overflow-visible border border-primary outline outline-2 outline-offset-2 outline-primary md:border-slate-200 md:outline-white':
+            tier.isPopular,
+        }">
+        @if (tier.isPopular) {
+          <div
+            class="absolute inset-x-0 -top-4 flex items-center justify-center">
+            <div
+              class="bg-primary text-on-primary flex h-8 items-center rounded-full px-8 text-center font-semibold uppercase">
+              Popular
+            </div>
+          </div>
+        }
+        @if (tier.isComingSoon) {
+          <div
+            class="bg-primary absolute inset-x-0 -right-60 top-10 flex rotate-45 items-center justify-center lg:top-none">
+            <div
+              class="text-on-primary flex h-8 items-center px-8 text-center font-semibold uppercase">
+              Coming soon
+            </div>
+          </div>
+        }
+        <div class="text-center text-3xl font-bold uppercase">
+          {{ tier.name }}
+        </div>
+        <div class="text-secondary mt-2 text-center text-lg">
+          {{ tier.description }}
+        </div>
+
+        <!-- Price -->
+        <div class="mt-10 flex flex-col items-center whitespace-nowrap">
+          @if (tier.name !== "Supreme Patron") {
+            <div
+              class="text-primary text-7xl font-semibold leading-tight tracking-tight">
+              ${{ tier.prices[billingType()].value }}
+            </div>
+          }
+          @if (tier.name === "Supreme Patron") {
+            <p-inputNumber
+              inputId="currency-us"
+              mode="currency"
+              [formControl]="customPrice"
+              currency="USD"
+              locale="en-US"
+              class="p-fluid mb-2 w-full"></p-inputNumber>
+          }
+
+          <div class="font-bold uppercase text-slate-400">Per month</div>
+        </div>
+        <!-- Price details -->
+
+        <div class="text-secondary mt-6 flex flex-col space-y-3">
+          @if (tier.name !== "Supreme Patron") {
+            @if (billingType() !== 0) {
+              <div>
+                <b>${{ tier.prices[threeYearly].value }}</b>
+                billed 3 yearly
+              </div>
+            }
+            @if (billingType() !== yearly) {
+              <div>
+                <b>${{ tier.prices[yearly].value }}</b>
+                billed yearly
+              </div>
+            }
+            @if (billingType() !== monthly) {
+              <div>
+                <b>${{ tier.prices[monthly].value }}</b>
+                billed monthly
+              </div>
+            }
+          }
+          @if (tier.name === "Supreme Patron") {
+            <span>
+              Minimum payment is
+              <b>$20.00</b>
+            </span>
+            <span>Monthly subscription only</span>
+          }
+        </div>
+        <!-- CTA -->
+        <button
+          class="shadow-primary-200 mt-10 shadow-lg"
+          pRipple
+          pButton
+          [disabled]="tierDisabled(tier)"
+          (click)="startCustomPayment(tier)"
+          label="{{ tier.callToActionText }}"></button>
+        <!-- Features -->
+        <div class="mt-10 flex flex-col">
+          <div class="min-h-12 text-center font-semibold uppercase">
+            {{ tier.featuresHeader }}
+          </div>
+          <div class="mt-4 space-y-2">
+            @for (feature of tier.features; track feature; let i = $index) {
+              <div class="flex">
+                <i class="pi pi-check text-accent-400 font-bold"></i>
+                <div class="ml-2 leading-5">
+                  {{ feature.name }}
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+<div
+  class="mt-6 text-center"
+  [ngClass]="{
+    '  text-secondary ': mode === 'pricing',
+    ' text-slate-800 md:text-white mb-20 px-8 sm:px-[3.65rem]':
+      mode === 'payment',
+  }">
+  The current subscription price will be valid during the launch period only and
+  will be increased up to common value by the end of it. The pricing change will
+  not affect purchased subscriptions.
+</div>

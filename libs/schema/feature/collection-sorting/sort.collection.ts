@@ -1,0 +1,46 @@
+
+import { SortField } from '@bh/superfield';
+import {
+  NAME_ASC_99,
+  SORT_NAME_ASC,
+  SORT_NAME_DESC,
+  SORT_OLD_BIRTH,
+  SORT_RATING_NAME,
+  SORT_START_DATE_ASC,
+  SORT_START_DATE_DESC,
+  SORT_YOUNG_BIRTH,
+  SUPPORT_LEVEL,
+} from './sort.const';
+
+export const PET_SPACE_SORT_CONFIG: SortField[] = [
+  SORT_RATING_NAME,
+  SORT_YOUNG_BIRTH,
+  SORT_OLD_BIRTH,
+  SORT_NAME_ASC,
+  SORT_NAME_DESC,
+];
+export const BREED_SPACE_SORT_CONFIG: SortField[] = [
+  SUPPORT_LEVEL,
+  SORT_RATING_NAME,
+  SORT_NAME_ASC,
+  SORT_NAME_DESC,
+];
+export const LITTER_SPACE_SORT_CONFIG: SortField[] = [
+  SORT_YOUNG_BIRTH,
+  SORT_OLD_BIRTH,
+];
+export const KENNEL_SPACE_SORT_CONFIG: SortField[] = [
+  SORT_RATING_NAME,
+  SORT_NAME_ASC,
+  SORT_NAME_DESC,
+];
+export const CONTACT_SPACE_SORT_CONFIG: SortField[] = [
+  SORT_RATING_NAME,
+  SORT_NAME_ASC,
+  SORT_NAME_DESC,
+];
+export const EVENT_SPACE_SORT_CONFIG: SortField[] = [
+  SORT_START_DATE_DESC,
+  SORT_START_DATE_ASC,
+];
+export const NEW_DEFAULT_SORT_COLUMNS = [NAME_ASC_99];

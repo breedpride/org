@@ -1,0 +1,688 @@
+<div
+  class="pb-26 relative flex w-full min-w-[100vw] flex-col items-center justify-center overflow-hidden bg-white"
+>
+  <div
+    class="right-[-30vw] top-[-13vw] w-full md:right-[-47vw] md:top-[-17vw] xxl:top-[-25vw] xxxl:top-[-32vw] absolute"
+  >
+    <svg-icon name="landing-figure" [svgStyle]="{ width: '80%' }"></svg-icon>
+  </div>
+  <!-- Header -->
+  <div
+    class="z-49 max-w-11xl flex h-16 w-full items-center px-6 lg:px-40 sm:h-20 sm:px-10 xxl:px-60"
+  ></div>
+  <!-- Page space -->
+
+  <div
+    class="max-w-11xl relative mt-8 flex w-full min-w-0 flex-auto flex-col items-center px-6 lg:px-40 sm:px-10"
+  >
+    <!-- General info -->
+    <div class="flex flex-col md:space-x-18 md:pl-22 md:flex-row md:border-l">
+      <div
+        class="order-2 flex w-[100%] flex-col justify-center space-y-8 md:order-1 md:w-[70%] sm:space-y-12"
+      >
+        <div class="flex w-full flex-col">
+          <p
+            class="font-mono text-5xl font-extrabold tracking-wider md:text-6xl xl:text-7xl"
+          >
+            United by the popularization of
+            <span class="text-primary">professional</span>
+            breeding
+          </p>
+          <em class="text-secondary mt-2">
+            All necessary for a professional breeder in one app
+          </em>
+        </div>
+
+        <!-- Breeds rating -->
+        <div class="text-secondary flex flex-col">
+          <p class="mb-5 font-semibold uppercase">Top-supported breeds</p>
+          @for (item of home().topAchievementBreeds | slice: 0 : 3; track item)
+          {
+          <bp-breed-progress
+            class="mt-1 md:block sm:hidden"
+            [breed]="item"
+            mode="row"
+          ></bp-breed-progress>
+          <bp-breed-progress
+            class="mt-1 hidden md:hidden sm:block"
+            [breed]="item"
+          ></bp-breed-progress>
+          }
+        </div>
+
+        <!-- Action button -->
+        <div class="flex items-center space-x-3">
+          <a [routerLink]="['/', 'pricing']">
+            <button
+              type="button"
+              class="w-36 rounded-xl bg-pink-500 px-6 py-4 font-bold leading-tight text-white shadow-lg shadow-pink-300 transition duration-150 ease-in-out active:bg-pink-700 active:shadow-xl active:shadow-pink-300 focus:bg-pink-600 focus:shadow-xl focus:shadow-pink-300 hover:bg-pink-600 hover:shadow-xl hover:shadow-pink-300"
+            >
+              Get Started
+            </button>
+          </a>
+          <div class="text-sm font-bold uppercase text-slate-300">
+            <p>Free forever</p>
+            <p>No credit card</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div
+        class="order-1 mb-6 flex h-auto w-full overflow-hidden rounded-2xl shadow-xl md:order-2 md:mt-0"
+      >
+        <img
+          class="min-h-[100%] min-w-[100%] shrink-0"
+          src="https://mdbootstrap.com/img/new/standard/city/047.jpg"
+          alt="City view"
+        />
+      </div>
+    </div>
+
+    <!-- Key indicators -->
+    <div class="mt-18 flex w-full flex-col items-center xl:flex-row">
+      <div
+        class="text-secondary mb-6 shrink-0 text-start text-4xl font-semibold xl:mb-0 xl:mr-6"
+      >
+        Best pet's knowledge base
+      </div>
+
+      <ng-template
+        #ref
+        let-value="value"
+        let-routerLink="routerLink"
+        let-ngClass="ngClass"
+        let-name="name"
+      >
+        <a
+          [routerLink]="routerLink"
+          class="flex flex-col items-center rounded-l-full bg-gradient-to-r to-transparent px-4 py-3"
+          [ngClass]="ngClass"
+        >
+          <span class="text-3xl">
+            <bp-counter [value]="value" />
+          </span>
+          <span class="text-secondary text-lg font-semibold uppercase">
+            {{ name }}
+          </span>
+        </a>
+      </ng-template>
+
+      @if (home()) {
+      <div class="grid w-full gap-3 md:grid-cols-3 sm:grid-cols-2">
+        <ng-container
+          *ngTemplateOutlet="
+              ref;
+              context: {
+                routerLink: ['/', 'pets'],
+                value: home().petProfileCount,
+                ngClass: 'from-purple-100',
+                name: 'Pet profiles',
+              }
+            "
+        />
+
+        <ng-container
+          *ngTemplateOutlet="
+              ref;
+              context: {
+                routerLink: ['/', 'kennels'],
+                value: home().kennelCount,
+                ngClass: 'from-blue-100',
+                name: 'Kennels',
+              }
+            "
+        />
+        <!-- <ng-container
+          *ngTemplateOutlet="
+            ref;
+            context: {
+              routerLink: ['/', 'accounts'],
+              value: home.organizationCount,
+              ngClass: 'from-pink-100',
+              name: 'Organisations'
+            }
+          " /> -->
+        <ng-container
+          *ngTemplateOutlet="
+              ref;
+              context: {
+                routerLink: ['/', 'events'],
+                value: home().eventCount,
+                ngClass: 'from-orange-100',
+                name: 'Events',
+              }
+            "
+        />
+      </div>
+      }
+    </div>
+
+    <ul class="mt-18 flex list-none overflow-x-auto md:hidden">
+      <li>
+        <ng-container
+          *ngTemplateOutlet="
+            tabHeader;
+            context: {
+              tabForm: 1,
+              value: 1,
+              name: 'Pedigree',
+            }
+          "
+        ></ng-container>
+      </li>
+      <li>
+        <ng-container
+          *ngTemplateOutlet="
+            tabHeader;
+            context: {
+              tabForm: 1,
+              value: 2,
+              name: 'Site',
+            }
+          "
+        ></ng-container>
+      </li>
+      <li>
+        <ng-container
+          *ngTemplateOutlet="
+            tabHeader;
+            context: {
+              tabForm: 1,
+              value: 3,
+              name: 'Kennel',
+            }
+          "
+        ></ng-container>
+      </li>
+    </ul>
+    <div
+      class="border-primary-50 mt-6 flex w-full flex-col overflow-hidden rounded-[3rem] border bg-purple-50/50 pt-6 shadow-md shadow-slate-200 md:mt-18 sm:pt-8 xl:pt-16"
+    >
+      <div class="px-6 pb-6 md:px-18 sm:px-8 sm:pb-8 xl:px-32 xl:pb-12">
+        <ul class="hidden w-[50%] list-none flex-wrap pb-4 pt-3 md:flex">
+          <li>
+            <ng-container
+              *ngTemplateOutlet="
+                tabHeader;
+                context: {
+                  tabForm: 1,
+                  value: 1,
+                  name: 'Pedigree',
+                }
+              "
+            ></ng-container>
+          </li>
+          <li>
+            <ng-container
+              *ngTemplateOutlet="
+                tabHeader;
+                context: {
+                  tabForm: 1,
+                  value: 2,
+                  name: 'Site',
+                }
+              "
+            ></ng-container>
+          </li>
+          <li>
+            <ng-container
+              *ngTemplateOutlet="
+                tabHeader;
+                context: {
+                  tabForm: 1,
+                  value: 3,
+                  name: 'Kennel',
+                }
+              "
+            ></ng-container>
+          </li>
+        </ul>
+
+        <!-- Tab content -->
+        <div class="flex w-full min-w-0 flex-col">
+          <div
+            [ngClass]="{
+              hidden: openTab !== 1,
+              'flex flex-col xl:flex-row': openTab === 1,
+            }"
+            class="xl:space-x-10"
+          >
+            <div class="order-2 flex flex-col space-y-8 xl:order-1">
+              <p class="mt-6 text-6xl font-semibold">
+                Common data in a
+                <span class="text-primary">convenient</span>
+                format
+              </p>
+              <p class="text-lg leading-8">
+                View and change the pedigree of your pet from any device. We've
+                made it comfortable for you.
+                <br />
+                <br />
+                The convenient format of all data is in your hands. Add or edit
+                data is fast and easy.
+              </p>
+            </div>
+            <!-- Image -->
+            <div
+              class="oreder-1 h-auto min-w-[50%] overflow-hidden rounded-2xl border shadow-lg xl:order-2"
+            >
+              <img
+                class="min-h-[100%] min-w-[100%] shrink-0"
+                src="https://mdbootstrap.com/img/new/standard/city/047.jpg"
+                alt="City view"
+              />
+            </div>
+          </div>
+          <div
+            [ngClass]="{
+              hidden: openTab !== 2,
+              'flex flex-col xl:flex-row': openTab === 2,
+            }"
+            class="xl:space-x-10"
+          >
+            <div class="order-2 flex flex-col space-y-8 xl:order-1">
+              <p class="mt-6 text-6xl font-semibold">
+                Fantastic site for your kennel with
+                <span class="text-primary">up-to-date</span>
+                information on it
+              </p>
+              <p class="text-lg leading-8">
+                Save your time and effort. Your site is
+                <span class="decoration-primary-400 underline decoration-2">
+                  here
+                </span>
+                already!
+                <br />
+                Change different styles of your site or make your one. Control
+                what public data you want to show. Manage your site quickly and
+                easily.
+              </p>
+            </div>
+            <!-- Image -->
+            <div
+              class="oreder-1 h-auto w-full overflow-hidden rounded-2xl xl:order-2"
+            >
+              <img
+                class="min-h-[100%] min-w-[100%] shrink-0"
+                src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp"
+                alt="City view"
+              />
+            </div>
+          </div>
+          <div
+            [ngClass]="{
+              hidden: openTab !== 3,
+              'flex flex-col xl:flex-row': openTab === 3,
+            }"
+            class="xl:space-x-10"
+          >
+            <div class="order-2 flex flex-col space-y-8 xl:order-1">
+              <p class="mt-6 text-6xl font-semibold">
+                Your breeding work is the
+                <span class="text-primary">foundation</span>
+              </p>
+              <p class="text-lg leading-8">
+                Manage your breeding work in one app. Make less iterative manual
+                work and routine. We stand for saving your time for more
+                interesting and important work - breeding.
+              </p>
+            </div>
+            <!-- Image -->
+            <div
+              class="oreder-1 h-auto w-full overflow-hidden rounded-2xl xl:order-2"
+            >
+              <img
+                class="min-h-[100%] min-w-[100%] shrink-0"
+                src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp"
+                alt="City view"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Action button -->
+        <a [routerLink]="['/', 'pricing']">
+          <button
+            type="button"
+            class="bg-primary-400 shadow-primary-300 mt-3 w-36 rounded-xl px-6 py-4 font-bold leading-tight text-white shadow-lg transition duration-150 ease-in-out active:bg-primary-600 active:shadow-primary-300 active:shadow-xl focus:bg-primary focus:shadow-primary-300 focus:shadow-xl hover:bg-primary hover:shadow-primary-300 hover:shadow-xl sm:mt-5 xl:mt-0"
+          >
+            Get Started
+          </button>
+        </a>
+      </div>
+      <div class="bg-primary-100/50 w-full py-10"></div>
+    </div>
+
+    <!-- Top breeds by rating -->
+    <div
+      class="mt-22 max-w-screen mb-5 w-full lg:px-0 md:max-w-4xl md:px-6 sm:px-10"
+    >
+      <div
+        class="text-secondary mb-6 w-full text-center text-4xl font-semibold xl:mb-0 xl:mr-6"
+      >
+        Top Breeds by Pets Profiles
+      </div>
+      @for (item of home().topRatingBreeds | slice: 0 : 5; track item) {
+      <bp-breed-progress
+        class="mt-3 flex w-full"
+        [breed]="item"
+        [simpleView]="false"
+      ></bp-breed-progress>
+      }
+    </div>
+
+    <!-- Breed promotion-->
+    <ul class="mt-18 flex list-none overflow-x-auto md:hidden">
+      <li>
+        <ng-container
+          *ngTemplateOutlet="
+            tabHeader;
+            context: {
+              value: 1,
+              tabForm: 2,
+              name: 'Breed`s rating',
+            }
+          "
+        ></ng-container>
+      </li>
+      <li>
+        <ng-container
+          *ngTemplateOutlet="
+            tabHeader;
+            context: {
+              value: 2,
+              tabForm: 2,
+              name: 'Breed`s goals',
+            }
+          "
+        ></ng-container>
+      </li>
+      <li>
+        <ng-container
+          *ngTemplateOutlet="
+            tabHeader;
+            context: {
+              value: 3,
+              tabForm: 2,
+              name: 'Breed`s support level',
+            }
+          "
+        ></ng-container>
+      </li>
+    </ul>
+    <div
+      class="mt-6 flex w-full flex-col rounded-[3rem] border border-pink-100 bg-pink-50/50 px-6 pb-20 pt-6 shadow-md shadow-slate-200 md:mt-18 md:px-18 sm:px-8 sm:pt-8 xl:px-32 xl:pt-16"
+    >
+      <ul
+        class="hidden w-[70%] list-none flex-wrap pb-4 pt-3 md:flex xl:w-[65%]"
+      >
+        <li>
+          <ng-container
+            *ngTemplateOutlet="
+            tabHeader;
+            context: {
+              value: 1,
+              tabForm: 2,
+              name: 'Breed`s rating',
+            }
+          "
+          ></ng-container>
+        </li>
+        <li>
+          <ng-container
+            *ngTemplateOutlet="
+            tabHeader;
+            context: {
+              value: 2,
+              tabForm: 2,
+              name: 'Breed`s goals',
+            }
+          "
+          ></ng-container>
+        </li>
+        <li>
+          <ng-container
+            *ngTemplateOutlet="
+            tabHeader;
+            context: {
+              value: 3,
+              tabForm: 2,
+              name: 'Breed`s support level',
+            }
+          "
+          ></ng-container>
+        </li>
+      </ul>
+
+      <!-- Tab content -->
+      <div class="flex w-full min-w-0 flex-col">
+        <div
+          [ngClass]="{
+            hidden: openBreedTab !== 1,
+            'flex flex-col xl:flex-row': openBreedTab === 1,
+          }"
+          class="xl:space-x-10"
+        >
+          <div class="order-2 flex flex-col space-y-8 xl:order-1">
+            <p class="mt-6 text-6xl font-semibold">
+              Promote your favorite breed. Make it the
+              <span class="text-pink-600">top-supported</span>
+              one
+            </p>
+            <p class="text-lg leading-8">
+              Stand for your breed - contribute to your breed's development and
+              promotion. The more Patreons (paid users) a breed has - the more
+              additional functional features and privileges a breed has in your
+              system.
+              <br />
+              <br />
+              You'll get our
+              <span class="underline decoration-pink-500 decoration-2">
+                professional/prime
+              </span>
+              product for your payment. And we'll get a response from you - what
+              breed we have to pay more attention to.
+            </p>
+          </div>
+
+          <!-- Breeds rating -->
+          <div
+            class="oreder-1 text-secondary flex w-full min-w-[40%] flex-col items-end rounded-2xl border-slate-100 bg-white p-8 shadow-sm xl:order-2"
+          >
+            <p class="mb-3 font-semibold">Top-supported breeds</p>
+
+            @for ( item of home().topAchievementBreeds | slice: 0 : 7; track
+            item ) {
+            <bp-breed-progress
+              class="mt-3 flex w-full"
+              [breed]="item"
+            ></bp-breed-progress>
+            }
+          </div>
+        </div>
+        <div
+          [ngClass]="{
+            hidden: openBreedTab !== 2,
+            'flex flex-col xl:flex-row': openBreedTab === 2,
+          }"
+          class="xl:space-x-10"
+        >
+          <div class="order-2 flex flex-col space-y-8 xl:order-1">
+            <p class="mt-6 text-6xl font-semibold">
+              Main
+              <span class="text-pink-600">goals</span>
+              for a breed
+            </p>
+            <p class="text-lg leading-8">
+              With each executed breed's goal, we open up new opportunities for
+              <span class="underline decoration-pink-500 decoration-2">
+                all
+              </span>
+              members of the community in that breed.
+              <br />
+              <br />
+              The more interest per month you show closer the goal is.
+            </p>
+          </div>
+
+          <!-- Goals info-->
+          <div class="oreder-1 flex min-w-[60%] flex-col xl:order-2">
+            <div class="rounded-2xl border-slate-100 bg-white p-8 shadow-sm">
+              <!-- Header -->
+              <div
+                class="header-goal-grid grid items-center gap-3 border-b pb-2 font-semibold"
+              >
+                <div class="hidden text-center sm:block">$ per month *</div>
+                <div class="text-center sm:hidden">$ *</div>
+                <div>Goals</div>
+              </div>
+
+              <div class="flex space-x-3">
+                <div class="hidden space-x-2 sm:flex">
+                  <div class="flex w-1 items-end pb-2 pt-5">
+                    <div
+                      class="h-[20%] w-full rounded-full bg-fuchsia-300"
+                    ></div>
+                  </div>
+                  <div class="flex w-1 items-end pb-2 pt-5">
+                    <div
+                      class="h-[40%] w-full rounded-full bg-orange-300"
+                    ></div>
+                  </div>
+                  <div class="flex w-1 items-end pb-2 pt-5">
+                    <div class="h-[60%] w-full rounded-full bg-pink-300"></div>
+                  </div>
+                  <div class="flex w-1 items-end pb-2 pt-5">
+                    <div class="h-[80%] w-full rounded-full bg-blue-300"></div>
+                  </div>
+                  <div class="flex w-1 items-end pb-2 pt-5">
+                    <div
+                      class="bg-primary-300 h-[100%] w-full rounded-full"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- Rows -->
+                <div class="goal-grid grid items-center pt-3">
+                  @for ( achievement of specialAchivenmentns(); track
+                  achievement ) {
+                  <div class="font-semibold">
+                    {{ achievement.IntValue }}
+                  </div>
+                  <div>
+                    {{ achievement.Description }}
+                  </div>
+                  }
+                </div>
+              </div>
+            </div>
+            <p class="mt-3 text-sm">
+              * The table shows the
+              <b>total amount per month</b>
+              from the breed's community
+            </p>
+          </div>
+        </div>
+        <div
+          [ngClass]="{
+            hidden: openBreedTab !== 3,
+            'flex flex-col xl:flex-row': openBreedTab === 3,
+          }"
+          class="xl:space-x-10"
+        >
+          <div class="order-2 flex flex-col space-y-8 xl:order-1">
+            <p class="mt-6 text-6xl font-semibold">
+              Support
+              <span class="text-pink-600">levels</span>
+              for the breeds
+            </p>
+            <p class="text-lg leading-8">
+              To be more
+              <span class="underline decoration-pink-500 decoration-2">
+                focused
+              </span>
+              on the needs of our active users, we have implemented six levels
+              of support. Each next level brings additional features to breed
+              users.
+              <br />
+              <br />
+              All breeds have
+              <span class="underline decoration-pink-500 decoration-2">
+                Zero support level
+              </span>
+              from the beginning. That means - using only common breed
+              functional without specific breed features and bug reports.
+            </p>
+          </div>
+
+          <!-- Goals info-->
+          <div class="oreder-1 flex min-w-[65%] flex-col xl:order-2">
+            <div class="rounded-2xl border-slate-100 bg-white p-8 shadow-sm">
+              <p-timeline
+                [value]="home().achievements"
+                align="left"
+                styleClass="customized-timeline"
+              >
+                <ng-template #marker let-achievement>
+                  <span class="custom-marker shadow-2">
+                    <i class="pi pi-check"></i>
+                  </span>
+                </ng-template>
+                <ng-template #content let-achievement>
+                  <div class="card flex flex-col px-5 py-3">
+                    <div class="text-lg font-bold">
+                      {{ achievement.Name }}
+                    </div>
+                    <div class="text-secondary text-sm">
+                      {{ achievement.IntValue }} $ per month
+                    </div>
+                    <div class="">
+                      {{ achievement.Description }}
+                    </div>
+                  </div>
+                </ng-template>
+              </p-timeline>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action button -->
+      <a [routerLink]="['/', 'pricing']">
+        <button
+          type="button"
+          class="mt-3 w-36 rounded-xl bg-pink-500 px-6 py-4 font-bold leading-tight text-white shadow-lg shadow-pink-300 transition duration-150 ease-in-out active:bg-pink-700 active:shadow-xl active:shadow-pink-300 focus:bg-pink-600 focus:shadow-xl focus:shadow-pink-300 hover:bg-pink-600 hover:shadow-xl hover:shadow-pink-300 sm:mt-5 xl:mt-0"
+        >
+          Get Started
+        </button>
+      </a>
+      <div
+        class="mt-6 w-full rounded-full bg-pink-100 py-1 sm:mt-8 xl:mt-10"
+      ></div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<bp-footer />
+<ng-template
+  #tabHeader
+  let-value="value"
+  let-tabForm="tabForm"
+  let-routerLink="routerLink"
+  let-name="name"
+  let-ngClass="ngClass"
+>
+  <div class="mr-2 flex shrink-0 text-center last:mr-0">
+    <a
+      class="block px-5 py-3 font-bold uppercase leading-normal"
+      (click)="tabForm === 2 ? toggleBreedTabs(value) : toggleTabs(value)"
+      (keydown)="tabForm === 2 ? toggleBreedTabs(value) : toggleTabs(value)"
+      [ngClass]="tabClass(tabForm, value)"
+      tabindex="0"
+    >
+      {{ name }}
+      <ng-content />
+    </a>
+  </div>
+</ng-template>

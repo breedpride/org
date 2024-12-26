@@ -1,0 +1,330 @@
+<div class="pb-26 relative w-full min-w-[100vw] overflow-hidden bg-white">
+  <!-- Background -->
+  <div
+    class="xxl:top-[-37vw] xxxl:top-[-53vw] absolute w-full md:top-[-8vw] lg:top-[-22vw] xl:top-[-29vw]"
+  >
+    <svg-icon name="header-figure" [svgStyle]="{ width: '100%' }"></svg-icon>
+  </div>
+
+  <!-- Page area -->
+  <div class="flex flex-col items-center justify-center pt-14 sm:pt-32">
+    <div class="max-w-screen px-6 sm:px-10 md:max-w-6xl lg:px-0">
+      <bp-tier-selector
+        [queryParams]="queryParams"
+        [billingType]="billingType"
+      />
+
+      <!-- Features -->
+      <div
+        class="sm:mt-22 mt-14 flex flex-col items-center bg-white dark:bg-gray-800"
+      >
+        <div class="w-full text-3xl font-extrabold md:text-4xl">
+          Features list
+        </div>
+
+        <!-- Complete features list -->
+
+        <div class="mt-6 flex w-full flex-auto flex-col sm:mt-8">
+          <div class="hidden border-b lg:grid">
+            <!-- Header -->
+            <div
+              class="header-features-grid bg-primary-300 top-0 z-10 grid gap-3 rounded-xl px-6 py-3 font-semibold uppercase text-white shadow-md lg:px-8 lg:text-lg"
+            >
+              <div class="">Feature</div>
+              <div class="item">Free forever</div>
+              <div class="item">Professional</div>
+              <div class="item">Prime</div>
+            </div>
+            @for (featureBlock of featureBlocks; track featureBlock) {
+            <ng-container
+              *ngTemplateOutlet="
+                featureBlockTemplate;
+                context: { featureBlock: featureBlock }
+              "
+            >
+            </ng-container>
+            }
+          </div>
+
+          <div class="lg:hidden">
+            <!-- Header Free forever -->
+            <div
+              class="bg-primary-300 top-0 z-10 rounded-xl px-6 py-3 font-semibold uppercase text-white shadow-md lg:px-8 lg:text-lg"
+            >
+              Free forever
+            </div>
+            <!-- Rows -->
+            <div class="mb-8 grid border-b">
+              @for (featureBlock of featureBlocks; track featureBlock) {
+              <ng-container
+                *ngTemplateOutlet="
+                    featureBlockTemplateMD;
+                    context: {
+                      featureBlock: featureBlock,
+                      tierProperty: 'tier1',
+                    }
+                  "
+              >
+              </ng-container>
+              }
+            </div>
+            <!-- Header Professional -->
+            <div
+              class="bg-primary-300 top-0 z-10 rounded-xl px-6 py-3 font-semibold uppercase text-white shadow-md lg:px-8 lg:text-lg"
+            >
+              PROFESSIONAL
+            </div>
+            <!-- Rows -->
+            <div class="mb-8 grid border-b">
+              @for (featureBlock of featureBlocks; track featureBlock) {
+              <ng-container
+                *ngTemplateOutlet="
+                    featureBlockTemplateMD;
+                    context: {
+                      featureBlock: featureBlock,
+                      tierProperty: 'tier2',
+                    }
+                  "
+              >
+              </ng-container>
+              }
+            </div>
+            <!-- Header Prime -->
+            <div
+              class="bg-primary-300 top-0 z-10 rounded-xl px-6 py-3 font-semibold uppercase text-white shadow-md lg:px-8 lg:text-lg"
+            >
+              PRIME
+            </div>
+            <!-- Rows -->
+            <div class="mb-8 grid border-b">
+              @for (featureBlock of featureBlocks; track featureBlock) {
+              <ng-container
+                *ngTemplateOutlet="
+                    featureBlockTemplateMD;
+                    context: {
+                      featureBlock: featureBlock,
+                      tierProperty: 'tier3',
+                    }
+                  "
+              >
+              </ng-container>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gift -->
+      <div
+        class="bg-primary text-on-primary-600 shadow-primary-200 sm:mt-22 sm:py-18 relative mt-14 flex flex-col overflow-hidden px-6 py-14 shadow-lg sm:px-16 md:flex-row"
+      >
+        <div
+          class="z-1 absolute bottom-[-4%] w-full md:right-[-2%] md:top-[-10%] lg:right-[-3%] lg:top-[-54%]"
+        >
+          <svg-icon
+            name="accent-figure"
+            [svgStyle]="{ width: '100%' }"
+          ></svg-icon>
+        </div>
+        <div class="z-10 mx-auto flex w-full flex-col items-center text-center">
+          <div
+            class="w-full text-left text-3xl font-extrabold leading-6 sm:text-4xl sm:leading-10 lg:text-5xl"
+          >
+            Make a gift to your friend
+          </div>
+          <div class="mt-4 w-full text-left">
+            Do you want to surprise your friend with a fantastic gift?
+            <br />
+            Present him/her a monthly subscription to his/her dream site!
+          </div>
+        </div>
+        <div class="mt-4 flex w-full items-center justify-center md:mt-0">
+          <button
+            class="p-button-text p-button-rounded text-primary-800 hover:bg-secondary-100 focus:bg-secondary-200 bg-white px-14 font-semibold shadow-xl"
+            pRipple
+            pButton
+            label="Make a present"
+          ></button>
+        </div>
+      </div>
+
+      <!-- Frequently asked questions -->
+      <div class="sm:mt-22 mt-14 flex flex-col">
+        <div class="mb-1 text-3xl font-extrabold md:text-4xl">
+          Frequently asked questions
+        </div>
+        <p-table [value]="questions" dataKey="header">
+          <ng-template #body let-question let-expanded="expanded">
+            <tr>
+              <td>
+                <div class="flex items-center">
+                  <div>
+                    <button
+                      type="button"
+                      pButton
+                      pRipple
+                      [pRowToggler]="question"
+                      class="p-button-text p-button-rounded p-button-plain hover:bg-pink-50 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-pink-300"
+                      [icon]="
+                        expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'
+                      "
+                    ></button>
+                  </div>
+                  <div class="ml-6 text-lg font-bold md:text-xl">
+                    {{ question.header }}
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template #rowexpansion let-question>
+            <tr>
+              <td colspan="2">
+                {{ question.text }}
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<bp-footer />
+<ng-template #featureBlockTemplate let-featureBlock="featureBlock">
+  <div
+    class="text-secondary-600 my-5 mb-4 w-full rounded-full bg-red-50 p-2.5 text-center text-lg font-extrabold uppercase"
+  >
+    {{ featureBlock.name }}
+  </div>
+  <!-- Rows -->
+  @for (feature of featureBlock.features; track feature) {
+  <div class="row-features-grid grid items-center gap-4 px-6 py-3 lg:px-8">
+    <!-- Feature -->
+    <div class="text-primary-300 hidden text-2xl lg:block">&bull;</div>
+    <div>
+      <div class="font-semibold lg:text-lg">
+        {{ feature.name }}
+        @if (feature.status) {
+        <p-badge [value]="feature.status" styleClass="bg-primary-300"></p-badge>
+        }
+      </div>
+      <div class="text-secondary">{{ feature.description }}</div>
+    </div>
+    <!-- Free forever -->
+    <bp-feature-tier [featureTier]="feature.tier1"></bp-feature-tier>
+
+    <bp-feature-tier [featureTier]="feature.tier2"></bp-feature-tier>
+
+    <!-- Professional -->
+    <bp-feature-tier [featureTier]="feature.tier3"></bp-feature-tier>
+  </div>
+  }
+
+  <div class="row-features-grid grid items-center gap-4 px-6 pb-7 pt-6 lg:px-8">
+    <!-- Action buttons -->
+    <div class="hidden lg:block"></div>
+    <div></div>
+    <!-- Free forever -->
+    <div class="item">
+      <button
+        class="p-button-rounded p-button-info p-button-sm shadow-accent-200 shadow-lg"
+        pRipple
+        pButton
+        label="Free Forever"
+        (click)="startPayment(tiers[0])"
+      ></button>
+    </div>
+    <!-- Professional -->
+    <div class="item">
+      <button
+        class="p-button-rounded p-button-sm p-button-info p-bu shadow-accent-200 shadow-lg"
+        pRipple
+        pButton
+        label="Get Started"
+        (click)="startPayment(tiers[1])"
+      ></button>
+    </div>
+    <!-- Professional -->
+    <div class="item">
+      <button
+        class="p-button-rounded p-button-sm p-button-info shadow-accent-200 shadow-lg"
+        pRipple
+        pButton
+        [disabled]="true"
+        label="Get Started"
+      ></button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template
+  #featureBlockTemplateMD
+  let-featureBlock="featureBlock"
+  let-tierProperty="tierProperty"
+>
+  <div
+    class="text-secondary-600 my-5 mb-4 w-full rounded-full bg-red-50 p-2.5 text-center text-lg font-extrabold uppercase"
+  >
+    {{ featureBlock.name }}
+  </div>
+  <!-- Rows -->
+  @for (feature of featureBlock.features; track feature) {
+  <div
+    class="small-row-features-grid grid items-center gap-4 px-6 py-3 lg:px-8"
+  >
+    <!-- Feature -->
+    <div class="text-primary-300 hidden text-2xl lg:block">&bull;</div>
+    <div>
+      <div class="font-semibold lg:text-lg">
+        {{ feature.name }}
+        @if (feature.status) {
+        <p-badge [value]="feature.status" styleClass="bg-primary-300"></p-badge>
+        }
+      </div>
+      <div class="text-secondary">{{ feature.description }}</div>
+    </div>
+    <!-- Selected tier§ -->
+    <bp-feature-tier [featureTier]="feature[tierProperty]"></bp-feature-tier>
+  </div>
+  }
+
+  <div class="flex justify-end gap-4 px-6 py-3 lg:px-8">
+    <!-- Action buttons -->
+    <!-- Free forever -->
+
+    @if (tierProperty === "tier1") {
+    <button
+      class="p-button-rounded p-button-sm p-button-info shadow-accent-200 shadow-lg"
+      pRipple
+      pButton
+      label="Free Forever"
+      (click)="startPayment(tiers[0])"
+    ></button>
+    }
+
+    <!-- Professional -->
+
+    @if (tierProperty === "tier2") {
+    <button
+      class="p-button-rounded p-button-sm p-button-info shadow-accent-200 shadow-lg"
+      pRipple
+      pButton
+      label="Get Started"
+      (click)="startPayment(tiers[1])"
+    ></button>
+    }
+
+    <!-- Professional -->
+
+    @if (tierProperty === "tier3") {
+    <button
+      class="p-button-rounded p-button-sm p-button-info shadow-accent-200 shadow-lg"
+      pRipple
+      pButton
+      [disabled]="true"
+      label="Get Started"
+    ></button>
+    }
+  </div>
+</ng-template>

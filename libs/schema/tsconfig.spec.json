@@ -1,0 +1,32 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "module": "commonjs",
+    "target": "es2016",
+    "types": ["jest", "node",
+    "vitest/globals",
+    "vitest/importMeta",
+    "vite/client",
+    "vitest"
+  ],
+  "composite": true,
+  "declaration": true
+  },
+  // "files": ["src/test-setup.ts"],
+  "include": [
+    "vite.config.mts",
+    "vitest.config.ts",
+    "jest.config.ts",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/*.test.tsx",
+    "**/*.spec.tsx",
+    "**/*.test.js",
+    "**/*.spec.js",
+    "**/*.test.jsx",
+    "**/*.spec.jsx",
+    "**/*.d.ts",
+  ]
+}
+
