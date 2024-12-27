@@ -68,6 +68,7 @@ export function superFactory(config: StoreConfig, parent: EntityListStore | null
   console.log('serviceFactory!!!!!!!!!!!!!!!!!!!!!!!!!', config, parent);
   if (parent) {
     console.log('!!!!!!!!!!!!!!Root TreeService', parent);
+    
     return spaceStoreFactory(config);
   } else {
 

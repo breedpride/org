@@ -17,6 +17,7 @@ export interface MiniSpaceApiConfig {
 }
 
 export type SpaceConfig = FilterFieldConfig & {
+  type: 'space';
   viewConfig?: EntitiesView[];
   canAdd?: boolean;
   canEdit?: boolean;
