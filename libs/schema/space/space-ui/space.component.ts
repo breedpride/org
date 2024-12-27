@@ -24,7 +24,7 @@ import {
 } from '@bh/collection-view-change';
 import { injectFilterFormGroup, injectFiltersStore } from '@bh/collection-filtration';
 import { BPNavStore } from '@bh/nav-store';
-import { STORE_CONFIG } from '@bh/collection-store';
+import { SUPER_CONFIG } from '@bh/collection-store';
 import { SUPER_STORE} from '@bh/collection-store';
 import { SideBarStore } from '@bh/store-feature';
 import { VIEWPORT } from '@bh/viewport';
@@ -237,7 +237,7 @@ export class SpaceComponent {
     console.log(service);
     const s2 = injectService();
     console.log(getState(s2));
-    const config = inject(STORE_CONFIG);
+    const config = inject(SUPER_CONFIG);
     const appStore = inject(AppStore);
     appStore.addEntities([config]);
   }

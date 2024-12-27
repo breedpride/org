@@ -1,5 +1,5 @@
 import { forwardRef, inject, Provider, Signal, signal } from '@angular/core';
-import { STORE_CONFIG } from '@bh/collection-store';
+import { SUPER_CONFIG } from '@bh/collection-store';
 import { SortColumn, SpaceConfig } from '@bh/superfield';
 import { SortField } from '@bh/superfield';
 import { createInjectionToken } from 'ngxtension/create-injection-token';
@@ -33,7 +33,7 @@ export const [, provideSortColumnsConfig, SORT_COLUMNS_CONFIG] =
       return PET_SPACE_SORT_CONFIG;
     },
     {
-      deps: [STORE_CONFIG],
+      deps: [SUPER_CONFIG],
     }
   );
 

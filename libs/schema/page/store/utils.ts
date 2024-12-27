@@ -1,7 +1,7 @@
 import { computed, inject, signal } from "@angular/core";
 import { PageStore } from "./page-store";
 import { filter, map, Observable } from "rxjs";
-import { STORE_CONFIG } from '@bh/collection-store';
+import { SUPER_CONFIG } from '@bh/collection-store';
 import { toObservableSignal } from "ngxtension/to-observable-signal";
 import { Route, UrlSegment } from "@angular/router";
 import { byAny, EmptyFieldConfig, FilterFieldConfig } from "@bh/superfield";
@@ -27,7 +27,7 @@ export function page<T>(value: PublicPageData): T | null {
 
 
 export const injectPageModel = () => {
-  const spaceConfig = inject(STORE_CONFIG, { optional: true });
+  const spaceConfig = inject(SUPER_CONFIG, { optional: true });
   const pageStore = inject(PageStore);
   // TODO - if pageStore.loadedModel() is undefined, return spaceConfig.entityModel
   return spaceConfig
@@ -41,7 +41,7 @@ export const canMatchWithPageModel = (models: string[]): MaybeBoolean => {
   const storeReady = toObservableSignal(inject(PageStore).ready).pipe(
     filter((v) => v)
   );
-  const spaceConfig = inject(STORE_CONFIG, { optional: true });
+  const spaceConfig = inject(SUPER_CONFIG, { optional: true });
   const spaceConfigModel = spaceConfig
     ? models.includes(spaceConfig?.model || '')
     : false;

@@ -14,7 +14,7 @@ import { injectFiltersStore, provideEntitiesFilterFn } from '@bh/collection-filt
 import { BPNavStore } from '@bh/nav-store';
 import { PageStore } from '@bh/page-store';
 import { provideEntitiesSortFn } from '@bh/collection-sorting';
-import { STORE_CONFIG, provideList } from '@bh/collection-store';
+import { SUPER_CONFIG, provideList } from '@bh/collection-store';
 import {  SideBarStore } from '@bh/store-feature';
 import { SpaceConfig } from '@bh/superfield';
 import { publicRoutes } from '@breedpride/page';
@@ -55,11 +55,11 @@ export const buildSpaceRoutesByToken = (): Route[] => {
         //TODO - mayby store for FilterForm??? та можна просто провайдити - бо в лісті редагування не буде.
       },
       providers: [
-        provideEntitiesFilterFn(() => inject(STORE_CONFIG).filterConfig || []),
+        provideEntitiesFilterFn(() => inject(SUPER_CONFIG).filterConfig || []),
         provideList(
-          provideEntitiesSortFn(() => inject(STORE_CONFIG).sortConfig),
+          provideEntitiesSortFn(() => inject(SUPER_CONFIG).sortConfig),
           provideEntitiesFieldsConfigValue(
-            () => inject(STORE_CONFIG).fieldsConfig
+            () => inject(SUPER_CONFIG).fieldsConfig
           ),
           SideBarStore,
           {
@@ -78,7 +78,7 @@ export const spaceAutoFiller = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot,
   navStore = inject(BPNavStore),
-  spaceConfig = inject(STORE_CONFIG)
+  spaceConfig = inject(SUPER_CONFIG)
 ) => {
   if (!spaceConfig.url) return true;
   // Temporary for my spaces desicion
@@ -114,15 +114,15 @@ export const buildSpaceRouteWithKey = (
     component: EmptyOutletComponent,
     providers: [
       {
-        provide: STORE_CONFIG,
+        provide: SUPER_CONFIG,
         useFactory: () => {
           return { ...inject(token), url: path } as SpaceConfig;
         },
       },
       {
         provide: VIEW_CONFIG,
-        useFactory: () => inject(STORE_CONFIG).viewConfig || [],
-        deps: [STORE_CONFIG],
+        useFactory: () => inject(SUPER_CONFIG).viewConfig || [],
+        deps: [SUPER_CONFIG],
       },
       provideViewsStore(),
     ],

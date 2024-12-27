@@ -23,9 +23,9 @@ import {
 } from '@angular/router';
 import{  BPFormGroup, FORM_GROUP } from '@bh/form';
 // import { provideServiceWorker } from '@angular/service-worker';
-import {  EDIT_MODE, serviceFactory, } from  '@bh/collection-store';
+import {  EDIT_MODE, superFactory, } from  '@bh/collection-store';
 import { provideSortColumns } from '@bh/collection-sorting';
-import { STORE_CONFIG } from '@bh/collection-store';
+import { SUPER_CONFIG } from '@bh/collection-store';
 import { WHITE_LOGO } from '@bh/app/tokens';
 import { ApplicationConfig } from '@angular/core';
 
@@ -75,7 +75,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     {
       provide: SUPER_STORE,
-      useFactory: serviceFactory,
+      useFactory: superFactory,
 
     },
     provideService(),
@@ -197,7 +197,7 @@ export const appConfig: ApplicationConfig = {
     { provide: EDIT_MODE, useValue: false },
     { provide: MENU_ORIENTATION, useValue: 'static' },
     {
-      provide: STORE_CONFIG,
+      provide: SUPER_CONFIG,
       useValue: null,
     },
 

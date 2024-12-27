@@ -1,5 +1,5 @@
 import { computed, inject } from '@angular/core';
-import { STORE_CONFIG } from '@bh/collection-store';
+import { SUPER_CONFIG } from '@bh/collection-store';
 import { SpaceConfig, WithCreatioId } from '@bh/superfield';
 import { signalStoreFeature, withComputed } from '@ngrx/signals';
 import { withCustomConfig } from '@bh/store-feature';
@@ -15,7 +15,7 @@ export function withConfigurableCreatioEntities<Entity extends WithCreatioId>(
   return signalStoreFeature(
     withCustomConfig<SpaceConfig>({
       config: config || ({} as SpaceConfig),
-      default: () => inject(STORE_CONFIG),
+      default: () => inject(SUPER_CONFIG),
     }),
     withFilledNamedCollection<Entity, typeof creatioConfig.collection>(
       creatioConfig

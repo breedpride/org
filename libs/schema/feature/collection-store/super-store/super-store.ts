@@ -14,7 +14,7 @@ import { withFilteredCreatioEntities } from '@bh/collection-data';
 import { InjectionToken, Optional, Provider, SkipSelf } from '@angular/core';
 import { createInjectionToken } from 'ngxtension/create-injection-token';
 // import { TreeService } from './tree.service';
-import { STORE_CONFIG, StoreConfig } from '../config/tokens';
+import { SUPER_CONFIG, StoreConfig } from '../config/tokens';
 import { TreeService } from '../tree/tree.service';
 import { EmptySpaceConfig } from '../config';
 
@@ -64,7 +64,7 @@ export type EntityListStore = ReturnType<typeof spaceStoreFactory>;
 
 
 // Фабрика для створення TreeService з можливістю ін'єкції батьківського TreeService
-export function serviceFactory(config: StoreConfig, parent: EntityListStore | null) {
+export function superFactory(config: StoreConfig, parent: EntityListStore | null) {
   console.log('serviceFactory!!!!!!!!!!!!!!!!!!!!!!!!!', config, parent);
   if (parent) {
     console.log('!!!!!!!!!!!!!!Root TreeService', parent);
@@ -78,10 +78,10 @@ export function serviceFactory(config: StoreConfig, parent: EntityListStore | nu
 
 // Створення токена з використанням createInjectionToken
 export const [injectService, provideService] = createInjectionToken(
-  serviceFactory,
+  superFactory,
   {
     isRoot: false,
-    deps: [[STORE_CONFIG], [new Optional(), new SkipSelf(), SUPER_STORE]],
+    deps: [[SUPER_CONFIG], [new Optional(), new SkipSelf(), SUPER_STORE]],
     token: SUPER_STORE,
   }
 );
@@ -100,7 +100,7 @@ export function provideList(...args: any[]): Provider[] {
 
 export const [, , LIST_ENTITY] =
   createInjectionToken(spaceStoreFactory, {
-    deps: [STORE_CONFIG],
+    deps: [SUPER_CONFIG],
   });
 
 export const provideEntityListStoreWithConfig = (
@@ -110,7 +110,7 @@ export const provideEntityListStoreWithConfig = (
 ): Provider[] => {
   return [
     {
-      provide: STORE_CONFIG,
+      provide: SUPER_CONFIG,
       useFactory: (token = inject(schemaToken)) => ({
         ...EmptySpaceConfig,
         ...token,

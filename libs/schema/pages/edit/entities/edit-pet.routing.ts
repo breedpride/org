@@ -10,7 +10,7 @@ import { Note_SCHEMA, Pet_SCHEMA, TitleInPet_SCHEMA } from '@bh/entity/config';
 import { ENTITY_STORE, provideEntityStoreWithFn } from '@bh/entity-store';
 import {provideEntitiesFilterFn } from '@bh/collection-filtration';
 import { detailFilter, injectPetPage, PageStore } from '@bh/page-store';
-import { ACTIVE_DETAIL, STORE_CONFIG } from '@bh/collection-store';
+import { ACTIVE_DETAIL, SUPER_CONFIG } from '@bh/collection-store';
 import { TabStoreStateV2 } from '@bp/page-tab-store';
 import { storeReadyFn } from '@bh/page-store';
 import { PetNoteConfig } from '@breedpride/note';
@@ -364,7 +364,7 @@ export const editPetRoutes: Route[] = [
                   ]),
                   //TODO  factory for Detail
                   {
-                    provide: STORE_CONFIG,
+                    provide: SUPER_CONFIG,
                     useValue: PetNoteConfig,
                   },
                   {
