@@ -23,6 +23,7 @@ import { VIEWS_STORE } from '@bh/collection-view-change';
 import {
   ENTITY_COLUMNS,
   ENTITY_FIELDS_CONFIG,
+  EntityConfig,
   EntityStore,
   entityStoreFactory,
 } from '@bh/entity-store';
@@ -128,7 +129,7 @@ export class DetailEditorComponent {
         dateFields: [],
         columns: columns,
         entityColumns: columns,
-      }),
+      }) as EntityConfig,
       entityForm: form,
     });
 

@@ -13,6 +13,7 @@ export const EmptyFieldConfig: FilterFieldConfig =
   // merge(
   //   {},
   {
+    type: 'field',
     id: '',
     rows: 0,
     component: 2,
@@ -32,7 +33,6 @@ export const EmptyFieldConfig: FilterFieldConfig =
     // parse: (value: any) => null,
     columnClass: '',
     columnNgClass: '',
-
     ...withDefaultVisibility,
     ...withDefaultEditing,
     ...withDefaultRequiring,
@@ -41,4 +41,3 @@ export const EmptyFieldConfig: FilterFieldConfig =
     ...withDefaultEditingEvents,
     ...withDefaultPrivacy,
   };
-// );

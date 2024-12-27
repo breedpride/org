@@ -8,6 +8,7 @@ import { WithLookupConfig } from './quering';
 import { WithVisibility } from './visibility';
 import { WithPrivacy } from './privacy';
 import { WithIcon } from './iconing';
+import { WithType } from './typing';
 
 
 export type FilterFieldConfig3<T> = WithId &
@@ -37,7 +38,7 @@ export type FilterFieldConfig3<T> = WithId &
     model: string;
   };
 
-export type FilterFieldConfig = FilterFieldConfig3<any>;
+export type FilterFieldConfig = FilterFieldConfig3<any> & WithType;
 
 
 export type WithFieldFilterConfig<T> = {

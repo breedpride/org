@@ -4,13 +4,13 @@ import { withCustomConfig } from '@bh/store-feature';
 import { signalStore } from '@ngrx/signals';
 import { createInjectionToken } from 'ngxtension/create-injection-token';
 import { EntityStoreConfig } from '@bh/superfield';
-import { EntityConfig, EntityStore } from './entity.store';
+import { EntityConfig } from './entity.store';
 import { withEntityForm } from './with-entity-form';
 
 export function entityStoreFactory(options: {
   config: EntityConfig;
   entityForm: BPFormGroup;
-}): EntityStore {
+}) {
   const config = options?.config;
   const entityForm = options?.entityForm || new BPFormGroup({});
   const Store = signalStore(
@@ -24,12 +24,14 @@ export function entityStoreFactory(options: {
 
   return new Store();
 }
+export type EntityStore = ReturnType<typeof entityStoreFactory>;
+
 
 export const [
   injetEntityStoreConfig,
   provideEntityStoreConfig,
   ENTITY_STORE_CONFIG,
-] = createInjectionToken((config: EntityConfig): EntityConfig => {
+] = createInjectionToken((config: EntityConfig) => {
   return config;
 });
 
