@@ -1,5 +1,5 @@
 import { withFilledNamedCollection } from '@bh/collection-data';
-import { SpaceConfig } from '@bh/superfield';
+import { FilterFieldConfig, SpaceConfig } from '@bh/superfield';
 import { withLogger } from '@bp/with-logger';
 import { signalStore, type, withState } from '@ngrx/signals';
 import { WithType } from 'libs/schema/column-type/common/typing';
@@ -11,6 +11,10 @@ const spaceCollectionConfig = {
   selectId: (c: SpaceConfig) => c.id,
 };
 
+// const withTypedCollection<T extends FilterFieldConfig>(config: T) {
+  
+//   return withFilledNamedCollection<T, T['type']>(spaceCollectionConfig);
+// }
 // const collectionConfig<T extends WithType>(config: { entity: T; collection: string }) {
 
 export const AppStore = signalStore(

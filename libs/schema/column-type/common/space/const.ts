@@ -1,1 +1,1 @@
-export const withSpaces()
+export const tttt= 0;
