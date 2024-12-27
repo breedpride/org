@@ -2,14 +2,12 @@ import {
   inject,
 
 } from '@angular/core';
-
-
 import {   SpaceConfig} from '@bh/superfield';
 import { withLogger } from '@bp/with-logger';
 import { signalStore } from '@ngrx/signals';
 
-import {withFilterStoreFilter} from '@bh/collection-filtration';
-import { withFilteredEntities } from '@bh/collection-data';
+import {withFilteredByFilterStore} from '@bh/collection-filtration';
+import { withFilteredCreatioEntities } from '@bh/collection-data';
 
 
 
@@ -44,7 +42,7 @@ export const injectFieldStore = (): LookupStore => {
 
 
 export const fieldStoreFactory = (config: StoreConfig) => {
-  const LookupStore = signalStore({ protectedState: false },withFilteredEntities({ config }));
+  const LookupStore = signalStore({ protectedState: false },withFilteredCreatioEntities({ config }));
   return new LookupStore();
 };
 export type LookupStore = ReturnType<typeof fieldStoreFactory>;
@@ -58,8 +56,7 @@ export const[,,LOOKUP_STORE] = createInjectionToken(fieldStoreFactory, { isRoot:
 export const spaceStoreFactory = (config: SpaceConfig)=> {
   const EntityListStore = signalStore(
     { protectedState: false },
-    withFilteredEntities({ config }),
-    withFilterStoreFilter(),
+    withFilteredByFilterStore({config}),
     withLogger(`[SpaceStore]`)
   );
   return new EntityListStore();

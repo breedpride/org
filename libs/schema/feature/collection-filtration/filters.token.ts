@@ -1,28 +1,28 @@
 import { Provider } from '@angular/core';
 import { BPFormGroup } from '@bh/form';
-import { FilterFieldConfig } from '@bh/superfield';
+import { FilterFieldConfig, SpaceConfig } from '@bh/superfield';
 import { createInjectionToken } from 'ngxtension/create-injection-token';
-import { type, withMethods } from '@ngrx/signals';
+import {  withMethods } from '@ngrx/signals';
 import { And, byAny } from '@bh/filter';
 import { MULTI_ENTITY_FIELD_NAMES } from '@bh/filtering';
-import { computed, effect, inject } from '@angular/core';
+import { computed, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Params } from '@angular/router';
 import { isValidUUID } from '@bh/column-type/guid';
-import { withFilledNamedCollection } from  "@bh/collection-data";
+import { withFilledNamedCollection, withFilteredCreatioEntities } from  "@bh/collection-data";
 import { ApiHelper, ApiService } from '@breedpride/api';
 import {
   patchState,
   signalStore,
   withComputed,
-  withHooks,
-  withState,
 } from '@ngrx/signals';
 import { FormFieldCode } from '@bh/consts';
-
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { isEqual } from 'lodash-es';
 import { distinctUntilChanged, pipe, switchMap, take } from 'rxjs';
+import { effect } from '@angular/core';
+import { signalStoreFeature, type, withHooks, withState } from '@ngrx/signals';
+
 
 
 export type FilterFormState = {
@@ -35,6 +35,47 @@ export const [
   provideFilterFormGroup,
   FILTER_FORM_GROUP,
 ] = createInjectionToken(() => new BPFormGroup({}), { isRoot: false });
+
+
+export function withFilterStoreFilter() {
+  return signalStoreFeature(
+    {
+      methods: type<{ loadFirstPage(filter: any): void }>(),
+    },
+    withState({}),
+    withHooks({
+      onInit(
+        store,
+        filterStore = injectFiltersStore(),
+        form = injectFilterFormGroup()
+      ) {
+        effect(
+          () => {
+            const ready = form.filterReady;
+            if (ready && ready()) {
+              const combinedFilter = filterStore.getFilters();
+              store.loadFirstPage(combinedFilter);
+            }
+          },
+        );
+      },
+    })
+  );
+}
+
+
+export function withFilteredByFilterStore( { config }: { config?: SpaceConfig; } = {}) {
+  return signalStoreFeature(
+      withFilteredCreatioEntities({ config }),
+      withFilterStoreFilter(),
+    )
+}
+
+
+
+
+
+
 
 export const [, , FILTERS_CONFIG] = createInjectionToken(
   () => [],
