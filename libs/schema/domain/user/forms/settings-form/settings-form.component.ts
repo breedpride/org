@@ -6,7 +6,6 @@ import {
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AvatarFormComponent } from '@bh/editing';
-import {EntityListStore} from '@bh/collection-store'
 import { CONTACT_FIELD_CONFIG } from '@bh/entity/config';
 import { ME } from '@bh/filter';
 import { ContactPage } from '@bh/types';

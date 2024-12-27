@@ -5,7 +5,7 @@ import {
   input,
 } from '@angular/core';
 import { AvatarFormComponent } from '@bh/editing';
-import { EntityListStore, SUPER_STORE } from '@bh/collection-store';
+import { SUPER_STORE } from '@bh/collection-store';
 import { LITTER_FIELD_CONFIG } from '@bh/entity/config';
 import {  LitterPage } from '@bh/types';
 import { FormFieldCode } from '@bh/consts';

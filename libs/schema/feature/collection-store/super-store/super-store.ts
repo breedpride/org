@@ -25,11 +25,6 @@ export const SUPER_STORE = new InjectionToken<SuperStoreType>('SUPER_STORE');
 
 
 
-
-// export const SUPER_STORE = new InjectionToken<LookupStore & EntityListStore>(
-//   'STORE'
-// );
-
 export const injectSpaceStore = (): EntityListStore => {
   return inject(SUPER_STORE);
 };
@@ -47,7 +42,6 @@ export const fieldStoreFactory = (config: StoreConfig) => {
 };
 export type LookupStore = ReturnType<typeof fieldStoreFactory>;
 
-export const[,,LOOKUP_STORE] = createInjectionToken(fieldStoreFactory, { isRoot:false, deps: [STORE_CONFIG] });
 
 
 

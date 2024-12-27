@@ -28,7 +28,7 @@ import {
 
 import { ActionService } from '@bp/chromatin/services';
 import { EntityGridCardWrapperComponent } from '@breedpride/wrapper';
-import { EntityListStore, SUPER_STORE } from '@bh/collection-store';
+import {  SUPER_STORE } from '@bh/collection-store';
 
 @Component({
   imports: [

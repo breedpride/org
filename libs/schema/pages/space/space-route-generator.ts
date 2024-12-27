@@ -4,7 +4,7 @@ import {
   Route,
   RouterStateSnapshot,
 } from '@angular/router';
-import { EntityListStore, spaceStoreFactory } from '@bh/collection-store';
+import { spaceStoreFactory } from '@bh/collection-store';
 import {
   injectViewsStore,
   provideViewsStore,

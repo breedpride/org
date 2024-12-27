@@ -1,6 +1,5 @@
 import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Route, UrlSegment } from '@angular/router';
-import { EntityListStore } from '@bh/collection-store';
 import { ENTITY_STORE } from '@bh/entity-store';
 import { PageStore } from '@bh/page-store';
 import { storeReadyFn } from '@bh/page-store';
