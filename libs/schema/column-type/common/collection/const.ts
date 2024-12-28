@@ -1,7 +1,7 @@
-import { signalStoreFeature, type } from "@ngrx/signals";
+import {  type } from "@ngrx/signals";
 import { WithType } from "../typing";
-import { WithId } from "@bh/identifying";
-import { withFilledNamedCollection } from "@bh/collection-data";
+import { WithId } from '../identifying/with-id';
+
 
 export const withSpaces =0;// export type Space = { id: string };
 

@@ -15,6 +15,16 @@ export const TREE_SCHEMA_LITERAL = {
   description: 'describes a tree structure with nodes and nested children',
   version: 0,
   keyCompression: false,
+  //Scope of schema
+  //@EntitySchmemaName/Pet/Name
+  // type
+  //type(scope)/propertyname/pet = summarized ID 
+   //@space/config/pet
+
+  //TODO @public/space-pet-config
+  
+  //TODO @my/space-pet/config
+  //@
   primaryKey: {
     // where should the composed string be stored
     key: 'id',
@@ -139,6 +149,8 @@ export const TREE_SCHEMA_LITERAL = {
     },
   },
   required: ['name', 'type'],
+  //@scope(type)-properyname-value (value)-string
+  //space/pet/config
 } as const;
 export type TreeSchema = FromSchema<typeof TREE_SCHEMA_LITERAL> & {
   features?: any;

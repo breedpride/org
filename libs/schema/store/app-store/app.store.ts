@@ -1,9 +1,9 @@
-import { withFilledNamedCollection } from '@bh/collection-data';
+
 import { EntityListStore } from '@bh/collection-store';
-import { FilterFieldConfig, SpaceConfig } from '@bh/superfield';
+
 import { withLogger } from '@bp/with-logger';
 import { signalStore, type, withProps, withState } from '@ngrx/signals';
-import { WithType } from 'libs/schema/column-type/common/typing';
+
 import { withSuperStoreFeatue } from 'libs/schema/feature/collection-data/with-tree.feature';
 
 // export type Space = { id: string };
@@ -42,4 +42,11 @@ export const AppStore = signalStore(
   withLogger('[APP STORE]')
 );
 
+// Stores with Data
+//space-store-data
 // pets=> space (qeury)? Selected???
+
+// TODO - tag collections  boolean, optional, required, readonly
+// option-petType-1
+//type-key-value = PetType-ID-Value
+//TODO - database mutation// 
