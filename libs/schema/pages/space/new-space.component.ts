@@ -247,7 +247,8 @@ update
       this.dbService.db.dictionary
     );
   }
-  removeDb() {
+  async removeDb() {
+    await this.dbService.db.tree.remove();
     removeRxDatabase(DATABASE_NAME, environment.getRxStorage());
   }
   selectedNode = signal(null);

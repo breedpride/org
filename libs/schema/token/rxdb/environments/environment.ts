@@ -24,7 +24,7 @@ export const environment: EnvironmentParams = {
   production: false,
   isCapacitor: false,
   isServerSideRendering: false,
-  multiInstance: true,
+  multiInstance: false,
   // rxdbSyncUrl:
   //   'http://' +
   //   window.location.hostname +

@@ -84,6 +84,7 @@ function processSchema(
     !signalValues().find((e) => e.name === 'Lookup' && e.type === schemaName)
   ) {
     dataTypeCollection.insert({
+      scope: '@creatio',
       name: 'Lookup',
       type: schemaName,
       deps: [`${schemaName}_Config`],
@@ -101,6 +102,7 @@ function processSchema(
       )
     ) {
       dataTypeCollection.insert({
+        scope: '@creatio',
         name: lookupSufixPrefix,
         type: e.referenceSchema,
         deps: [`${e.referenceSchema}_${configSufix}`],
@@ -114,7 +116,9 @@ function processSchema(
   if (
     !signalValues().find((t) => t.name === schemaName && t.type === configSufix)
   ) {
+    dataTypeCollection.findOne()
     dataTypeCollection.insert({
+      scope: '@creatio',
       name: schemaName,
       type: configSufix,
       deps: [
@@ -125,7 +129,7 @@ function processSchema(
       },
     });
   }
-
+   
   cleanColumns.forEach((e) => {
     if (e.type === 'Lookup') {
       if (
@@ -134,6 +138,7 @@ function processSchema(
         )
       ) {
         dataTypeCollection.insert({
+          scope: '@creatio',
           name: e.name,
           type: e.referenceSchema,
           deps: [
@@ -145,6 +150,7 @@ function processSchema(
     } else {
       if (!signalValues().find((t) => t.name === e.name && t.type === e.type)) {
         dataTypeCollection.insert({
+          scope: '@creatio',
           name: e.name,
           type: e.type,
           deps: [`${e.name}_${fieldSufix}`, `_${e.type}`],
@@ -155,6 +161,7 @@ function processSchema(
       !signalValues().find((t) => t.name === e.name && t.type === fieldSufix)
     ) {
       dataTypeCollection.insert({
+        scope: '@creatio',
         name: e.name,
         type: fieldSufix,
         deps: [`All_${fieldSufix}`],
@@ -169,6 +176,7 @@ function processSchema(
       )
     ) {
       dataTypeCollection.insert({
+        scope: '@creatio',
         name: `${schemaName}.${e.name}`,
         type: 'EntityField',
         uId: e.uId,
@@ -187,6 +195,7 @@ function processSchema(
     )
   ) {
     dataTypeCollection.insert({
+      scope: '@creatio',
       name: `${schemaName}`,
       type: 'Entity',
       deps: [`${schemaName}_${lookupSufixPrefix}`, 'All_Entity'],

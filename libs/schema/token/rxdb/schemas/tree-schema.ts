@@ -29,12 +29,18 @@ export const TREE_SCHEMA_LITERAL = {
     // where should the composed string be stored
     key: 'id',
     // fields that will be used to create the composed key
-    fields: ['name', 'type'],
+    fields: ['scope','type','name'],
     // separator which is used to concat the fields values.
-    separator: '_',
+    separator: '/',
   },
   type: 'object',
   properties: {
+    scope: {
+      type: 'string',
+      description: 'The node id',
+      maxLength: 100,
+      default: '@bh', 
+    },
     id: {
       type: 'string',
       description: 'The node id',
@@ -148,7 +154,7 @@ export const TREE_SCHEMA_LITERAL = {
       },
     },
   },
-  required: ['name', 'type'],
+  required: ['scope','name', 'type'],
   //@scope(type)-properyname-value (value)-string
   //space/pet/config
 } as const;

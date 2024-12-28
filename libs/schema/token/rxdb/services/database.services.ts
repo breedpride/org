@@ -146,6 +146,7 @@ async function _create(injector: Injector): Promise<RxHeroesDatabase> {
   // create collections
   console.log('DatabaseService: create collections');
   await db.addCollections(collectionSettings);
+  
 
   // const projectId = 'dogarray-creatio';
   // const replicationState = replicateFirestore({
@@ -283,4 +284,7 @@ export class DatabaseService {
   get db(): RxHeroesDatabase {
     return DB_INSTANCE;
   }
+  // test () {
+  //   this.db.collections.tree.
+  // }
 }
