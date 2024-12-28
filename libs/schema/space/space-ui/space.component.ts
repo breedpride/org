@@ -239,6 +239,6 @@ export class SpaceComponent {
     console.log(getState(s2));
     const config = inject(SUPER_CONFIG);
     const appStore = inject(AppStore);
-    appStore.addEntities([config]);
+    appStore.configStore.addEntities([config]);
   }
 }

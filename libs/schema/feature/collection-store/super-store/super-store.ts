@@ -71,7 +71,7 @@ export type EntityListStore = ReturnType<typeof spaceStoreFactory>;
 export function superFactory(config: StoreConfig, parent: EntityListStore | null, appStore=inject(AppStore)) {
   console.log('serviceFactory!!!!!!!!!!!!!!!!!!!!!!!!!', config, parent);
   console.log(getState(appStore));
-  appStore.addEntities([config])
+  appStore.configStore.addEntities([config])
   if (parent) {
     console.log('!!!!!!!!!!!!!!Root TreeService', parent);
     

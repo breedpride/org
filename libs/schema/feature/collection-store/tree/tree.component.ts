@@ -1,6 +1,5 @@
 import { Component, effect, inject, signal } from '@angular/core';
 import { TreeModule } from 'primeng/tree';
-import { SUPER_STORE } from '../super-store/super-store';
 import { AppStore } from '@bh/app';
 
 // Використання в компоненті
@@ -23,8 +22,8 @@ export class TreeComponent {
   constructor() {
     effect(() => {
       if (this.treeService) {
-        const t= this.treeService.configEntities();
-        console.log('TreeComponent effect', t);
+        const t= this.treeService.configStore.configEntities();
+        console.log('TreeComponent effect', this.treeService);
         this.value.set(t);
       }
       // console.log('TreeComponent effect');

@@ -26,7 +26,7 @@ const configCollectionConfig = {
 
 export function withSuperStoreFeatue() {
   return signalStoreFeature(
-    withState<{parent: any}>({parent: null}),
+    // withState<{parent: any}>({parent: null}),
       withFilledNamedCollection<
       SuperConfig,
         typeof configCollectionConfig.collection
