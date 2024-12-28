@@ -78,7 +78,7 @@ export const appConfig: ApplicationConfig = {
       useValue: superFactory,
     },
     // provideService(),
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    // provideZoneChangeDetection({ eventCoalescing: true }),
     // provideRouter(appRoutes),
     // provideZoneChangeDetection({ eventCoalescing: true }), //
     // provideExperimentalZonelessChangeDetection(),

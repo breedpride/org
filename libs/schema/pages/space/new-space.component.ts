@@ -101,11 +101,12 @@ type T = any;
     <button pButton (click)="click()">Add</button>
     <button pButton (click)="removeDb()">ClearDatabase</button>
     <button pButton (click)="generateS()">generate</button>
+    <button pButton (click)="update()">update</button>
     <p-splitter
       styleClass=" w-full h-[100vh] rounded-none"
       [panelSizes]="[20, 40, 40]"
     >
-      <ng-template>
+      <ng-template #panel>
         <div
           class="flex-col flex align-items-center justify-content-center py-3 px-4 text-primary"
         >
@@ -130,7 +131,7 @@ type T = any;
           </div>
         </div>
       </ng-template>
-      <ng-template>
+      <ng-template  #panel>
         <div
           class="flex-col flex align-items-center justify-content-center py-3 px-4 text-primary"
         >
@@ -207,6 +208,11 @@ type T = any;
 
 })
 export class AdminSpaceComponent {
+update 
+() {
+  this.ch.markForCheck();
+// throw new Error('Method not implemented.');
+}
   tabs: { route: string; label: string; icon: string }[] = [
     { route: 'test', label: '0', icon: 'pi pi-home' },
     { route: '../test', label: '1', icon: '' },
@@ -292,9 +298,9 @@ export class AdminSpaceComponent {
     return test;
   });
   firstlevelNodes = computed(() => {
-    const res = this.nodes()?.filter((e) => e.deps?.length === 0);
-
-    return res;
+    // const res = this.nodes()?.filter((e) => e.deps?.length === 0);
+    return this.nodes();
+    // return res;
   });
   nodes3 = computed(() => {
     const res = this.nodes().filter((e) => e.expanded);
