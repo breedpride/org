@@ -248,7 +248,7 @@ update
     );
   }
   async removeDb() {
-    await this.dbService.db.tree.remove();
+    // await this.dbService.db.tree.remove();
     removeRxDatabase(DATABASE_NAME, environment.getRxStorage());
   }
   selectedNode = signal(null);
@@ -267,12 +267,22 @@ update
   public features$;
 
   dbService = inject(DatabaseService);
+  test3 = this.dbService.db.dictionary.find();
   test2 = this.dbService.db.dictionary.find().$$ as Signal<DictionarySchema[]>;
   signal = this.dbService.db.tree.find().$$ as Signal<TreeSchema[]>;
   nodes = computed(() => {
     if (this.signal() === undefined || this.signal()?.length === 0) return [];
     const list = this.signal();
     const test = list.map((e) => {
+      // const p = e.features.find().$$;
+      // console.log(p);
+      const t = e.features;
+      console.log(t);
+      const features = {} as Record<string, any>;
+      Object.entries(t).forEach((key, value) => features[key[0]] = key[1]);
+      console.log(features);
+      // console.log(e.features.columns.map((t) => t.name));
+      // const attachment = e.getAttachment('cat.jpg');
       return {
         expanded: false,
         id: e.id,
@@ -287,7 +297,10 @@ update
           type: e.type,
           name: e.name,
           id: e.id,
+          features,
+          
         },
+        
       };
     });
     test?.forEach((e) => {
@@ -371,6 +384,7 @@ update
     this.dbService.db.tree.importJSON(dump);
   }
   editHero(hero: RxHeroDocument) {
+    // HealthExamResult.
     // let dialogRef = this.dialog.open(HeroEditDialogComponent, {
     //   height: '400px',
     //   width: '600px',

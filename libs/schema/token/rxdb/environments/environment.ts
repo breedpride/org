@@ -19,6 +19,8 @@ import { EnvironmentParams } from './environment.type';
 // import hooks from 'rxdb-utils/hooks';
 // import replication from 'rxdb-utils/replication';
 
+import { RxDBAttachmentsPlugin } from 'rxdb/plugins/attachments';
+
 export const environment: EnvironmentParams = {
   name: 'web-dev',
   production: false,
@@ -38,6 +40,7 @@ export const environment: EnvironmentParams = {
     addRxPlugin(RxDBMigrationSchemaPlugin);
     addRxPlugin(RxDBJsonDumpPlugin);
     addRxPlugin(RxDBQueryBuilderPlugin);
+    addRxPlugin(RxDBAttachmentsPlugin);
     // addRxPlugin(RxDBAdapterPlugin);
 
     // addRxPlugin(FirestoreReplicationPlugin);

@@ -59,16 +59,33 @@ export const TREE_SCHEMA_LITERAL = {
       type: 'string',
       description: 'The node name',
     },
-    features: {
-      type: 'object',
-      description: 'features',
-      patternProperties: {
-        '^.*$': {
-          type: 'object',
-          description: 'Any JSON object stored under this key',
+    
+      features: {
+        type: "object",
+        description: "features",
+        patternProperties: {
+          "^.*$": {
+            oneOf: [
+              {
+                type: "object",
+                description: "Any JSON object stored under this key"
+              },
+              {
+                type: "array",
+                description: "Any JSON array stored under this key"
+              }
+            ]
+          }
         },
       },
-      additionalProperties: true,
+    
+    
+    collections:  {
+      type: 'object',
+      
+      items: {
+        type: 'array',
+      },
     },
     data: {
       type: 'object',
@@ -154,6 +171,10 @@ export const TREE_SCHEMA_LITERAL = {
       },
     },
   },
+  attachments: {
+    encrypted: false,
+    // encrypted: true // if true, the attachment-data will be encrypted with the db-password
+},
   required: ['scope','name', 'type'],
   //@scope(type)-properyname-value (value)-string
   //space/pet/config

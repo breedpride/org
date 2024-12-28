@@ -14,6 +14,7 @@ import {
   IntegerDataValueTypes,
   TextDataValueTypes,
 } from './data-value-type';
+import { createBlob } from 'rxdb';
 // TODO - move to token env
 const token = 'agentpomidor117';
 // import { token } from './token';
@@ -55,7 +56,7 @@ interface SchemaResponse {
   primaryDisplayColumnName: string;
 }
 
-function processSchema(
+async function  processSchema(
   schemaName: string,
   response: SchemaResponse[],
   dataTypeCollection: RxTreeCollection
@@ -65,6 +66,31 @@ function processSchema(
   console.log(schemaName);
   console.log(schema.columns);
   const schemaDir = '';
+
+  const doc = await dataTypeCollection.insert({
+    scope: '@creatio',
+    name: schemaName,
+    type: 'EntitySchemaName',
+    features: {
+      columns: schema.columns,
+      primaryDisplayColumnName: [schema.primaryDisplayColumnName],
+      
+    },
+    // collections: {
+    //   schema.columns
+    // }
+    // deps: [`${schemaName}_Config`],
+  });
+  // const attachment = await doc.putAttachment(
+  //   {
+  //       id: 'response.json',
+  //       data: createBlob(JSON.stringify(schema), 'application/json'),
+  //       type: 'application/json'
+  //   }
+// );
+
+  return;
+
 
   const columns = schema.columns;
   const cleanColumns = columns.filter(
