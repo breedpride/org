@@ -3,11 +3,12 @@ import { FilterFieldConfig, SpaceConfig } from '@bh/superfield';
 import { withLogger } from '@bp/with-logger';
 import { signalStore, type, withState } from '@ngrx/signals';
 import { WithType } from 'libs/schema/column-type/common/typing';
+import { withSuperStoreFeatue } from 'libs/schema/feature/collection-data/with-tree.feature';
 
 // export type Space = { id: string };
 const spaceCollectionConfig = {
   entity: type<SpaceConfig>(),
-  collection: type<SpaceConfig>().type,
+  collection: 'space' as const,
   selectId: (c: SpaceConfig) => c.id,
 };
 
@@ -22,6 +23,7 @@ export const AppStore = signalStore(
     protectedState: false
   },
   withState({}),
+  withSuperStoreFeatue(),
   withFilledNamedCollection<
     SpaceConfig,
     typeof spaceCollectionConfig.collection

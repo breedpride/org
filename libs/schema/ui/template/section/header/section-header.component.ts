@@ -53,6 +53,7 @@ export class SectionHeaderComponent {
   constructor() {
     console.log('SectionHeaderComponent');
     effect(() => {
+      
       // console.log('SectionHeaderComponent');
       // console.log(this.viewsStore);
       // console.log(getState(this.sort));

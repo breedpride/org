@@ -75,10 +75,9 @@ export const appConfig: ApplicationConfig = {
   providers: [
     {
       provide: SUPER_STORE,
-      useFactory: superFactory,
-
+      useValue: superFactory,
     },
-    provideService(),
+    // provideService(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     // provideRouter(appRoutes),
     // provideZoneChangeDetection({ eventCoalescing: true }), //
@@ -168,7 +167,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       IconsModule,
       AngularSvgIconModule.forRoot(),
-      DialogModule
     ),
     provideResizeOptions(someOptions),
 

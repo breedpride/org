@@ -9,5 +9,4 @@ export * from './token'
 export * from './tree/tree.component'
 export * from './tree/tree.service'
 export * from './tree/tree.store'
-export * from './tree/with-tree.feature'
 // @endindex

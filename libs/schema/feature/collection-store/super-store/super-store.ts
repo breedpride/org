@@ -2,9 +2,9 @@ import {
   inject,
 
 } from '@angular/core';
-import {   SpaceConfig} from '@bh/superfield';
+
 import { withLogger } from '@bp/with-logger';
-import { signalStore } from '@ngrx/signals';
+import { getState, signalStore } from '@ngrx/signals';
 
 import {withFilteredByFilterStore} from '@bh/collection-filtration';
 import { withFilteredCreatioEntities } from '@bh/collection-data';
@@ -17,6 +17,9 @@ import { createInjectionToken } from 'ngxtension/create-injection-token';
 import { SUPER_CONFIG, StoreConfig } from '../config/tokens';
 import { TreeService } from '../tree/tree.service';
 import { EmptySpaceConfig } from '../config';
+import { SpaceConfig } from '@bh/superfield';
+import { AppStore } from '@bh/app';
+
 
 type SuperStoreType = LookupStore & EntityListStore
 // Створення ін'єкційного токена для сервісу TreeService
@@ -50,6 +53,7 @@ export type LookupStore = ReturnType<typeof fieldStoreFactory>;
 export const spaceStoreFactory = (config: SpaceConfig)=> {
   const EntityListStore = signalStore(
     { protectedState: false },
+    // withSuperStoreFeatue(),
     withFilteredByFilterStore({config}),
     withLogger(`[SpaceStore]`)
   );
@@ -64,8 +68,10 @@ export type EntityListStore = ReturnType<typeof spaceStoreFactory>;
 
 
 // Фабрика для створення TreeService з можливістю ін'єкції батьківського TreeService
-export function superFactory(config: StoreConfig, parent: EntityListStore | null) {
+export function superFactory(config: StoreConfig, parent: EntityListStore | null, appStore=inject(AppStore)) {
   console.log('serviceFactory!!!!!!!!!!!!!!!!!!!!!!!!!', config, parent);
+  console.log(getState(appStore));
+  appStore.addEntities([config])
   if (parent) {
     console.log('!!!!!!!!!!!!!!Root TreeService', parent);
     

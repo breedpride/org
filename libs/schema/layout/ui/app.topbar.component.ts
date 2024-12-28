@@ -78,7 +78,7 @@ import { LayoutService } from './service/app.layout.service';
         </p-tablist>
       </p-tabs>
     </div>
-    <!-- <button type="button" (click)="showTree()">Tree</button> -->
+    <button type="button" (click)="showTree()">Tree</button>
     <div class="flex xxxl:absolute xxxl:right-[2.15rem] mr-3 md:mr-0">
       <ul class="topbar-menu">
         <li>
