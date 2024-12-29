@@ -1,4 +1,4 @@
-import { Injectable, Injector, Signal } from '@angular/core';
+import { Injectable, Injector, Signal, untracked } from '@angular/core';
 
 // const projectId = 'my-project-id';
 // const app = firebase.initializeApp({
@@ -21,7 +21,8 @@ import {
   TREE_COLLECTION_NAME,
 } from '../shared';
 import { createReactivityFactory } from './rxbd.reactiveity';
-
+import { toSignal } from '@angular/core/rxjs-interop';
+import { CONFIG_SCHEMA } from '../schemas/config';
 const collectionSettings = {
   // [HERO_COLLECTION_NAME]: {
   //   schema: HERO_SCHEMA,
@@ -48,6 +49,14 @@ const collectionSettings = {
   //   },
   //   sync: true,
   // },
+  ['config']: {
+    schema: CONFIG_SCHEMA,
+    methods: {
+      // hpPercent(this: RxHeroDocument): number {
+      //   return (this.hp / 100) * 100;
+      // },
+    },
+  },
   [TREE_COLLECTION_NAME]: {
     schema: TREE_SCHEMA,
     methods: {
@@ -110,15 +119,23 @@ async function _create(injector: Injector): Promise<RxHeroesDatabase> {
   environment.addRxDBPlugins();
 
   console.log('DatabaseService: creating database..');
+ /**
+     * Add the Reactivity Factory so that we can get angular Signals
+     * instead of observables.
+     * @link https://rxdb.info/reactivity.html
+     */
+ const reactivityFactory: RxReactivityFactory<Signal<any>> = {
+  fromObservable(obs, initialValue: any) {
+      return untracked(() =>
+          toSignal(obs, {
+              initialValue,
+              injector,
+              rejectErrors: true
+          })
+      );
+  }
+}
 
-  /**
-   * Add the Reactivity Factory so that we can get angular Signals
-   * instead of observables.
-   * @link https://rxdb.info/reactivity.html
-   */
-
-  const reactivityFactory: RxReactivityFactory<Signal<any>> =
-    createReactivityFactory(injector);
 
   // removeRxDatabase(DATABASE_NAME, environment.getRxStorage());
   const db = await createRxDatabase<RxHeroesCollections>({

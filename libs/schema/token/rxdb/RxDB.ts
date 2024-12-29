@@ -3,11 +3,12 @@
  */
 
 import { Signal } from '@angular/core';
-import type { RxCollection, RxDatabase, RxDocument } from 'rxdb';
+import { RxCollection, RxDatabase, RxDocument } from 'rxdb';
 import { RxDictionaryCollection } from './schemas/dictionary';
 import { RxFeatureDocumentType } from './schemas/feature.schema';
 import { RxHeroDocumentType } from './schemas/hero.schema';
 import { RxTreeCollection } from './schemas/tree-schema';
+import { RxConfigDocumentType } from './schemas/config';
 // ORM methods
 type RxHeroDocMethods = {
   hpPercent(): number;
@@ -33,6 +34,14 @@ export type RxFeatureCollection = RxCollection<
   Signal<unknown>
 >;
 export type RxHeroesCollections = {
+  
+  config: RxCollection<
+  RxConfigDocumentType,
+  unknown,
+  unknown,
+  unknown,
+  Signal<unknown>
+>;
   hero: RxHeroCollection;
   feature: RxFeatureCollection;
   tree: RxTreeCollection;

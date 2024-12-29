@@ -1,5 +1,6 @@
 
-import { EntityListStore } from '@bh/collection-store';
+import { inject } from '@angular/core';
+import { ConfigStore, EntityListStore } from '@bh/collection-store';
 
 import { withLogger } from '@bp/with-logger';
 import { signalStore, type, withProps, withState } from '@ngrx/signals';
@@ -13,20 +14,15 @@ const spaceCollectionConfig = {
   selectId: (c: EntityListStore) => c.config().type + '-' + c.config().id,
 };
 
-// const withTypedCollection<T extends FilterFieldConfig>(config: T) {
-  
-//   return withFilledNamedCollection<T, T['type']>(spaceCollectionConfig);
-// }
-// const collectionConfig<T extends WithType>(config: { entity: T; collection: string }) {
-
-const ConfigStore = signalStore(withSuperStoreFeatue());
-export const configStore = new ConfigStore();
-type ConfigStore = InstanceType<typeof ConfigStore>;
 export const AppStore = signalStore(
   { providedIn: 'root',
     protectedState: false
   },
-  withProps(()=>({configStore, collections: new Map()})),
+  withProps(() => ({
+    configStore: inject(ConfigStore),
+    // logger: inject(Logger),
+  })),
+  // withProps((configStore = inject(ConfigStore))=>({config =configStore})),
   // withState(()=>{ 
   //   const withSuperStoreFeatue = withSuperStoreFeatue();
   //   return {

@@ -11,6 +11,7 @@ import {
 import { withFilledNamedCollection } from './with-named-collection.feature';
 import { FilterFieldConfig, SpaceConfig } from '@bh/superfield';
 import { StoreConfig } from '@bh/collection-store';
+import { withLogger } from '@bp/with-logger';
 
 // export type SpaceConfig = { ide: string };
 // export type Space = { id: string };
@@ -35,10 +36,11 @@ const configCollectionConfig = {
 
 export function withSuperStoreFeatue() {
   return signalStoreFeature(
-    // withState<{parent: any}>({parent: null}),
       withFilledNamedCollection<
       SuperConfig,
         typeof configCollectionConfig.collection
       >(configCollectionConfig),
-  );
+    withLogger('[SUPER STORE]')
+  )
 }
+  
