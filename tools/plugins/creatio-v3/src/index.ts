@@ -55,10 +55,10 @@ const scope = '@base';
 const dbDirName = 'db/config';
 const entityDirName = 'entity/config';
 const fieldDirName = 'field/config';
-
+const fieldTypeDir = 'field/type';
 const dbDirImport = `${scope}/${dbDirName}`;
 const fieldDirImport = `${scope}/${fieldDirName}`;
-const columnTypeDir = 'column-type/';
+// const columnTypeDir = 'column-type/';
 const entityPath = path.resolve(
   __dirname,
   `../../../../libs/base/${entityDirName}/`
@@ -68,7 +68,10 @@ const fieldPath = path.resolve(
   __dirname,
   `../../../../libs/base/${fieldDirName}/`
 );
-
+const fieldTypesPath = path.resolve(
+  __dirname,
+  `../../../../libs/base/${fieldTypeDir}/`
+);
 const _ = '_';
 const globalColumnsMap = new Map();
 const globalSchemas = new Map();
@@ -189,7 +192,7 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
         {"id": '${e.name}'} as const,
         //TODO label^ not placeholder TODO - move to another settings
         {placeholder:'${e.caption}'} as const, 
-       {} as const, //plugin
+      //  {} as const, //plugin TODO - loadPlugin
 
         ;
         `
@@ -202,47 +205,35 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
       // ----------------- fieldName --------------------
       // father => pet  // TODO FieldName Settings!!! not Field
       // ------------------------------------------------
-      rewrite(
-        filedir,
-        e.name.toLowerCase() + '-' + e.referenceSchema?.toLowerCase() + '.ts',
+      writeifnotexist(
+        fieldTypesPath + 'lookup/',
+        e.referenceSchema?.toLowerCase() + '.ts',
         `
-        import { Lookup_${e.referenceSchema} } from '${dbDirImport}';
-        import { ${e.name}_${fieldSufix} } from './${e.name.toLowerCase()}';
-        export const ${e.name}_${e.referenceSchema} = [
-        ${e.name}_${fieldSufix}, 
-        Lookup_${e.referenceSchema} ];
+        import { ${e.referenceSchema}_Config } from '${dbDirImport}';
+        export const ${e.referenceSchema}_Lookup = [ 
+        ${e.referenceSchema}_Config
+        // todo plugin
+        ] as const;
         `
       );
     } else {
-      // ----------------- name +type--------------------
-      // name + type
-      // ------------------------------------------------
-      rewrite(
-        filedir,
-        e.name.toLowerCase() + '-' + e.type.toLowerCase() + '.ts',
-        `
-        ${autoFirstDisclaimer}
-        import { ${e.type} } from '@bh/column-type/${e.type.toLowerCase()}';
-        import { ${e.name}_${fieldSufix} } from './${e.name.toLowerCase()}';
-        export const ${e.name}_${e.type} = [
-          ${e.name}_${fieldSufix},
-          ${e.type}
-      ];
-        `
-      );
+      // // ----------------- name +type--------------------
+      // // name + type
+      // // ------------------------------------------------
+      // rewrite(
+      //   filedir,
+      //   e.name.toLowerCase() + '-' + e.type.toLowerCase() + '.ts',
+      //   `
+      //   ${autoFirstDisclaimer}
+      //   import { ${e.type} } from '@bh/column-type/${e.type.toLowerCase()}';
+      //   import { ${e.name}_${fieldSufix} } from './${e.name.toLowerCase()}';
+      //   export const ${e.name}_${e.type} = [
+      //     ${e.name}_${fieldSufix},
+      //     ${e.type}
+      // ];
+      //   `
+      // );
     }
-    // ----------------- plugin  --------------------
-    //
-    // ------------------------------------------------
-    writeifnotexist(
-      filedir,
-      'plugin.' + e.name.toLowerCase() + '.ts',
-      `${autoFirstDisclaimer}
-
-        export const ${e.name}_${fieldSufix}_Plugin =  {} as const;
-        `
-    );
-
     genIndex(filedir);
   });
 
@@ -384,19 +375,25 @@ export function  ${schemaName}<T extends Partial< ${schemaName}> | Partial< ${sc
     `
     ${autoDisclaimer}
     import { merge } from 'lodash-es';
-    ${cleanColumns
-      .map(
-        (e) =>
-          `import { ${e.name}_${
-            e.referenceSchema ? e.referenceSchema : e.type
-          }} from '${fieldDirImport}'`
-      )
-      .join(';')}
-
+ ${cleanColumns
+   .map(
+     (e) =>
+       `import { ${
+         e.type === 'Lookup' ? e.referenceSchema + '_Lookup' : e.type
+       }} from '${fieldDirImport}'`
+   )
+   .join(';')}
+    
+            'import {
+              ${cleanColumns
+                .map((e) => `${e.name}_${fieldSufix}`)
+                .join(',')} from '@field';
+        )
+        
     import { ${schemaName}_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
 import {createInjectionToken} from 'ngxtension/create-injection-token';
-import {Lookup_${schemaName}} from '${dbDirImport}';
+import {${schemaName}_Lookup} from '${dbDirImport}';
 
 // TODO - check plugin list do not load empty plugins !!!
 ${cleanColumns
@@ -404,9 +401,13 @@ ${cleanColumns
     (e) => `
 const ${e.name}  =[
   ${e.name}_${fieldSufix},
-  ${e.type}
-    ${e.name}_${e.referenceSchema ? e.referenceSchema : e.type}, 
-    ${schemaName}_Plugin.${e.name})`
+  ${e.type === 'Lookup' ? e.referenceSchema + '_Lookup' : e.type}
+  {label: '${e.caption}'} as const,
+  ${e.isRequired ? '{required: true }' : ''},
+  ${e.levelAccess === 2 ? '{readOnly: true }' : ''}, 
+  {uId: '${e.uid}'}
+  
+`
   )
   .join(';')}
 
@@ -433,7 +434,8 @@ const ${e.name}  =[
 
 export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => {
   return {
-  ...Lookup_${schemaName},
+  ${schemaName}_Lookup,
+  
   fieldsConfig: ${schemaName.toUpperCase()}_FIELD_CONFIG,
   entitiesColumns: ${schemaName.toUpperCase()}_ENTITY_COLUMNS,
   dateColumns: getDateColumns(${schemaName.toUpperCase()}_FIELD_CONFIG),
@@ -496,26 +498,27 @@ export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => {
     };
   });
 
-  const fieldsConfigFile = schemaDir + 'fields-config' + '.ts';
-  const fields_config = `import { createInjectionToken } from 'ngxtension/create-injection-token';
-import { field } from '../..';
-import { ${fields
-    .filter((e) => e.import !== schemaName)
-    .map((e) => e.import)
-    .join(', ')} } from './custom';
+  //   const fieldsConfigFile = schemaDir + 'fields-config' + '.ts';
+  //   const fields_config = `import { createInjectionToken } from 'ngxtension/create-injection-token';
+  // import { field } from '../..';
+  // import { ${fields
+  //     .filter((e) => e.import !== schemaName)
+  //     .map((e) => e.import)
+  //     .join(', ')} } from './custom';
 
-export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => {
-  return {
+  // export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => {
+  //   return {
 
-  entitySchemaName: '${schemaName}',
-  fieldsConfig:   { ${fields.map((e) => e.field).join('\n    ')}
-}
-    };
-});
-`;
+  //   entitySchemaName: '${schemaName}',
+  //   fieldsConfig:   { ${fields.map((e) => e.field).join('\n    ')}
+  // }
+  //     };
+  // });
+  // `;
 
   // writeFileSync(fieldsConfigFile, fields_config);
-  genIndex(dbPath + '/' + schemaName.toLowerCase());
+  // genIndex(dbPath + '/' + schemaName.toLowerCase());
+  return;
   setPlusOne(schemaName);
 }
 
