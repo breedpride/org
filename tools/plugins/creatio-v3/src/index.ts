@@ -10,7 +10,7 @@ function lowerize(str: string): string {
     ? str[0].toLowerCase() + str.substring(1)
     : str.toLowerCase();
 }
-
+import { SchemaColumn, SchemaResponse } from '@shared';
 import * as path from 'path';
 import { exit } from 'process';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
@@ -40,23 +40,26 @@ const __dirname = path.dirname(import.meta.url.replace('file://', ''));
 const lookupDirName = 'lookups';
 // Resolve the schema path relative to the current directory
 
-const libPath = path.resolve(__dirname, '../../../../libs/schema/');
+const libPath = path.resolve(__dirname, '../../../../libs/base/');
+// todo maybe FieldName
 const fieldSufix = 'Field';
 
+const scope = '@base';
 const dbDirName = 'db/config';
-const dbDirImport = `@bh/${dbDirName}`;
 const entityDirName = 'entity/config';
 const fieldDirName = 'field/config';
-const fieldDirImport = `@bh/${fieldDirName}`;
+
+const dbDirImport = `${scope}/${dbDirName}`;
+const fieldDirImport = `${scope}/${fieldDirName}`;
 const columnTypeDir = 'column-type/';
 const entityPath = path.resolve(
   __dirname,
-  `../../../../libs/schema/${entityDirName}/`
+  `../../../../libs/base/${entityDirName}/`
 );
-const dbPath = path.resolve(__dirname, `../../../../libs/schema/${dbDirName}/`);
+const dbPath = path.resolve(__dirname, `../../../../libs/base/${dbDirName}/`);
 const fieldPath = path.resolve(
   __dirname,
-  `../../../../libs/schema/${fieldDirName}/`
+  `../../../../libs/base/${fieldDirName}/`
 );
 
 const _ = '_';
@@ -102,7 +105,7 @@ function genIndex(filedir) {
   );
 }
 
-function processSchema(schemaName, response) {
+function processSchema(schemaName: string, response: SchemaResponse[]) {
   const schema = response[0];
   console.log(schemaName);
   console.log(schema.columns);
@@ -131,26 +134,23 @@ function processSchema(schemaName, response) {
   const fFileName = schemaName.toLowerCase();
 
   writeifnotexist(
-    path.resolve(dbPath, './' + fFileName),
-    'lookup.ts',
-    `
-      ${autoDisclaimer}
-      import {${schemaName}_Lookup} from './lookup.plugin';
-      import { merge } from 'lodash-es';
-import { ${schemaName}_Config } from './config';
-export const Lookup_${schemaName} = merge({}, ${schemaName}_Config, ${schemaName}_Lookup);`
-  );
+    path.resolve(dbPath),
+    fFileName + '.ts',
+    `${autoFirstDisclaimer}
 
-  // const fFileName = e.referenceSchema.toLowerCase();
+import { Lookup_${schema.primaryDisplayColumnName}} from '@bh/column-type/lookup';
+export const ${schemaName}_Config =  [
+Lookup_${schema.primaryDisplayColumnName},
+{ entitySchemaName: '${schemaName}' } as const,
+];
 
-  writeifnotexist(
-    path.resolve(dbPath, './' + fFileName),
-    'lookup.plugin.ts',
-    `
-      ${autoFirstDisclaimer}
-import { FilterFieldConfig } from '@bh/superfield';
+export const Lookup_${schemaName} = [ ${schemaName}_Config, 
 
-export const ${schemaName}_Lookup: Partial<FilterFieldConfig>  = {} as const;`
+//import { FilterFieldConfig } from '@bh/superfield';
+// plugin settings Partial<FilterFieldConfig> for all 'Refs' to this schema etc 'Lookup' ${schemaName}_Lookup]
+{} as const,
+]  
+`
   );
 
   // ----------------- Lookups ----------------------
@@ -158,51 +158,9 @@ export const ${schemaName}_Lookup: Partial<FilterFieldConfig>  = {} as const;`
   // ------------------------------------------------
   const lookups = cleanColumns.filter((e) => e.referenceSchema);
   lookups.forEach((e) => {
-    const fFileName = e.referenceSchema.toLowerCase();
-
-    writeifnotexist(
-      path.resolve(dbPath, './' + fFileName),
-      'lookup.ts',
-      `
-      ${autoDisclaimer}
-      import {${e.referenceSchema}_Lookup} from './lookup.plugin';
-      import { merge } from 'lodash-es';
-import { ${e.referenceSchema}_Config } from './config';
-export const Lookup_${e.referenceSchema} = merge({}, ${e.referenceSchema}_Config, ${e.referenceSchema}_Lookup);`
-    );
+    const fFileName = e.referenceSchema?.toLowerCase();
+    // TODO - chech if file not exit - add to queue
   });
-
-  // ----------------- Lookups ----------------------
-  // lookup.plugins.ts
-  // ------------------------------------------------
-  // const lookups = cleanColumns.filter(e => e.referenceSchema);
-  lookups.forEach((e) => {
-    const fFileName = e.referenceSchema.toLowerCase();
-
-    writeifnotexist(
-      path.resolve(dbPath, './' + fFileName),
-      'lookup.plugin.ts',
-      `
-      ${autoFirstDisclaimer}
-import { FilterFieldConfig } from '@bh/superfield';
-
-export const ${e.referenceSchema}_Lookup: Partial<FilterFieldConfig>  = {} as const;`
-    );
-  });
-
-  // ----------------- Config ----------------------
-  // config.ts
-  // ------------------------------------------------
-  rewrite(
-    dbPath + '/' + schemaName,
-    'config.ts',
-    `
-    import { merge } from 'lodash-es';
-  import { Lookup_${schema.primaryDisplayColumnName}} from '@bh/column-type/lookup';
-export const ${schemaName}_Config =  merge({}, Lookup_${schema.primaryDisplayColumnName},
-{ entitySchemaName: '${schemaName}' } as const,
-  );`
-  );
 
   // ----------------- columns --------------------
   //
@@ -214,43 +172,39 @@ export const ${schemaName}_Config =  merge({}, Lookup_${schema.primaryDisplayCol
       // `../${fieldDirName}/`,
       e.name.toLowerCase()
     );
+
     if (e.type === 'Lookup') {
       // ----------------- fieldName --------------------
-      // father => pet
+      // father => pet  // TODO FieldName Settings!!! not Field
       // ------------------------------------------------
       rewrite(
         filedir,
-        e.name.toLowerCase() + '-' + e.referenceSchema.toLowerCase() + '.ts',
+        e.name.toLowerCase() + '-' + e.referenceSchema?.toLowerCase() + '.ts',
         `
-        import { merge } from 'lodash-es';
-        import { Lookup_${
-          e.referenceSchema
-        } } from '${dbDirImport}';
+        import { Lookup_${e.referenceSchema} } from '${dbDirImport}';
         import { ${e.name}_${fieldSufix} } from './${e.name.toLowerCase()}';
-        export const ${e.name}_${e.referenceSchema} = merge({}, ${
-          e.name
-        }_${fieldSufix}, Lookup_${e.referenceSchema} );
+        export const ${e.name}_${e.referenceSchema} = [
+        ${e.name}_${fieldSufix}, 
+        Lookup_${e.referenceSchema} ];
         `
       );
     } else {
+      // ----------------- filename  --------------------
+      // name + type
+      // ------------------------------------------------
       rewrite(
         filedir,
         e.name.toLowerCase() + '-' + e.type.toLowerCase() + '.ts',
         `
         ${autoFirstDisclaimer}
-        import { merge } from 'lodash-es';
-        import { ${
-          e.type
-        } } from '@bh/column-type/${e.type.toLowerCase()}';
+        import { ${e.type} } from '@bh/column-type/${e.type.toLowerCase()}';
         import { ${e.name}_${fieldSufix} } from './${e.name.toLowerCase()}';
-        export const ${e.name}_${e.type} = merge({},  ${e.name}_${fieldSufix},${
-          e.type
-        });
+        export const ${e.name}_${e.type} = [
+          ${e.name}_${fieldSufix},
+          ${e.type}
+      ];
         `
       );
-      // ----------------- filename  --------------------
-      //
-      // ------------------------------------------------
     }
     // ----------------- plugin  --------------------
     //
@@ -263,26 +217,21 @@ export const ${schemaName}_Config =  merge({}, Lookup_${schema.primaryDisplayCol
         export const ${e.name}_${fieldSufix}_Plugin =  {} as const;
         `
     );
-    // ----------------- field  --------------------
+    // ----------------- field name --------------------
     //
     // ------------------------------------------------
-    rewrite(
+    writeifnotexist(
       filedir,
       e.name.toLowerCase() + '.ts',
-      `
-      ${autoDisclaimer}
-        import { merge } from 'lodash-es';
-        import {EmptyFieldConfig} from '@bh/superfield';
-        import { ${
-          e.name
-        }_${fieldSufix}_Plugin } from './plugin.${e.name.toLowerCase()}';
-        export const ${
-          e.name
-        }_${fieldSufix} =  merge({},EmptyFieldConfig, {"id": '${
-          e.name
-        }'} as const , { placeholder:'${e.caption}'} as const, ${
-          e.name
-        }_${fieldSufix}_Plugin);
+      `${autoFirstDisclaimer}
+        export const ${e.name}_${fieldSufix} = [
+        {"id": '${e.name}'} as const,
+        //TODO label^ not placeholder
+        {placeholder:'${e.caption}'} as const, 
+        
+       {} as const, //plugin
+
+        ;
         `
     );
 
@@ -304,23 +253,23 @@ export const ${schemaName}_Config =  merge({}, Lookup_${schema.primaryDisplayCol
         e.type === 'LongText' ||
         e.type === 'WebText' ||
         e.type === 'Color'
-        ? 'String'
-        : Object.values(FloatDataValueTypes).includes(e.type) ||
+      ? 'String'
+      : Object.values(FloatDataValueTypes).includes(e.type) ||
         e.type === 'Integer' ||
         e.type === 'Number' ||
         e.type.includes('Float')
-          ? 'Number'
-          : Object.values(IntegerDataValueTypes).includes(e.type)
-            ? 'Number'
-            : Object.values(DateDataValueTypes).includes(e.type) ||
+      ? 'Number'
+      : Object.values(IntegerDataValueTypes).includes(e.type)
+      ? 'Number'
+      : Object.values(DateDataValueTypes).includes(e.type) ||
         e.type === 'DateTime' ||
         e.type === 'Date'
-              ? 'Date'
-              : e.type === 'Boolean'
-                ? 'Boolean'
-                : e.type === 'Guid'
-                  ? 'String'
-                  : e.type + '!!!!!';
+      ? 'Date'
+      : e.type === 'Boolean'
+      ? 'Boolean'
+      : e.type === 'Guid'
+      ? 'String'
+      : e.type + '!!!!!';
     return { ...e, realType: type };
   });
 
@@ -542,9 +491,9 @@ export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => {
   const fields_config = `import { createInjectionToken } from 'ngxtension/create-injection-token';
 import { field } from '../..';
 import { ${fields
-  .filter((e) => e.import !== schemaName)
-  .map((e) => e.import)
-  .join(', ')} } from './custom';
+    .filter((e) => e.import !== schemaName)
+    .map((e) => e.import)
+    .join(', ')} } from './custom';
 
 export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => {
   return {
@@ -729,7 +678,6 @@ export class SchemaTokenMapService {
   } else {
     generateSchema(spaceList[0]);
   }
-
 };
 
 // TODO cleanUp('./src/app/_const/schemas/generated/');

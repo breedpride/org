@@ -3,7 +3,7 @@ function lowerize(str: string): string {
     ? str[0].toLowerCase() + str.substring(1)
     : str.toLowerCase();
 }
-
+import type {SchemaColumn, Schemaresponse} from '@shared'
 import { Signal } from '@angular/core';
 import { RxDictionaryCollection, RxTreeCollection, TreeSchema } from '@bh/rxdb';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
@@ -40,23 +40,8 @@ const fieldDirName = 'field/config';
 const globalColumnsMap = new Map();
 const columnMap: string[] = [];
 
-interface SchemaColumn {
-  uid: string;
-  name: string;
-  type: string;
-  referenceSchema?: string;
-  primaryDisplayColumnName?: string;
-  caption?: string;
-  isRequired?: boolean;
-  levelAccess?: number;
-}
 
-interface SchemaResponse {
-  columns: SchemaColumn[];
-  primaryDisplayColumnName: string;
-}
-
-async function  processSchema(
+async function processSchema(
   schemaName: string,
   response: SchemaResponse[],
   dataTypeCollection: RxTreeCollection
@@ -74,7 +59,6 @@ async function  processSchema(
     features: {
       columns: schema.columns,
       primaryDisplayColumnName: [schema.primaryDisplayColumnName],
-      
     },
     // collections: {
     //   schema.columns
@@ -87,10 +71,9 @@ async function  processSchema(
   //       data: createBlob(JSON.stringify(schema), 'application/json'),
   //       type: 'application/json'
   //   }
-// );
+  // );
 
   return;
-
 
   const columns = schema.columns;
   const cleanColumns = columns.filter(
@@ -142,7 +125,7 @@ async function  processSchema(
   if (
     !signalValues().find((t) => t.name === schemaName && t.type === configSufix)
   ) {
-    dataTypeCollection.findOne()
+    dataTypeCollection.findOne();
     dataTypeCollection.insert({
       scope: '@creatio',
       name: schemaName,
@@ -155,7 +138,7 @@ async function  processSchema(
       },
     });
   }
-   
+
   cleanColumns.forEach((e) => {
     if (e.type === 'Lookup') {
       if (
@@ -247,23 +230,23 @@ async function  processSchema(
         e.type === 'LongText' ||
         e.type === 'WebText' ||
         e.type === 'Color'
-        ? 'String'
-        : Object.values(FloatDataValueTypes).includes(e.type) ||
+      ? 'String'
+      : Object.values(FloatDataValueTypes).includes(e.type) ||
         e.type === 'Integer' ||
         e.type === 'Number' ||
         e.type.includes('Float')
-          ? 'Number'
-          : Object.values(IntegerDataValueTypes).includes(e.type)
-            ? 'Number'
-            : Object.values(DateDataValueTypes).includes(e.type) ||
+      ? 'Number'
+      : Object.values(IntegerDataValueTypes).includes(e.type)
+      ? 'Number'
+      : Object.values(DateDataValueTypes).includes(e.type) ||
         e.type === 'DateTime' ||
         e.type === 'Date'
-              ? 'Date'
-              : e.type === 'Boolean'
-                ? 'Boolean'
-                : e.type === 'Guid'
-                  ? 'String'
-                  : e.type + '!!!!!';
+      ? 'Date'
+      : e.type === 'Boolean'
+      ? 'Boolean'
+      : e.type === 'Guid'
+      ? 'String'
+      : e.type + '!!!!!';
     return { ...e, realType: type };
   });
 
@@ -437,9 +420,9 @@ export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => {
 import { field } from '../..';
 import config from '../../../../packages/rxdb/jest.config';
 import { ${fields
-  .filter((e) => e.import !== schemaName)
-  .map((e) => e.import)
-  .join(', ')} } from './custom';
+    .filter((e) => e.import !== schemaName)
+    .map((e) => e.import)
+    .join(', ')} } from './custom';
 
 export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => {
   return {
