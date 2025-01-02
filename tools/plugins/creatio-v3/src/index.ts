@@ -42,8 +42,15 @@ const lookupDirName = 'lookups';
 
 const libPath = path.resolve(__dirname, '../../../../libs/base/');
 // todo maybe FieldName
-const fieldSufix = 'Field';
+const fieldSufix = 'FieldName';
 
+const fields = {
+  names: 'names', // key?????
+  types: 'types',
+  // => new types new values
+  //default exports
+  // export ????
+};
 const scope = '@base';
 const dbDirName = 'db/config';
 const entityDirName = 'entity/config';
@@ -152,7 +159,6 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
 ]  
 `
   );
-
   // ----------------- Lookups ----------------------
   // lookup.ts for schema
   // ------------------------------------------------
@@ -172,6 +178,25 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
       // `../${fieldDirName}/`,
       e.name.toLowerCase()
     );
+    // ----------------- field name --------------------
+    // Create Field Name Settings if not Exists
+    // ------------------------------------------------
+    writeifnotexist(
+      filedir,
+      e.name.toLowerCase() + '.ts',
+      `${autoFirstDisclaimer}
+        export const ${e.name}_${fieldSufix} = [
+        {"id": '${e.name}'} as const,
+        //TODO label^ not placeholder TODO - move to another settings
+        {placeholder:'${e.caption}'} as const, 
+       {} as const, //plugin
+
+        ;
+        `
+    );
+    // ----------------- field name --------------------
+    // Create Field Name Settings if not Exists
+    // ------------------------------------------------
 
     if (e.type === 'Lookup') {
       // ----------------- fieldName --------------------
@@ -189,7 +214,7 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
         `
       );
     } else {
-      // ----------------- filename  --------------------
+      // ----------------- name +type--------------------
       // name + type
       // ------------------------------------------------
       rewrite(
@@ -215,23 +240,6 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
       `${autoFirstDisclaimer}
 
         export const ${e.name}_${fieldSufix}_Plugin =  {} as const;
-        `
-    );
-    // ----------------- field name --------------------
-    //
-    // ------------------------------------------------
-    writeifnotexist(
-      filedir,
-      e.name.toLowerCase() + '.ts',
-      `${autoFirstDisclaimer}
-        export const ${e.name}_${fieldSufix} = [
-        {"id": '${e.name}'} as const,
-        //TODO label^ not placeholder
-        {placeholder:'${e.caption}'} as const, 
-        
-       {} as const, //plugin
-
-        ;
         `
     );
 
@@ -390,14 +398,15 @@ import { getColumns, getDateColumns } from '@bh/entity/consts';
 import {createInjectionToken} from 'ngxtension/create-injection-token';
 import {Lookup_${schemaName}} from '${dbDirImport}';
 
+// TODO - check plugin list do not load empty plugins !!!
 ${cleanColumns
   .map(
     (e) => `
-        const ${e.name}  =
-    merge({},
-    ${e.name}_${
-      e.referenceSchema ? e.referenceSchema : e.type
-    }, ${schemaName}_Plugin.${e.name})`
+const ${e.name}  =[
+  ${e.name}_${fieldSufix},
+  ${e.type}
+    ${e.name}_${e.referenceSchema ? e.referenceSchema : e.type}, 
+    ${schemaName}_Plugin.${e.name})`
   )
   .join(';')}
 

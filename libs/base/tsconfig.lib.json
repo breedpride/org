@@ -3,8 +3,14 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "declaration": true,
-    "types": ["node"]
+    "types": ["node"],
+    "composite": true
   },
   "include": ["**/*.ts", "../shared/**/*.ts"],
-  "exclude": ["./vite.config.ts", "**/*.spec.ts", "**/*.test.ts"]
+  "exclude": ["./vite.config.ts", "**/*.spec.ts", "**/*.test.ts"],
+  "strict": true,
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,
+    "strictTemplates": true
+  }
 }
