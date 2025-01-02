@@ -2,7 +2,9 @@
   "name": "@breedpride/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "generate3": "npx tsx tools/plugins/creatio-v3/src/index.ts"
+  },
   "private": true,
   "type": "module",
   "devDependencies": {
