@@ -37,40 +37,6 @@ import {
 } from '@bh/rxdb';
 import { Id } from '@bh/superfield';
 type T = any;
-//privateKey = uid
-//publicKey = schemaName
-// type Schema = {
-//   uId: string;
-//   entitySchemaName: string; // Breed.Id
-// };
-// const schemaConfig = {
-//   entity: type<Schema>(),
-//   collection: 'uId' as const,
-//   selectId: (entity: Schema) => entity.uId,
-// };
-
-// type TEST = {
-//   entitySchemaName: string;
-//   fieldsConfig: Record<string, TEST | null | {}>;
-// };
-
-// type TreeSchema = {
-//   id: string;
-//   name: string;
-//   data: Record<string, any>;
-//   children: TreeSchema[];
-// };
-
-// type TreeFilter = 'ALL';
-// export const TreeSchemaStore = signalStore(
-//   withEntities<TreeSchema>(),
-//   withCollectionService<TreeSchema, TreeFilter>({
-//     filter: 'ALL' as TreeFilter,
-//     query: {},
-//     selectId: (entity) => entity.id || '',
-//     countQuery: { selector: {} }, // count all remaining todos
-//   })
-// );
 
 @Component({
   selector: 'bp-new-space',
@@ -131,7 +97,7 @@ type T = any;
           </div>
         </div>
       </ng-template>
-      <ng-template  #panel>
+      <ng-template #panel>
         <div
           class="flex-col flex align-items-center justify-content-center py-3 px-4 text-primary"
         >
@@ -205,14 +171,12 @@ type T = any;
       display: block;
     }
   `,
-
 })
 export class AdminSpaceComponent {
-update 
-() {
-  this.ch.markForCheck();
-// throw new Error('Method not implemented.');
-}
+  update() {
+    this.ch.markForCheck();
+    // throw new Error('Method not implemented.');
+  }
   tabs: { route: string; label: string; icon: string }[] = [
     { route: 'test', label: '0', icon: 'pi pi-home' },
     { route: '../test', label: '1', icon: '' },
@@ -279,7 +243,7 @@ update
       const t = e.features;
       console.log(t);
       const features = {} as Record<string, any>;
-      Object.entries(t).forEach((key, value) => features[key[0]] = key[1]);
+      Object.entries(t).forEach((key, value) => (features[key[0]] = key[1]));
       console.log(features);
       // console.log(e.features.columns.map((t) => t.name));
       // const attachment = e.getAttachment('cat.jpg');
@@ -298,9 +262,7 @@ update
           name: e.name,
           id: e.id,
           features,
-          
         },
-        
       };
     });
     test?.forEach((e) => {
