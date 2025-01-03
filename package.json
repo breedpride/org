@@ -126,5 +126,16 @@
     "ts-deepmerge": "^7.0.2",
     "uuid": "^11.0.3",
     "zone.js": "~0.15.0"
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergeyGlova/org.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/SergeyGlova/org/issues"
+  },
+  "homepage": "https://github.com/SergeyGlova/org#readme"
 }
