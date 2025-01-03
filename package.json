@@ -52,7 +52,6 @@
     "angular-eslint": "^19.0.2",
     "chroma-js": "^3.1.2",
     "eslint": "^9.8.0",
-    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.7.0",
