@@ -8,7 +8,7 @@ const stylisticConfig=  {
     '@stylistic/no-multiple-empty-lines': ['error', { max: 2 }],
     '@stylistic/no-trailing-spaces': ['error', { skipBlankLines: false }],
         '@stylistic/quote-props': ['error', 'as-needed'],
-        '@stylisticno/whitespace-before-property': 'error',
+        '@stylistic/no-whitespace-before-property': 'error',
         '@stylistic/dot-location': ['error', 'property'],
         '@stylistic/eol-last': ['error', 'always'],
     '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],

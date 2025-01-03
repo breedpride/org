@@ -7,7 +7,7 @@ export const createNodesV2: CreateNodesV2 = [
   'libs/**/index.ts',
   async (indexPathList, _, { workspaceRoot }): Promise<CreateNodesResultV2> => {
     const results = await Promise.all(
-      indexPathList.map(indexPath =>
+      indexPathList.map((indexPath) =>
         createImplicitLibProjectConfig(indexPath, { workspaceRoot })
       )
     );
