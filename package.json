@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "generate3": "npx tsx tools/plugins/creatio-v3/src/index.ts",
-    "format": "nx format:write"
+    "generate3": "npx tsx tools/plugins/creatio-v3/src/index.ts"
   },
   "private": true,
   "type": "module",
@@ -90,6 +89,7 @@
     "apps/**/*",
     "tools/**/*"
   ],
+  "nx": {},
   "dependencies": {
     "@angular/animations": "~19.0.0",
     "@angular/common": "~19.0.0",
