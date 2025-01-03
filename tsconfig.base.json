@@ -19,31 +19,22 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "paths": {
-      "@base-field-name": ["libs/base/field/name/index.ts"],
       "@base-field-common-type": ["libs/base/field/common-type/index.ts"],
-      "@base-field-uid/*": ["libs/base/field/uid/*"],
+      "@base-field-name": ["libs/base/field/name/index.ts"],
       "@base-field-ref-type": ["libs/base/field/ref-type/index.ts"],
-
+      "@base-field-uid/*": ["libs/base/field/uid/*"],
       "@bh/app": ["libs/schema/store/app-store/index.ts"],
       "@bh/app/space": ["libs/schema/app/space/index.ts"],
       "@bh/app/tokens": ["libs/schema/app/tokens/index.ts"],
       "@bh/collection-data": ["libs/schema/feature/collection-data/index.ts"],
-      "@bh/collection-filtration": [
-        "libs/schema/feature/collection-filtration/index.ts"
-      ],
-      "@bh/collection-selection": [
-        "libs/schema/feature/collection-selection/index.ts"
-      ],
+      "@bh/collection-filtration": ["libs/schema/feature/collection-filtration/index.ts"],
+      "@bh/collection-selection": ["libs/schema/feature/collection-selection/index.ts"],
       "@bh/collection-sort-filter": [
         "libs/schema/feature/collection-sorting-filtering-ui/index.ts"
       ],
-      "@bh/collection-sorting": [
-        "libs/schema/feature/collection-sorting/index.ts"
-      ],
+      "@bh/collection-sorting": ["libs/schema/feature/collection-sorting/index.ts"],
       "@bh/collection-store": ["libs/schema/feature/collection-store/index.ts"],
-      "@bh/collection-view-change": [
-        "libs/schema/feature/collection-view-change/index.ts"
-      ],
+      "@bh/collection-view-change": ["libs/schema/feature/collection-view-change/index.ts"],
       "@bh/collection-view-scroller": [
         "libs/schema/feature/collection-view-scroller/index.ts"
       ],
@@ -51,26 +42,16 @@
       "@bh/column-type/color": ["libs/schema/column-type/color/index.ts"],
       "@bh/column-type/date": ["libs/schema/column-type/date/index.ts"],
       "@bh/column-type/datetime": ["libs/schema/column-type/datetime/index.ts"],
-      "@bh/column-type/emailtext": [
-        "libs/schema/column-type/emailtext/index.ts"
-      ],
+      "@bh/column-type/emailtext": ["libs/schema/column-type/emailtext/index.ts"],
       "@bh/column-type/guid": ["libs/schema/column-type/guid/index.ts"],
       "@bh/column-type/integer": ["libs/schema/column-type/integer/index.ts"],
       "@bh/column-type/longtext": ["libs/schema/column-type/longtext/index.ts"],
       "@bh/column-type/lookup": ["libs/schema/column-type/lookup/index.ts"],
-      "@bh/column-type/maxsizetext": [
-        "libs/schema/column-type/maxsizetext/index.ts"
-      ],
-      "@bh/column-type/mediumtext": [
-        "libs/schema/column-type/mediumtext/index.ts"
-      ],
+      "@bh/column-type/maxsizetext": ["libs/schema/column-type/maxsizetext/index.ts"],
+      "@bh/column-type/mediumtext": ["libs/schema/column-type/mediumtext/index.ts"],
       "@bh/column-type/number": ["libs/schema/column-type/number/index.ts"],
-      "@bh/column-type/phonetext": [
-        "libs/schema/column-type/phonetext/index.ts"
-      ],
-      "@bh/column-type/shorttext": [
-        "libs/schema/column-type/shorttext/index.ts"
-      ],
+      "@bh/column-type/phonetext": ["libs/schema/column-type/phonetext/index.ts"],
+      "@bh/column-type/shorttext": ["libs/schema/column-type/shorttext/index.ts"],
       "@bh/column-type/string": ["libs/schema/column-type/string/index.ts"],
       "@bh/column-type/webtext": ["libs/schema/column-type/webtext/index.ts"],
       "@bh/consts": ["libs/schema/bh/consts/index.ts"],
@@ -86,9 +67,7 @@
       "@bh/filtering": ["libs/schema/feature/filtering/index.ts"],
       "@bh/form": ["libs/schema/column-type/common/editing/form/index.ts"],
       "@bh/iconing": ["libs/schema/column-type/common/iconing/index.ts"],
-      "@bh/identifying": [
-        "libs/schema/column-type/common/identifying/index.ts"
-      ],
+      "@bh/identifying": ["libs/schema/column-type/common/identifying/index.ts"],
       "@bh/list": ["libs/schema/view/list/index.ts"],
       "@bh/naming": ["libs/schema/column-type/common/naming/index.ts"],
       "@bh/nav-store": ["libs/schema/store/nav-store/index.ts"],
@@ -109,9 +88,7 @@
       "@bh/viewport": ["libs/schema/ui/viewport-ui/index.ts"],
       "@bh/visibility": ["libs/schema/column-type/common/visibility/index.ts"],
       "@bp/auth-store": ["libs/schema/store/auth-store/index.ts"],
-      "@bp/cell/confirm-dialog-ui": [
-        "libs/schema/ui/confirm-dialog-ui/index.ts"
-      ],
+      "@bp/cell/confirm-dialog-ui": ["libs/schema/ui/confirm-dialog-ui/index.ts"],
       "@bp/chromatin/contact": ["libs/schema/domain/contact/index.ts"],
       "@bp/chromatin/services": ["libs/schema/store/services/index.ts"],
       "@bp/core/consts": ["libs/schema/common/consts/index.ts"],
@@ -119,21 +96,15 @@
       "@bp/icon": ["libs/schema/ui/icon-ui/index.ts"],
       "@bp/media-store": ["libs/schema/store/media-store/index.ts"],
       "@bp/organism/my-spaces": ["libs/schema/pages/my-spaces/index.ts"],
-      "@bp/page-content-store": [
-        "libs/schema/store/content-page-store/index.ts"
-      ],
+      "@bp/page-content-store": ["libs/schema/store/content-page-store/index.ts"],
       "@bp/page-form-detail": ["libs/schema/ui/page-form-detail/index.ts"],
       "@bp/page-menu": ["libs/schema/ui/page-menu/index.ts"],
       "@bp/page-tab-store": ["libs/schema/store/page-tab-store/index.ts"],
       "@bp/pedigree-store": ["libs/schema/store/pedigree-store/index.ts"],
       "@bp/two-fields-row-ui": ["libs/schema/ui/two-fields-row-ui/index.ts"],
       "@bp/with-logger": ["libs/schema/feature/logger-feature/index.ts"],
-      "@bp/with-request-status": [
-        "libs/schema/feature/request-status-feature/index.ts"
-      ],
-      "@breedpride/070-core-directive-feature": [
-        "libs/schema/directive/feature/index.ts"
-      ],
+      "@bp/with-request-status": ["libs/schema/feature/request-status-feature/index.ts"],
+      "@breedpride/070-core-directive-feature": ["libs/schema/directive/feature/index.ts"],
       "@breedpride/api": ["libs/schema/network/api/index.ts"],
       "@breedpride/avatar": ["libs/schema/ui/avatar-ui/index.ts"],
       "@breedpride/breed": ["libs/schema/domain/breed/index.ts"],

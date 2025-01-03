@@ -16,9 +16,7 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/breedpride/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "allowedCommonJsDependencies": [
-          "ajv", "quill-delta"
-        ],
+        "allowedCommonJsDependencies": ["ajv", "quill-delta"],
         "assets": [
           {
             "glob": "**/*",
@@ -31,7 +29,6 @@
             "output": "/"
           }
         ],
-
         "styles": [
           "apps/breedpride/src/bp/styles/tailwind.scss",
           "apps/breedpride/src/styles/styles.scss",
@@ -42,7 +39,6 @@
       "configurations": {
         "production": {
           "budgets": [
-
             {
               "type": "anyComponentStyle",
               "maximumWarning": "4kb",

@@ -146,27 +146,27 @@ const tailwindConfig = {
 };
 // console.log("baseConfig", baseConfig);
 
-module.exports = {
-  plugins: ['unused-imports'],
-  rules: {
-    // Turn off the default `no-unused-vars` rule to avoid conflicts
-    'no-unused-vars': 'off',
+// module.exports = {
+//   plugins: ['unused-imports'],
+//   rules: {
+//     // Turn off the default `no-unused-vars` rule to avoid conflicts
+//     'no-unused-vars': 'off',
 
-    // Enable the unused imports rule to automatically remove unused imports
-    'unused-imports/no-unused-imports': 'error',
+//     // Enable the unused imports rule to automatically remove unused imports
+//     'unused-imports/no-unused-imports': 'error',
 
-    // Configure `no-unused-vars` via the plugin
-    'unused-imports/no-unused-vars': [
-      'warn',
-      {
-        vars: 'all', // Check all variables
-        varsIgnorePattern: '^_', // Ignore variables starting with _
-        args: 'after-used', // Ignore unused arguments if they occur after used ones
-        argsIgnorePattern: '^_', // Ignore arguments starting with _
-      },
-    ],
-  },
-};
+//     // Configure `no-unused-vars` via the plugin
+//     'unused-imports/no-unused-vars': [
+//       'warn',
+//       {
+//         vars: 'all', // Check all variables
+//         varsIgnorePattern: '^_', // Ignore variables starting with _
+//         args: 'after-used', // Ignore unused arguments if they occur after used ones
+//         argsIgnorePattern: '^_', // Ignore arguments starting with _
+//       },
+//     ],
+//   },
+// };
 
 module.exports = [
   {
