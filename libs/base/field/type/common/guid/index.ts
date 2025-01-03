@@ -1,8 +1,5 @@
+import { String_Column } from '../';
 
-import { merge } from 'lodash-es';
-
-import { String_Column } from '@bh/column-type/string';
-
-export const Guid = merge({}, String_Column, { isRequired: true });
+export const Guid = [String_Column, { isRequired: true }] as const;
 
 export * from './fn';

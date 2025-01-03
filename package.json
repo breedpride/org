@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "generate3": "npx tsx tools/plugins/creatio-v3/src/index.ts"
+    "generate3": "npx tsx tools/plugins/creatio-v3/src/index.ts",
+    "format": "nx format:write"
   },
   "private": true,
   "type": "module",

@@ -1,74 +1,66 @@
-type ScopesPlan = Array<{
+type ScopeNode = {
   name: string;
-  children?: ScopesPlan;
+  children?: ScopeNode[];
   [key: string]: any;
-}>;
+};
 
-/**
- * Функція для трансформації плану в рекурсивну структуру з побудовою шляхів.
- * @param plan Вхідний план
- * @param parentPath Батьківський шлях для побудови
- * @returns Рекурсивна структура з шляхами
- */
-export function transformScopesPlan(plan: ScopesPlan, parentPath = ''): any {
-  return plan.reduce<Record<string, any>>((acc, item) => {
-    const { name, children, ...rest } = item;
+export function transformWithProxy(plan: ScopeNode[], parentPath = ''): any {
+  const result: any = {};
 
-    console.log(rest);
-    const currentPath = parentPath + '/' + name || '';
-    console.log('rest', rest['path']);
-    console.log('currentPath', currentPath);
-    console.log('currentPath', parentPath);
-    if (children && children.length > 0) {
-      acc[name] = transformScopesPlan(children, currentPath);
-    } else {
-      const { ...restWithoutChildren } = rest;
-      acc[name] = { ...restWithoutChildren, path: currentPath };
-    }
+  plan.forEach((node) => {
+    const { name, children, ...rest } = node;
+    const currentPath = `${parentPath}/${name}`;
 
-    return acc;
-  }, {});
+    // Рекурсивна трансформація дочірніх елементів
+    const transformedChildren = children
+      ? transformWithProxy(children, currentPath)
+      : {};
+
+    // Створення Proxy для кожного вузла
+    result[name] = new Proxy(
+      { ...rest, path: currentPath, ...transformedChildren },
+      {
+        get(target, prop) {
+          if (prop in target) {
+            // console.log(`Accessing property "${String(prop)}" of "${name}"`);
+            return target[prop];
+          }
+          throw new Error(
+            `Property "${String(prop)}" does not exist on "${name}"`
+          );
+        },
+        set(target, prop, value) {
+          // console.log(
+          //   `Setting property "${String(prop)}" of "${name}" to`,
+          //   value
+          // );
+          target[prop] = value;
+          return true;
+        },
+      }
+    );
+  });
+
+  return result;
 }
 
-// Приклад вхідних даних
+// Вхідні дані
 const scopesPlan = [
   {
     name: 'base',
     children: [
       {
         name: 'field',
-        children: [
-          {
-            name: 'type',
-            type: 'lib',
-          },
-          {
-            name: 'name',
-          },
-        ],
+        children: [{ name: 'type', type: 'lib' }, { name: 'name' }],
       },
       {
         name: 'entity',
-        children: [
-          {
-            name: 'type',
-          },
-          {
-            name: 'config',
-          },
-        ],
+        children: [{ name: 'type' }, { name: 'config' }],
       },
     ],
   },
 ];
 
-export const getStructure = () => transformScopesPlan(scopesPlan);
 // Виклик функції
-const transformedPlan = transformScopesPlan(scopesPlan);
-
-// Результат
-console.log(transformedPlan);
-
-const node = { name: 'test', type: 'customType' };
-const { ...rest } = node;
-console.log(rest); // { type: "customType" }
+const scopes = transformWithProxy(scopesPlan);
+console.log(scopes.base.field.type.path); // Логування і доступ до властивості

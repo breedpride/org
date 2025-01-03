@@ -1,3 +1,2 @@
-import { merge } from 'lodash-es';
-import { String_Column } from '@bh/column-type/string';
-export const ShortText = merge({}, String_Column);
+import { String_Column } from '../';
+export const ShortText = [String_Column];

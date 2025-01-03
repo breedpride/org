@@ -1,4 +1,3 @@
-import { merge } from 'lodash-es';
-import { DateTime } from '@bh/column-type/datetime';
+import { DateTime } from '../';
 
-export const Date = merge({}, DateTime);
+export const Date = [DateTime] as const;

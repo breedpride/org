@@ -1,5 +1,5 @@
 export interface SchemaColumn {
-  uid: string;
+  uId: string;
   name: string;
   type: string;
   referenceSchema?: string;

@@ -1,3 +1,2 @@
-import { merge } from 'lodash-es';
-import { Number } from '@bh/column-type/number';
-export const Integer = merge({}, Number);
+import { Number } from '../';
+export const Integer = [Number] as const;

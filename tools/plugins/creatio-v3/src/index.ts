@@ -1,12 +1,12 @@
-import { Scope2 } from './scope';
 import {
   existsSync,
   mkdirSync,
+  PathLike,
   readdirSync,
   unlinkSync,
   writeFileSync,
 } from 'fs';
-import { getStructure, transformScopesPlan } from './reduser';
+import { transformWithProxy } from './reduser';
 function lowerize(str: string): string {
   return str.length > 1
     ? str[0].toLowerCase() + str.substring(1)
@@ -17,12 +17,13 @@ import * as path from 'path';
 import { exit } from 'process';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { fromFetch } from 'rxjs/fetch';
-import {
-  DateDataValueTypes,
-  FloatDataValueTypes,
-  IntegerDataValueTypes,
-  TextDataValueTypes,
-} from './data-value-type';
+
+// import {
+//   DateDataValueTypes,
+//   FloatDataValueTypes,
+//   IntegerDataValueTypes,
+//   TextDataValueTypes,
+// } from './data-value-type';
 // import { token } from './token';
 const token = 'agentpomidor117';
 const autoDisclaimer = `
@@ -39,69 +40,63 @@ const autoFirstDisclaimer = `
 
 // Get the directory name of the current module
 const __dirname = path.dirname(import.meta.url.replace('file://', ''));
-const lookupDirName = 'lookups';
-// Resolve the schema path relative to the current directory
 
-const libPath = path.resolve(__dirname, '../../../../libs/base/');
-// todo maybe FieldName
-const fieldSufix = 'FieldName';
+const fieldNameSufix = 'FieldName';
 
-const fields = {
-  names: 'names', // key?????
-  types: 'types',
-  // => new types new values
-  //default exports
-  // export ????
-};
-const scope = '@base';
-const basePath = path.resolve(__dirname, '../../../../libs/base/');
-const dbDirName = 'db/config';
+const baseScoupPath = path.resolve(__dirname, '../../../../');
+
 const entityDirName = 'entity/config';
-const fieldDirName = 'field/name';
 
-const fieldTypeDir = 'field/type';
-const dbDirImport = `${scope}/${dbDirName}`;
-const fieldDirImport = `${scope}/${fieldDirName}`;
-// const columnTypeDir = 'column-type/';
 const entityPath = path.resolve(
   __dirname,
   `../../../../libs/base/${entityDirName}/`
 );
-const dbPath = path.resolve(__dirname, `../../../../libs/base/${dbDirName}/`);
-const fieldNamePath = path.resolve(
-  __dirname,
-  `../../../../libs/base/${fieldDirName}/`
-);
-const fieldTypesPath = path.resolve(
-  __dirname,
-  `../../../../libs/base/${fieldTypeDir}/`
-);
 
+function getwrithePath(scope: Sc) {
+  return path.resolve(baseScoupPath, scope.path);
+}
 // Приклад вхідних даних
 const scopesPlan = [
   {
     name: 'base',
     children: [
+      // {
+      //   name: 'db',
+      //   scope: '@base/db',
+      //   children: [{ name: 'config', scope: '@base-db-config' }],
+      // },
       {
         name: 'field',
+        scope: '@base/field',
         children: [
           {
             name: 'type',
+            scope: '@base-field-type',
             type: 'lib',
+            children: [{ name: 'lookup' }, { name: 'ref' }],
           },
           {
+            scope: '@base-field-name',
             name: 'name',
+          },
+          {
+            name: 'uid',
+            scope: '@base-field-uid',
           },
         ],
       },
       {
         name: 'entity',
+        scope: '@base/entity',
         children: [
           {
             name: 'type',
+            scope: '@base-entity-type',
+            children: [{ name: 'lookup' }],
           },
           {
             name: 'config',
+            scope: '@base/entity/config',
           },
         ],
       },
@@ -109,10 +104,17 @@ const scopesPlan = [
   },
 ];
 
-const scopes = getStructure();
-// transformScopesPlan(scopesPlan);
+type Sc = {
+  [key: string]: Sc;
+} & {
+  scope: string;
+  path: string;
+};
+// TODO - use nx
+const scopes: Sc = transformWithProxy(scopesPlan, 'libs');
 
-console.log(Object.keys(scopes));
+console.log(Object.keys(scopes), Object.values(scopes));
+console.log('!!!!!!!!!!!!!!', scopes.base.path, scopes['path']);
 const _ = '_';
 const name_type = (name: string, type: string) => {
   return name + _ + type;
@@ -120,16 +122,20 @@ const name_type = (name: string, type: string) => {
 
 const globalColumnsMap = new Map();
 const globalSchemas = new Map();
-const columnMap = [];
-// Object.keys(scopes).forEach((e) => {
-//   console.log(e);
-//   console.log(scopes[e]);
-// });
+const columnMap: Iterable<any> | null | undefined = [];
+Object.keys(scopes).forEach((e) => {
+  console.log(e);
+  console.log(scopes.base);
+});
 // Object.values(scopes).forEach((e) => {
 //   console.log(e);
 //   console.log(e.children);
 // });
-function rewrite(dir, file, data) {
+function rewrite(
+  dir: string,
+  file: string,
+  data: string | NodeJS.ArrayBufferView<ArrayBufferLike>
+) {
   if (!existsSync(dir)) {
     mkdirSync(dir);
   }
@@ -137,38 +143,44 @@ function rewrite(dir, file, data) {
   writeFileSync(fullPath, data);
 }
 
-function writeifnotexist(dir, file, data) {
+function writeifnotexist(
+  dir: string,
+  file: string,
+  data: string | NodeJS.ArrayBufferView<ArrayBufferLike>
+) {
   if (!existsSync(dir)) {
     mkdirSync(dir);
   }
   const fullPath = path.resolve(dir, './', file);
   if (!existsSync(fullPath)) {
     writeFileSync(fullPath, data);
+  } else {
+    // TODO DISABLE IN PROD TODO - use devProd mode
+    writeFileSync(fullPath, data);
   }
 }
 
-function genIndex(filedir) {
-  const files = [];
+function genIndex(filedir: PathLike) {
+  const files: string[] = [];
   readdirSync(filedir).forEach((file) => files.push(file));
   rewrite(
-    filedir,
+    String(filedir),
     'index.ts',
     `
-        ${files
-          .filter((e) => e !== 'index.ts')
-          .map(
-            (e) =>
-              "export * from './" +
-              String(e).toLowerCase().replace('.ts', '') +
-              "';"
-          )
-          .join('')}
-        `
+          ${files
+            .filter((e) => e !== 'index.ts')
+            .map(
+              (e) =>
+                "export * from './" +
+                String(e).toLowerCase().replace('.ts', '') +
+                "';"
+            )
+            .join('')}
+          `
   );
 }
 
 function processSchema(schemaName: string, response: SchemaResponse[]) {
-  return;
   const schema = response[0];
   console.log(schemaName);
   console.log(schema.columns);
@@ -178,16 +190,26 @@ function processSchema(schemaName: string, response: SchemaResponse[]) {
     mkdirSync(schemaDir);
   }
   const columns = schema.columns;
-  const cleanColumns = columns.filter(
-    (e) =>
-      !(
-        e.type === 'ImageLookup' ||
-        e.type === 'Binary' ||
-        e.referenceSchema === 'SysImage' ||
-        e.type === 'Image'
-      )
-  );
-  cleanColumns.forEach((e) => globalColumnsMap.set(e.uid, e));
+  const cleanColumns = columns
+    .filter(
+      (e) =>
+        !(
+          e.type === 'ImageLookup' ||
+          e.type === 'Binary' ||
+          e.referenceSchema === 'SysImage' ||
+          e.type === 'Image'
+        )
+    )
+    .map((e) => {
+      return {
+        ...e,
+        importType:
+          e.type === 'Lookup' ? e.referenceSchema + '_Lookup' : e.type,
+        importFieldName: e.name + '_' + fieldNameSufix,
+      };
+    });
+
+  cleanColumns.forEach((e) => globalColumnsMap.set(e.uId, e));
 
   // const fieldPath = path.resolve(entityPath, './');
 
@@ -197,48 +219,47 @@ function processSchema(schemaName: string, response: SchemaResponse[]) {
   const fFileName = schemaName.toLowerCase();
 
   writeifnotexist(
-    path.resolve(dbPath),
+    getwrithePath(scopes.base.field.type.ref),
     fFileName + '.ts',
     `${autoFirstDisclaimer}
 
-import { Lookup_${schema.primaryDisplayColumnName}} from '@bh/column-type/lookup';
+import { Lookup_${schema.primaryDisplayColumnName}} from '${scopes.base.field.type.scope}';
 export const ${schemaName}_Config =  [
 Lookup_${schema.primaryDisplayColumnName},
 { entitySchemaName: '${schemaName}' } as const,
-];
-
-export const Lookup_${schemaName} = [ ${schemaName}_Config, 
-
-//import { FilterFieldConfig } from '@bh/superfield';
-// plugin settings Partial<FilterFieldConfig> for all 'Refs' to this schema etc 'Lookup' ${schemaName}_Lookup]
-{} as const,
-]  
+]; 
 `
   );
-  // ----------------- Lookups ----------------------
-  // lookup.ts for schema
-  // ------------------------------------------------
-  const lookups = cleanColumns.filter((e) => e.referenceSchema);
-  lookups.forEach((e) => {
-    const fFileName = e.referenceSchema?.toLowerCase();
-    // TODO - chech if file not exit - add to queue
-  });
-
   // ----------------- columns --------------------
-  //
+  // Field ID
   // ------------------------------------------------
   cleanColumns.forEach((e) => {
+    writeifnotexist(
+      getwrithePath(scopes.base.field.uid),
+      e.uId + '.ts',
+      ` 
+import { ${e.importFieldName} } from '${scopes.base.field.name.scope}';
+import { ${e.importType}  } from '${scopes.base.field.type.scope}';
+
+const field = [
+  ${e.importFieldName},
+  ${e.importType},
+  {label: '${e.caption}'} as const,
+  ${e.isRequired ? '{required: true } as const,' : ''}
+  ${e.levelAccess === 2 ? '{readOnly: true } as const' : ''} 
+  {uId: '${e.uId}'} as const
+  ] as const
+export default field;
+  `
+    );
     // ----------------- field name --------------------
     // Create Field Name Settings if not Exists
     // ------------------------------------------------
     writeifnotexist(
-      fieldNamePath,
+      getwrithePath(scopes.base.field.name),
       e.name.toLowerCase() + '.ts',
       `${autoFirstDisclaimer}
-        export const ${e.name}_${fieldSufix} = [
-        {"id": '${e.name}'} as const,
-] as const 
-        ;
+        export const ${e.importFieldName} = [ {"id": '${e.name}'} as const ] as const ;
         `
     );
     // ----------------- field name --------------------
@@ -246,39 +267,17 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
     // ------------------------------------------------
 
     if (e.type === 'Lookup') {
-      // ----------------- fieldName --------------------
-      // father => pet  // TODO FieldName Settings!!! not Field
-      // ------------------------------------------------
       writeifnotexist(
-        fieldTypesPath + 'lookup/',
+        getwrithePath(scopes.base.field.type.lookup),
         e.referenceSchema?.toLowerCase() + '.ts',
         `
-        import { ${e.referenceSchema}_Config } from '${dbDirImport}';
-        export const ${e.referenceSchema}_Lookup = [ 
+        import { ${e.referenceSchema}_Config } from '../';
+        export const ${e.importType} = [ 
         ${e.referenceSchema}_Config
-        // todo plugin
         ] as const;
         `
       );
-    } else {
-      // // ----------------- name +type--------------------
-      // // name + type
-      // // ------------------------------------------------
-      // rewrite(
-      //   filedir,
-      //   e.name.toLowerCase() + '-' + e.type.toLowerCase() + '.ts',
-      //   `
-      //   ${autoFirstDisclaimer}
-      //   import { ${e.type} } from '@bh/column-type/${e.type.toLowerCase()}';
-      //   import { ${e.name}_${fieldSufix} } from './${e.name.toLowerCase()}';
-      //   export const ${e.name}_${e.type} = [
-      //     ${e.name}_${fieldSufix},
-      //     ${e.type}
-      // ];
-      //   `
-      // );
     }
-    // genIndex(filedir);
   });
 
   // ----------------- schema.ts --------------------
@@ -287,8 +286,8 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
   const cc = cleanColumns.map((e) => {
     const type = e.referenceSchema
       ? e.referenceSchema
-      : Object.values(TextDataValueTypes).includes(e.type) ||
-        e.type === 'MediumText' ||
+      : // Object.values(TextDataValueTypes).includes(e.type) ||
+      e.type === 'MediumText' ||
         e.type === 'ShortText' ||
         e.type === 'MaxSizeText' ||
         e.type === 'EmailText' ||
@@ -297,16 +296,13 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
         e.type === 'WebText' ||
         e.type === 'Color'
       ? 'String'
-      : Object.values(FloatDataValueTypes).includes(e.type) ||
-        e.type === 'Integer' ||
-        e.type === 'Number' ||
-        e.type.includes('Float')
+      : // Object.values(FloatDataValueTypes).includes(e.type) ||
+      e.type === 'Integer' || e.type === 'Number' || e.type.includes('Float')
       ? 'Number'
-      : Object.values(IntegerDataValueTypes).includes(e.type)
-      ? 'Number'
-      : Object.values(DateDataValueTypes).includes(e.type) ||
-        e.type === 'DateTime' ||
-        e.type === 'Date'
+      : // : Object.values(IntegerDataValueTypes).includes(e.type)
+      // ? 'Number'
+      // Object.values(DateDataValueTypes).includes(e.type) ||
+      e.type === 'DateTime' || e.type === 'Date'
       ? 'Date'
       : e.type === 'Boolean'
       ? 'Boolean'
@@ -331,19 +327,27 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
     .join(';\n  ');
 
   const imports = cleanColumns.map((e) => e.referenceSchema).filter((e) => e);
+  // const fieldTypeImportsSet = [
+  //   ...new Set(
+  //     cleanColumns
+  //       .map((e) =>
+  //         e.referenceSchema ? e.referenceSchema + '_Lookup' : e.type
+  //       )
+  //       .filter((e) => e)
+  //   ),
+  // ];
   // const importsClean = imports.filter(function (item, pos) {
   //   return imports.indexOf(item) == pos;
   // });
   const importsClean = [...new Set(imports)];
   rewrite(
-    schemaDir,
-    'type.ts',
+    getwrithePath(scopes.base.entity.type),
+    schemaName.toLowerCase() + '.ts',
     `
 ${importsClean
   .filter((e) => e !== schemaName)
   .map(
-    (e) =>
-      'import { ' + e + " } from '../" + String(e).toLowerCase() + "/type';"
+    (e) => 'import { ' + e + " } from './" + String(e).toLowerCase() + "';\n"
   )
   .join('')}
 import isArray from 'lodash-es/isArray';
@@ -366,6 +370,8 @@ export function  ${schemaName}<T extends Partial< ${schemaName}> | Partial< ${sc
   if (isArray(config)) {
     return config.reduce((acc, item) => ({ ...acc, ...item }), {});
   }
+
+  // TODO - передаем модель яка нам потрібна. Можливо як дженерік. Можливо як кервайред
   return { ...config };
   // return getPartialFromConfig(config);
 }
@@ -375,86 +381,58 @@ export function  ${schemaName}<T extends Partial< ${schemaName}> | Partial< ${sc
   // function.ts
   // ------------------------------------------------
 
-  if (existsSync(schemaDir + 'function.ts')) {
-    unlinkSync(schemaDir + 'function.ts');
-  }
-  if (existsSync(schemaDir + 'overrides.ts')) {
-    unlinkSync(schemaDir + 'overrides.ts');
-  }
-  if (existsSync(schemaDir + 'plugin.ts')) {
-    unlinkSync(schemaDir + 'plugin.ts');
-  }
-  if (existsSync(schemaDir + 'config.ts')) {
-    unlinkSync(schemaDir + 'config.ts');
-  }
-  if (existsSync(schemaDir + 'lookup.ts')) {
-    unlinkSync(schemaDir + 'lookup.ts');
-  }
-  if (existsSync(schemaDir + 'lookup.plugin.ts')) {
-    unlinkSync(schemaDir + 'lookup.plugin.ts');
-  }
+  // if (existsSync(schemaDir + 'function.ts')) {
+  //   unlinkSync(schemaDir + 'function.ts');
+  // }
+  // if (existsSync(schemaDir + 'overrides.ts')) {
+  //   unlinkSync(schemaDir + 'overrides.ts');
+  // }
+  // if (existsSync(schemaDir + 'plugin.ts')) {
+  //   unlinkSync(schemaDir + 'plugin.ts');
+  // }
+  // if (existsSync(schemaDir + 'config.ts')) {
+  //   unlinkSync(schemaDir + 'config.ts');
+  // }
+  // if (existsSync(schemaDir + 'lookup.ts')) {
+  //   unlinkSync(schemaDir + 'lookup.ts');
+  // }
+  // if (existsSync(schemaDir + 'lookup.plugin.ts')) {
+  //   unlinkSync(schemaDir + 'lookup.plugin.ts');
+  // }
   // ----------------- plugin.ts --------------------
   // FilterFieldConfig
   // ------------------------------------------------
   // let custom = `import { Id, StaticFieldConfig,  ${importsClean.join(
-  rewrite(
-    schemaDir,
-    'fields.plugin.ts',
-    ` ${autoFirstDisclaimer}
-      import {${schemaName}} from './type';
-        import { FilterFieldConfig } from '@bh/superfield';
-        export const ${schemaName}_Plugin : Record<keyof ${schemaName}, Partial<FilterFieldConfig>>= {
-        ${cleanColumns.map((e) => `${e.name}: {},`).join('')}
-        }
-      `
-  );
+  // rewrite(
+  //   schemaDir,
+  //   'fields.plugin.ts',
+  //   ` ${autoFirstDisclaimer}
+  //     import {${schemaName}} from './type';
+  //       import { FilterFieldConfig } from '@bh/superfield';
+  //       export const ${schemaName}_Plugin : Record<keyof ${schemaName}, Partial<FilterFieldConfig>>= {
+  //       ${cleanColumns.map((e) => `${e.name}: {},`).join('')}
+  //       }
+  //     `
+  // );
 
   // export const ${schemaName}_${e.name} : Partial<StaticFieldConfig<${e.realType}>> = {}; \n`;
   // ----------------- fields.ts -----------------------
   //
   // ----------------------------------------------------
+
   rewrite(
-    schemaDir,
-    'fields' + '.ts',
+    getwrithePath(scopes.base.entity.config),
+    schemaName.toLowerCase() + '.ts',
     `
     ${autoDisclaimer}
-    import { merge } from 'lodash-es';
- ${cleanColumns
-   .map(
-     (e) =>
-       `import { ${
-         e.type === 'Lookup' ? e.referenceSchema + '_Lookup' : e.type
-       }} from '${fieldDirImport}'`
-   )
-   .join(';')}
-    
-            'import {
-              ${cleanColumns
-                .map((e) => `${e.name}_${fieldSufix}`)
-                .join(',')} from '@field';
-        )
-        
-    import { ${schemaName}_Plugin  } from './fields.plugin';
-import { getColumns, getDateColumns } from '@bh/entity/consts';
+    ${cleanColumns
+      .map(
+        (e) => `import ${e.name} from '${scopes.base.field.uid.scope}/${e.uId}'`
+      )
+      .join(';\n')};
+
 import {createInjectionToken} from 'ngxtension/create-injection-token';
-import {${schemaName}_Lookup} from '${dbDirImport}';
-
-// TODO - check plugin list do not load empty plugins !!!
-${cleanColumns
-  .map(
-    (e) => `
-const ${e.name}  =[
-  ${e.name}_${fieldSufix},
-  ${e.type === 'Lookup' ? e.referenceSchema + '_Lookup' : e.type}
-  {label: '${e.caption}'} as const,
-  ${e.isRequired ? '{required: true }' : ''},
-  ${e.levelAccess === 2 ? '{readOnly: true }' : ''}, 
-  {uId: '${e.uid}'}
-  
-`
-  )
-  .join(';')}
-
+import {${schemaName}_Lookup} from '${scopes.base.field.type.scope}';
 
 
     export const ${schemaName.toUpperCase()}_FIELD_CONFIG = {
@@ -468,79 +446,22 @@ const ${e.name}  =[
 
 
 
-
-    export const ${schemaName.toUpperCase()}_ENTITY_COLUMNS = getColumns(${schemaName.toUpperCase()}_FIELD_CONFIG);
-
-  export const ${schemaName.toUpperCase()}_DATE_FIELDS = [];
-
-
-
-
 export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => {
   return {
   ${schemaName}_Lookup,
   
   fieldsConfig: ${schemaName.toUpperCase()}_FIELD_CONFIG,
-  entitiesColumns: ${schemaName.toUpperCase()}_ENTITY_COLUMNS,
-  dateColumns: getDateColumns(${schemaName.toUpperCase()}_FIELD_CONFIG),
+
   };
 });
-
-
-
-
     `
   );
 
-  // {
-  //    ${cleanColumns
-  //      .map(
-  //        e => `
-  //         ${e.name} :
-  //   field(${e.name})`
-  //      )
-  //      .join(',')}
-  //     }
-
-  genIndex(schemaDir);
+  // genIndex(schemaDir);
 
   // ----------------- fields.ts -----------------
   //
   // ----------------------------------------------------
-  const fields = cc.map((e) => {
-    const imp = `${schemaName}_${e.name}`;
-    let f = '';
-    if (e.referenceSchema) {
-      if (!processsed.includes(e.referenceSchema)) {
-        columnMap.push(e.referenceSchema);
-        spaceList.push({ name: e.referenceSchema, source: schemaName });
-      }
-      const parent = e.referenceSchema ? e.referenceSchema : e.name;
-      f = `${e.name}: field({
-      id: '${schemaName}.${e.name}',
-      parentSchemaNames: ['${parent}_FIELD'],
-      customRequired: ${e.isRequired},
-      customReadOnly: ${e.levelAccess === 1},
-      customPlaceholder: '${e.caption}',
-      ...${imp},
-    }),`;
-    } else {
-      // TODO hasFile
-      // columnsTyped;
-      f = `${e.name}: field({
-      id: '${schemaName}.${e.name}',
-      entitySchemaName: '${e.realType}',
-      customRequired: ${e.isRequired},
-      customReadOnly: ${e.levelAccess === 1},
-      customPlaceholder: '${e.caption}',
-      ...${imp},
-    }),`;
-    }
-    return {
-      field: f,
-      import: imp,
-    };
-  });
 
   //   const fieldsConfigFile = schemaDir + 'fields-config' + '.ts';
   //   const fields_config = `import { createInjectionToken } from 'ngxtension/create-injection-token';
@@ -602,7 +523,7 @@ const generateSchema = (s: { name: string; source: string }) => {
     next: (result) => processSchema(schema, result),
   });
 };
-const processsed = [];
+const processsed: Iterable<any> | null | undefined = [];
 const spaceList: { name: string; source: string }[] = [
   { name: 'Contact', source: 'root' },
 
@@ -669,7 +590,7 @@ const spaceList: { name: string; source: string }[] = [
   // EntitySchemaLookup
 ];
 
-const setPlusOne = (schemaName) => {
+const setPlusOne = (schemaName: string) => {
   processsed.push(spaceList.shift().name);
   if (spaceList.length === 0) {
     const fieldSet = new Set(columnMap);
@@ -738,3 +659,24 @@ export class SchemaTokenMapService {
 
 // TODO cleanUp('./src/app/_const/schemas/generated/');
 generateSchema(spaceList[0]);
+
+// import { Account_FieldName } from '@base/field/name';
+// import { Account_Lookup } from '@base/field/type';
+// export const map = [
+//   '5c6ca10e-1180-4c1e-8a50-55a72ff9bdd4',
+//   [
+//     { uId: '5c6ca10e-1180-4c1e-8a50-55a72ff9bdd4' } as const,
+//     [Account_FieldName, Account_Lookup, { label: 'Account' } as const],
+//   ] as const,
+// ];
+// const myMap = new Map([
+//   [
+//     '5c6ca10e-1180-4c1e-8a50-55a72ff9bdd4',
+//     [Account_FieldName, Account_Lookup, { label: 'Account' } as const],
+//   ],
+//   [
+//     '5c6ca10e-110-4c1e-8a50-55a72ffebdd4',
+//     [Account_FieldName, Account_Lookup, { label: 'Account' } as const],
+//   ],
+//   // [3, "three"],
+// ]);
