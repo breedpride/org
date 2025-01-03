@@ -1,10 +1,8 @@
-
-    
 // ----------------- AUTO GENERATED FILE-----------
 // Changes will be overwritten
 // ------------------------------------------------
 
-    import Id from '@base-field-uid/ae0e45ca-c495-4fe7-a39d-3ab7278e1617';
+import Id from '@base-field-uid/ae0e45ca-c495-4fe7-a39d-3ab7278e1617';
 import Name from '@base-field-uid/a5cca792-47dd-428a-83fb-5c92bdd97ff8';
 import CreatedOn from '@base-field-uid/e80190a5-03b2-4095-90f7-a193a960adee';
 import CreatedBy from '@base-field-uid/ebf6bb93-8aa6-4a01-900d-c6ea67affe21';
@@ -50,67 +48,61 @@ import VerificationStatus from '@base-field-uid/426171f1-e21e-45a7-8489-eb94513f
 import Cover from '@base-field-uid/e39b5dad-fb20-bc18-4e1e-89b8481b117d';
 import Rating from '@base-field-uid/4c6ec495-488f-4a53-ac00-91ab9747f6d1';
 
-import {createInjectionToken} from 'ngxtension/create-injection-token';
-import {Contact_Lookup} from '@base-field-ref-type';
+import { createInjectionToken } from 'ngxtension/create-injection-token';
+import { Contact_Lookup } from '@base-table-ref';
 
-
-    export const CONTACT_FIELD_CONFIG = {
-    
-        Id,
-        Name,
-        CreatedOn,
-        CreatedBy,
-        ModifiedOn,
-        ModifiedBy,
-        SalutationType,
-        Gender,
-        Account,
-        DecisionRole,
-        Job,
-        JobTitle,
-        BirthDate,
-        Phone,
-        MobilePhone,
-        HomePhone,
-        Skype,
-        Email,
-        AddressType,
-        Address,
-        City,
-        Region,
-        Zip,
-        Country,
-        Notes,
-        Facebook,
-        LinkedIn,
-        Twitter,
-        FacebookId,
-        LinkedInId,
-        TwitterId,
-        Surname,
-        GivenName,
-        MiddleName,
-        Confirmed,
-        IsNonActualEmail,
-        Language,
-        Age,
-        AlternateNames,
-        IsEmailConfirmed,
-        Url,
-        AvatarUrl,
-        VerificationStatus,
-        Cover,
-        Rating
-    } as const;
-
-
+export const CONTACT_FIELD_CONFIG = {
+  Id,
+  Name,
+  CreatedOn,
+  CreatedBy,
+  ModifiedOn,
+  ModifiedBy,
+  SalutationType,
+  Gender,
+  Account,
+  DecisionRole,
+  Job,
+  JobTitle,
+  BirthDate,
+  Phone,
+  MobilePhone,
+  HomePhone,
+  Skype,
+  Email,
+  AddressType,
+  Address,
+  City,
+  Region,
+  Zip,
+  Country,
+  Notes,
+  Facebook,
+  LinkedIn,
+  Twitter,
+  FacebookId,
+  LinkedInId,
+  TwitterId,
+  Surname,
+  GivenName,
+  MiddleName,
+  Confirmed,
+  IsNonActualEmail,
+  Language,
+  Age,
+  AlternateNames,
+  IsEmailConfirmed,
+  Url,
+  AvatarUrl,
+  VerificationStatus,
+  Cover,
+  Rating,
+} as const;
 
 export const [, , Contact_SCHEMA] = createInjectionToken(() => {
   return {
-  Contact_Lookup,
-  
-  fieldsConfig: CONTACT_FIELD_CONFIG,
+    Contact_Lookup,
 
+    fieldsConfig: CONTACT_FIELD_CONFIG,
   };
 });
-    

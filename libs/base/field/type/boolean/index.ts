@@ -1,8 +1,8 @@
 import { FormFieldCode } from '@bh/consts';
 
-//--------------------------------------------
+// --------------------------------------------
 // Boolean
-//--------------------------------------------
+// --------------------------------------------
 export const booleanParse = (value: any): boolean => value === 'true';
 export const booleanStringify = (value: boolean): string => value.toString();
 

@@ -3,10 +3,9 @@ import {
   mkdirSync,
   PathLike,
   readdirSync,
-  unlinkSync,
   writeFileSync,
 } from 'fs';
-import { transformWithProxy, transformWithScope } from './reduser';
+import { transformWithScope } from './reduser';
 function lowerize(str: string): string {
   return str.length > 1
     ? str[0].toLowerCase() + str.substring(1)
@@ -50,7 +49,7 @@ const entityDirName = 'entity/config';
 
 const entityPath = path.resolve(
   __dirname,
-  `../../../../libs/base/${entityDirName}/`
+  `../../../../libs/base/${entityDirName}/`,
 );
 
 function getwrithePath(scope: Sc) {
@@ -71,16 +70,12 @@ const scopesPlan = [
         scope: '@base/field',
         children: [
           {
-            name: 'common-type',
-            scope: '@base-field-common-type',
+            name: 'type',
+            scope: '@base-field-type',
             type: 'lib',
             // children: [{ name: 'common' }, { type: 'test' }],
           },
-          {
-            name: 'ref-type',
-            scope: '@base-field-ref-type',
-            children: [{ name: 'lookup' }, { name: 'ref' }],
-          },
+
           {
             scope: '@base-field-name',
             name: 'name',
@@ -106,6 +101,21 @@ const scopesPlan = [
           },
         ],
       },
+      {
+        name: 'table',
+        scope: '@base/table',
+        children: [
+          {
+            name: 'ref',
+            scope: '@base-table-ref',
+            children: [{ name: 'lookup' }, { name: 'ref' }],
+          },
+          {
+            name: 'config',
+            scope: '@base-table-config',
+          },
+        ],
+      },
     ],
   },
 ];
@@ -122,14 +132,11 @@ const scopes: Sc = transformWithScope(scopesPlan, 'libs');
 console.log(Object.keys(scopes), Object.values(scopes));
 // console.log('!!!!!!!!!!!!!!', scopes.base.path, scopes['path']);
 const _ = '_';
-const name_type = (name: string, type: string) => {
-  return name + _ + type;
-};
 
 const globalColumnsMap = new Map();
-const globalSchemas = new Map();
+
 const columnMap: Iterable<any> | null | undefined = [];
-Object.keys(scopes).forEach((e) => {
+Object.keys(scopes).forEach(e => {
   console.log(e);
   console.log(scopes.base);
 });
@@ -140,7 +147,7 @@ Object.keys(scopes).forEach((e) => {
 function rewrite(
   dir: string,
   file: string,
-  data: string | NodeJS.ArrayBufferView<ArrayBufferLike>
+  data: string | NodeJS.ArrayBufferView<ArrayBufferLike>,
 ) {
   if (!existsSync(dir)) {
     mkdirSync(dir);
@@ -152,7 +159,7 @@ function rewrite(
 function writeifnotexist(
   dir: string,
   file: string,
-  data: string | NodeJS.ArrayBufferView<ArrayBufferLike>
+  data: string | NodeJS.ArrayBufferView<ArrayBufferLike>,
 ) {
   if (!existsSync(dir)) {
     mkdirSync(dir);
@@ -168,21 +175,21 @@ function writeifnotexist(
 
 function genIndex(filedir: PathLike) {
   const files: string[] = [];
-  readdirSync(filedir).forEach((file) => files.push(file));
+  readdirSync(filedir).forEach(file => files.push(file));
   rewrite(
     String(filedir),
     'index.ts',
     `
           ${files
-            .filter((e) => e !== 'index.ts')
+            .filter(e => e !== 'index.ts')
             .map(
-              (e) =>
+              e =>
                 "export * from './" +
                 String(e).toLowerCase().replace('.ts', '') +
-                "';"
+                "';",
             )
             .join('')}
-          `
+          `,
   );
 }
 
@@ -198,29 +205,29 @@ function processSchema(schemaName: string, response: SchemaResponse[]) {
   const columns = schema.columns;
   const cleanColumns = columns
     .filter(
-      (e) =>
+      e =>
         !(
           e.type === 'ImageLookup' ||
           e.type === 'Binary' ||
           e.referenceSchema === 'SysImage' ||
           e.type === 'Image'
-        )
+        ),
     )
-    .map((e) => {
+    .map(e => {
       return {
         ...e,
         typeModel:
           e.type === 'Lookup'
             ? {
-                scope: 'ref-type',
+                scope: 'ref',
                 name: e.referenceSchema + '_Lookup',
               }
-            : { name: e.type, scope: 'common-type' },
+            : { name: e.type, scope: 'type' },
         importFieldName: e.name + '_' + fieldNameSufix,
       };
     });
 
-  cleanColumns.forEach((e) => globalColumnsMap.set(e.uId, e));
+  cleanColumns.forEach(e => globalColumnsMap.set(e.uId, e));
 
   // const fieldPath = path.resolve(entityPath, './');
 
@@ -230,28 +237,30 @@ function processSchema(schemaName: string, response: SchemaResponse[]) {
   const fFileName = schemaName.toLowerCase();
 
   writeifnotexist(
-    getwrithePath(scopes.base.field['ref-type']),
+    getwrithePath(scopes.base.table.config),
     fFileName + '.ts',
     `${autoFirstDisclaimer}
 
-import { Lookup_${schema.primaryDisplayColumnName}} from '${scopes.base.field['common-type'].scope})}';
+import { Lookup_${schema.primaryDisplayColumnName}} from '${scopes.base.field['type'].scope}';
 export const ${schemaName}_Config =  [
 Lookup_${schema.primaryDisplayColumnName},
 { entitySchemaName: '${schemaName}' } as const,
-]; 
-`
+];
+`,
   );
   // ----------------- columns --------------------
   // Field ID
   // ------------------------------------------------
-  cleanColumns.forEach((e) => {
+  cleanColumns.forEach(e => {
     writeifnotexist(
       getwrithePath(scopes.base.field.uid),
       e.uId + '.ts',
-      ` 
+      `
 import { ${e.importFieldName} } from '${scopes.base.field.name.scope}';
 import { ${e.typeModel.name}  } from '${
-        scopes.base.field['common-type'].scope
+        e.referenceSchema
+          ? scopes.base.field['type'].scope
+          : scopes.base.table['ref'].scope
       }';
 
 const field = [
@@ -259,11 +268,11 @@ const field = [
   ${e.typeModel.name},
   {label: '${e.caption}'} as const,
   ${e.isRequired ? '{required: true } as const,' : ''}
-  ${e.levelAccess === 2 ? '{readOnly: true } as const' : ''} 
+  ${e.levelAccess === 2 ? '{readOnly: true } as const' : ''}
   {uId: '${e.uId}'} as const
   ] as const
 export default field;
-  `
+  `,
     );
     // ----------------- field name --------------------
     // Create Field Name Settings if not Exists
@@ -273,7 +282,7 @@ export default field;
       e.name.toLowerCase() + '.ts',
       `${autoFirstDisclaimer}
         export const ${e.importFieldName} = [ {"id": '${e.name}'} as const ] as const ;
-        `
+        `,
     );
     // ----------------- field name --------------------
     // Create Field Name Settings if not Exists
@@ -281,14 +290,14 @@ export default field;
     // TODO fix import
     if (e.type === 'Lookup') {
       writeifnotexist(
-        getwrithePath(scopes.base.field['ref-type']['lookup']),
+        getwrithePath(scopes.base.table['ref']['lookup']),
         e.referenceSchema?.toLowerCase() + '.ts',
         `
-        import { ${e.referenceSchema}_Config } from '../ref';
-        export const ${e.typeModel.name} = [ 
+        import { ${e.referenceSchema}_Config } from '${scopes.base.table.config.scope}';
+        export const ${e.typeModel.name} = [
         ${e.referenceSchema}_Config
         ] as const;
-        `
+        `,
       );
     }
   });
@@ -296,7 +305,7 @@ export default field;
   // ----------------- schema.ts --------------------
   //
   // ------------------------------------------------
-  const cc = cleanColumns.map((e) => {
+  const cc = cleanColumns.map(e => {
     const type = e.referenceSchema
       ? e.referenceSchema
       : // Object.values(TextDataValueTypes).includes(e.type) ||
@@ -327,7 +336,7 @@ export default field;
 
   const columnsType = cc
     .map(
-      (e) =>
+      e =>
         e.name +
         `: ${
           e.realType === 'String' ||
@@ -335,11 +344,11 @@ export default field;
           e.realType === 'Number'
             ? lowerize(e.realType)
             : e.realType
-        }`
+        }`,
     )
     .join(';\n  ');
 
-  const imports = cleanColumns.map((e) => e.referenceSchema).filter((e) => e);
+  const imports = cleanColumns.map(e => e.referenceSchema).filter(e => e);
   // const fieldTypeImportsSet = [
   //   ...new Set(
   //     cleanColumns
@@ -358,10 +367,8 @@ export default field;
     schemaName.toLowerCase() + '.ts',
     `
 ${importsClean
-  .filter((e) => e !== schemaName)
-  .map(
-    (e) => 'import { ' + e + " } from './" + String(e).toLowerCase() + "';\n"
-  )
+  .filter(e => e !== schemaName)
+  .map(e => 'import { ' + e + " } from './" + String(e).toLowerCase() + "';\n")
   .join('')}
 import isArray from 'lodash-es/isArray';
 import { UnionToIntersection } from 'ts-essentials';
@@ -388,7 +395,7 @@ export function  ${schemaName}<T extends Partial< ${schemaName}> | Partial< ${sc
   return { ...config };
   // return getPartialFromConfig(config);
 }
-`
+`,
   );
   // ----------------- Function ----------------------
   // function.ts
@@ -440,19 +447,19 @@ export function  ${schemaName}<T extends Partial< ${schemaName}> | Partial< ${sc
     ${autoDisclaimer}
     ${cleanColumns
       .map(
-        (e) => `import ${e.name} from '${scopes.base.field.uid.scope}/${e.uId}'`
+        e => `import ${e.name} from '${scopes.base.field.uid.scope}/${e.uId}'`,
       )
       .join(';\n')};
 
 import {createInjectionToken} from 'ngxtension/create-injection-token';
-import {${schemaName}_Lookup} from '${scopes.base.field['ref-type'].scope}';
+import {${schemaName}_Lookup} from '${scopes.base.table['ref'].scope}';
 
 
     export const ${schemaName.toUpperCase()}_FIELD_CONFIG = {
     ${cleanColumns
       .map(
-        (e) => `
-        ${e.name}`
+        e => `
+        ${e.name}`,
       )
       .join(',')}
     } as const;
@@ -462,42 +469,13 @@ import {${schemaName}_Lookup} from '${scopes.base.field['ref-type'].scope}';
 export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => {
   return {
   ${schemaName}_Lookup,
-  
+
   fieldsConfig: ${schemaName.toUpperCase()}_FIELD_CONFIG,
 
   };
 });
-    `
+    `,
   );
-
-  // genIndex(schemaDir);
-
-  // ----------------- fields.ts -----------------
-  //
-  // ----------------------------------------------------
-
-  //   const fieldsConfigFile = schemaDir + 'fields-config' + '.ts';
-  //   const fields_config = `import { createInjectionToken } from 'ngxtension/create-injection-token';
-  // import { field } from '../..';
-  // import { ${fields
-  //     .filter((e) => e.import !== schemaName)
-  //     .map((e) => e.import)
-  //     .join(', ')} } from './custom';
-
-  // export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => {
-  //   return {
-
-  //   entitySchemaName: '${schemaName}',
-  //   fieldsConfig:   { ${fields.map((e) => e.field).join('\n    ')}
-  // }
-  //     };
-  // });
-  // `;
-
-  // writeFileSync(fieldsConfigFile, fields_config);
-  // genIndex(dbPath + '/' + schemaName.toLowerCase());
-  return;
-  setPlusOne(schemaName);
 }
 
 const generateSchema = (s: { name: string; source: string }) => {
@@ -512,10 +490,10 @@ const generateSchema = (s: { name: string; source: string }) => {
         'Content-Type': 'application/json',
       },
       method: 'GET',
-    }
+    },
   ).pipe(
-    tap((res) => console.error(schema)),
-    switchMap((response) => {
+    tap(res => console.error(schema)),
+    switchMap(response => {
       // console.log(response);
       if (response.ok) {
         // OK return data
@@ -525,15 +503,15 @@ const generateSchema = (s: { name: string; source: string }) => {
         return of({ error: true, message: `Error ${response.status}` });
       }
     }),
-    catchError((err) => {
+    catchError(err => {
       // Network or other error, handle appropriately
       console.error(err);
       return of({ error: true, message: err.message });
-    })
+    }),
   );
-  data$.pipe(map((data) => data?.result?.data)).subscribe({
+  data$.pipe(map(data => data?.result?.data)).subscribe({
     complete: () => console.log('status'),
-    next: (result) => processSchema(schema, result),
+    next: result => processSchema(schema, result),
   });
 };
 const processsed: Iterable<any> | null | undefined = [];
@@ -572,7 +550,7 @@ const spaceList: { name: string; source: string }[] = [
     source: 'root',
   },
 
-  //TODO @annaglova check tables
+  // TODO @annaglova check tables
 
   {
     name: 'Post',
@@ -586,16 +564,16 @@ const spaceList: { name: string; source: string }[] = [
   { name: 'BreedprideCollection', source: 'root' },
   // BreedprideCollectionType
   { name: 'BreedprideCollectionEntity', source: 'root' },
-  //Event
+  // Event
   { name: 'Event', source: 'root' },
 
   // ...['AchievementInBreed', 'TopPatronInBreed'],
-  //Cover
+  // Cover
   {
     name: 'Cover',
     source: 'root',
   },
-  //Note
+  // Note
   {
     name: 'Note',
     source: 'root',
@@ -610,8 +588,8 @@ const setPlusOne = (schemaName: string) => {
     const processedSet = new Set(processsed);
     const imp = [...fieldSet, ''].join('_FIELD, ');
     const schemasimp = [...processedSet, ''].join('_SCHEMA, ');
-    const test = [...fieldSet].map((e) => `['${e}_FIELD', ${e}_FIELD],`);
-    const schemas = [...processedSet].map((e) => `['${e}', ${e}_SCHEMA],`);
+    const test = [...fieldSet].map(e => `['${e}_FIELD', ${e}_FIELD],`);
+    const schemas = [...processedSet].map(e => `['${e}', ${e}_SCHEMA],`);
     const file = `
 import { Injectable, InjectionToken, Injector } from '@angular/core';
 import { BaseLookup_FIELD, Id_FIELD, Name_FIELD } from '.';

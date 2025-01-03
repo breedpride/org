@@ -8,11 +8,11 @@ type ScopeNode = {
 export function transformWithScope(
   plan: ScopeNode[],
   parentPath = '',
-  parentScope = ''
+  parentScope = '',
 ): Record<string, any> {
   const result: Record<string, any> = {};
 
-  plan.forEach((node) => {
+  plan.forEach(node => {
     const { name, scope, children, ...rest } = node;
     const currentPath = `${parentPath}/${name}`;
     const currentScope = scope || `${parentScope}/${name}`;
@@ -37,14 +37,14 @@ export function transformWithScope(
             return target[prop as keyof typeof target];
           }
           throw new Error(
-            `Property "${String(prop)}" does not exist on "${name}"`
+            `Property "${String(prop)}" does not exist on "${name}"`,
           );
         },
         set(target, prop, value) {
           target[prop as keyof typeof target] = value;
           return true;
         },
-      }
+      },
     );
 
     // Додавання дочірніх вузлів як властивостей
@@ -72,7 +72,7 @@ const scopesPlan = [
           },
           {
             name: 'ref-type',
-            scope: '@base-field-ref-type',
+            scope: '@base-entity-ref',
             children: [{ name: 'lookup' }, { name: 'ref' }],
           },
           {
@@ -108,7 +108,7 @@ const scopesPlan = [
 const scopes = transformWithScope(scopesPlan);
 
 // Тестування
-console.log(scopes.base.field['ref-type'].scope); // @base-field-ref-type
+console.log(scopes.base.field['ref-type'].scope); // @base-entity-ref
 console.log(scopes.base.field['ref-type']['lookup'].path); // /base/field/ref-type/lookup
 console.log(scopes.base.entity['type'].scope); // @base-entity-type
 console.log(scopes.base.entity['type']['lookup'].path); // /base/entity/type/lookup

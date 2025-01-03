@@ -1,25 +1,23 @@
 const stylistic = require('@stylistic/eslint-plugin');
-const stylisticConfig=  {
+const stylisticConfig = {
   plugins: {
-    '@stylistic':stylistic,
+    '@stylistic': stylistic,
   },
   rules: {
-    ...stylistic.configs['recommended-extends'].rules,
-    '@stylistic/no-multiple-empty-lines': ['error', { max: 2 }],
+    // ...stylistic.configs['recommended-extends'].rules,
+    // '@stylistic/no-multiple-empty-lines': ['error', { max: 2 }],
     '@stylistic/no-trailing-spaces': ['error', { skipBlankLines: false }],
-        '@stylistic/quote-props': ['error', 'as-needed'],
-        '@stylistic/no-whitespace-before-property': 'error',
-        '@stylistic/dot-location': ['error', 'property'],
-        '@stylistic/eol-last': ['error', 'always'],
+    '@stylistic/indent': ['off', 2, { SwitchCase: 1 }],
+    '@stylistic/quote-props': ['error', 'as-needed'],
+    '@stylistic/no-whitespace-before-property': 'error',
+    // '@stylistic/dot-location': ['error', 'property'],
+    // '@stylistic/eol-last': ['error', 'always'],
     '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
-    '@stylistic/block-spacing': ['error', 'always'],
+    // '@stylistic/block-spacing': ['error', 'always'],
+    '@stylistic/semi': ['error', 'always'],
   },
   files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
 };
-
-
-
-
 
 const nx = require('@nx/eslint-plugin');
 const unusedImports = require('eslint-plugin-unused-imports');
@@ -69,7 +67,6 @@ const baseConfig = {
     // "sort-class-members": sortClassMembers,
   },
   rules: {
-
     // "tailwindcss/classnames-order": ["error"],
   },
 };
@@ -98,14 +95,7 @@ const imp = {
     'import/order': [
       'error',
       {
-        groups: [
-          'builtin',
-          'external',
-          'internal',
-          'parent',
-          'sibling',
-          'index',
-        ],
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
         'newlines-between': 'always',
         alphabetize: { order: 'asc', caseInsensitive: true },
       },
@@ -146,14 +136,8 @@ const tailwindConfig = {
     // enable all recommended rules to error
     ...eslintPluginReadableTailwind.configs.error.rules,
 
-    'readable-tailwind/multiline': [
-      'warn',
-      { group: 'newLine', printWidth: 80 },
-    ],
-    'readable-tailwind/no-unnecessary-whitespace': [
-      'warn',
-      { allowMultiline: true },
-    ],
+    'readable-tailwind/multiline': ['warn', { group: 'newLine', printWidth: 80 }],
+    'readable-tailwind/no-unnecessary-whitespace': ['warn', { allowMultiline: true }],
     'readable-tailwind/sort-classes': ['warn'],
   },
 };
@@ -180,7 +164,6 @@ const tailwindConfig = {
 //     ],
 //   },
 // };
-
 
 module.exports = [
   {
