@@ -1,3 +1,39 @@
+const stylistic = require('@stylistic/eslint-plugin');
+const stylisticConfig=  {
+  plugins: {
+    'stylistic':stylistic,
+  },
+  rules: stylistic.configs['recommended-extends'].rules,
+  files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+};
+// module.exports =  [
+//   // {
+//   //   stylistic.configs['recommended-extends'].rules,
+//   // },
+
+//   stylistic.configs.customize({
+//     'no-multiple-empty-lines': ['error', { max: 2 }],
+//     'no-trailing-spaces': ['error', { skipBlankLines: false }],
+//     'quote-props': ['error', 'as-needed'],
+//     'no-whitespace-before-property': 'error',
+//     'dot-location': ['error', 'property'],
+//     'eol-last': ['error', 'always'],
+//     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
+//     'no-trailing-spaces': ['error', { skipBlankLines: false }],
+//     'block-spacing': ['error', 'always'],
+//     indent: 2,
+//     quotes: 'single',
+//     semi: false,
+//     jsx: true,
+//     // ...
+//   }),
+//   // ...your other config items
+// ]
+
+
+
+
+
 const nx = require('@nx/eslint-plugin');
 const unusedImports = require('eslint-plugin-unused-imports');
 const eslintPluginImport = require('eslint-plugin-import');
@@ -39,7 +75,6 @@ const baseConfig = {
   files: ['**/*.ts', '**/*.tsx', '**/*.jsx'],
   plugins: {
     // "@nx": nxEslintPlugin,
-    '@stylistic': stylisticEslintPlugin,
     // prettier: eslintPluginPrettier,
     // "@angular-eslint": angularEslintEslintPlugin,
     // "rxjs-angular": eslintPluginRxjsAngular,
@@ -47,16 +82,7 @@ const baseConfig = {
     // "sort-class-members": sortClassMembers,
   },
   rules: {
-    '@stylistic/no-multiple-empty-lines': ['error', { max: 2 }],
-    '@stylistic/indent': ['error', 2],
-    '@stylistic/no-trailing-spaces': ['error', { skipBlankLines: false }],
-    '@stylistic/block-spacing': ['error', 'always'],
-    '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
-    '@stylistic/eol-last': ['error', 'always'],
-    '@stylistic/dot-location': ['error', 'property'],
-    '@stylistic/quotes': ['off', 'single'],
-    '@stylistic/no-whitespace-before-property': 'error',
-    '@stylistic/quote-props': ['error', 'as-needed'],
+    
     // "tailwindcss/classnames-order": ["error"],
   },
 };
@@ -181,8 +207,8 @@ module.exports = [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
-
-  // baseConfig,
+  stylisticConfig,
+  baseConfig,
   // tailwindConfig,
 
   {
