@@ -1,9 +1,20 @@
 const stylistic = require('@stylistic/eslint-plugin');
 const stylisticConfig=  {
   plugins: {
-    'stylistic':stylistic,
+    '@stylistic':stylistic,
   },
-  rules: stylistic.configs['recommended-extends'].rules,
+  rules: {
+    ...stylistic.configs['recommended-extends'].rules,
+    '@stylistic/no-multiple-empty-lines': ['error', { max: 2 }],
+    '@stylistic/no-trailing-spaces': ['error', { skipBlankLines: false }],
+    //     'quote-props': ['error', 'as-needed'],
+    //     'no-whitespace-before-property': 'error',
+    //     'dot-location': ['error', 'property'],
+    //     'eol-last': ['error', 'always'],
+    //     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    //     'no-trailing-spaces': ['error', { skipBlankLines: false }],
+    //     'block-spacing': ['error', 'always'],
+  },
   files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
 };
 // module.exports =  [
@@ -82,7 +93,7 @@ const baseConfig = {
     // "sort-class-members": sortClassMembers,
   },
   rules: {
-    
+
     // "tailwindcss/classnames-order": ["error"],
   },
 };
@@ -193,6 +204,7 @@ const tailwindConfig = {
 //     ],
 //   },
 // };
+
 
 module.exports = [
   {

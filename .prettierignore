@@ -3,4 +3,7 @@
 /coverage
 /.nx/cache
 /.nx/workspace-data
-.angular
+/.angular
+/.github
+/.node_modules
+
