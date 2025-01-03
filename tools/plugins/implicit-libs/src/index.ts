@@ -1,8 +1,4 @@
-import {
-  CreateNodesResultV2,
-  CreateNodesV2,
-  ProjectConfiguration,
-} from '@nx/devkit';
+import { CreateNodesResultV2, CreateNodesV2, ProjectConfiguration } from '@nx/devkit';
 import { dirname, join } from 'node:path/posix';
 import { Optional } from 'nx/src/project-graph/plugins';
 import { getProjectInfo, hasFileMatching, hasIndexInParentTree } from './utils';
@@ -11,7 +7,7 @@ export const createNodesV2: CreateNodesV2 = [
   'libs/**/index.ts',
   async (indexPathList, _, { workspaceRoot }): Promise<CreateNodesResultV2> => {
     const results = await Promise.all(
-      indexPathList.map((indexPath) =>
+      indexPathList.map(indexPath =>
         createImplicitLibProjectConfig(indexPath, { workspaceRoot })
       )
     );
@@ -63,16 +59,11 @@ async function createImplicitLibProjectConfig(
   };
 }
 
-function createLintTarget(
-  projectPath: string
-): ProjectConfiguration['targets'] {
+function createLintTarget(projectPath: string): ProjectConfiguration['targets'] {
   let currentPath = join('{workspaceRoot}', projectPath);
   let eslintConfigPaths: string[] = [];
   while (currentPath !== '.') {
-    eslintConfigPaths = [
-      ...eslintConfigPaths,
-      join(currentPath, 'eslint.config.js'),
-    ];
+    eslintConfigPaths = [...eslintConfigPaths, join(currentPath, 'eslint.config.js')];
     currentPath = dirname(currentPath);
   }
 
@@ -100,9 +91,7 @@ function createLintTarget(
   };
 }
 
-function createTestTarget(
-  projectPath: string
-): ProjectConfiguration['targets'] {
+function createTestTarget(projectPath: string): ProjectConfiguration['targets'] {
   return {
     test: {
       command: 'vitest',

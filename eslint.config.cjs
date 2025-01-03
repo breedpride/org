@@ -7,39 +7,15 @@ const stylisticConfig=  {
     ...stylistic.configs['recommended-extends'].rules,
     '@stylistic/no-multiple-empty-lines': ['error', { max: 2 }],
     '@stylistic/no-trailing-spaces': ['error', { skipBlankLines: false }],
-    //     'quote-props': ['error', 'as-needed'],
-    //     'no-whitespace-before-property': 'error',
-    //     'dot-location': ['error', 'property'],
-    //     'eol-last': ['error', 'always'],
-    //     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
-    //     'no-trailing-spaces': ['error', { skipBlankLines: false }],
-    //     'block-spacing': ['error', 'always'],
+        '@stylistic/quote-props': ['error', 'as-needed'],
+        '@stylisticno/whitespace-before-property': 'error',
+        '@stylistic/dot-location': ['error', 'property'],
+        '@stylistic/eol-last': ['error', 'always'],
+    '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    '@stylistic/block-spacing': ['error', 'always'],
   },
   files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
 };
-// module.exports =  [
-//   // {
-//   //   stylistic.configs['recommended-extends'].rules,
-//   // },
-
-//   stylistic.configs.customize({
-//     'no-multiple-empty-lines': ['error', { max: 2 }],
-//     'no-trailing-spaces': ['error', { skipBlankLines: false }],
-//     'quote-props': ['error', 'as-needed'],
-//     'no-whitespace-before-property': 'error',
-//     'dot-location': ['error', 'property'],
-//     'eol-last': ['error', 'always'],
-//     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
-//     'no-trailing-spaces': ['error', { skipBlankLines: false }],
-//     'block-spacing': ['error', 'always'],
-//     indent: 2,
-//     quotes: 'single',
-//     semi: false,
-//     jsx: true,
-//     // ...
-//   }),
-//   // ...your other config items
-// ]
 
 
 
