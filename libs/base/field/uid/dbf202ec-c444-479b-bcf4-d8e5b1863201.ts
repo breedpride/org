@@ -1,6 +1,6 @@
  
 import { Email_FieldName } from '@base-field-name';
-import { EmailText  } from '@base-field-type';
+import { EmailText  } from '@base-field-common-type';
 
 const field = [
   Email_FieldName,

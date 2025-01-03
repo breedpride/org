@@ -1,6 +1,6 @@
  
 import { Gender_FieldName } from '@base-field-name';
-import { Gender_Lookup  } from '@base-field-type';
+import { Gender_Lookup  } from '@base-field-common-type';
 
 const field = [
   Gender_FieldName,

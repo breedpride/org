@@ -1,6 +1,6 @@
  
 import { City_FieldName } from '@base-field-name';
-import { City_Lookup  } from '@base-field-type';
+import { City_Lookup  } from '@base-field-common-type';
 
 const field = [
   City_FieldName,

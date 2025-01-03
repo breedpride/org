@@ -6,7 +6,7 @@ import {
   unlinkSync,
   writeFileSync,
 } from 'fs';
-import { transformWithProxy } from './reduser';
+import { transformWithProxy, transformWithScope } from './reduser';
 function lowerize(str: string): string {
   return str.length > 1
     ? str[0].toLowerCase() + str.substring(1)
@@ -17,6 +17,7 @@ import * as path from 'path';
 import { exit } from 'process';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { fromFetch } from 'rxjs/fetch';
+import { childrenShahArpilin } from '@breedpride/pet';
 
 // import {
 //   DateDataValueTypes,
@@ -70,9 +71,14 @@ const scopesPlan = [
         scope: '@base/field',
         children: [
           {
-            name: 'type',
-            scope: '@base-field-type',
+            name: 'common-type',
+            scope: '@base-field-common-type',
             type: 'lib',
+            // children: [{ name: 'common' }, { type: 'test' }],
+          },
+          {
+            name: 'ref-type',
+            scope: '@base-field-ref-type',
             children: [{ name: 'lookup' }, { name: 'ref' }],
           },
           {
@@ -111,10 +117,10 @@ type Sc = {
   path: string;
 };
 // TODO - use nx
-const scopes: Sc = transformWithProxy(scopesPlan, 'libs');
+const scopes: Sc = transformWithScope(scopesPlan, 'libs');
 
 console.log(Object.keys(scopes), Object.values(scopes));
-console.log('!!!!!!!!!!!!!!', scopes.base.path, scopes['path']);
+// console.log('!!!!!!!!!!!!!!', scopes.base.path, scopes['path']);
 const _ = '_';
 const name_type = (name: string, type: string) => {
   return name + _ + type;
@@ -203,8 +209,13 @@ function processSchema(schemaName: string, response: SchemaResponse[]) {
     .map((e) => {
       return {
         ...e,
-        importType:
-          e.type === 'Lookup' ? e.referenceSchema + '_Lookup' : e.type,
+        typeModel:
+          e.type === 'Lookup'
+            ? {
+                scope: 'ref-type',
+                name: e.referenceSchema + '_Lookup',
+              }
+            : { name: e.type, scope: 'common-type' },
         importFieldName: e.name + '_' + fieldNameSufix,
       };
     });
@@ -219,11 +230,11 @@ function processSchema(schemaName: string, response: SchemaResponse[]) {
   const fFileName = schemaName.toLowerCase();
 
   writeifnotexist(
-    getwrithePath(scopes.base.field.type.ref),
+    getwrithePath(scopes.base.field['ref-type']),
     fFileName + '.ts',
     `${autoFirstDisclaimer}
 
-import { Lookup_${schema.primaryDisplayColumnName}} from '${scopes.base.field.type.scope}';
+import { Lookup_${schema.primaryDisplayColumnName}} from '${scopes.base.field['common-type'].scope})}';
 export const ${schemaName}_Config =  [
 Lookup_${schema.primaryDisplayColumnName},
 { entitySchemaName: '${schemaName}' } as const,
@@ -239,11 +250,13 @@ Lookup_${schema.primaryDisplayColumnName},
       e.uId + '.ts',
       ` 
 import { ${e.importFieldName} } from '${scopes.base.field.name.scope}';
-import { ${e.importType}  } from '${scopes.base.field.type.scope}';
+import { ${e.typeModel.name}  } from '${
+        scopes.base.field['common-type'].scope
+      }';
 
 const field = [
   ${e.importFieldName},
-  ${e.importType},
+  ${e.typeModel.name},
   {label: '${e.caption}'} as const,
   ${e.isRequired ? '{required: true } as const,' : ''}
   ${e.levelAccess === 2 ? '{readOnly: true } as const' : ''} 
@@ -265,14 +278,14 @@ export default field;
     // ----------------- field name --------------------
     // Create Field Name Settings if not Exists
     // ------------------------------------------------
-
+    // TODO fix import
     if (e.type === 'Lookup') {
       writeifnotexist(
-        getwrithePath(scopes.base.field.type.lookup),
+        getwrithePath(scopes.base.field['ref-type']['lookup']),
         e.referenceSchema?.toLowerCase() + '.ts',
         `
-        import { ${e.referenceSchema}_Config } from '../';
-        export const ${e.importType} = [ 
+        import { ${e.referenceSchema}_Config } from '../ref';
+        export const ${e.typeModel.name} = [ 
         ${e.referenceSchema}_Config
         ] as const;
         `
@@ -432,7 +445,7 @@ export function  ${schemaName}<T extends Partial< ${schemaName}> | Partial< ${sc
       .join(';\n')};
 
 import {createInjectionToken} from 'ngxtension/create-injection-token';
-import {${schemaName}_Lookup} from '${scopes.base.field.type.scope}';
+import {${schemaName}_Lookup} from '${scopes.base.field['ref-type'].scope}';
 
 
     export const ${schemaName.toUpperCase()}_FIELD_CONFIG = {

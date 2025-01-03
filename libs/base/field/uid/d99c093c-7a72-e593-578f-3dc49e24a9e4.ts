@@ -1,6 +1,6 @@
  
 import { AvatarUrl_FieldName } from '@base-field-name';
-import { LongText  } from '@base-field-type';
+import { LongText  } from '@base-field-common-type';
 
 const field = [
   AvatarUrl_FieldName,

@@ -1,6 +1,6 @@
  
 import { VerificationStatus_FieldName } from '@base-field-name';
-import { VerificationStatus_Lookup  } from '@base-field-type';
+import { VerificationStatus_Lookup  } from '@base-field-common-type';
 
 const field = [
   VerificationStatus_FieldName,

@@ -1,6 +1,6 @@
  
 import { IsEmailConfirmed_FieldName } from '@base-field-name';
-import { Boolean  } from '@base-field-type';
+import { Boolean  } from '@base-field-common-type';
 
 const field = [
   IsEmailConfirmed_FieldName,

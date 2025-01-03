@@ -1,6 +1,6 @@
  
 import { Cover_FieldName } from '@base-field-name';
-import { Cover_Lookup  } from '@base-field-type';
+import { Cover_Lookup  } from '@base-field-common-type';
 
 const field = [
   Cover_FieldName,

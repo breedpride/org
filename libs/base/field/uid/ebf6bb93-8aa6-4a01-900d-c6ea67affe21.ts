@@ -1,6 +1,6 @@
  
 import { CreatedBy_FieldName } from '@base-field-name';
-import { Contact_Lookup  } from '@base-field-type';
+import { Contact_Lookup  } from '@base-field-common-type';
 
 const field = [
   CreatedBy_FieldName,

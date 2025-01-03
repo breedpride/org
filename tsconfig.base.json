@@ -20,9 +20,10 @@
     "esModuleInterop": true,
     "paths": {
       "@base-field-name": ["libs/base/field/name/index.ts"],
-      "@base-field-type": ["libs/base/field/type/index.ts"],
+      "@base-field-common-type": ["libs/base/field/common-type/index.ts"],
       "@base-field-uid/*": ["libs/base/field/uid/*"],
-      "@base-field-ref": ["libs/base/field/ref/index.ts"],
+      "@base-field-ref-type": ["libs/base/field/ref-type/index.ts"],
+
       "@bh/app": ["libs/schema/store/app-store/index.ts"],
       "@bh/app/space": ["libs/schema/app/space/index.ts"],
       "@bh/app/tokens": ["libs/schema/app/tokens/index.ts"],

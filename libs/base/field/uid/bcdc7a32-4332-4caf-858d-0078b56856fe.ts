@@ -1,6 +1,6 @@
  
 import { Age_FieldName } from '@base-field-name';
-import { Integer  } from '@base-field-type';
+import { Integer  } from '@base-field-common-type';
 
 const field = [
   Age_FieldName,

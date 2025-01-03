@@ -1,6 +1,6 @@
  
 import { DecisionRole_FieldName } from '@base-field-name';
-import { ContactDecisionRole_Lookup  } from '@base-field-type';
+import { ContactDecisionRole_Lookup  } from '@base-field-common-type';
 
 const field = [
   DecisionRole_FieldName,

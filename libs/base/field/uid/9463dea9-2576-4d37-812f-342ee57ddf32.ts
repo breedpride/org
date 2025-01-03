@@ -1,6 +1,6 @@
  
 import { Country_FieldName } from '@base-field-name';
-import { Country_Lookup  } from '@base-field-type';
+import { Country_Lookup  } from '@base-field-common-type';
 
 const field = [
   Country_FieldName,

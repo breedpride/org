@@ -1,6 +1,6 @@
  
 import { BirthDate_FieldName } from '@base-field-name';
-import { Date  } from '@base-field-type';
+import { Date  } from '@base-field-common-type';
 
 const field = [
   BirthDate_FieldName,

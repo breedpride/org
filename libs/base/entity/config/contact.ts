@@ -51,7 +51,7 @@ import Cover from '@base-field-uid/e39b5dad-fb20-bc18-4e1e-89b8481b117d';
 import Rating from '@base-field-uid/4c6ec495-488f-4a53-ac00-91ab9747f6d1';
 
 import {createInjectionToken} from 'ngxtension/create-injection-token';
-import {Contact_Lookup} from '@base-field-type';
+import {Contact_Lookup} from '@base-field-ref-type';
 
 
     export const CONTACT_FIELD_CONFIG = {

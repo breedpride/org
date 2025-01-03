@@ -1,6 +1,6 @@
  
 import { AddressType_FieldName } from '@base-field-name';
-import { AddressType_Lookup  } from '@base-field-type';
+import { AddressType_Lookup  } from '@base-field-common-type';
 
 const field = [
   AddressType_FieldName,

@@ -1,6 +1,6 @@
  
 import { Rating_FieldName } from '@base-field-name';
-import { Number  } from '@base-field-type';
+import { Number  } from '@base-field-common-type';
 
 const field = [
   Rating_FieldName,

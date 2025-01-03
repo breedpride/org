@@ -1,6 +1,6 @@
  
 import { Language_FieldName } from '@base-field-name';
-import { SysLanguage_Lookup  } from '@base-field-type';
+import { SysLanguage_Lookup  } from '@base-field-common-type';
 
 const field = [
   Language_FieldName,

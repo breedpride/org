@@ -1,6 +1,6 @@
  
 import { Account_FieldName } from '@base-field-name';
-import { Account_Lookup  } from '@base-field-type';
+import { Account_Lookup  } from '@base-field-common-type';
 
 const field = [
   Account_FieldName,

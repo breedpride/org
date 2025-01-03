@@ -1,6 +1,6 @@
  
 import { ModifiedOn_FieldName } from '@base-field-name';
-import { DateTime  } from '@base-field-type';
+import { DateTime  } from '@base-field-common-type';
 
 const field = [
   ModifiedOn_FieldName,

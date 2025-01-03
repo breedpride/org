@@ -1,6 +1,6 @@
  
 import { SalutationType_FieldName } from '@base-field-name';
-import { ContactSalutationType_Lookup  } from '@base-field-type';
+import { ContactSalutationType_Lookup  } from '@base-field-common-type';
 
 const field = [
   SalutationType_FieldName,

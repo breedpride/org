@@ -1,6 +1,6 @@
  
 import { Region_FieldName } from '@base-field-name';
-import { Region_Lookup  } from '@base-field-type';
+import { Region_Lookup  } from '@base-field-common-type';
 
 const field = [
   Region_FieldName,

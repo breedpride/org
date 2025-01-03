@@ -1,6 +1,6 @@
  
 import { LinkedIn_FieldName } from '@base-field-name';
-import { MediumText  } from '@base-field-type';
+import { MediumText  } from '@base-field-common-type';
 
 const field = [
   LinkedIn_FieldName,

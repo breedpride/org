@@ -1,6 +1,6 @@
  
 import { Job_FieldName } from '@base-field-name';
-import { Job_Lookup  } from '@base-field-type';
+import { Job_Lookup  } from '@base-field-common-type';
 
 const field = [
   Job_FieldName,

@@ -1,6 +1,6 @@
  
 import { HomePhone_FieldName } from '@base-field-name';
-import { PhoneText  } from '@base-field-type';
+import { PhoneText  } from '@base-field-common-type';
 
 const field = [
   HomePhone_FieldName,

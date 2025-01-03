@@ -1,6 +1,6 @@
  
 import { Notes_FieldName } from '@base-field-name';
-import { MaxSizeText  } from '@base-field-type';
+import { MaxSizeText  } from '@base-field-common-type';
 
 const field = [
   Notes_FieldName,

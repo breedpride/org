@@ -1,6 +1,6 @@
  
 import { Zip_FieldName } from '@base-field-name';
-import { ShortText  } from '@base-field-type';
+import { ShortText  } from '@base-field-common-type';
 
 const field = [
   Zip_FieldName,
