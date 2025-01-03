@@ -4,7 +4,6 @@
       "analyzeSourceFiles": true
     }
   },
-  "defaultBase": "main",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "projects": {},
   "namedInputs": {
