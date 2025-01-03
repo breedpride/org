@@ -8,6 +8,7 @@
   },
   "eslint.validate": [
     "json",
+    "jsonc",
     "javascript",
     "javascriptreact",
     "typescript",
