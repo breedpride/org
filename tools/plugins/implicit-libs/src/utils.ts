@@ -8,7 +8,7 @@ import { logger } from '@nx/devkit';
  * This is useful to exclude folders with `index.ts` which are inside other libs.
  */
 export async function hasIndexInParentTree(
-  folderPath: string
+  folderPath: string,
 ): Promise<boolean> {
   let previousFolderPath: string;
 
@@ -56,12 +56,12 @@ export function getProjectInfo(projectPath: string):
       ? nameAndTypeParts.slice(0, -1).join('-')
       : undefined;
 
-  if (!allowedLibraryTypes.includes(type)) {
-    logger.warn(
-      `Invalid project path ${projectPath}. Last folder should be one of the allowed types: ${allowedLibraryTypes}`
-    );
-    // return;
-  }
+  // if (!allowedLibraryTypes.includes(type)) {
+  //   logger.warn(
+  //     `Invalid project path ${projectPath}. Last folder should be one of the allowed types: ${allowedLibraryTypes}`
+  //   );
+  //   // return;
+  // }
 
   return {
     name,
@@ -82,7 +82,7 @@ const allowedLibraryTypes = [
 
 export async function hasFileMatching(
   path: string,
-  globPattern: string
+  globPattern: string,
 ): Promise<boolean> {
   const { done } = await globIterate(globPattern, {
     cwd: path,

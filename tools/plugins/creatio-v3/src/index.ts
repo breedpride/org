@@ -258,9 +258,9 @@ Lookup_${schema.primaryDisplayColumnName},
       `
 import { ${e.importFieldName} } from '${scopes.base.field.name.scope}';
 import { ${e.typeModel.name}  } from '${
-        e.referenceSchema
-          ? scopes.base.field['type'].scope
-          : scopes.base.table['ref'].scope
+        e.type === 'Lookup'
+          ? scopes.base.table['ref'].scope
+          : scopes.base.field['type'].scope
       }';
 
 const field = [

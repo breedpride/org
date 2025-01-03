@@ -71,11 +71,6 @@ const scopesPlan = [
             children: [{ name: 'common' }],
           },
           {
-            name: 'ref-type',
-            scope: '@base-entity-ref',
-            children: [{ name: 'lookup' }, { name: 'ref' }],
-          },
-          {
             scope: '@base-field-name',
             name: 'name',
           },
