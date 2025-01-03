@@ -1,3 +1,4 @@
+import { Scope2 } from './scope';
 import {
   existsSync,
   mkdirSync,
@@ -5,6 +6,7 @@ import {
   unlinkSync,
   writeFileSync,
 } from 'fs';
+import { getStructure, transformScopesPlan } from './reduser';
 function lowerize(str: string): string {
   return str.length > 1
     ? str[0].toLowerCase() + str.substring(1)
@@ -52,9 +54,11 @@ const fields = {
   // export ????
 };
 const scope = '@base';
+const basePath = path.resolve(__dirname, '../../../../libs/base/');
 const dbDirName = 'db/config';
 const entityDirName = 'entity/config';
-const fieldDirName = 'field/config';
+const fieldDirName = 'field/name';
+
 const fieldTypeDir = 'field/type';
 const dbDirImport = `${scope}/${dbDirName}`;
 const fieldDirImport = `${scope}/${fieldDirName}`;
@@ -64,7 +68,7 @@ const entityPath = path.resolve(
   `../../../../libs/base/${entityDirName}/`
 );
 const dbPath = path.resolve(__dirname, `../../../../libs/base/${dbDirName}/`);
-const fieldPath = path.resolve(
+const fieldNamePath = path.resolve(
   __dirname,
   `../../../../libs/base/${fieldDirName}/`
 );
@@ -72,11 +76,59 @@ const fieldTypesPath = path.resolve(
   __dirname,
   `../../../../libs/base/${fieldTypeDir}/`
 );
+
+// Приклад вхідних даних
+const scopesPlan = [
+  {
+    name: 'base',
+    children: [
+      {
+        name: 'field',
+        children: [
+          {
+            name: 'type',
+            type: 'lib',
+          },
+          {
+            name: 'name',
+          },
+        ],
+      },
+      {
+        name: 'entity',
+        children: [
+          {
+            name: 'type',
+          },
+          {
+            name: 'config',
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const scopes = getStructure();
+// transformScopesPlan(scopesPlan);
+
+console.log(Object.keys(scopes));
 const _ = '_';
+const name_type = (name: string, type: string) => {
+  return name + _ + type;
+};
+
 const globalColumnsMap = new Map();
 const globalSchemas = new Map();
 const columnMap = [];
-
+// Object.keys(scopes).forEach((e) => {
+//   console.log(e);
+//   console.log(scopes[e]);
+// });
+// Object.values(scopes).forEach((e) => {
+//   console.log(e);
+//   console.log(e.children);
+// });
 function rewrite(dir, file, data) {
   if (!existsSync(dir)) {
     mkdirSync(dir);
@@ -116,6 +168,7 @@ function genIndex(filedir) {
 }
 
 function processSchema(schemaName: string, response: SchemaResponse[]) {
+  return;
   const schema = response[0];
   console.log(schemaName);
   console.log(schema.columns);
@@ -174,26 +227,17 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
   // ----------------- columns --------------------
   //
   // ------------------------------------------------
-  const fieldsConfig = [];
   cleanColumns.forEach((e) => {
-    const filedir = path.resolve(
-      fieldPath,
-      // `../${fieldDirName}/`,
-      e.name.toLowerCase()
-    );
     // ----------------- field name --------------------
     // Create Field Name Settings if not Exists
     // ------------------------------------------------
     writeifnotexist(
-      filedir,
+      fieldNamePath,
       e.name.toLowerCase() + '.ts',
       `${autoFirstDisclaimer}
         export const ${e.name}_${fieldSufix} = [
         {"id": '${e.name}'} as const,
-        //TODO label^ not placeholder TODO - move to another settings
-        {placeholder:'${e.caption}'} as const, 
-      //  {} as const, //plugin TODO - loadPlugin
-
+] as const 
         ;
         `
     );
@@ -234,7 +278,7 @@ export const Lookup_${schemaName} = [ ${schemaName}_Config,
       //   `
       // );
     }
-    genIndex(filedir);
+    // genIndex(filedir);
   });
 
   // ----------------- schema.ts --------------------
