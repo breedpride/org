@@ -1,5 +1,5 @@
 import { addRxPlugin } from 'rxdb';
-import { RxDBDevModePlugin } from 'rxdb/plugins/dev-mode';
+// import { RxDBDevModePlugin } from 'rxdb/plugins/dev-mode';
 import { RxDBJsonDumpPlugin } from 'rxdb/plugins/json-dump';
 import { RxDBLeaderElectionPlugin } from 'rxdb/plugins/leader-election';
 import { RxDBMigrationSchemaPlugin } from 'rxdb/plugins/migration-schema';
@@ -35,7 +35,7 @@ export const environment: EnvironmentParams = {
   //   '/' +
   //   DATABASE_NAME,
   addRxDBPlugins() {
-    addRxPlugin(RxDBDevModePlugin);
+    // addRxPlugin(RxDBDevModePlugin);
     addRxPlugin(RxDBLeaderElectionPlugin);
     addRxPlugin(RxDBMigrationSchemaPlugin);
     addRxPlugin(RxDBJsonDumpPlugin);

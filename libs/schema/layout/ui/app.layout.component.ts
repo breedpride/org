@@ -25,28 +25,28 @@ import { AppTopbarComponent } from './app.topbar.component';
 import { ContentComponent } from './content.component';
 import { LayoutService } from './service/app.layout.service';
 import { LAYOUT_TYPE, MENU_ORIENTATION } from '@bh/app/tokens';
-import { Message } from 'primeng/message';
+// import { Message } from 'primeng/message';
 @Component({
   selector: 'bp-layout',
   styles: `
-    :host ::ng-deep .p-message-success {
-      background: white;
-      border: solid rgb(var(--secondary-200));
-      border-width: 1px 2px 1px 6px;
-      color: rgb(var(--secondary-800));
-      box-shadow: 0 1px 2px 0 rgb(var(--secondary-200));
-      max-width: 250px;
-      .p-message-icon {
-        color: rgb(var(--secondary-800));
-      }
-    }
+    // :host ::ng-deep .p-message-success {
+    //   background: white;
+    //   border: solid rgb(var(--secondary-200));
+    //   border-width: 1px 2px 1px 6px;
+    //   color: rgb(var(--secondary-800));
+    //   box-shadow: 0 1px 2px 0 rgb(var(--secondary-200));
+    //   max-width: 250px;
+    //   .p-message-icon {
+    //     color: rgb(var(--secondary-800));
+    //   }
+    // }
   `,
   template: `
     <bp-loading-bar />
     <!-- Messages -->
-    <div class="absolute left-10 bottom-15 z-50">
+    <!-- <div class="absolute left-10 bottom-15 z-50">
       <p-message severity="success" [closable]="false"> </p-message>
-    </div>
+    </div> -->
     <bp-confirm-dialog />
     @if (!layoutType) {
     <div
@@ -135,14 +135,14 @@ import { Message } from 'primeng/message';
     RouterOutlet,
     AppProfileSidebarComponent,
     ConfirmDialogComponent,
-    Message,
+    // Message,
     ToastModule,
     CommonModule,
     AppLogoComponent,
     AppMenuComponent,
     ContentComponent,
     AppFooterComponent,
-  ]
+  ],
 })
 export class AppLayoutComponent implements OnDestroy {
   screenViewportHeight = signal<number>(-1);
@@ -162,7 +162,7 @@ export class AppLayoutComponent implements OnDestroy {
     () =>
       this.screenViewportHeight() >= 0 &&
       this.topBarViewportHeight() >= 0 &&
-      this.footerViewportHeight() >= 0
+      this.footerViewportHeight() >= 0,
   );
 
   @ViewChild(AppSidebarComponent) appSidebar!: AppSidebarComponent;
@@ -182,7 +182,7 @@ export class AppLayoutComponent implements OnDestroy {
     // TODO types for orientation
 
     @Optional() @Inject(MENU_ORIENTATION) private menuOrientation: string,
-    @Optional() @Inject(LAYOUT_TYPE) public layoutType: string
+    @Optional() @Inject(LAYOUT_TYPE) public layoutType: string,
   ) {
     // this.layoutType = this.layoutType;
     this.overlayMenuOpenSubscription =
@@ -191,19 +191,19 @@ export class AppLayoutComponent implements OnDestroy {
           this.menuOutsideClickListener = this.renderer.listen(
             'document',
             'click',
-            (event) => {
+            event => {
               const isOutsideClicked = !(
                 this.appSidebar.el.nativeElement.isSameNode(event.target) ||
                 this.appSidebar.el.nativeElement.contains(event.target) ||
                 this.appTopbar.menuButton.nativeElement.isSameNode(
-                  event.target
+                  event.target,
                 ) ||
                 this.appTopbar.menuButton.nativeElement.contains(event.target)
               );
               if (isOutsideClicked) {
                 this.hideMenu();
               }
-            }
+            },
           );
         }
 
@@ -213,7 +213,7 @@ export class AppLayoutComponent implements OnDestroy {
       });
 
     this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
+      .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
         this.hideMenu();
       });
@@ -268,7 +268,7 @@ export class AppLayoutComponent implements OnDestroy {
       this.menuOutsideClickListener();
       this.menuOutsideClickListener = null;
     }
-    this.unblockBodyScroll();
+    // this.unblockBodyScroll();
   }
 
   ngOnDestroy() {
@@ -281,17 +281,17 @@ export class AppLayoutComponent implements OnDestroy {
     }
   }
 
-  unblockBodyScroll(): void {
-    if (document.body.classList) {
-      document.body.classList.remove('blocked-scroll');
-    } else {
-      document.body.className = document.body.className.replace(
-        new RegExp(
-          '(^|\\b)' + 'blocked-scroll'.split(' ').join('|') + '(\\b|$)',
-          'gi'
-        ),
-        ' '
-      );
-    }
-  }
+  // unblockBodyScroll(): void {
+  //   if (document.body.classList) {
+  //     document.body.classList.remove('blocked-scroll');
+  //   } else {
+  //     document.body.className = document.body.className.replace(
+  //       new RegExp(
+  //         '(^|\\b)' + 'blocked-scroll'.split(' ').join('|') + '(\\b|$)',
+  //         'gi'
+  //       ),
+  //       ' '
+  //     );
+  //   }
+  // }
 }
