@@ -6,6 +6,7 @@ import { hostBinding } from 'ngxtension/host-binding';
 //TODO @ann directive for using in div
 @Component({
   imports: [CommonModule],
+  standalone: true,
   selector: 'bp-two-fields-row',
   styles: [],
   template: ` <ng-content /> `,

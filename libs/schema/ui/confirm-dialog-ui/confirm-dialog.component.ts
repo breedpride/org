@@ -5,6 +5,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
   imports: [CommonModule, ConfirmDialogModule],
   selector: 'bp-confirm-dialog',
   styles: [],
+  standalone: true,
   template: `
     <p-confirmDialog
       #cd

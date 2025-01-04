@@ -58,7 +58,7 @@ import { MaterialComponent } from './material/material.component';
   selector: 'bh-editor',
   template: `
     <div class="app-header">
-      <div class="app-title">Formly Editor</div>
+      <div class="app-title">App</div>
       <div class="app-actions">
         <mat-form-field subscriptSizing="dynamic">
           <mat-label>Formly UI</mat-label>
