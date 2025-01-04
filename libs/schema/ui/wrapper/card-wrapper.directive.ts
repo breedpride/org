@@ -1,5 +1,5 @@
 import { Directive, HostBinding, input } from '@angular/core';
-
+//TODO - rework
 @Directive({
   selector: '[bpCardWrapper]',
   standalone: true,
@@ -17,7 +17,7 @@ export class CardWrapperDirective {
     } else if (this.mode() === 'centrated') {
       classes += ' px-5 flex justify-center';
     }
-
+    console.log('classes from directive!', classes);
     return classes;
   }
 }
