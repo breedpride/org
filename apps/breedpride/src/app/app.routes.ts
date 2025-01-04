@@ -1,6 +1,12 @@
 import { Route } from '@angular/router';
 
-import { PATH_SPACE_TOKENS,  } from '@bh/app/space';
+import {
+  EditorContainerComponent,
+  MaterialComponent,
+  materialEditorConfig,
+  PATH_SPACE_TOKENS,
+  provideMaterial,
+} from '@bh/app/space';
 import { MATING, URL_MY } from '@bh/space-url';
 import { authGuardFn, noAuthGuardFn } from '@bp/auth-store';
 import {
@@ -18,12 +24,8 @@ import {
   ProductPage,
   TermsAndConditionsPage,
 } from '@breedpride/landing';
-import {
-  landingMenu,
-} from '@breedpride/layout';
-import {   LAYOUT_TYPE,
-  MENU,
-  MENU_ORIENTATION,} from '@bh/app/tokens'
+import { landingMenu } from '@breedpride/layout';
+import { LAYOUT_TYPE, MENU, MENU_ORIENTATION } from '@bh/app/tokens';
 import { publicRoutes } from '@breedpride/page';
 import {
   ConfirmationRequiredPage,
@@ -42,11 +44,11 @@ import { workspaceRoutes } from 'libs/schema/pages/new-structure/workspaces.rout
 
 const withDynamicLayout = {
   loadComponent: () =>
-    import('@breedpride/layout').then((m) => m.AppLayoutComponent),
+    import('@breedpride/layout').then(m => m.AppLayoutComponent),
 };
 const withDynamicEmptyLayout = {
   loadComponent: () =>
-    import('@breedpride/layout').then((m) => m.EmptyLayoutComponent),
+    import('@breedpride/layout').then(m => m.EmptyLayoutComponent),
 };
 // app-routes.ts
 // import { Injectable } from '@angular/core';
@@ -54,7 +56,8 @@ const withDynamicEmptyLayout = {
 import { EDIT_MODE } from '@bh/collection-store';
 import { WHITE_LOGO } from '@bh/app/tokens';
 import { provideService } from '@bh/collection-store';
-
+import { provideEditorConfig } from '@sesan07/ngx-formly-editor';
+// import { provideMaterial } from './material/material.provider';
 // @Injectable({ providedIn: 'any' })
 // export class AppRoutes extends RoutePathBuilder {
 //   // products = this.childRoutes('products', RoutesForProducts);
@@ -70,6 +73,12 @@ import { provideService } from '@bh/collection-store';
 
 // const injector = inject(Injector);
 export const appRoutes: Route[] = [
+  {
+    path: 'material',
+    component: EditorContainerComponent,
+    // loadComponent: () => import('./material/material.component').then(m => m.MaterialComponent),
+    providers: [provideMaterial(), provideEditorConfig(materialEditorConfig)],
+  },
   // -----------------------------------------------------------------------------------------------------
   // @ New Workspaces
   // -----------------------------------------------------------------------------------------------------
@@ -80,8 +89,7 @@ export const appRoutes: Route[] = [
   {
     canActivate: [authGuardFn],
     ...withDynamicLayout,
-    loadChildren: () =>
-      import('@bp/organism/my-spaces').then((m) => m.myRoutes),
+    loadChildren: () => import('@bp/organism/my-spaces').then(m => m.myRoutes),
     path: URL_MY,
   },
   // newSpaceRoute,
@@ -185,7 +193,7 @@ export const appRoutes: Route[] = [
   {
     canActivate: [authGuardFn],
     ...withDynamicLayout,
-    loadChildren: () => import('@breedpride/pet').then((m) => m.matingRoutes),
+    loadChildren: () => import('@breedpride/pet').then(m => m.matingRoutes),
     path: MATING,
     pathMatch: 'full',
   },
@@ -216,9 +224,7 @@ export const appRoutes: Route[] = [
     ...withDynamicLayout,
     // component: AppLayoutComponent,
     loadChildren: () =>
-      import('libs/schema/pages/edit/edit-v2.routing').then(
-        (m) => m.editRoutes
-      ),
+      import('libs/schema/pages/edit/edit-v2.routing').then(m => m.editRoutes),
     path: 'edit',
     providers: [{ provide: EDIT_MODE, useValue: true }, withActiveFullscreen],
   },

@@ -21,9 +21,9 @@ import {
   withComponentInputBinding,
   withInMemoryScrolling,
 } from '@angular/router';
-import{  BPFormGroup, FORM_GROUP } from '@bh/form';
+import { BPFormGroup, FORM_GROUP } from '@bh/form';
 // import { provideServiceWorker } from '@angular/service-worker';
-import {  EDIT_MODE, superFactory, } from  '@bh/collection-store';
+import { EDIT_MODE, superFactory } from '@bh/collection-store';
 import { provideSortColumns } from '@bh/collection-sorting';
 import { SUPER_CONFIG } from '@bh/collection-store';
 import { WHITE_LOGO } from '@bh/app/tokens';
@@ -55,9 +55,17 @@ import { appRoutes } from './app.routes';
 import { IconsModule } from './core/icons/icons.module';
 import { BPreset } from './theme';
 import { MENU_ORIENTATION } from '@bh/app/tokens';
+// import { provideMaterial } from 'libs/schema/app/space/material/material.provider';
+// import { provideEditorConfig } from '@sesan07/ngx-formly-editor';
+// import { materialEditorConfig } from 'libs/schema/app/space/material/material.config';
+import { provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+// import { provideEditorConfig } from '@sesan07/ngx-formly-editor/lib/editor.provider';
 // if (environment.production) {
 //   enableProdMode();
 // }
+import { provideEditor } from '@sesan07/ngx-formly-editor';
+import { provideAnimations } from '@angular/platform-browser/animations';
 enableProdMode();
 const someOptions: ResizeOptions = {
   box: 'border-box',
@@ -73,6 +81,8 @@ const someOptions: ResizeOptions = {
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideStore(),
+    provideEffects(),
     {
       provide: SUPER_STORE,
       useValue: superFactory,
@@ -89,6 +99,11 @@ export const appConfig: ApplicationConfig = {
       )(inject(Injector));
       return initializerFn();
     }),
+
+    // provideMaterial(),
+    // provideEditorConfig(materialEditorConfig),
+    provideAnimations(),
+    provideEditor(),
     DatabaseService,
 
     provideRouter(
@@ -98,7 +113,7 @@ export const appConfig: ApplicationConfig = {
         // anchorScrolling: 'enabled',
         // scrollOffset: [0, 64],
         scrollPositionRestoration: 'top',
-      })
+      }),
     ),
 
     // provideRxDatabase(
@@ -157,17 +172,14 @@ export const appConfig: ApplicationConfig = {
     // withActiveFullscreen,
     provideHttpClient(
       withInterceptors([authInterceptorFn, loadingInterceptorFn]),
-      withInterceptorsFromDi()
+      withInterceptorsFromDi(),
     ),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     provideAnimationsAsync(),
-    importProvidersFrom(
-      IconsModule,
-      AngularSvgIconModule.forRoot(),
-    ),
+    importProvidersFrom(IconsModule, AngularSvgIconModule.forRoot()),
     provideResizeOptions(someOptions),
 
     provideTreeStoreWithInitialState([

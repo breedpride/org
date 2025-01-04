@@ -1,6 +1,7 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { injectNavigationEnd } from 'ngxtension/navigation-end';
 import { take } from 'rxjs';
 // import { AppStore } from '@bh/app';
@@ -8,7 +9,8 @@ import { take } from 'rxjs';
   imports: [CommonModule, RouterModule],
   providers: [],
   selector: 'app-root',
-  template: `<router-outlet /> `
+  standalone: true,
+  template: `<router-outlet /> `,
 })
 export class AppComponent {
   #source$ = injectNavigationEnd();
