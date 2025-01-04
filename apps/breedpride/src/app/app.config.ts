@@ -4,10 +4,12 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import {
+  InjectionToken,
   Injector,
   enableProdMode,
   importProvidersFrom,
   inject,
+  isDevMode,
   provideAppInitializer,
   provideZoneChangeDetection,
 } from '@angular/core';
@@ -55,18 +57,15 @@ import { appRoutes } from './app.routes';
 import { IconsModule } from './core/icons/icons.module';
 import { BPreset } from './theme';
 import { MENU_ORIENTATION } from '@bh/app/tokens';
-// import { provideMaterial } from 'libs/schema/app/space/material/material.provider';
-// import { provideEditorConfig } from '@sesan07/ngx-formly-editor';
-// import { materialEditorConfig } from 'libs/schema/app/space/material/material.config';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 // import { provideEditorConfig } from '@sesan07/ngx-formly-editor/lib/editor.provider';
-// if (environment.production) {
-//   enableProdMode();
-// }
+if (environment.production) {
+  enableProdMode();
+}
 import { provideEditor } from '@sesan07/ngx-formly-editor';
 import { provideAnimations } from '@angular/platform-browser/animations';
-enableProdMode();
+// enableProdMode();
 const someOptions: ResizeOptions = {
   box: 'border-box',
   debounce: {
@@ -79,10 +78,30 @@ const someOptions: ResizeOptions = {
   offsetSize: true,
 };
 
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore } from 'redux';
+
+// const composeEnhancers = composeWithDevTools(options);
+// const store = createStore(
+//   reducer,
+//   /* preloadedState, */ composeEnhancers(
+//     applyMidzdleware(...middleware),
+//     // other store enhancers if any
+//   ),
+// );
+export const ProviderI = new InjectionToken('ProviderI');
 export const appConfig: ApplicationConfig = {
   providers: [
     provideStore(),
     provideEffects(),
+    // provideStoreDevtools({
+    //   maxAge: 25, // Retains last 25 states
+    //   logOnly: !isDevMode(), // Restrict extension to log-only mode
+    //   autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+    //   trace: false, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
+    //   traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
+    //   connectInZone: true, // If set to true, the connection is established within the Angular zone
+    // }),
     {
       provide: SUPER_STORE,
       useValue: superFactory,
@@ -100,9 +119,6 @@ export const appConfig: ApplicationConfig = {
       return initializerFn();
     }),
 
-    // provideMaterial(),
-    // provideEditorConfig(materialEditorConfig),
-    provideAnimations(),
     provideEditor(),
     DatabaseService,
 
@@ -228,3 +244,15 @@ export const appConfig: ApplicationConfig = {
     // }),
   ],
 };
+function provideStoreDevtools(arg0: {
+  maxAge: number; // Retains last 25 states
+  logOnly: boolean; // Restrict extension to log-only mode
+  autoPause: boolean; // Pauses recording actions and state changes when the extension window is not open
+  trace: boolean; //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
+  traceLimit: number; // maximum stack trace frames to be stored (in case trace option was provided as true)
+  connectInZone: boolean; // If set to true, the connection is established within the Angular zone
+}):
+  | import('@angular/core').Provider
+  | import('@angular/core').EnvironmentProviders {
+  throw new Error('Function not implemented.');
+}
