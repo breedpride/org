@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Color_Color} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Color_Color} from '@bh/field/config';
 
 import { EventStatus_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -36,7 +36,7 @@ const Description  =
       Description_MediumText, EventStatus_Plugin.Description);
 const Color  =
     merge({},
-      Color_Color, EventStatus_Plugin.Color)
+      Color_Color, EventStatus_Plugin.Color);
 
 
 export const EVENTSTATUS_FIELD_CONFIG = {

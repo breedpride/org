@@ -14,7 +14,7 @@ import { MediaStore } from '@bp/media-store';
 import { BPNavStore } from '@bh/nav-store';
 import { TabStoreV2 } from '@bp/page-tab-store';
 import { ButtonModule } from 'primeng/button';
-import { injectSpaceStore } from '@bh/collection-store'
+import { injectSpaceStore } from '@bh/collection-store';
 
 @Component({
   selector: 'bp-edit-action-panel',

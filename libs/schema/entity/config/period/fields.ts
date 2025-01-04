@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { StartDate_Date} from '@bh/field/config';import { DueDate_Date} from '@bh/field/config';import { PeriodType_PeriodType} from '@bh/field/config';import { Year_Period} from '@bh/field/config';import { Quarter_Period} from '@bh/field/config';import { Parent_Period} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { StartDate_Date} from '@bh/field/config';import { DueDate_Date} from '@bh/field/config';import { PeriodType_PeriodType} from '@bh/field/config';import { Year_Period} from '@bh/field/config';import { Quarter_Period} from '@bh/field/config';import { Parent_Period} from '@bh/field/config';
 
 import { Period_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -39,7 +39,7 @@ const Quarter  =
       Quarter_Period, Period_Plugin.Quarter);
 const Parent  =
     merge({},
-      Parent_Period, Period_Plugin.Parent)
+      Parent_Period, Period_Plugin.Parent);
 
 
 export const PERIOD_FIELD_CONFIG = {

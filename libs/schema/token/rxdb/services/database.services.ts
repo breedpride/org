@@ -134,7 +134,7 @@ async function _create(injector: Injector): Promise<RxHeroesDatabase> {
           })
       );
   }
-}
+};
 
 
   // removeRxDatabase(DATABASE_NAME, environment.getRxStorage());
@@ -163,7 +163,7 @@ async function _create(injector: Injector): Promise<RxHeroesDatabase> {
   // create collections
   console.log('DatabaseService: create collections');
   await db.addCollections(collectionSettings);
-  
+
 
   // const projectId = 'dogarray-creatio';
   // const replicationState = replicateFirestore({

@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { UseforAccounts_Boolean} from '@bh/field/config';import { UseforContacts_Boolean} from '@bh/field/config';import { DisplayFormat_MediumText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { UseforAccounts_Boolean} from '@bh/field/config';import { UseforContacts_Boolean} from '@bh/field/config';import { DisplayFormat_MediumText} from '@bh/field/config';
 
 import { CommunicationType_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -30,7 +30,7 @@ const UseforContacts  =
       UseforContacts_Boolean, CommunicationType_Plugin.UseforContacts);
 const DisplayFormat  =
     merge({},
-      DisplayFormat_MediumText, CommunicationType_Plugin.DisplayFormat)
+      DisplayFormat_MediumText, CommunicationType_Plugin.DisplayFormat);
 
 
 export const COMMUNICATIONTYPE_FIELD_CONFIG = {

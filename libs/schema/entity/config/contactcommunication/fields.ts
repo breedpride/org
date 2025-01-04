@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CommunicationType_CommunicationType} from '@bh/field/config';import { Number_LongText} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { Position_Integer} from '@bh/field/config';import { SearchNumber_LongText} from '@bh/field/config';import { Primary_Boolean} from '@bh/field/config';import { NonActual_Boolean} from '@bh/field/config';import { DateSetNonActual_Date} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CommunicationType_CommunicationType} from '@bh/field/config';import { Number_LongText} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { Position_Integer} from '@bh/field/config';import { SearchNumber_LongText} from '@bh/field/config';import { Primary_Boolean} from '@bh/field/config';import { NonActual_Boolean} from '@bh/field/config';import { DateSetNonActual_Date} from '@bh/field/config';
 
 import { ContactCommunication_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -39,7 +39,7 @@ const NonActual  =
       NonActual_Boolean, ContactCommunication_Plugin.NonActual);
 const DateSetNonActual  =
     merge({},
-      DateSetNonActual_Date, ContactCommunication_Plugin.DateSetNonActual)
+      DateSetNonActual_Date, ContactCommunication_Plugin.DateSetNonActual);
 
 
 export const CONTACTCOMMUNICATION_FIELD_CONFIG = {

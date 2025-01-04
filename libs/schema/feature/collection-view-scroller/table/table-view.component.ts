@@ -21,7 +21,7 @@ import { SpeedDialModule } from 'primeng/speeddial';
 import { TableModule, TableRowSelectEvent } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import {injectSpaceStore,} from '@bh/collection-store';
-import {  ModalEditorService } from '@bh/editing'
+import {  ModalEditorService } from '@bh/editing';
 import { ENTITIES_FIELDS_CONFIG } from './fileds.token';
 
 @Component({

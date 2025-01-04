@@ -41,6 +41,6 @@ export function withSuperStoreFeatue() {
         typeof configCollectionConfig.collection
       >(configCollectionConfig),
     withLogger('[SUPER STORE]')
-  )
+  );
 }
-  
+

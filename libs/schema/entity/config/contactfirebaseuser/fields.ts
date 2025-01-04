@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { FirebaseUId_ShortText} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { FirebaseAuthProvider_FirebaseAuthProvider} from '@bh/field/config';import { Email_LongText} from '@bh/field/config';import { Referral_Referral} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { FirebaseUId_ShortText} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { FirebaseAuthProvider_FirebaseAuthProvider} from '@bh/field/config';import { Email_LongText} from '@bh/field/config';import { Referral_Referral} from '@bh/field/config';
 
 import { ContactFirebaseUser_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -30,7 +30,7 @@ const Email  =
       Email_LongText, ContactFirebaseUser_Plugin.Email);
 const Referral  =
     merge({},
-      Referral_Referral, ContactFirebaseUser_Plugin.Referral)
+      Referral_Referral, ContactFirebaseUser_Plugin.Referral);
 
 
 export const CONTACTFIREBASEUSER_FIELD_CONFIG = {

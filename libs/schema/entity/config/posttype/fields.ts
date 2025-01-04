@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { TemplateText_MaxSizeText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { TemplateText_MaxSizeText} from '@bh/field/config';
 
 import { PostType_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -36,7 +36,7 @@ const Description  =
       Description_MediumText, PostType_Plugin.Description);
 const TemplateText  =
     merge({},
-      TemplateText_MaxSizeText, PostType_Plugin.TemplateText)
+      TemplateText_MaxSizeText, PostType_Plugin.TemplateText);
 
 
 export const POSTTYPE_FIELD_CONFIG = {

@@ -11,7 +11,7 @@ import { EDIT_MODE, injectService } from '@bh/collection-store';
 import { PageStore } from '@bh/page-store';
 import { ACTIVE_DETAIL } from '@bh/collection-store';
 
-import{ injectPageModel} from '@bh/page-store'
+import{ injectPageModel} from '@bh/page-store';
 
 import { NAME_BLOCK_HEIGHT, TAB_MENU_HEIGHT,  } from '@bh/utils';
 import { scollableOptions } from '@bp/core/consts';

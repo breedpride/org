@@ -18,11 +18,11 @@ export const TREE_SCHEMA_LITERAL = {
   //Scope of schema
   //@EntitySchmemaName/Pet/Name
   // type
-  //type(scope)/propertyname/pet = summarized ID 
+  //type(scope)/propertyname/pet = summarized ID
    //@space/config/pet
 
   //TODO @public/space-pet-config
-  
+
   //TODO @my/space-pet/config
   //@
   primaryKey: {
@@ -39,7 +39,7 @@ export const TREE_SCHEMA_LITERAL = {
       type: 'string',
       description: 'The node id',
       maxLength: 100,
-      default: '@bh', 
+      default: '@bh',
     },
     id: {
       type: 'string',
@@ -59,7 +59,7 @@ export const TREE_SCHEMA_LITERAL = {
       type: 'string',
       description: 'The node name',
     },
-    
+
       features: {
         type: "object",
         description: "features",
@@ -78,11 +78,11 @@ export const TREE_SCHEMA_LITERAL = {
           }
         },
       },
-    
-    
+
+
     collections:  {
       type: 'object',
-      
+
       items: {
         type: 'array',
       },

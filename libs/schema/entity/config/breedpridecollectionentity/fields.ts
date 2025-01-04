@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { RecordId_Guid} from '@bh/field/config';import { Collection_BreedprideCollection} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Event_Event} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { RecordId_Guid} from '@bh/field/config';import { Collection_BreedprideCollection} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Event_Event} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';
 
 import { BreedprideCollectionEntity_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -45,7 +45,7 @@ const Event  =
       Event_Event, BreedprideCollectionEntity_Plugin.Event);
 const Pet  =
     merge({},
-      Pet_Pet, BreedprideCollectionEntity_Plugin.Pet)
+      Pet_Pet, BreedprideCollectionEntity_Plugin.Pet);
 
 
 export const BREEDPRIDECOLLECTIONENTITY_FIELD_CONFIG = {

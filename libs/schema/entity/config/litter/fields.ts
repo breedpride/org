@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Notes_MaxSizeText} from '@bh/field/config';import { Father_Pet} from '@bh/field/config';import { Mother_Pet} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { MatingPeriod_Period} from '@bh/field/config';import { DateOfBirth_Date} from '@bh/field/config';import { Status_LitterStatus} from '@bh/field/config';import { Kennel_Account} from '@bh/field/config';import { Breeder_Contact} from '@bh/field/config';import { Url_MediumText} from '@bh/field/config';import { Letter_Letter} from '@bh/field/config';import { MaleAmount_Integer} from '@bh/field/config';import { FemaleAmount_Integer} from '@bh/field/config';import { IsPublic_Boolean} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config';import { StartDate_Date} from '@bh/field/config';import { EndDate_Date} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Notes_MaxSizeText} from '@bh/field/config';import { Father_Pet} from '@bh/field/config';import { Mother_Pet} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { MatingPeriod_Period} from '@bh/field/config';import { DateOfBirth_Date} from '@bh/field/config';import { Status_LitterStatus} from '@bh/field/config';import { Kennel_Account} from '@bh/field/config';import { Breeder_Contact} from '@bh/field/config';import { Url_MediumText} from '@bh/field/config';import { Letter_Letter} from '@bh/field/config';import { MaleAmount_Integer} from '@bh/field/config';import { FemaleAmount_Integer} from '@bh/field/config';import { IsPublic_Boolean} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config';import { StartDate_Date} from '@bh/field/config';import { EndDate_Date} from '@bh/field/config';
 
 import { Litter_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -81,7 +81,7 @@ const StartDate  =
       StartDate_Date, Litter_Plugin.StartDate);
 const EndDate  =
     merge({},
-      EndDate_Date, Litter_Plugin.EndDate)
+      EndDate_Date, Litter_Plugin.EndDate);
 
 
 export const LITTER_FIELD_CONFIG = {

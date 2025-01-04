@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';
 
 import { AffixType_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -21,7 +21,7 @@ const Name  =
       Name_MediumText, AffixType_Plugin.Name);
 const Description  =
     merge({},
-      Description_MediumText, AffixType_Plugin.Description)
+      Description_MediumText, AffixType_Plugin.Description);
 
 
 export const AFFIXTYPE_FIELD_CONFIG = {

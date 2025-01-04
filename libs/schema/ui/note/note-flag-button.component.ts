@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { EDIT_MODE } from '@bh/collection-store';
 import { BPNavStore } from '@bh/nav-store';
-import {WithCreatioId} from '@bh/identifying'
+import {WithCreatioId} from '@bh/identifying';
 import { SpaceConfig,  } from '@bh/superfield';
 import { MediaStore } from '@bp/media-store';
 import { NoteSpaceDetailConfigService } from '@breedpride/note';

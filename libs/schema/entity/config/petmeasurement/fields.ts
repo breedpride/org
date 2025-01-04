@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Value_Number} from '@bh/field/config';import { Day_Integer} from '@bh/field/config';import { Date_DateTime} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { MeasurementType_MeasurementType} from '@bh/field/config';import { Unit_Unit} from '@bh/field/config';import { ActiveSynchronization_Boolean} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Value_Number} from '@bh/field/config';import { Day_Integer} from '@bh/field/config';import { Date_DateTime} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { MeasurementType_MeasurementType} from '@bh/field/config';import { Unit_Unit} from '@bh/field/config';import { ActiveSynchronization_Boolean} from '@bh/field/config';
 
 import { PetMeasurement_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -36,7 +36,7 @@ const Unit  =
       Unit_Unit, PetMeasurement_Plugin.Unit);
 const ActiveSynchronization  =
     merge({},
-      ActiveSynchronization_Boolean, PetMeasurement_Plugin.ActiveSynchronization)
+      ActiveSynchronization_Boolean, PetMeasurement_Plugin.ActiveSynchronization);
 
 
 export const PETMEASUREMENT_FIELD_CONFIG = {

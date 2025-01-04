@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Country_Country} from '@bh/field/config';import { TimeZone_TimeZone} from '@bh/field/config';import { GeoNamesTimeZone_GeoNamesTimeZone} from '@bh/field/config';import { AlternateNames_MaxSizeText} from '@bh/field/config';import { GeoNamesId_ShortText} from '@bh/field/config';import { Dem_Integer} from '@bh/field/config';import { Latitude_Number} from '@bh/field/config';import { Longitude_Number} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { RegionAdmin1Code_ShortText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Country_Country} from '@bh/field/config';import { TimeZone_TimeZone} from '@bh/field/config';import { GeoNamesTimeZone_GeoNamesTimeZone} from '@bh/field/config';import { AlternateNames_MaxSizeText} from '@bh/field/config';import { GeoNamesId_ShortText} from '@bh/field/config';import { Dem_Integer} from '@bh/field/config';import { Latitude_Number} from '@bh/field/config';import { Longitude_Number} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { RegionAdmin1Code_ShortText} from '@bh/field/config';
 
 import { Region_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -63,7 +63,7 @@ const Code  =
       Code_ShortText, Region_Plugin.Code);
 const RegionAdmin1Code  =
     merge({},
-      RegionAdmin1Code_ShortText, Region_Plugin.RegionAdmin1Code)
+      RegionAdmin1Code_ShortText, Region_Plugin.RegionAdmin1Code);
 
 
 export const REGION_FIELD_CONFIG = {

@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Provider_Account} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Provider_Account} from '@bh/field/config';
 
 import { BreedStandardStatus_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -24,7 +24,7 @@ const Description  =
       Description_MediumText, BreedStandardStatus_Plugin.Description);
 const Provider  =
     merge({},
-      Provider_Account, BreedStandardStatus_Plugin.Provider)
+      Provider_Account, BreedStandardStatus_Plugin.Provider);
 
 
 export const BREEDSTANDARDSTATUS_FIELD_CONFIG = {

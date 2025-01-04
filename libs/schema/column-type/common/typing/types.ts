@@ -1,4 +1,4 @@
 
-export type WithType = { type : string}
+export type WithType = { type : string};
 // import { ModelCodeType } from '@bh/consts';
 

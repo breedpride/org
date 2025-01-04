@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { Provider_Account} from '@bh/field/config';import { Rating_Number} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { Provider_Account} from '@bh/field/config';import { Rating_Number} from '@bh/field/config';
 
 import { Title_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -30,7 +30,7 @@ const Provider  =
       Provider_Account, Title_Plugin.Provider);
 const Rating  =
     merge({},
-      Rating_Number, Title_Plugin.Rating)
+      Rating_Number, Title_Plugin.Rating);
 
 
 export const TITLE_FIELD_CONFIG = {

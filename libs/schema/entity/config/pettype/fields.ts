@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { PetProfileCount_Integer} from '@bh/field/config';import { Url_LongText} from '@bh/field/config';import { OrganizationCount_Integer} from '@bh/field/config';import { ProfileCount_Integer} from '@bh/field/config';import { PatronCount_Integer} from '@bh/field/config';import { KennelCount_Integer} from '@bh/field/config';import { AvatarUrl_LongText} from '@bh/field/config';import { EventCount_Integer} from '@bh/field/config';import { PublicData_PublicData} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { PetProfileCount_Integer} from '@bh/field/config';import { Url_LongText} from '@bh/field/config';import { OrganizationCount_Integer} from '@bh/field/config';import { ProfileCount_Integer} from '@bh/field/config';import { PatronCount_Integer} from '@bh/field/config';import { KennelCount_Integer} from '@bh/field/config';import { AvatarUrl_LongText} from '@bh/field/config';import { EventCount_Integer} from '@bh/field/config';import { PublicData_PublicData} from '@bh/field/config';
 
 import { PetType_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -48,7 +48,7 @@ const EventCount  =
       EventCount_Integer, PetType_Plugin.EventCount);
 const PublicData  =
     merge({},
-      PublicData_PublicData, PetType_Plugin.PublicData)
+      PublicData_PublicData, PetType_Plugin.PublicData);
 
 
 export const PETTYPE_FIELD_CONFIG = {

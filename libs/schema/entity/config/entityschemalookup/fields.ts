@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { IsPublic_Boolean} from '@bh/field/config';import { PublicName_ShortText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { IsPublic_Boolean} from '@bh/field/config';import { PublicName_ShortText} from '@bh/field/config';
 
 import { EntitySchemaLookup_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -39,7 +39,7 @@ const IsPublic  =
       IsPublic_Boolean, EntitySchemaLookup_Plugin.IsPublic);
 const PublicName  =
     merge({},
-      PublicName_ShortText, EntitySchemaLookup_Plugin.PublicName)
+      PublicName_ShortText, EntitySchemaLookup_Plugin.PublicName);
 
 
 export const ENTITYSCHEMALOOKUP_FIELD_CONFIG = {

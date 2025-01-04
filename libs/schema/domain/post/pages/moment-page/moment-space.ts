@@ -2,7 +2,7 @@ import { FormFieldCode } from '@bh/consts';
 import { EmptyFieldConfig,FilterFieldConfig, SpaceConfig } from '@bh/superfield';
 import { DEFAULT_GRID } from '@bh/collection-view-change';
 import {  NAME_FILTER } from '@bh/filtering';
-import { byAny} from '@bh/filter'
+import { byAny} from '@bh/filter';
 import { getSpaceConfig } from '@bh/collection-store';
 
 import { SPACE_URL_MOMENT } from '@bh/space-url';

@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Priority_Integer} from '@bh/field/config';import { System_Boolean} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Priority_Integer} from '@bh/field/config';import { System_Boolean} from '@bh/field/config';
 
 import { CoverType_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -27,7 +27,7 @@ const Priority  =
       Priority_Integer, CoverType_Plugin.Priority);
 const System  =
     merge({},
-      System_Boolean, CoverType_Plugin.System)
+      System_Boolean, CoverType_Plugin.System);
 
 
 export const COVERTYPE_FIELD_CONFIG = {

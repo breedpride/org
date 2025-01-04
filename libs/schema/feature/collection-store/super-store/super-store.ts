@@ -21,7 +21,7 @@ import { SpaceConfig } from '@bh/superfield';
 import { AppStore } from '@bh/app';
 
 
-type SuperStoreType = LookupStore & EntityListStore
+type SuperStoreType = LookupStore & EntityListStore;
 // Створення ін'єкційного токена для сервісу TreeService
 export const SUPER_STORE = new InjectionToken<SuperStoreType>('SUPER_STORE');
 
@@ -71,10 +71,10 @@ export type EntityListStore = ReturnType<typeof spaceStoreFactory>;
 export function superFactory(config: StoreConfig, parent: EntityListStore | null, appStore=inject(AppStore)) {
   console.log('serviceFactory!!!!!!!!!!!!!!!!!!!!!!!!!', config, parent);
   console.log(getState(appStore));
-  appStore.configStore.addEntities([config])
+  appStore.configStore.addEntities([config]);
   if (parent) {
     console.log('!!!!!!!!!!!!!!Root TreeService', parent);
-    
+
     return spaceStoreFactory(config);
   } else {
 

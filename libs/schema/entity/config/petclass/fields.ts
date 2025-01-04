@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { AgeTo_Integer} from '@bh/field/config';import { AgeFrom_Integer} from '@bh/field/config';import { Code_Integer} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { Provider_Account} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { AgeTo_Integer} from '@bh/field/config';import { AgeFrom_Integer} from '@bh/field/config';import { Code_Integer} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { Provider_Account} from '@bh/field/config';
 
 import { PetClass_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -36,7 +36,7 @@ const PetType  =
       PetType_PetType, PetClass_Plugin.PetType);
 const Provider  =
     merge({},
-      Provider_Account, PetClass_Plugin.Provider)
+      Provider_Account, PetClass_Plugin.Provider);
 
 
 export const PETCLASS_FIELD_CONFIG = {

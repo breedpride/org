@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Priority_Integer} from '@bh/field/config';import { Domain_ShortText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Priority_Integer} from '@bh/field/config';import { Domain_ShortText} from '@bh/field/config';
 
 import { DataSource_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -27,7 +27,7 @@ const Priority  =
       Priority_Integer, DataSource_Plugin.Priority);
 const Domain  =
     merge({},
-      Domain_ShortText, DataSource_Plugin.Domain)
+      Domain_ShortText, DataSource_Plugin.Domain);
 
 
 export const DATASOURCE_FIELD_CONFIG = {

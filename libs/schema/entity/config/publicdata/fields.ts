@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { HashMD5_MediumText} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { Breed_Breed} from '@bh/field/config';import { Event_Event} from '@bh/field/config';import { Project_Project} from '@bh/field/config';import { RecordId_Guid} from '@bh/field/config';import { Model_ShortText} from '@bh/field/config';import { EntityName_ShortText} from '@bh/field/config';import { Primary_Boolean} from '@bh/field/config';import { Redirect_PublicData} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { Country_Country} from '@bh/field/config';import { PetTitles_TitleInPet} from '@bh/field/config';import { HasOwner_Boolean} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { HashMD5_MediumText} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { Breed_Breed} from '@bh/field/config';import { Event_Event} from '@bh/field/config';import { Project_Project} from '@bh/field/config';import { RecordId_Guid} from '@bh/field/config';import { Model_ShortText} from '@bh/field/config';import { EntityName_ShortText} from '@bh/field/config';import { Primary_Boolean} from '@bh/field/config';import { Redirect_PublicData} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { Country_Country} from '@bh/field/config';import { PetTitles_TitleInPet} from '@bh/field/config';import { HasOwner_Boolean} from '@bh/field/config';
 
 import { PublicData_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -78,7 +78,7 @@ const PetTitles  =
       PetTitles_TitleInPet, PublicData_Plugin.PetTitles);
 const HasOwner  =
     merge({},
-      HasOwner_Boolean, PublicData_Plugin.HasOwner)
+      HasOwner_Boolean, PublicData_Plugin.HasOwner);
 
 
 export const PUBLICDATA_FIELD_CONFIG = {

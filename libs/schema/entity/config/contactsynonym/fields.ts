@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';
 
 import { ContactSynonym_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -21,7 +21,7 @@ const Name  =
       Name_MediumText, ContactSynonym_Plugin.Name);
 const Contact  =
     merge({},
-      Contact_Contact, ContactSynonym_Plugin.Contact)
+      Contact_Contact, ContactSynonym_Plugin.Contact);
 
 
 export const CONTACTSYNONYM_FIELD_CONFIG = {

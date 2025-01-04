@@ -41,12 +41,12 @@ import {
 
 // import type {
   // RxConfigDocument
-// } 
+// }
 // from '../../RxDB.d';
 
 import { Id } from '@bh/superfield';
 
-type T = any
+type T = any;
 @Component({
   selector: 'bp-new-space',
   imports: [
@@ -183,7 +183,7 @@ type T = any
 
 })
 export class TreeComponent {
-update 
+update
 () {
   this.ch.markForCheck();
 // throw new Error('Method not implemented.');
@@ -231,7 +231,7 @@ tabs: { route: string; label: string; icon: string }[] = [
     console.log(data);
     this.import(data);
   }
-  
+
 
   dbService = inject(DatabaseService);
   public config$$ = this.dbService.db.config.find().$$();
@@ -266,9 +266,9 @@ tabs: { route: string; label: string; icon: string }[] = [
           name: e.name,
           id: e.id,
           features,
-          
+
         },
-        
+
       };
     });
     test?.forEach((e) => {
@@ -444,5 +444,5 @@ export async function checkSchema(
   // );
   //dev.dogarray.com/0/ServiceModel/BreedprideAdminApi/space/collection/Pet?from=0&columns=Id&rows=1&skipUpper=true&force=true
   // https: return globalColumnsMap.has(SchemaName);
-  
+
 }

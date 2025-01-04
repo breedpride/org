@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { IsPublic_Boolean} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { IsPublic_Boolean} from '@bh/field/config';
 
 import { PetIdentifierType_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -24,7 +24,7 @@ const Description  =
       Description_MediumText, PetIdentifierType_Plugin.Description);
 const IsPublic  =
     merge({},
-      IsPublic_Boolean, PetIdentifierType_Plugin.IsPublic)
+      IsPublic_Boolean, PetIdentifierType_Plugin.IsPublic);
 
 
 export const PETIDENTIFIERTYPE_FIELD_CONFIG = {

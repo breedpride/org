@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Date_Date} from '@bh/field/config';import { Currency_Currency} from '@bh/field/config';import { Price_Number} from '@bh/field/config';import { ServiceType_PetServiceType} from '@bh/field/config';import { Litter_Litter} from '@bh/field/config';import { PetServiceStatus_PetServiceStatus} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Date_Date} from '@bh/field/config';import { Currency_Currency} from '@bh/field/config';import { Price_Number} from '@bh/field/config';import { ServiceType_PetServiceType} from '@bh/field/config';import { Litter_Litter} from '@bh/field/config';import { PetServiceStatus_PetServiceStatus} from '@bh/field/config';
 
 import { PetServiceInLitter_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -45,7 +45,7 @@ const Litter  =
       Litter_Litter, PetServiceInLitter_Plugin.Litter);
 const PetServiceStatus  =
     merge({},
-      PetServiceStatus_PetServiceStatus, PetServiceInLitter_Plugin.PetServiceStatus)
+      PetServiceStatus_PetServiceStatus, PetServiceInLitter_Plugin.PetServiceStatus);
 
 
 export const PETSERVICEINLITTER_FIELD_CONFIG = {

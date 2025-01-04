@@ -18,7 +18,7 @@ import { SUPER_CONFIG, provideList } from '@bh/collection-store';
 import {  SideBarStore } from '@bh/store-feature';
 import { SpaceConfig } from '@bh/superfield';
 import { publicRoutes } from '@breedpride/page';
-import { SUPER_STORE } from '@bh/collection-store'
+import { SUPER_STORE } from '@bh/collection-store';
 import { EmptyOutletComponent } from './one-space-outlet.component';
 import { SpaceComponent } from '@bh/space-ui';
 import { provideEntitiesFieldsConfigValue } from '@bh/collection-view-scroller';

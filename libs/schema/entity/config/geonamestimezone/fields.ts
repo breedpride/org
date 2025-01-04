@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { GMTOffset_Number} from '@bh/field/config';import { CountryCode_ShortText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { GMTOffset_Number} from '@bh/field/config';import { CountryCode_ShortText} from '@bh/field/config';
 
 import { GeoNamesTimeZone_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -27,7 +27,7 @@ const GMTOffset  =
       GMTOffset_Number, GeoNamesTimeZone_Plugin.GMTOffset);
 const CountryCode  =
     merge({},
-      CountryCode_ShortText, GeoNamesTimeZone_Plugin.CountryCode)
+      CountryCode_ShortText, GeoNamesTimeZone_Plugin.CountryCode);
 
 
 export const GEONAMESTIMEZONE_FIELD_CONFIG = {

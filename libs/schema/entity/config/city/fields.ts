@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Country_Country} from '@bh/field/config';import { Region_Region} from '@bh/field/config';import { TimeZone_TimeZone} from '@bh/field/config';import { GeoNamesTimeZone_GeoNamesTimeZone} from '@bh/field/config';import { AlternateNames_MaxSizeText} from '@bh/field/config';import { GeoNamesId_ShortText} from '@bh/field/config';import { Dem_Integer} from '@bh/field/config';import { Latitude_Number} from '@bh/field/config';import { Longitude_Number} from '@bh/field/config';import { Population_Integer} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Country_Country} from '@bh/field/config';import { Region_Region} from '@bh/field/config';import { TimeZone_TimeZone} from '@bh/field/config';import { GeoNamesTimeZone_GeoNamesTimeZone} from '@bh/field/config';import { AlternateNames_MaxSizeText} from '@bh/field/config';import { GeoNamesId_ShortText} from '@bh/field/config';import { Dem_Integer} from '@bh/field/config';import { Latitude_Number} from '@bh/field/config';import { Longitude_Number} from '@bh/field/config';import { Population_Integer} from '@bh/field/config';
 
 import { City_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -63,7 +63,7 @@ const Longitude  =
       Longitude_Number, City_Plugin.Longitude);
 const Population  =
     merge({},
-      Population_Integer, City_Plugin.Population)
+      Population_Integer, City_Plugin.Population);
 
 
 export const CITY_FIELD_CONFIG = {

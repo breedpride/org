@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { EventType_EventType} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { EventType_EventType} from '@bh/field/config';
 
 import { ProjectCategory_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -24,7 +24,7 @@ const Description  =
       Description_MediumText, ProjectCategory_Plugin.Description);
 const EventType  =
     merge({},
-      EventType_EventType, ProjectCategory_Plugin.EventType)
+      EventType_EventType, ProjectCategory_Plugin.EventType);
 
 
 export const PROJECTCATEGORY_FIELD_CONFIG = {

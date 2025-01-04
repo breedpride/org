@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { ShortName_ShortText} from '@bh/field/config';import { Symbol_ShortText} from '@bh/field/config';import { RecalcDirection_Integer} from '@bh/field/config';import { Division_Integer} from '@bh/field/config';import { CurrecySymbolPosition_Integer} from '@bh/field/config';import { Rate_Number} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { ShortName_ShortText} from '@bh/field/config';import { Symbol_ShortText} from '@bh/field/config';import { RecalcDirection_Integer} from '@bh/field/config';import { Division_Integer} from '@bh/field/config';import { CurrecySymbolPosition_Integer} from '@bh/field/config';import { Rate_Number} from '@bh/field/config';
 
 import { Currency_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -54,7 +54,7 @@ const CurrecySymbolPosition  =
       CurrecySymbolPosition_Integer, Currency_Plugin.CurrecySymbolPosition);
 const Rate  =
     merge({},
-      Rate_Number, Currency_Plugin.Rate)
+      Rate_Number, Currency_Plugin.Rate);
 
 
 export const CURRENCY_FIELD_CONFIG = {

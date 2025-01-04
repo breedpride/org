@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Notes_MaxSizeText} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Type_ProjectType} from '@bh/field/config';import { Owner_Contact} from '@bh/field/config';import { Status_ProjectStatus} from '@bh/field/config';import { StartDate_Date} from '@bh/field/config';import { EndDate_Date} from '@bh/field/config';import { Duration_Integer} from '@bh/field/config';import { Deadline_Date} from '@bh/field/config';import { ParentProject_Project} from '@bh/field/config';import { ActualCompletion_Number} from '@bh/field/config';import { Position_Integer} from '@bh/field/config';import { Event_Event} from '@bh/field/config';import { Category_ProjectCategory} from '@bh/field/config';import { Breed_Breed} from '@bh/field/config';import { Url_MediumText} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Notes_MaxSizeText} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Type_ProjectType} from '@bh/field/config';import { Owner_Contact} from '@bh/field/config';import { Status_ProjectStatus} from '@bh/field/config';import { StartDate_Date} from '@bh/field/config';import { EndDate_Date} from '@bh/field/config';import { Duration_Integer} from '@bh/field/config';import { Deadline_Date} from '@bh/field/config';import { ParentProject_Project} from '@bh/field/config';import { ActualCompletion_Number} from '@bh/field/config';import { Position_Integer} from '@bh/field/config';import { Event_Event} from '@bh/field/config';import { Category_ProjectCategory} from '@bh/field/config';import { Breed_Breed} from '@bh/field/config';import { Url_MediumText} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config';
 
 import { Project_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -84,7 +84,7 @@ const PetType  =
       PetType_PetType, Project_Plugin.PetType);
 const Cover  =
     merge({},
-      Cover_Cover, Project_Plugin.Cover)
+      Cover_Cover, Project_Plugin.Cover);
 
 
 export const PROJECT_FIELD_CONFIG = {

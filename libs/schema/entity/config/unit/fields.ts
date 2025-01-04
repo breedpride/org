@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { ShortName_ShortText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { ShortName_ShortText} from '@bh/field/config';
 
 import { Unit_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -24,7 +24,7 @@ const Description  =
       Description_MediumText, Unit_Plugin.Description);
 const ShortName  =
     merge({},
-      ShortName_ShortText, Unit_Plugin.ShortName)
+      ShortName_ShortText, Unit_Plugin.ShortName);
 
 
 export const UNIT_FIELD_CONFIG = {

@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Subsection_BreedSubsection} from '@bh/field/config';import { Section_BreedSection} from '@bh/field/config';import { Group_BreedGroup} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { Provider_Account} from '@bh/field/config';import { Breed_Breed} from '@bh/field/config';import { Effective_Date} from '@bh/field/config';import { Approved_Date} from '@bh/field/config';import { Link_MediumText} from '@bh/field/config';import { WorkingTrial_Boolean} from '@bh/field/config';import { Status_BreedStandardStatus} from '@bh/field/config';import { HasVariableDivisions_Boolean} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Subsection_BreedSubsection} from '@bh/field/config';import { Section_BreedSection} from '@bh/field/config';import { Group_BreedGroup} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { Provider_Account} from '@bh/field/config';import { Breed_Breed} from '@bh/field/config';import { Effective_Date} from '@bh/field/config';import { Approved_Date} from '@bh/field/config';import { Link_MediumText} from '@bh/field/config';import { WorkingTrial_Boolean} from '@bh/field/config';import { Status_BreedStandardStatus} from '@bh/field/config';import { HasVariableDivisions_Boolean} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';
 
 import { BreedStandard_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -54,7 +54,7 @@ const HasVariableDivisions  =
       HasVariableDivisions_Boolean, BreedStandard_Plugin.HasVariableDivisions);
 const Name  =
     merge({},
-      Name_MediumText, BreedStandard_Plugin.Name)
+      Name_MediumText, BreedStandard_Plugin.Name);
 
 
 export const BREEDSTANDARD_FIELD_CONFIG = {

@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Status_StudbookStatus} from '@bh/field/config';import { Type_StudbookType} from '@bh/field/config';import { AlternateNames_MediumText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Status_StudbookStatus} from '@bh/field/config';import { Type_StudbookType} from '@bh/field/config';import { AlternateNames_MediumText} from '@bh/field/config';
 
 import { Studbook_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -33,7 +33,7 @@ const Type  =
       Type_StudbookType, Studbook_Plugin.Type);
 const AlternateNames  =
     merge({},
-      AlternateNames_MediumText, Studbook_Plugin.AlternateNames)
+      AlternateNames_MediumText, Studbook_Plugin.AlternateNames);
 
 
 export const STUDBOOK_FIELD_CONFIG = {

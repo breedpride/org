@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Type_EventType} from '@bh/field/config';import { Owner_Contact} from '@bh/field/config';import { Status_EventStatus} from '@bh/field/config';import { StartDate_Date} from '@bh/field/config';import { EndDate_Date} from '@bh/field/config';import { Territory_Territory} from '@bh/field/config';import { Industry_AccountIndustry} from '@bh/field/config';import { LastActualizeDate_DateTime} from '@bh/field/config';import { RecipientCount_Integer} from '@bh/field/config';import { Organizer_Account} from '@bh/field/config';import { Address_MediumText} from '@bh/field/config';import { City_City} from '@bh/field/config';import { Region_Region} from '@bh/field/config';import { Country_Country} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Url_MediumText} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Type_EventType} from '@bh/field/config';import { Owner_Contact} from '@bh/field/config';import { Status_EventStatus} from '@bh/field/config';import { StartDate_Date} from '@bh/field/config';import { EndDate_Date} from '@bh/field/config';import { Territory_Territory} from '@bh/field/config';import { Industry_AccountIndustry} from '@bh/field/config';import { LastActualizeDate_DateTime} from '@bh/field/config';import { RecipientCount_Integer} from '@bh/field/config';import { Organizer_Account} from '@bh/field/config';import { Address_MediumText} from '@bh/field/config';import { City_City} from '@bh/field/config';import { Region_Region} from '@bh/field/config';import { Country_Country} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Url_MediumText} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config';
 
 import { Event_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -84,7 +84,7 @@ const PetType  =
       PetType_PetType, Event_Plugin.PetType);
 const Cover  =
     merge({},
-      Cover_Cover, Event_Plugin.Cover)
+      Cover_Cover, Event_Plugin.Cover);
 
 
 export const EVENT_FIELD_CONFIG = {

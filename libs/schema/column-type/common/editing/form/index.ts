@@ -1,4 +1,4 @@
 // @index(['./**/*.{ts,tsx}', './*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}'`)
-export * from './bp-form'
-export * from './token'
+export * from './bp-form';
+export * from './token';
 // @endindex

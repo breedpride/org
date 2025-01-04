@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { RawDataModel_MediumText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { RawDataModel_MediumText} from '@bh/field/config';
 
 import { AccountType_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -24,7 +24,7 @@ const Description  =
       Description_MediumText, AccountType_Plugin.Description);
 const RawDataModel  =
     merge({},
-      RawDataModel_MediumText, AccountType_Plugin.RawDataModel)
+      RawDataModel_MediumText, AccountType_Plugin.RawDataModel);
 
 
 export const ACCOUNTTYPE_FIELD_CONFIG = {

@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Title_Title} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { IsConfirmed_Boolean} from '@bh/field/config';import { Date_Date} from '@bh/field/config';import { Country_Country} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Amount_Integer} from '@bh/field/config';import { RawTitle_MediumText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Title_Title} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { IsConfirmed_Boolean} from '@bh/field/config';import { Date_Date} from '@bh/field/config';import { Country_Country} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Amount_Integer} from '@bh/field/config';import { RawTitle_MediumText} from '@bh/field/config';
 
 import { TitleInPet_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -39,7 +39,7 @@ const Amount  =
       Amount_Integer, TitleInPet_Plugin.Amount);
 const RawTitle  =
     merge({},
-      RawTitle_MediumText, TitleInPet_Plugin.RawTitle)
+      RawTitle_MediumText, TitleInPet_Plugin.RawTitle);
 
 
 export const TITLEINPET_FIELD_CONFIG = {

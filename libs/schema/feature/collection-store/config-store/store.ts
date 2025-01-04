@@ -3,7 +3,7 @@ import { withSuperStoreFeatue } from '../../collection-data/with-tree.feature';
 
 
 // const withTypedCollection<T extends FilterFieldConfig>(config: T) {
-  
+
 //   return withFilledNamedCollection<T, T['type']>(spaceCollectionConfig);
 // }
 // const collectionConfig<T extends WithType>(config: { entity: T; collection: string }) {

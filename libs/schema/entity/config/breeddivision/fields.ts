@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { DivisionByColor_Boolean} from '@bh/field/config';import { Breed_Breed} from '@bh/field/config';import { IsMain_Boolean} from '@bh/field/config';import { DivisionByBodyFeature_Boolean} from '@bh/field/config';import { DivisionBySize_Boolean} from '@bh/field/config';import { DivisionByCoatType_Boolean} from '@bh/field/config';import { BreedStandard_BreedStandard} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { DivisionByColor_Boolean} from '@bh/field/config';import { Breed_Breed} from '@bh/field/config';import { IsMain_Boolean} from '@bh/field/config';import { DivisionByBodyFeature_Boolean} from '@bh/field/config';import { DivisionBySize_Boolean} from '@bh/field/config';import { DivisionByCoatType_Boolean} from '@bh/field/config';import { BreedStandard_BreedStandard} from '@bh/field/config';
 
 import { BreedDivision_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -42,7 +42,7 @@ const DivisionByCoatType  =
       DivisionByCoatType_Boolean, BreedDivision_Plugin.DivisionByCoatType);
 const BreedStandard  =
     merge({},
-      BreedStandard_BreedStandard, BreedDivision_Plugin.BreedStandard)
+      BreedStandard_BreedStandard, BreedDivision_Plugin.BreedStandard);
 
 
 export const BREEDDIVISION_FIELD_CONFIG = {

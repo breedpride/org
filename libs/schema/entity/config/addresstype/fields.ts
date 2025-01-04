@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { ForContact_Boolean} from '@bh/field/config';import { ForAccount_Boolean} from '@bh/field/config';import { Color_Color} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { ForContact_Boolean} from '@bh/field/config';import { ForAccount_Boolean} from '@bh/field/config';import { Color_Color} from '@bh/field/config';
 
 import { AddressType_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -30,7 +30,7 @@ const ForAccount  =
       ForAccount_Boolean, AddressType_Plugin.ForAccount);
 const Color  =
     merge({},
-      Color_Color, AddressType_Plugin.Color)
+      Color_Color, AddressType_Plugin.Color);
 
 
 export const ADDRESSTYPE_FIELD_CONFIG = {

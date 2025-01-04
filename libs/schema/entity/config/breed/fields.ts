@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { DifferByCoatColor_Boolean} from '@bh/field/config';import { DifferByCoatType_Boolean} from '@bh/field/config';import { DifferBySize_Boolean} from '@bh/field/config';import { Language_SysLanguage} from '@bh/field/config';import { AuthenticName_MediumText} from '@bh/field/config';import { DifferByBodyFeature_Boolean} from '@bh/field/config';import { PetProfileCount_Integer} from '@bh/field/config';import { Category_BreedCategory} from '@bh/field/config';import { KennelCount_Integer} from '@bh/field/config';import { HasRelatedBreed_Boolean} from '@bh/field/config';import { AdminName_MediumText} from '@bh/field/config';import { Url_LongText} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { PatronCount_Integer} from '@bh/field/config';import { AvatarUrl_LongText} from '@bh/field/config';import { Rating_Number} from '@bh/field/config';import { AchievementProgress_Number} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config';import { PaymentRating_Number} from '@bh/field/config';import { PublicData_PublicData} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { PetType_PetType} from '@bh/field/config';import { DifferByCoatColor_Boolean} from '@bh/field/config';import { DifferByCoatType_Boolean} from '@bh/field/config';import { DifferBySize_Boolean} from '@bh/field/config';import { Language_SysLanguage} from '@bh/field/config';import { AuthenticName_MediumText} from '@bh/field/config';import { DifferByBodyFeature_Boolean} from '@bh/field/config';import { PetProfileCount_Integer} from '@bh/field/config';import { Category_BreedCategory} from '@bh/field/config';import { KennelCount_Integer} from '@bh/field/config';import { HasRelatedBreed_Boolean} from '@bh/field/config';import { AdminName_MediumText} from '@bh/field/config';import { Url_LongText} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { PatronCount_Integer} from '@bh/field/config';import { AvatarUrl_LongText} from '@bh/field/config';import { Rating_Number} from '@bh/field/config';import { AchievementProgress_Number} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config';import { PaymentRating_Number} from '@bh/field/config';import { PublicData_PublicData} from '@bh/field/config';
 
 import { Breed_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -93,7 +93,7 @@ const PaymentRating  =
       PaymentRating_Number, Breed_Plugin.PaymentRating);
 const PublicData  =
     merge({},
-      PublicData_PublicData, Breed_Plugin.PublicData)
+      PublicData_PublicData, Breed_Plugin.PublicData);
 
 
 export const BREED_FIELD_CONFIG = {

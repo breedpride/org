@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';
 
 import { BreedprideCollectionType_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -33,7 +33,7 @@ const Name  =
       Name_MediumText, BreedprideCollectionType_Plugin.Name);
 const Description  =
     merge({},
-      Description_MediumText, BreedprideCollectionType_Plugin.Description)
+      Description_MediumText, BreedprideCollectionType_Plugin.Description);
 
 
 export const BREEDPRIDECOLLECTIONTYPE_FIELD_CONFIG = {

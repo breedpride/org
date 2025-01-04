@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Code_MediumText} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Code_MediumText} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';
 
 import { Referral_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -21,7 +21,7 @@ const Code  =
       Code_MediumText, Referral_Plugin.Code);
 const Contact  =
     merge({},
-      Contact_Contact, Referral_Plugin.Contact)
+      Contact_Contact, Referral_Plugin.Contact);
 
 
 export const REFERRAL_FIELD_CONFIG = {

@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { Rating_Integer} from '@bh/field/config';import { OrderNumber_Integer} from '@bh/field/config';import { Review_LongText} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { test_ShortText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { Rating_Integer} from '@bh/field/config';import { OrderNumber_Integer} from '@bh/field/config';import { Review_LongText} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { test_ShortText} from '@bh/field/config';
 
 import { AccountReview_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -45,7 +45,7 @@ const Account  =
       Account_Account, AccountReview_Plugin.Account);
 const test  =
     merge({},
-      test_ShortText, AccountReview_Plugin.test)
+      test_ShortText, AccountReview_Plugin.test);
 
 
 export const ACCOUNTREVIEW_FIELD_CONFIG = {

@@ -14,7 +14,7 @@ import { WithCreatioId } from '@bh/superfield';
 import { CardMode,  } from '@bh/types';
 import { PageStore } from '@bh/page-store';
 import { ScrollerLazyLoadEvent } from 'primeng/scroller';
-import { injectSpaceStore } from '@bh/collection-store'
+import { injectSpaceStore } from '@bh/collection-store';
 import { injectViewsStore } from '@bh/collection-view-change';
 @Component({
   selector: 'bp-base-view',

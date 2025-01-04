@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { BillingInfo_MaxSizeText} from '@bh/field/config';import { TimeZone_TimeZone} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { AlternateNames_MaxSizeText} from '@bh/field/config';import { GeoNamesTimeZone_GeoNamesTimeZone} from '@bh/field/config';import { GeoNamesCountryCode_ShortText} from '@bh/field/config';import { GeoNamesId_ShortText} from '@bh/field/config';import { Dem_Integer} from '@bh/field/config';import { Latitude_Number} from '@bh/field/config';import { Longitude_Number} from '@bh/field/config';import { Alpha2Code_ShortText} from '@bh/field/config';import { PublicData_PublicData} from '@bh/field/config';import { Url_LongText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { BillingInfo_MaxSizeText} from '@bh/field/config';import { TimeZone_TimeZone} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { AlternateNames_MaxSizeText} from '@bh/field/config';import { GeoNamesTimeZone_GeoNamesTimeZone} from '@bh/field/config';import { GeoNamesCountryCode_ShortText} from '@bh/field/config';import { GeoNamesId_ShortText} from '@bh/field/config';import { Dem_Integer} from '@bh/field/config';import { Latitude_Number} from '@bh/field/config';import { Longitude_Number} from '@bh/field/config';import { Alpha2Code_ShortText} from '@bh/field/config';import { PublicData_PublicData} from '@bh/field/config';import { Url_LongText} from '@bh/field/config';
 
 import { Country_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -72,7 +72,7 @@ const PublicData  =
       PublicData_PublicData, Country_Plugin.PublicData);
 const Url  =
     merge({},
-      Url_LongText, Country_Plugin.Url)
+      Url_LongText, Country_Plugin.Url);
 
 
 export const COUNTRY_FIELD_CONFIG = {

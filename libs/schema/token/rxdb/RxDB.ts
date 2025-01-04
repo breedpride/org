@@ -34,7 +34,7 @@ export type RxFeatureCollection = RxCollection<
   Signal<unknown>
 >;
 export type RxHeroesCollections = {
-  
+
   config: RxCollection<
   RxConfigDocumentType,
   unknown,

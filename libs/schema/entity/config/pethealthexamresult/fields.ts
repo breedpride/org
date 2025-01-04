@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { HealthExamObject_HealthExamObject} from '@bh/field/config';import { HealthExamResult_HealthExamResult} from '@bh/field/config';import { Date_Date} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { HealthExamObject_HealthExamObject} from '@bh/field/config';import { HealthExamResult_HealthExamResult} from '@bh/field/config';import { Date_Date} from '@bh/field/config';
 
 import { PetHealthExamResult_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -39,7 +39,7 @@ const HealthExamResult  =
       HealthExamResult_HealthExamResult, PetHealthExamResult_Plugin.HealthExamResult);
 const Date  =
     merge({},
-      Date_Date, PetHealthExamResult_Plugin.Date)
+      Date_Date, PetHealthExamResult_Plugin.Date);
 
 
 export const PETHEALTHEXAMRESULT_FIELD_CONFIG = {

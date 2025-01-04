@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { IsUsed_Boolean} from '@bh/field/config';import { SysCultureDefId_Guid} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { IsUsed_Boolean} from '@bh/field/config';import { SysCultureDefId_Guid} from '@bh/field/config';
 
 import { SysLanguage_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -30,7 +30,7 @@ const IsUsed  =
       IsUsed_Boolean, SysLanguage_Plugin.IsUsed);
 const SysCultureDefId  =
     merge({},
-      SysCultureDefId_Guid, SysLanguage_Plugin.SysCultureDefId)
+      SysCultureDefId_Guid, SysLanguage_Plugin.SysCultureDefId);
 
 
 export const SYSLANGUAGE_FIELD_CONFIG = {

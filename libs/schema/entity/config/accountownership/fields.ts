@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Country_Country} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Country_Country} from '@bh/field/config';
 
 import { AccountOwnership_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -24,7 +24,7 @@ const Description  =
       Description_MediumText, AccountOwnership_Plugin.Description);
 const Country  =
     merge({},
-      Country_Country, AccountOwnership_Plugin.Country)
+      Country_Country, AccountOwnership_Plugin.Country);
 
 
 export const ACCOUNTOWNERSHIP_FIELD_CONFIG = {

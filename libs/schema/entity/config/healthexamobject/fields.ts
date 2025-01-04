@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';
 
 import { HealthExamObject_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -24,7 +24,7 @@ const Description  =
       Description_MediumText, HealthExamObject_Plugin.Description);
 const Code  =
     merge({},
-      Code_ShortText, HealthExamObject_Plugin.Code)
+      Code_ShortText, HealthExamObject_Plugin.Code);
 
 
 export const HEALTHEXAMOBJECT_FIELD_CONFIG = {

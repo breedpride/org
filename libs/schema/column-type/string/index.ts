@@ -13,5 +13,5 @@ export const String_Column = merge({}, {
   component: FormFieldCode.TEXT,
   parse: stringParse,
   stringify: stringStringify,
-})
+});
 // as Partial<FilterFieldConfig>);

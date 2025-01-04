@@ -13,10 +13,11 @@ export function collectionConfig<T extends WithType & WithId>(config: T) {
     entity: type<T>(),
     collection: type<T>().type,
     selectId: (c: T) => c.id,
-}};
+};
+};
 
 // const withTypedCollection<T extends FilterFieldConfig>(config: T) {
-  
+
 //   return withFilledNamedCollection<T, T['type']>(spaceCollectionConfig);
 // }
 // const collectionConfig<T extends WithType>(config: { entity: T; collection: string }) {

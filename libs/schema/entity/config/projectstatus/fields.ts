@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { IsFinal_Boolean} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { IsFinal_Boolean} from '@bh/field/config';
 
 import { ProjectStatus_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -24,7 +24,7 @@ const Description  =
       Description_MediumText, ProjectStatus_Plugin.Description);
 const IsFinal  =
     merge({},
-      IsFinal_Boolean, ProjectStatus_Plugin.IsFinal)
+      IsFinal_Boolean, ProjectStatus_Plugin.IsFinal);
 
 
 export const PROJECTSTATUS_FIELD_CONFIG = {

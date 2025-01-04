@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { PublicationDate_DateTime} from '@bh/field/config';import { Type_PostType} from '@bh/field/config';import { State_PostState} from '@bh/field/config';import { Text_MaxSizeText} from '@bh/field/config';import { Url_MediumText} from '@bh/field/config';import { MasterPost_Post} from '@bh/field/config';import { IsMoment_Boolean} from '@bh/field/config';import { Author_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Date_Date} from '@bh/field/config';import { Event_Event} from '@bh/field/config';import { Latitude_Number} from '@bh/field/config';import { Longitude_Number} from '@bh/field/config';import { Photos_MaxSizeText} from '@bh/field/config';import { Participants_MaxSizeText} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { PublicationDate_DateTime} from '@bh/field/config';import { Type_PostType} from '@bh/field/config';import { State_PostState} from '@bh/field/config';import { Text_MaxSizeText} from '@bh/field/config';import { Url_MediumText} from '@bh/field/config';import { MasterPost_Post} from '@bh/field/config';import { IsMoment_Boolean} from '@bh/field/config';import { Author_Contact} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Date_Date} from '@bh/field/config';import { Event_Event} from '@bh/field/config';import { Latitude_Number} from '@bh/field/config';import { Longitude_Number} from '@bh/field/config';import { Photos_MaxSizeText} from '@bh/field/config';import { Participants_MaxSizeText} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config';
 
 import { Post_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -75,7 +75,7 @@ const Participants  =
       Participants_MaxSizeText, Post_Plugin.Participants);
 const Cover  =
     merge({},
-      Cover_Cover, Post_Plugin.Cover)
+      Cover_Cover, Post_Plugin.Cover);
 
 
 export const POST_FIELD_CONFIG = {

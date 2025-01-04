@@ -48,7 +48,7 @@ import {
 
   provideEntitiesViews,
 } from '@bh/collection-view-change';
-import {provideEntitiesFieldsConfigValue,} from '@bh/collection-view-scroller'
+import {provideEntitiesFieldsConfigValue,} from '@bh/collection-view-scroller';
 import { Note_SCHEMA } from '@bh/entity/config';
 import { provideEntityStoreWithFn } from '@bh/entity-store';
 

@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MaxSizeText} from '@bh/field/config';import { Notes_MaxSizeText} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { Project_Project} from '@bh/field/config';import { Event_Event} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Breed_Breed} from '@bh/field/config';import { Owner_Contact} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config';import { RecordId_Guid} from '@bh/field/config';import { EntitySchema_EntitySchemaLookup} from '@bh/field/config';import { Litter_Litter} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Name_MaxSizeText} from '@bh/field/config';import { Notes_MaxSizeText} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { Project_Project} from '@bh/field/config';import { Event_Event} from '@bh/field/config';import { Contact_Contact} from '@bh/field/config';import { Account_Account} from '@bh/field/config';import { Breed_Breed} from '@bh/field/config';import { Owner_Contact} from '@bh/field/config';import { Cover_Cover} from '@bh/field/config';import { RecordId_Guid} from '@bh/field/config';import { EntitySchema_EntitySchemaLookup} from '@bh/field/config';import { Litter_Litter} from '@bh/field/config';
 
 import { Note_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -66,7 +66,7 @@ const EntitySchema  =
       EntitySchema_EntitySchemaLookup, Note_Plugin.EntitySchema);
 const Litter  =
     merge({},
-      Litter_Litter, Note_Plugin.Litter)
+      Litter_Litter, Note_Plugin.Litter);
 
 
 export const NOTE_FIELD_CONFIG = {

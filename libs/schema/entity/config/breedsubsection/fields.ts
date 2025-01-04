@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { BreedSection_BreedSection} from '@bh/field/config';import { BreedGroup_BreedGroup} from '@bh/field/config';import { Code_Integer} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { Name_MediumText} from '@bh/field/config';import { Description_MediumText} from '@bh/field/config';import { BreedSection_BreedSection} from '@bh/field/config';import { BreedGroup_BreedGroup} from '@bh/field/config';import { Code_Integer} from '@bh/field/config';
 
 import { BreedSubsection_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -30,7 +30,7 @@ const BreedGroup  =
       BreedGroup_BreedGroup, BreedSubsection_Plugin.BreedGroup);
 const Code  =
     merge({},
-      Code_Integer, BreedSubsection_Plugin.Code)
+      Code_Integer, BreedSubsection_Plugin.Code);
 
 
 export const BREEDSUBSECTION_FIELD_CONFIG = {

@@ -23,13 +23,13 @@ export const AppStore = signalStore(
     // logger: inject(Logger),
   })),
   // withProps((configStore = inject(ConfigStore))=>({config =configStore})),
-  // withState(()=>{ 
+  // withState(()=>{
   //   const withSuperStoreFeatue = withSuperStoreFeatue();
   //   return {
   //   configStore : new signalStore(withSuperStoreFeatue());
   //   }
   // }),
-  
+
   // withFilledNamedCollection<
   // EntityListStore,
   //   typeof spaceCollectionConfig.collection
@@ -45,4 +45,4 @@ export const AppStore = signalStore(
 // TODO - tag collections  boolean, optional, required, readonly
 // option-petType-1
 //type-key-value = PetType-ID-Value
-//TODO - database mutation// 
+//TODO - database mutation//

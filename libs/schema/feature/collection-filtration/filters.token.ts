@@ -68,7 +68,7 @@ export function withFilteredByFilterStore( { config }: { config?: SpaceConfig; }
   return signalStoreFeature(
       withFilteredCreatioEntities({ config }),
       withFilterStoreFilter(),
-    )
+    );
 }
 
 

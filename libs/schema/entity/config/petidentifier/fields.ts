@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Value_LongText} from '@bh/field/config';import { PetIdentifierType_PetIdentifierType} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { Date_Date} from '@bh/field/config';import { Studbook_Studbook} from '@bh/field/config';import { Number_ShortText} from '@bh/field/config';import { DataSource_DataSource} from '@bh/field/config';import { IsProcessed_Boolean} from '@bh/field/config';import { TrimValue_LongText} from '@bh/field/config';import { IsPublic_Boolean} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Value_LongText} from '@bh/field/config';import { PetIdentifierType_PetIdentifierType} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { Date_Date} from '@bh/field/config';import { Studbook_Studbook} from '@bh/field/config';import { Number_ShortText} from '@bh/field/config';import { DataSource_DataSource} from '@bh/field/config';import { IsProcessed_Boolean} from '@bh/field/config';import { TrimValue_LongText} from '@bh/field/config';import { IsPublic_Boolean} from '@bh/field/config';
 
 import { PetIdentifier_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -57,7 +57,7 @@ const TrimValue  =
       TrimValue_LongText, PetIdentifier_Plugin.TrimValue);
 const IsPublic  =
     merge({},
-      IsPublic_Boolean, PetIdentifier_Plugin.IsPublic)
+      IsPublic_Boolean, PetIdentifier_Plugin.IsPublic);
 
 
 export const PETIDENTIFIER_FIELD_CONFIG = {

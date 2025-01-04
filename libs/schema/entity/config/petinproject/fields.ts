@@ -5,7 +5,7 @@
 // ------------------------------------------------
 
 import { merge } from 'lodash-es';
-import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Project_Project} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { Number_Number} from '@bh/field/config';import { Class_PetClass} from '@bh/field/config';import { WebLink_MediumText} from '@bh/field/config';import { Result_MediumText} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { Handler_Contact} from '@bh/field/config';import { Judge_Contact} from '@bh/field/config';import { Place_Place} from '@bh/field/config';import { Qualification_PetQualification} from '@bh/field/config';import { Date_Date} from '@bh/field/config';import { TempProjectName_LongText} from '@bh/field/config'
+import { Id_Guid} from '@bh/field/config';import { CreatedOn_DateTime} from '@bh/field/config';import { CreatedBy_Contact} from '@bh/field/config';import { ModifiedOn_DateTime} from '@bh/field/config';import { ModifiedBy_Contact} from '@bh/field/config';import { Project_Project} from '@bh/field/config';import { Pet_Pet} from '@bh/field/config';import { Number_Number} from '@bh/field/config';import { Class_PetClass} from '@bh/field/config';import { WebLink_MediumText} from '@bh/field/config';import { Result_MediumText} from '@bh/field/config';import { Code_ShortText} from '@bh/field/config';import { Handler_Contact} from '@bh/field/config';import { Judge_Contact} from '@bh/field/config';import { Place_Place} from '@bh/field/config';import { Qualification_PetQualification} from '@bh/field/config';import { Date_Date} from '@bh/field/config';import { TempProjectName_LongText} from '@bh/field/config';
 
 import { PetInProject_Plugin  } from './fields.plugin';
 import { getColumns, getDateColumns } from '@bh/entity/consts';
@@ -66,7 +66,7 @@ const Date  =
       Date_Date, PetInProject_Plugin.Date);
 const TempProjectName  =
     merge({},
-      TempProjectName_LongText, PetInProject_Plugin.TempProjectName)
+      TempProjectName_LongText, PetInProject_Plugin.TempProjectName);
 
 
 export const PETINPROJECT_FIELD_CONFIG = {

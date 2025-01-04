@@ -10,7 +10,7 @@ import { ModelCodeType } from '@bh/consts';
 import { BPNavStore } from '@bh/nav-store';
 import { WithCreatioId } from '@bh/superfield';
 import { CardMode } from '@bh/types';
-import { injectSpaceStore } from '@bh/collection-store'
+import { injectSpaceStore } from '@bh/collection-store';
 @Component({
   selector: 'bp-scroller-card',
   imports: [CommonModule],
