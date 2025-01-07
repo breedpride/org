@@ -60,9 +60,9 @@ import { MENU_ORIENTATION } from '@bh/app/tokens';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 // import { provideEditorConfig } from '@sesan07/ngx-formly-editor/lib/editor.provider';
-if (environment.production) {
-  enableProdMode();
-}
+// if (environment.production) {
+enableProdMode();
+// }
 import { provideEditor } from '@sesan07/ngx-formly-editor';
 import { provideAnimations } from '@angular/platform-browser/animations';
 // enableProdMode();
