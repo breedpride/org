@@ -5,35 +5,6 @@
 /* ----------------------------------------------------------------------------------------------------- */
 
 
-
-// Temporary for angular mat test
-
-
 @import '../../../../node_modules/primeicons/primeicons.css';
 /* @import '../assets/theme.css'; */
 /* @import '../assets/layout/styles/screens.scss'; */
-
-
-
-
-// @import 'bootstrap/scss/bootstrap';
-
-// Generated tailwind styles for the editor's styling system (styling tab)
-// @import './projects/editor/assets/styles/tailwind';
-
-// Styles required by the editor
-@import './editor';
-
-// Angular material theme
-@import './theme';
-
-html,
-body,
-app-root {
-    height: 100%;
-}
-body {
-    margin: 0;
-    font-family: Roboto, 'Helvetica Neue', sans-serif;
-}
-

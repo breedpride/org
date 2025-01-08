@@ -29,10 +29,7 @@ import { SUPER_CONFIG } from '@bh/collection-store';
 import { WHITE_LOGO } from '@bh/app/tokens';
 import { ApplicationConfig } from '@angular/core';
 
-import {
-  provideTreeStoreWithInitialState,
-  SUPER_STORE,
-} from '@bh/collection-store';
+import { SUPER_STORE } from '@bh/collection-store';
 
 import { provideScroll, provideViewport } from '@bh/viewport';
 import { AuthService, authInterceptorFn } from '@bp/auth-store';
@@ -54,8 +51,7 @@ import { appRoutes } from './app.routes';
 import { IconsModule } from './core/icons/icons.module';
 import { BPreset } from './theme';
 import { MENU_ORIENTATION } from '@bh/app/tokens';
-import { provideStore } from '@ngrx/store';
-import { provideEffects } from '@ngrx/effects';
+
 // import { provideEditorConfig } from '@sesan07/ngx-formly-editor/lib/editor.provider';
 // if (environment.production) {
 enableProdMode();
@@ -76,9 +72,9 @@ const someOptions: ResizeOptions = {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideStore(),
-    provideEffects(),
-    provideEditor(),
+    // provideStore(),
+    // provideEffects(),
+    // provideEditor(),
     {
       provide: SUPER_STORE,
       useValue: superFactory,
@@ -104,44 +100,6 @@ export const appConfig: ApplicationConfig = {
       }),
     ),
 
-    // provideRxDatabase(
-    //   getRxDatabaseCreator({
-    //     name: 'bp',
-    //     localDocuments: true,
-    //     ignoreDuplicate: false,
-    //     allowSlowCount: true,
-    //     options: {
-    //       plugins: [
-    //         // will be loaded by together with core plugins
-    //         RxDBDevModePlugin,
-    //         RxDBAttachmentsPlugin,
-    //         RxDBLeaderElectionPlugin,
-    //         FirestoreReplicationPlugin,
-    //       ],
-    //       storageType: 'dexie',
-    //       // dumpPath: 'assets/data/db.dump.json',
-    //     },
-    //   })
-    // ),
-    // importProvidersFrom([
-    //   ReactiveFormsModule,
-
-    //   FormlyModule.forRoot(),
-    //   FormlyPrimeNGModule,
-    //   // FormlyModule.forRoot({
-    //   //   types: [
-    //   //     {
-    //   //       name: 'input',
-    //   //       component: CustomInputComponent,
-    //   //       wrappers: ['test-wrapper'],
-    //   //     },
-    //   //   ],
-    //   //   validators: [
-    //   //     { name: 'mandatory', validation: CustomMandatoryValidator },
-    //   //   ],
-    //   //   wrappers: [{ name: 'test-wrapper', component: TestWrapperComponent }],
-    //   // }),
-    // ]),
     // TODO -move for filters
     {
       provide: FORM_GROUP,

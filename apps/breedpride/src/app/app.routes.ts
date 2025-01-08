@@ -1,12 +1,6 @@
 import { Route } from '@angular/router';
 
-import {
-  EditorContainerComponent,
-  MaterialComponent,
-  materialEditorConfig,
-  PATH_SPACE_TOKENS,
-  provideMaterial,
-} from '@bh/app/space';
+import { PATH_SPACE_TOKENS } from '@bh/app/space';
 import { MATING, URL_MY } from '@bh/space-url';
 import { authGuardFn, noAuthGuardFn } from '@bp/auth-store';
 import {
@@ -56,8 +50,7 @@ const withDynamicEmptyLayout = {
 import { EDIT_MODE } from '@bh/collection-store';
 import { WHITE_LOGO } from '@bh/app/tokens';
 import { provideService } from '@bh/collection-store';
-import { provideEditorConfig } from '@sesan07/ngx-formly-editor';
-// import { provideMaterial } from './material/material.provider';
+
 // @Injectable({ providedIn: 'any' })
 // export class AppRoutes extends RoutePathBuilder {
 //   // products = this.childRoutes('products', RoutesForProducts);
@@ -73,12 +66,6 @@ import { provideEditorConfig } from '@sesan07/ngx-formly-editor';
 
 // const injector = inject(Injector);
 export const appRoutes: Route[] = [
-  {
-    path: 'material',
-    component: EditorContainerComponent,
-    // loadComponent: () => import('./material/material.component').then(m => m.MaterialComponent),
-    providers: [provideMaterial(), provideEditorConfig(materialEditorConfig)],
-  },
   // -----------------------------------------------------------------------------------------------------
   // @ New Workspaces
   // -----------------------------------------------------------------------------------------------------
