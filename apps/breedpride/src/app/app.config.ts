@@ -52,11 +52,10 @@ import { IconsModule } from './core/icons/icons.module';
 import { BPreset } from './theme';
 import { MENU_ORIENTATION } from '@bh/app/tokens';
 
-// import { provideEditorConfig } from '@sesan07/ngx-formly-editor/lib/editor.provider';
 // if (environment.production) {
 enableProdMode();
 // }
-import { provideEditor } from '@sesan07/ngx-formly-editor';
+
 // enableProdMode();
 const someOptions: ResizeOptions = {
   box: 'border-box',
@@ -72,9 +71,6 @@ const someOptions: ResizeOptions = {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    // provideStore(),
-    // provideEffects(),
-    // provideEditor(),
     {
       provide: SUPER_STORE,
       useValue: superFactory,
@@ -143,7 +139,6 @@ export const appConfig: ApplicationConfig = {
 
     DialogService,
     MessageService,
-    DynamicDialogConfig,
     ConfirmationService,
     DynamicDialogConfig,
     // TODO - delete

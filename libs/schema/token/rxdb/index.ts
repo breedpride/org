@@ -8,6 +8,5 @@ export * from './schemas/feature.schema';
 export * from './schemas/hero.schema';
 export * from './schemas/tree-schema';
 export * from './services/database.services';
-export * from './services/rxbd.reactiveity';
 export * from './shared';
 // @endindex

@@ -20,7 +20,7 @@ import {
   DICTIONARY_COLLECTION_NAME,
   TREE_COLLECTION_NAME,
 } from '../shared';
-import { createReactivityFactory } from './rxbd.reactiveity';
+
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CONFIG_SCHEMA } from '../schemas/config';
 const collectionSettings = {
@@ -119,23 +119,22 @@ async function _create(injector: Injector): Promise<RxHeroesDatabase> {
   environment.addRxDBPlugins();
 
   console.log('DatabaseService: creating database..');
- /**
-     * Add the Reactivity Factory so that we can get angular Signals
-     * instead of observables.
-     * @link https://rxdb.info/reactivity.html
-     */
- const reactivityFactory: RxReactivityFactory<Signal<any>> = {
-  fromObservable(obs, initialValue: any) {
+  /**
+   * Add the Reactivity Factory so that we can get angular Signals
+   * instead of observables.
+   * @link https://rxdb.info/reactivity.html
+   */
+  const reactivityFactory: RxReactivityFactory<Signal<any>> = {
+    fromObservable(obs, initialValue: any) {
       return untracked(() =>
-          toSignal(obs, {
-              initialValue,
-              injector,
-              rejectErrors: true
-          })
+        toSignal(obs, {
+          initialValue,
+          injector,
+          rejectErrors: true,
+        }),
       );
-  }
-};
-
+    },
+  };
 
   // removeRxDatabase(DATABASE_NAME, environment.getRxStorage());
   const db = await createRxDatabase<RxHeroesCollections>({
@@ -163,7 +162,6 @@ async function _create(injector: Injector): Promise<RxHeroesDatabase> {
   // create collections
   console.log('DatabaseService: create collections');
   await db.addCollections(collectionSettings);
-
 
   // const projectId = 'dogarray-creatio';
   // const replicationState = replicateFirestore({
@@ -291,7 +289,7 @@ export async function initDatabase(injector: Injector) {
    */
   if (!initState) {
     console.log('initDatabase()');
-    initState = _create(injector).then((db) => (DB_INSTANCE = db));
+    initState = _create(injector).then(db => (DB_INSTANCE = db));
   }
   await initState;
 }
