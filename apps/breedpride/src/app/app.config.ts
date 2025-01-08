@@ -4,14 +4,12 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import {
-  InjectionToken,
   Injector,
   enableProdMode,
   importProvidersFrom,
   inject,
   isDevMode,
   provideAppInitializer,
-  provideZoneChangeDetection,
 } from '@angular/core';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
@@ -32,7 +30,6 @@ import { WHITE_LOGO } from '@bh/app/tokens';
 import { ApplicationConfig } from '@angular/core';
 
 import {
-  provideService,
   provideTreeStoreWithInitialState,
   SUPER_STORE,
 } from '@bh/collection-store';
@@ -64,7 +61,6 @@ import { provideEffects } from '@ngrx/effects';
 enableProdMode();
 // }
 import { provideEditor } from '@sesan07/ngx-formly-editor';
-import { provideAnimations } from '@angular/platform-browser/animations';
 // enableProdMode();
 const someOptions: ResizeOptions = {
   box: 'border-box',
@@ -78,39 +74,16 @@ const someOptions: ResizeOptions = {
   offsetSize: true,
 };
 
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { createStore } from 'redux';
-
-// const composeEnhancers = composeWithDevTools(options);
-// const store = createStore(
-//   reducer,
-//   /* preloadedState, */ composeEnhancers(
-//     applyMidzdleware(...middleware),
-//     // other store enhancers if any
-//   ),
-// );
-export const ProviderI = new InjectionToken('ProviderI');
 export const appConfig: ApplicationConfig = {
   providers: [
     provideStore(),
     provideEffects(),
-    // provideStoreDevtools({
-    //   maxAge: 25, // Retains last 25 states
-    //   logOnly: !isDevMode(), // Restrict extension to log-only mode
-    //   autoPause: true, // Pauses recording actions and state changes when the extension window is not open
-    //   trace: false, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
-    //   traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
-    //   connectInZone: true, // If set to true, the connection is established within the Angular zone
-    // }),
+    provideEditor(),
     {
       provide: SUPER_STORE,
       useValue: superFactory,
     },
-    // provideService(),
-    // provideZoneChangeDetection({ eventCoalescing: true }),
-    // provideRouter(appRoutes),
-    // provideZoneChangeDetection({ eventCoalescing: true }), //
-    // provideExperimentalZonelessChangeDetection(),
+
     provideAppInitializer(() => {
       const initializerFn = (
         (injector: Injector) => () =>
@@ -119,7 +92,6 @@ export const appConfig: ApplicationConfig = {
       return initializerFn();
     }),
 
-    provideEditor(),
     DatabaseService,
 
     provideRouter(
@@ -175,7 +147,6 @@ export const appConfig: ApplicationConfig = {
       provide: FORM_GROUP,
       useValue: new BPFormGroup({}),
     },
-    provideAnimationsAsync(),
     providePrimeNG({
       theme: {
         preset: BPreset,
@@ -198,25 +169,10 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(IconsModule, AngularSvgIconModule.forRoot()),
     provideResizeOptions(someOptions),
 
-    provideTreeStoreWithInitialState([
-      {
-        id: 'root',
-        name: 'app',
-        // type: 'app',
-        children: [],
-      },
-    ]),
+    // TODO - delete
     provideSortColumns(),
     AuthService,
-    // {
-    //   // Disable 'theme' sanity check
-    //   provide: MATERIAL_SANITY_CHECKS,
-    //   useValue: {
-    //     doctype: true,
-    //     theme: false,
-    //     version: true,
-    //   },
-    // },
+
     //TODO - make optional with default false
     { provide: WHITE_LOGO, useValue: false },
     // TODO - make optional with default false
@@ -244,15 +200,3 @@ export const appConfig: ApplicationConfig = {
     // }),
   ],
 };
-function provideStoreDevtools(arg0: {
-  maxAge: number; // Retains last 25 states
-  logOnly: boolean; // Restrict extension to log-only mode
-  autoPause: boolean; // Pauses recording actions and state changes when the extension window is not open
-  trace: boolean; //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
-  traceLimit: number; // maximum stack trace frames to be stored (in case trace option was provided as true)
-  connectInZone: boolean; // If set to true, the connection is established within the Angular zone
-}):
-  | import('@angular/core').Provider
-  | import('@angular/core').EnvironmentProviders {
-  throw new Error('Function not implemented.');
-}
