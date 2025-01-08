@@ -16,10 +16,5 @@
   ],
   "eslint.format.enable": true,
   "eslint.run": "onSave",
-  "eslint.useFlatConfig": true,
-  "workbench.colorCustomizations": {
-    "activityBar.background": "#262C42",
-    "titleBar.activeBackground": "#363E5D",
-    "titleBar.activeForeground": "#F9FAFC"
-  }
+  "eslint.useFlatConfig": true
 }

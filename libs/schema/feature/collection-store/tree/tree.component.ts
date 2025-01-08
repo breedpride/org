@@ -1,4 +1,3 @@
-
 import { TreeModule } from 'primeng/tree';
 
 import { CommonModule } from '@angular/common';
@@ -39,11 +38,6 @@ import {
   RxDictionaryCollection,
 } from '@bh/rxdb';
 
-// import type {
-  // RxConfigDocument
-// }
-// from '../../RxDB.d';
-
 import { Id } from '@bh/superfield';
 
 type T = any;
@@ -69,9 +63,6 @@ type T = any;
     // provideRxCollection(TREE_SCHEMA_COLLECTION_CONFIG),
     // NodeService,
   ],
-  // provideRxCollection(schemaConfig)],
-  // providers: [DatabaseService],
-  // providers: [provideCollectionWithConfig({ collectionConfig: initilalTab })],
   template: `
     <button pButton (click)="click()">Add</button>
     <button pButton (click)="removeDb()">ClearDatabase</button>
@@ -106,7 +97,7 @@ type T = any;
           </div>
         </div>
       </ng-template>
-      <ng-template  #panel>
+      <ng-template #panel>
         <div
           class="flex-col flex align-items-center justify-content-center py-3 px-4 text-primary"
         >
@@ -180,16 +171,14 @@ type T = any;
       display: block;
     }
   `,
-
 })
 export class TreeComponent {
-update
-() {
-  this.ch.markForCheck();
-// throw new Error('Method not implemented.');
-}
+  update() {
+    this.ch.markForCheck();
+    // throw new Error('Method not implemented.');
+  }
 
-tabs: { route: string; label: string; icon: string }[] = [
+  tabs: { route: string; label: string; icon: string }[] = [
     { route: 'test', label: '0', icon: 'pi pi-home' },
     { route: '../test', label: '1', icon: '' },
   ];
@@ -232,7 +221,6 @@ tabs: { route: string; label: string; icon: string }[] = [
     this.import(data);
   }
 
-
   dbService = inject(DatabaseService);
   public config$$ = this.dbService.db.config.find().$$();
   ss = this.config$$;
@@ -241,13 +229,13 @@ tabs: { route: string; label: string; icon: string }[] = [
   nodes = computed(() => {
     if (this.signal() === undefined || this.signal()?.length === 0) return [];
     const list = this.signal();
-    const test = list.map((e) => {
+    const test = list.map(e => {
       // const p = e.features.find().$$;
       // console.log(p);
       const t = e.features;
       console.log(t);
       const features = {} as Record<string, any>;
-      Object.entries(t).forEach((key, value) => features[key[0]] = key[1]);
+      Object.entries(t).forEach((key, value) => (features[key[0]] = key[1]));
       console.log(features);
       // console.log(e.features.columns.map((t) => t.name));
       // const attachment = e.getAttachment('cat.jpg');
@@ -266,14 +254,12 @@ tabs: { route: string; label: string; icon: string }[] = [
           name: e.name,
           id: e.id,
           features,
-
         },
-
       };
     });
-    test?.forEach((e) => {
-      e.deps?.forEach((p) => {
-        test.find((t) => t.id === p)?.children.push(e);
+    test?.forEach(e => {
+      e.deps?.forEach(p => {
+        test.find(t => t.id === p)?.children.push(e);
       });
     });
     console.log(test);
@@ -285,10 +271,9 @@ tabs: { route: string; label: string; icon: string }[] = [
     // return res;
   });
   nodes3 = computed(() => {
-    const res = this.nodes().filter((e) => e.expanded);
+    const res = this.nodes().filter(e => e.expanded);
     return res;
   });
-
 
   constructor() {
     // this.config$ = this.dbService.db.config.find().$;
@@ -339,16 +324,16 @@ tabs: { route: string; label: string; icon: string }[] = [
 
   @Output() editChange: EventEmitter<RxHeroDocument> = new EventEmitter();
 
-   /**
-     * this method exists to play around with the typings
-     */
-   async bar(): Promise<string> {
+  /**
+   * this method exists to play around with the typings
+   */
+  async bar(): Promise<string> {
     const db = this.dbService.db;
     const firstDoc = await db.config.findOne().exec();
     if (!firstDoc) return 'not found';
     const f: string = firstDoc.name;
     return f;
-}
+  }
   async import(docs: T[]): Promise<void> {
     const schemaHash = await this.dbService.db.tree.schema.hash;
     const dump: RxDumpCollectionAny<T> = {
@@ -374,7 +359,7 @@ tabs: { route: string; label: string; icon: string }[] = [
   async test() {
     const dictionary = this.dbService.db.dictionary;
     const e = await checkSchema('PetType', dictionary);
-    e.json().then(async (e) => {
+    e.json().then(async e => {
       console.log(e);
       const res = deserialize(e);
 
@@ -382,7 +367,7 @@ tabs: { route: string; label: string; icon: string }[] = [
         //  const data = JSON.parse(res.data);
         await importF(
           res.map((e: { Id: Id }) => ({ id: e.Id })),
-          dictionary
+          dictionary,
         );
       }
       console.log(res);
@@ -415,10 +400,10 @@ async function importF<T>(docs: T[], schema: any): Promise<void> {
 
 export async function checkSchema(
   schema: string,
-  dictionary: RxDictionaryCollection
+  dictionary: RxDictionaryCollection,
 ) {
   return fetch(
-    `https://dev.dogarray.com/0/ServiceModel/BreedprideAdminApi/space/collection/${schema}?from=0&columns=Id&rows=50&skipUpper=true&force=true`
+    `https://dev.dogarray.com/0/ServiceModel/BreedprideAdminApi/space/collection/${schema}?from=0&columns=Id&rows=50&skipUpper=true&force=true`,
   );
   // return fromFetch(
   //   `https://dev.dogarray.com/0/ServiceModel/BreedprideAdminApi/space/collection/PetType?from=0&columns=Id&rows=1&skipUpper=true&force=true`,
@@ -444,5 +429,4 @@ export async function checkSchema(
   // );
   //dev.dogarray.com/0/ServiceModel/BreedprideAdminApi/space/collection/Pet?from=0&columns=Id&rows=1&skipUpper=true&force=true
   // https: return globalColumnsMap.has(SchemaName);
-
 }
