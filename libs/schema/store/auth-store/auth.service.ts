@@ -9,6 +9,7 @@ import {
   signOut,
   TwitterAuthProvider,
   User,
+  connectAuthEmulator,
 } from '@angular/fire/auth';
 import { Firestore } from '@angular/fire/firestore';
 import { ComponentStore } from '@ngrx/component-store';
@@ -33,10 +34,14 @@ const initialUser = {
 export class AuthService extends ComponentStore<AuthState> {
   private firestore = inject(Firestore);
   auth = inject(Auth);
-  readonly user$ = this.select((state) => state.user);
-  readonly user = this.selectSignal((state) => state.user);
-  readonly token = this.selectSignal((state) => state.token);
-  readonly authenticated = this.selectSignal((state) => state.authenticated);
+
+  // const auth = getAuth();
+
+  // inject(Auth);
+  readonly user$ = this.select(state => state.user);
+  readonly user = this.selectSignal(state => state.user);
+  readonly token = this.selectSignal(state => state.token);
+  readonly authenticated = this.selectSignal(state => state.authenticated);
   /**
    * Constructor
    */
@@ -48,8 +53,9 @@ export class AuthService extends ComponentStore<AuthState> {
       token: cachedUser ? cachedToken : '',
       user: cachedUser || initialUser,
     });
+    connectAuthEmulator(this.auth, 'http://127.0.0.1:9099');
 
-    this.auth.onAuthStateChanged((user) => {
+    this.auth.onAuthStateChanged(user => {
       if (user) {
         // console.log('USER', user);
         this.setLogined(user);
@@ -86,17 +92,17 @@ export class AuthService extends ComponentStore<AuthState> {
   }
 
   setLogined(user: User | null) {
-    this.auth.currentUser?.getIdToken().then((token) => {
+    this.auth.currentUser?.getIdToken().then(token => {
       this.updateState({
         authenticated: true,
         token: token,
         user: user
           ? {
-            avatar: user.photoURL,
-            email: user.email,
-            id: user.uid,
-            name: user.displayName,
-          }
+              avatar: user.photoURL,
+              email: user.email,
+              id: user.uid,
+              name: user.displayName,
+            }
           : initialUser,
       });
     });
@@ -202,8 +208,8 @@ export class AuthService extends ComponentStore<AuthState> {
       signInWithEmailAndPassword(
         this.auth,
         credentials.email,
-        credentials.password
-      )
+        credentials.password,
+      ),
     );
   }
 

@@ -39,6 +39,8 @@ import {
 } from '@bh/rxdb';
 
 import { Id } from '@bh/superfield';
+// name, type, data
+// [id, 'PetType', data];
 
 type T = any;
 @Component({

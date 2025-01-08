@@ -46,3 +46,4 @@ vitest.config.*.timestamp*
 .angular
 
 .codegpt
+firebase-debug.log
