@@ -30,13 +30,13 @@ function findElementWithMaxPosition(arr: any[] | undefined) {
     @if (breed().AchievementProgress > 0) {
     <div
       class="
-          border-primary-300 flex h-[10px] w-24 items-center rounded-full border
+          border-primary flex h-[10px] w-24 items-center rounded-full border
         "
       [pTooltip]="toolTip()"
       tooltipPosition="bottom"
     >
       <div
-        class="bg-primary-400 mx-0.5 my-auto h-1.5 rounded-full"
+        class="bg-primary mx-0.5 my-auto h-1.5 rounded-full"
         [ngStyle]="{
             width: breed().AchievementProgress + '%',
           }"

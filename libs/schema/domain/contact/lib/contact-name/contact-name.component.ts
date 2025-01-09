@@ -52,7 +52,7 @@ import { mergeInputs } from 'ngxtension/inject-inputs';
       <div
         class="text-secondary flex flex-wrap items-center space-x-2 font-medium"
       >
-        <div class="bg-primary-100 size-4 rounded-full"></div>
+        <div class="bg-primary-300 dark:bg-surface-400 size-4 rounded-full"></div>
 
         <bp-dot
           [ngClass]="{ 'hidden ': page.Career.Breeder.length === 0 }"

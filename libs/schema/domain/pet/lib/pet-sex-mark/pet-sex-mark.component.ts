@@ -25,10 +25,10 @@ export class PetSexMarkComponent {
   sex = input<string>();
   @HostBinding('class') get dynamicClasses(): string {
     let classes = 'rounded-full';
-    classes += this.sex() === 'male' ? ' bg-blue-300' : '';
-    classes += this.sex() === 'female' ? ' bg-pink-300' : '';
+    classes += this.sex() === 'male' ? ' bg-blue-300 dark:bg-blue-400' : '';
+    classes += this.sex() === 'female' ? ' bg-pink-300 dark:bg-pink-400' : '';
     classes +=
-      this.sex() !== 'female' && this.sex() !== 'male' ? ' bg-slate-300' : '';
+      this.sex() !== 'female' && this.sex() !== 'male' ? ' bg-slate-300 dark:bg-slate-400' : '';
     classes += this.style() === 'horizontal' ? ' h-1 w-full' : '';
     classes += this.style() === 'vertical' ? ' h-4 w-1' : '';
     classes += this.style() === 'round' ? ' h-4 w-4' : '';

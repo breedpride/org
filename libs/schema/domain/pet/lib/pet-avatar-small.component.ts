@@ -9,9 +9,9 @@ import { PetAvatarPipe } from '@breedpride/pipes';
   template: ` <div
     class="outline-offset-2.5 flex-0 flex size-10 items-center justify-center overflow-hidden rounded-full border border-surface-border outline outline-2 outline-offset-2 "
     [ngClass]="{
-      'outline-blue-300': entity().Sex?.Code === 'male',
-      'outline-pink-300': entity().Sex?.Code === 'female',
-      'outline-surface-300': !entity().Sex?.Code,
+      'outline-blue-300 dark:outline-blue-400': entity().Sex?.Code === 'male',
+      'outline-pink-300 dark:outline-pink-400': entity().Sex?.Code === 'female',
+      'outline-surface-300 dark:outline-surface-400': !entity().Sex?.Code,
     }">
     @if (entity() | petAvatar) {
       <img

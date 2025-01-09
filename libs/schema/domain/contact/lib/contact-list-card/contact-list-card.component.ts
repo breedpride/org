@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { trackByFn } from '@bh/list';
-import { PublicContact } from '@bh/types';
-import { PatronPlaceComponent } from '@breedpride/avatar';
+import { BreedPatronage, PublicContact } from '@bh/types';
 import { VisibilityDirective } from '@breedpride/070-core-directive-feature';
+import { PatronPlaceComponent } from '@breedpride/avatar';
 import { PetAvatarPipe } from '@breedpride/pipes';
 import {
   DotComponent,
@@ -14,7 +14,6 @@ import {
 } from '@breedpride/shared';
 import { EntityListCardWrapperComponent } from '@breedpride/wrapper';
 import { TooltipModule } from 'primeng/tooltip';
-import { BreedPatronage } from '@bh/types';
 
 @Component({
   imports: [
@@ -38,8 +37,8 @@ import { BreedPatronage } from '@bh/types';
         <div
           class="outline-offset-2.5 flex-0 flex size-10 items-center justify-center overflow-hidden rounded-full border border-surface-border outline outline-2 outline-offset-2"
           [ngClass]="{
-            'outline-primary-300': entity().HasUser,
-            'outline-surface-300': !entity().HasUser,
+            'outline-primary-300 dark:outline-primary-400': entity().HasUser,
+            'outline-surface-300 dark:outline-surface-400': !entity().HasUser,
           }"
         >
           <ng-container *ngIf="entity() | petAvatar">

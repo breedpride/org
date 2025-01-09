@@ -4,8 +4,8 @@ import { injectEventPage } from '@bh/page-store';
 import { ScrollableTabDirective } from '@bp/core/scrollable-tab';
 import { injectFullscreen } from '@breedpride/fullscreen-ui';
 import { LinkComponent } from '@breedpride/link';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { DateLocalePipe, PetAvatarPipe, ToDatePipe } from '@breedpride/pipes';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 import { mergeInputs } from 'ngxtension/inject-inputs';
 import { FieldsetModule } from 'primeng/fieldset';
 
@@ -87,7 +87,7 @@ import { FieldsetModule } from 'primeng/fieldset';
         <div class="judges-grid grid w-full items-center gap-5 px-4 pb-2 ">
           @for (judge of page.Judges; track judge) {
           <div
-            class="outline-offset-2.5 flex-0 flex size-10 items-center justify-center overflow-hidden rounded-full border outline outline-2 outline-offset-2 outline-slate-300"
+            class="outline-offset-2.5 flex-0 flex size-10 items-center justify-center overflow-hidden rounded-full border outline outline-2 outline-offset-2 outline-surface-300 dark:outline-surface-400"
           >
             @if (judge | petAvatar) {
             <img

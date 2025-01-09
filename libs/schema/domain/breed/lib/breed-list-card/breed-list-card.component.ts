@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { BreedWithPlugins } from '@bh/types';
+import { VisibilityDirective } from '@breedpride/070-core-directive-feature';
 import { BreedAvatarPipe } from '@breedpride/pipes';
 import { DotComponent, NoteFlagComponent } from '@breedpride/shared';
 import { EntityListCardWrapperComponent } from '@breedpride/wrapper';
 import { TooltipModule } from 'primeng/tooltip';
-import { VisibilityDirective } from '@breedpride/070-core-directive-feature';
 import { BreedElementTopPatronsComponent } from '../breed-element-top-patrons/breed-element-top-patrons.component';
 import { BreedProgressLightComponent } from '../breed-progress-ligh/breed-progress-ligh.component';
 
@@ -31,8 +31,8 @@ import { BreedProgressLightComponent } from '../breed-progress-ligh/breed-progre
           overflow-hidden rounded-full border border-surface-border outline outline-2 outline-offset-2
         "
         [ngClass]="{
-          'outline-primary-300': entity().PatronCount > 0,
-          'outline-surface-300': entity().PatronCount === 0,
+          'outline-primary-300 dark:outline-primary-400': entity().PatronCount > 0,
+          'outline-surface-300 dark:outline-surface-400': entity().PatronCount === 0,
         }"
       >
         @if (entity() | breedAvatar) {
