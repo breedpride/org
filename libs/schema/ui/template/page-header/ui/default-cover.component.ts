@@ -35,7 +35,7 @@ import { CoverTemplateComponent } from './cover-template.component';
         <!-- Call to action -->
         <div class="flex items-end">
           <button
-            class=" p-button-rounded p-button-outlined p-button-secondary p-button-sm ml-auto"
+            class=" p-button-rounded p-button-outlined p-button-secondary p-button-sm ml-auto bg-white/30 border-white hover:bg-white/60"
             aria-label="Become a breed patron"
             pRipple
             pButton
