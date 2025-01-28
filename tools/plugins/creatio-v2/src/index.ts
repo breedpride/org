@@ -22,7 +22,7 @@ import {
   TextDataValueTypes,
 } from './data-value-type';
 // import { token } from './token';
-const token = 'agentpomidor117';
+const token = process.env['CREATIO_TOKEN'];
 const autoDisclaimer = `
 // ----------------- AUTO GENERATED FILE-----------
 // Changes will be overwritten

@@ -1,20 +1,12 @@
+import { RxDictionaryCollection, RxTreeCollection } from '@bh/rxdb';
+import type { SchemaResponse } from '@shared';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
+import { fromFetch } from 'rxjs/fetch';
 function lowerize(str: string): string {
   return str.length > 1 ? str[0].toLowerCase() + str.substring(1) : str.toLowerCase();
 }
-import type { SchemaColumn, SchemaResponse } from '@shared';
-import { Signal } from '@angular/core';
-import { RxDictionaryCollection, RxTreeCollection, TreeSchema } from '@bh/rxdb';
-import { catchError, map, of, switchMap, tap } from 'rxjs';
-import { fromFetch } from 'rxjs/fetch';
-import {
-  DateDataValueTypes,
-  FloatDataValueTypes,
-  IntegerDataValueTypes,
-  TextDataValueTypes,
-} from './data-value-type';
-import { createBlob } from 'rxdb';
 // TODO - move to token env
-const token = 'agentpomidor117';
+ const token = process.env['CREATIO_TOKEN'];
 // import { token } from './token';
 const autoDisclaimer = `
 // ----------------- AUTO GENERATED FILE-----------

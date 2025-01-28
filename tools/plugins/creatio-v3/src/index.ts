@@ -1,3 +1,4 @@
+import { SchemaResponse } from '@shared';
 import {
   existsSync,
   mkdirSync,
@@ -5,18 +6,16 @@ import {
   readdirSync,
   writeFileSync,
 } from 'fs';
+import * as path from 'path';
+import { exit } from 'process';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
+import { fromFetch } from 'rxjs/fetch';
 import { transformWithScope } from './reduser';
 function lowerize(str: string): string {
   return str.length > 1
     ? str[0].toLowerCase() + str.substring(1)
     : str.toLowerCase();
 }
-import { SchemaColumn, SchemaResponse } from '@shared';
-import * as path from 'path';
-import { exit } from 'process';
-import { catchError, map, of, switchMap, tap } from 'rxjs';
-import { fromFetch } from 'rxjs/fetch';
-import { childrenShahArpilin } from '@breedpride/pet';
 
 // import {
 //   DateDataValueTypes,
@@ -25,7 +24,7 @@ import { childrenShahArpilin } from '@breedpride/pet';
 //   TextDataValueTypes,
 // } from './data-value-type';
 // import { token } from './token';
-const token = 'agentpomidor117';
+const token = process.env['CREATIO_TOKEN'];
 const autoDisclaimer = `
 // ----------------- AUTO GENERATED FILE-----------
 // Changes will be overwritten
