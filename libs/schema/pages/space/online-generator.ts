@@ -5,29 +5,7 @@ import { fromFetch } from 'rxjs/fetch';
 function lowerize(str: string): string {
   return str.length > 1 ? str[0].toLowerCase() + str.substring(1) : str.toLowerCase();
 }
-// TODO - move to token env
- const token = process.env['CREATIO_TOKEN'];
-// import { token } from './token';
-const autoDisclaimer = `
-// ----------------- AUTO GENERATED FILE-----------
-// Changes will be overwritten
-// ------------------------------------------------
-`;
-
-// const autoFirstDisclaimer = `
-// // ----------------- GENERATED FOR CHANGES-----------
-// // Changes will NOT be overwritten
-// // ------------------------------------------------
-// `;
-
-const fieldSufix = 'FieldName';
-const configSufix = 'Config';
-const lookupSufixPrefix = 'Lookup';
-const dbDirName = 'db/config';
-
-const fieldDirName = 'field/config';
-// const _ = '_';
-const globalColumnsMap = new Map();
+const token = (import.meta as any).env.CREATIO_TOKEN;
 const columnMap: string[] = [];
 
 async function processSchema(
@@ -62,9 +40,9 @@ async function processSchema(
   //   }
   // );
 
-  return;
+  // const schemaDir = '';
 }
-
+  // await dataTypeCollection.insert({
 export const generateSchema = (
   s: { name: string; source: string },
   collection: RxTreeCollection,
@@ -79,21 +57,18 @@ export const generateSchema = (
       headers: {
         Authorization: token,
         'Content-Type': 'application/json',
-      },
+      } as HeadersInit,
       method: 'GET',
     }
   ).pipe(
     tap(() => console.error(schema)),
-    switchMap(response => {
-      // console.log(response);
-      if (response.ok) {
-        // OK return data
-        return response.json();
-      } else {
-        // Server is returning a status requiring the client to try something else.
-        return of({ error: true, message: `Error ${response.status}` });
-      }
-    }),
+  switchMap((response: Response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      return of({ error: true, message: 'Server error' });
+    }
+  }),
     catchError(err => {
       // Network or other error, handle appropriately
 
@@ -113,10 +88,9 @@ export const generateSchema = (
     },
   });
 };
-const processsed: string[] = [];
+const processed: string[] = [];
 export const spaceList: { name: string; source: string }[] = [
   { name: 'Contact', source: 'root' },
-
   ...[
     { name: 'ContactCommunication', source: 'contact detail' },
     { name: 'ContactAddress', source: 'contact detail' },
@@ -180,14 +154,12 @@ export const spaceList: { name: string; source: string }[] = [
   // EntitySchemaLookup
 ];
 
-const setPlusOne = (schemaName: string) => {
+const setPlusOne = () => {
   const spaceItem = spaceList.shift();
   if (spaceItem) {
-    processsed.push(spaceItem.name);
-  }
-  if (spaceList.length === 0) {
+    // process spaceItem
     const fieldSet = new Set(columnMap);
-    const processedSet = new Set(processsed);
+    const processedSet = new Set(processed);
     // const imp = [...fieldSet, ''].join('_FIELD, ');
     // const schemasimp = [...processedSet, ''].join('_SCHEMA, ');
     // const test = [...fieldSet].map((e) => `['${e}_FIELD', ${e}_FIELD],`);
@@ -198,7 +170,3 @@ const setPlusOne = (schemaName: string) => {
     // generateSchema(spaceList[0]);
   }
 };
-
-function rewrite(schemaDir: any, arg1: string, arg2: string) {
-  console.log(rewrite);
-}
