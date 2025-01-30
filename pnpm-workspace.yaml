@@ -1,0 +1,9 @@
+packages:
+  # specify a package in a direct subdir of the root
+  - 'apps/*'
+  # all packages in direct subdirs of packages/
+  - 'packages/*'
+  # all packages in subdirs of components/
+  - 'libs/**'
+  # exclude packages that are inside test directories
+  - '!**/test/**'
