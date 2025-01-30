@@ -122,7 +122,6 @@
     "dotenv": "^16.4.7",
     "echarts": "^5.5.1",
     "express": "^4.21.2",
-    "formly-editor": "github:sesan07/formly-editor",
     "json-schema-to-ts": "^3.1.1",
     "lodash-es": "^4.17.21",
     "ngxtension": "^4.2.0",
