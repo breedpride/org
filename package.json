@@ -117,6 +117,7 @@
     "@ngrx/signals": "19.0.0",
     "@primeng/themes": "^19.0.1",
     "@sesan07/ngx-formly-editor": "^0.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
     "angular-svg-icon": "^19.0.1",
     "browser-image-compression": "^2.0.2",
     "dotenv": "^16.4.7",
