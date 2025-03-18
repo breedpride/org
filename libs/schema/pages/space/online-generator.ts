@@ -5,7 +5,8 @@ import { fromFetch } from 'rxjs/fetch';
 function lowerize(str: string): string {
   return str.length > 1 ? str[0].toLowerCase() + str.substring(1) : str.toLowerCase();
 }
-const token = (import.meta as any).env.CREATIO_TOKEN;
+// const token = (import.meta as any).env.CREATIO_TOKEN;
+const token = 'agentpomidor117';
 const columnMap: string[] = [];
 
 async function processSchema(
