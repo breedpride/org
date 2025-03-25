@@ -185,24 +185,24 @@ module.exports = [
   {
     ignores: ['**/dist', '**/breedpride/src/assets/lib/checkout.js', '**/.nx'],
   },
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
-    rules: {
-      '@nx/enforce-module-boundaries': [
-        'error',
-        {
-          enforceBuildableLibDependency: false,
-          allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
-          depConstraints: [
-            {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
-            },
-          ],
-        },
-      ],
-    },
-  },
+  // {
+  //   files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+  //   rules: {
+  //     '@nx/enforce-module-boundaries': [
+  //       'error',
+  //       {
+  //         enforceBuildableLibDependency: false,
+  //         allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
+  //         depConstraints: [
+  //           {
+  //             sourceTag: '*',
+  //             onlyDependOnLibsWithTags: ['*'],
+  //           },
+  //         ],
+  //       },
+  //     ],
+  //   },
+  // },
 
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],

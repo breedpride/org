@@ -1,0 +1,10 @@
+description: ''
+value:
+  dbname: config
+  host: xsocsos080wwcocooogs8ogg
+  password: TX6m24aRLUzmTAi4xQoFxvOGiR8WdUkFwtOXrka8yR0PwBdzzcTAC6by5rKqezTy
+  port: 5432
+  root_certificate_pem: ''
+  sslmode: disable
+  user: postgres
+resource_type: postgresql

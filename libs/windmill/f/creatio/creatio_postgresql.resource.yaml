@@ -1,0 +1,10 @@
+description: ''
+value:
+  dbname: prod_0
+  host: 192.168.88.113
+  password: '$var:f/creatio/creatio_postgresql'
+  port: 5432
+  root_certificate_pem: ''
+  sslmode: disable
+  user: creatio
+resource_type: postgresql

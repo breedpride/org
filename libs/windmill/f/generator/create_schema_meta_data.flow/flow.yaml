@@ -1,0 +1,65 @@
+summary: f/generator/create_schema_meta_data
+description: ''
+value:
+  modules:
+    - id: i
+      summary: Create enums
+      value:
+        type: rawscript
+        content: '!inline create_enums.inline_script.deno.ts'
+        input_transforms:
+          x:
+            type: static
+            value: ''
+        lock: '!inline create_enums.inline_script.lock'
+        language: deno
+    - id: d
+      summary: Delete data from config table
+      value:
+        type: rawscript
+        content: '!inline delete_data_from_config_table.inline_script.deno.ts'
+        input_transforms: {}
+        lock: '!inline delete_data_from_config_table.inline_script.lock'
+        language: deno
+      continue_on_error: false
+    - id: e
+      summary: Add base data types
+      value:
+        type: rawscript
+        content: '!inline add_base_data_types.inline_script.deno.ts'
+        input_transforms: {}
+        lock: '!inline add_base_data_types.inline_script.lock'
+        language: deno
+    - id: f
+      summary: Add lookup field properties
+      value:
+        type: rawscript
+        content: '!inline add_lookup_field_properties.inline_script.deno.ts'
+        input_transforms: {}
+        lock: '!inline add_lookup_field_properties.inline_script.lock'
+        language: deno
+    - id: g
+      summary: Generate schema
+      value:
+        type: rawscript
+        content: '!inline generate_schema.inline_script.deno.ts'
+        input_transforms: {}
+        lock: '!inline generate_schema.inline_script.lock'
+        language: deno
+    - id: h
+      summary: Generate fields config for schemas
+      value:
+        type: rawscript
+        content: '!inline generate_fields_config_for_schemas.inline_script.deno.ts'
+        input_transforms:
+          processedSchemaList:
+            type: static
+            value: []
+        lock: '!inline generate_fields_config_for_schemas.inline_script.lock'
+        language: deno
+schema:
+  $schema: https://json-schema.org/draft/2020-12/schema
+  type: object
+  order: []
+  properties: {}
+  required: []

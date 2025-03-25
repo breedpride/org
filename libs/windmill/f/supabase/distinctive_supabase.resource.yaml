@@ -1,0 +1,5 @@
+description: ''
+value:
+  key: '$var:f/supabase/distinctive_supabase'
+  url: 'http://dev.dogarray.com:8020/'
+resource_type: supabase

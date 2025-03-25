@@ -1,0 +1,28 @@
+description: ''
+value: |
+  [
+    { "name": "Contact", "source": "root" },
+    { "name": "ContactCommunication", "source": "contact detail" },
+    { "name": "ContactAddress", "source": "contact detail" },
+    { "name": "ContactFirebaseUser", "source": "contact detail" },
+    { "name": "ContactSynonym", "source": "contact detail" },
+    { "name": "Pet", "source": "root" },
+    { "name": "TitleInPet", "source": "pet detail" },
+    { "name": "PetHealthExamResult", "source": "pet detail" },
+    { "name": "PetService", "source": "pet detail" },
+    { "name": "PetInProject", "source": "pet detail" },
+    { "name": "PetIdentifier", "source": "pet detail" },
+    { "name": "PetMeasurement", "source": "pet detail" },
+    { "name": "PetServiceInLitter", "source": "pet detail" },
+    { "name": "Litter", "source": "root" },
+    { "name": "Breed", "source": "root" },
+    { "name": "Project", "source": "root" },
+    { "name": "Post", "source": "root" },
+    { "name": "AccountReview", "source": "root" },
+    { "name": "BreedprideCollection", "source": "root" },
+    { "name": "BreedprideCollectionEntity", "source": "root" },
+    { "name": "Event", "source": "root" },
+    { "name": "Cover", "source": "root" },
+    { "name": "Note", "source": "root" }
+  ]
+is_secret: false

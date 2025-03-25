@@ -1,0 +1,97 @@
+description: ''
+value: |-
+  [
+     {
+      "name": "",
+      "type": "String",
+      "deps": [],
+      "data":{"component":10}
+    },
+    {
+      "name": "",
+      "type": "Boolean",
+      "deps": [],
+      "data": {
+        "component": 5
+      }
+    },
+    {
+      "name": "",
+      "type": "Color",
+      "deps": ["String"]
+    },
+    {
+      "name": "",
+      "type": "DateTime",
+      "deps": ["Date"]
+    },
+    {
+      "name": "",
+      "type": "Date",
+      "deps": [],
+      "component": 3
+    },
+    {
+      "name": "",
+      "type": "EmailText",
+      "deps": ["String"]
+    },
+    {
+      "name": "",
+      "type": "MaxSizeText",
+      "deps": ["String"],
+      "data": {"max":250}
+    },
+    {
+      "name": "",
+      "type": "ShortText",
+      "deps": ["String"]
+    },
+    {
+      "name": "",
+      "type": "WebText",
+      "deps": ["String"]
+    },
+
+    {
+      "name": "",
+      "type": "PhoneText",
+      "depss": ["String"]
+    },
+
+    {
+      "name": "",
+      "type": "MediumText",
+      "deps": ["String"]
+    },
+
+    {
+      "name": "",
+      "type": "Float",
+      "deps": ["Number"]
+    },
+    {
+      "name": "",
+      "type": "Integer",
+      "deps": ["Number"]
+    },
+    {
+      "name": "",
+      "type": "Number",
+      "deps": [],
+      "data": {
+        "component": 4
+      }
+    },
+    {
+      "name": "",
+      "type": "Guid",
+      "deps": ["String"]
+    },
+    {
+      "name": "",
+      "type": "LongText",
+      "deps": ["String"]
+    }
+  ]
+is_secret: false

@@ -1,0 +1,4 @@
+description: Token for supabase
+value: >-
+  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc0MjQ4OTA0MCwiZXhwIjo0ODk4MTYyNjQwLCJyb2xlIjoic2VydmljZV9yb2xlIn0.d4pRHh0Jl46g1JYw6qxIIC06LdUWtPMDQAM-RTHpLqQ
+is_secret: false

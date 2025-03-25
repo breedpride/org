@@ -1,7 +1,10 @@
 {
   "workbench.iconTheme": "vscode-icons",
   "nxConsole.nxWorkspacePath": "",
-
+"typescript.preferences.importModuleSpecifier": "non-relative",
+  "deno.enable": true,
+  // "deno.config": "./deno.json",
+  // "deno.path": "/opt/homebrew/bin/deno",
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit",
     "source.fixAll.eslint": "explicit"
@@ -21,5 +24,25 @@
     "activityBar.background": "#262C42",
     "titleBar.activeBackground": "#363E5D",
     "titleBar.activeForeground": "#F9FAFC"
-  }
+  },
+  "windmill.currentWorkspace": "main",
+  "files.exclude": {
+    "**/*.script.yaml": true,
+    "**/*.script.lock": true,
+    "**/*.inline_script.lock": true,
+    "**/*.meta.yaml": true
+  },
+  "search.exclude": {
+    "**/*.script.yaml": true,
+    "**/*.script.lock": true,
+    "**/*.inline_script.lock": true,
+    "**/*.meta.yaml": true
+  },
+  "files.watcherExclude": {
+    "**/*.script.yaml": true,
+    "**/*.script.lock": true,
+    "**/*.inline_script.lock": true,
+    "**/*.meta.yaml": true
+  },
+
 }

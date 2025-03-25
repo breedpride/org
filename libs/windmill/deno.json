@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler"
+  },
+  "imports": {
+    "/f/": "./f/",
+    "/u/": "./u/",
+    "npm:@supabase/supabase-js": "npm:@supabase/supabase-js@2",
+    "npm:windmill-client": "npm:windmill-client@1.475.1"
+  }
+}

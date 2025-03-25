@@ -1,0 +1,5 @@
+description: ''
+value:
+  key: '$var:f/supabase/pleasing_supabase'
+  url: 'http://supabase-kong:8000/'
+resource_type: supabase

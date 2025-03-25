@@ -1,0 +1,23 @@
+{
+  "name": "windmill",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean:locks": "./clean-locks.sh"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "lodash-es": "^4.17.21",
+    "ts-deepmerge": "^7.0.2",
+    "windmill-client": "^1.475.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.11"
+  }
+}

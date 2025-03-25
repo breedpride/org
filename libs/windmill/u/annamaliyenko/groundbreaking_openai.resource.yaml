@@ -1,0 +1,5 @@
+description: ''
+value:
+  api_key: '$var:u/annamaliyenko/groundbreaking_openai'
+  organization_id: org-fchajYVNPqB0xULA7j6G5X8h
+resource_type: openai

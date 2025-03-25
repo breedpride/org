@@ -1,0 +1,163 @@
+description: ''
+value: |-
+  [
+     {
+      "name": "Lookup_",
+      "type": "FieldDataType",
+      "deps": [
+        "Lookup_Base",
+        "WithEmptyDisplayName"
+      ]
+    },
+    {
+      "name": "Lookup_Code",
+      "type": "FieldDataType",
+      "deps": [
+        "Lookup_Base",
+        "Code_DisplayField"
+      ]
+    },
+    {
+      "name": "Lookup",
+      "type": "FieldDataType",
+      "deps": [
+        "Lookup_Base",
+        "WithEmptyDisplayName"
+      ]
+    },
+    {
+      "name": "Lookup_Number",
+      "type": "FieldDataType",
+      "deps": [
+        "Lookup_Base",
+        "DisplayNumber"
+      ]
+    },
+    {
+      "name": "Lookup_Name",
+      "type": "FieldDataType",
+      "deps": [
+        "Lookup_Base",
+        "Name_DisplayField"
+      ]
+    },
+    {
+      "name": "Lookup_RawTitle",
+      "type": "FieldDataType",
+      "deps": [
+        "Lookup_Base",
+        "DisplayTitle"
+      ]
+    },
+    {
+      "name": "Lookup_PublicName",
+      "type": "FieldDataType",
+      "deps": [
+        "Lookup_Base",
+        "DisplayPublicName"
+      ]
+    },
+    {
+      "name": "Lookup_Base",
+      "type": "FieldDataType",
+      "deps": [],
+      "data": {
+        "rows": 60,
+        "component": "AUTOCOMPLETE",
+        "entitiesColumns": [
+          "Id"
+        ],
+        "validators": [
+          "dictionaryValidator"
+        ]
+      }
+    },
+    {
+      "name": "Name_DisplayField",
+      "type": "FieldProperty",
+      "deps": [],
+      "data": {
+        "displayField": "Name",
+        "entitiesColumns": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "name": "Code_DisplayField",
+      "type": "FieldProperty",
+      "data": {
+        "displayField": "Code",
+        "entitiesColumns": [
+          "Code"
+        ]
+      }
+    },
+    {
+      "name": "WithEmptyDisplayName",
+      "type": "FieldProperty",
+      "data": {
+        "displayField": "",
+        "entitiesColumns": []
+      }
+    },
+    {
+      "name": "Required",
+      "type": "FieldProperty",
+      "data": {
+        "isRequired": true
+      }
+    },
+    {
+      "name": "ReadOnly",
+      "type": "FieldProperty",
+      "data": {
+        "levelAccess": 1
+      }
+    },
+    {
+      "name": "Editable",
+      "type": "FieldProperty",
+      "data": {
+        "levelAccess": 2
+      }
+    },
+    {
+      "name": "Public",
+      "type": "FieldProperty",
+      "data": {
+        "isPublic": true
+      }
+    },
+    {
+      "name": "DisplayNumber",
+      "type": "FieldProperty",
+      "data": {
+        "displayField": "Number",
+        "entitiesColumns": [
+          "Number"
+        ]
+      }
+    },
+    {
+      "name": "DisplayTitle",
+      "type": "FieldProperty",
+      "data": {
+        "displayField": "Title",
+        "entitiesColumns": [
+          "Title"
+        ]
+      }
+    },
+    {
+      "name": "DisplayPublicName",
+      "type": "FieldProperty",
+      "data": {
+        "displayField": "PublicName",
+        "entitiesColumns": [
+          "PublicName"
+        ]
+      }
+    }
+  ]
+is_secret: false
