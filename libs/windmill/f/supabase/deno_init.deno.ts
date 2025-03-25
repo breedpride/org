@@ -6,8 +6,7 @@ import * as wmill from "npm:windmill-client@1.475.1";
 type Supabase = {
   key: string,
   url: string
-};
-
+}
 
 export async function main() {
   // Ініціалізуємо клієнт Supabase.
