@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import { nxE2EPreset } from '@nx/playwright/preset';
+import process from 'node:process';
 
 import { workspaceRoot } from '@nx/devkit';
 
@@ -16,10 +17,11 @@ const baseURL = process.env['BASE_URL'] || 'http://localhost:4200';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  ...nxE2EPreset(__filename, { testDir: './src' }),
+  ...nxE2EPreset(new URL(import.meta.url).pathname, { testDir: './src' }),
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL,
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
