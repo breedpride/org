@@ -12,7 +12,8 @@ import { getSpaceConfig } from '@bh/collection-store';
 
 import { SPACE_URL_MARKETPLACE } from '@bh/space-url';
 import { FilterFieldConfig, SpaceConfig } from '@bh/superfield';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
+// '@bh/consts';
 import { merge } from 'lodash-es';
 import { createInjectionToken } from 'ngxtension/create-injection-token';
 import {

@@ -1,8 +1,8 @@
 {
   "workbench.iconTheme": "vscode-icons",
   "nxConsole.nxWorkspacePath": "",
-"typescript.preferences.importModuleSpecifier": "non-relative",
-  "deno.enable": true,
+// "typescript.preferences.importModuleSpecifier": "non-relative",
+  // "deno.enable": true,
   // "deno.config": "./deno.json",
   // "deno.path": "/opt/homebrew/bin/deno",
   "editor.codeActionsOnSave": {

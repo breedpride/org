@@ -18,10 +18,10 @@
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    // "allowImportingTsExtensions": true,
     "paths": {
-      "/f/*": ["/f/*"],
-      "/u/*": ["/u/*"],
+      "@bh/windmill": ["libs/windmill/index.ts"],
+      "/f/*": ["libs/windmill/f/*"],
+      "/u/*": ["libs/windmill/u/*"],
       "@base-field-name": ["libs/base/field/name/index.ts"],
       "@base-field-type": ["libs/base/field/type/index.ts"],
       "@base-field-uid/*": ["libs/base/field/uid/*"],
