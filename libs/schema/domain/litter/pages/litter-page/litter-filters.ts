@@ -9,7 +9,7 @@ import {
   simpleFilterLookupField,
 } from '@bh/filtering';
 import { FilterFieldConfig } from '@bh/superfield';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { merge } from 'lodash-es';
 
 export const LITTER_PET_TYPE_FILTER = {

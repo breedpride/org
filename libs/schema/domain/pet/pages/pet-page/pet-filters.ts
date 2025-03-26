@@ -5,7 +5,7 @@ import {
   simpleFilterLookupField,
 } from '@bh/filtering';
 import { FilterFieldConfig } from '@bh/superfield';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { EmptyFieldConfig } from '@bh/superfield';
 
 export const PET_BREED_FILTER = {

@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Route } from '@angular/router';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { FormFieldComponent } from '@bh/editing';
 import { trackByFn } from '@bh/list';
 import { SPACE_URL_BILLING, URL_MY } from '@bh/space-url';

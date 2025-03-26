@@ -7,7 +7,7 @@ import {
   signal,
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { trackByFn } from '@bh/list';
 import { WithCreatioId } from '@bh/superfield';
 import { ExternalLinkComponent } from '@breedpride/link';

@@ -1,4 +1,5 @@
-import { dictionaryValidator, FormFieldCode } from '@bh/consts';
+
+import { dictionaryValidator } from '@bh/consts';
 import { FilterFieldConfig } from '@bh/superfield';
 import { merge } from 'lodash-es';
 import { merge as deepMerge } from 'ts-deepmerge';
@@ -10,6 +11,7 @@ import {
   Name_DisplayField,
   WithEmptyDisplayName,
 } from '../display-field/const';
+import { FormFieldCode } from '@bh/windmill';
 
 //LookupConfig without displayField
 export const Lookup_Base: Partial<FilterFieldConfig> & {

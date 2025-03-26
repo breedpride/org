@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { MAIN_FILTER_NAME } from '@bh/filtering';
 import { BPNavStore } from '@bh/nav-store';
 import { BPFormGroupInterface, FilterFieldConfig } from '@bh/superfield';

@@ -1,5 +1,5 @@
 import { Validators } from '@angular/forms';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { EmptyFieldConfig } from '@bh/superfield';
 import { BPFormGroupInterface, FilterFieldConfig, idString } from '@bh/superfield';
 import { merge } from 'lodash-es';

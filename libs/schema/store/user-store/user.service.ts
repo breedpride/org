@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { Contact } from '@bh/entity/config';
 import { byAny, ME } from '@bh/superfield';
 import { ApiService } from '@breedpride/api';

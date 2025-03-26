@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { EDIT_MODE } from '@bh/collection-store';
 import { ENTITY_STORE } from '@bh/entity-store';
 import { byAny, ME } from '@bh/superfield';

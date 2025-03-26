@@ -6,7 +6,7 @@ import { toObservableSignal } from "ngxtension/to-observable-signal";
 import { Route, UrlSegment } from "@angular/router";
 import { byAny, EmptyFieldConfig, FilterFieldConfig } from "@bh/superfield";
 import { merge } from "lodash-es";
-import { FormFieldCode } from "@bh/consts";
+import { FormFieldCode } from "@bh/windmill";
 
 export const loadingWithLag = (n = 5000) => {
   const loading = inject(PageStore).isLoading;

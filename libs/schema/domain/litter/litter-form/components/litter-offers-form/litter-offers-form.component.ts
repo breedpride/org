@@ -11,7 +11,7 @@ import {
 import { getSpaceConfig } from '@bh/collection-store';
 
 import { TwoFieldsRowComponent } from '@bp/two-fields-row-ui';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { FilterFieldConfig } from '@bh/superfield';
 @Component({
   imports: [

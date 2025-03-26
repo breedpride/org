@@ -1,4 +1,4 @@
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { EmptyFieldConfig,FilterFieldConfig, SpaceConfig } from '@bh/superfield';
 import { DEFAULT_GRID } from '@bh/collection-view-change';
 import {  NAME_FILTER } from '@bh/filtering';

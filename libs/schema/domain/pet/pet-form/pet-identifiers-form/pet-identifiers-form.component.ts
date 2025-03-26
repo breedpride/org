@@ -13,7 +13,7 @@ import { byAny, publicIdentifiers } from '@bh/filtering';
 import { getSpaceConfig } from '@bh/collection-store';
 
 import { FilterFieldConfig } from '@bh/superfield';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { merge } from 'lodash-es';
 import { TableModule } from 'primeng/table';
 

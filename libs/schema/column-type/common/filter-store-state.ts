@@ -1,6 +1,6 @@
 import { SortField } from './sorting';
 import { WithId } from './identifying/with-id';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { NullableFilterGroup } from './filtering';
 import { BPFormGroupInterface } from './editing/events/form-group-interface';
 import { FieldOptions, FilterFn, WithEditingAbility, WithEditingConfig } from './editing';

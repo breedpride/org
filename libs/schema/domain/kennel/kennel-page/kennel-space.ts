@@ -1,5 +1,6 @@
 import { Validators } from '@angular/forms';
-import { FormFieldCode, ModelCodeType } from '@bh/consts';
+import {  ModelCodeType } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { EmptyFieldConfig } from '@bh/superfield';
 import { DEFAULT_LIST } from '@bh/collection-view-change';
 import { ACCOUNT_ENTITY_COLUMNS } from '@bh/entity/config';

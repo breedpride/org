@@ -1,4 +1,4 @@
-import { FormFieldCode, ModelCodeType } from '@bh/consts';
+import {  ModelCodeType } from '@bh/consts';
 import { DEFAULT_LIST } from '@bh/collection-view-change';
 import { LITTER_ENTITY_COLUMNS } from '@bh/entity/config';
 import {
@@ -20,6 +20,7 @@ import {
   LITTER_PET_TYPE_FILTER,
   LITTER_STATUS_FILTER,
 } from './litter-filters';
+import { FormFieldCode } from '@bh/windmill';
 
 export const litterExt: MiniSpaceApiConfig[] = [
   {

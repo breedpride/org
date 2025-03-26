@@ -8,7 +8,7 @@ import { AvatarFormComponent } from '@bh/editing';
 import { SUPER_STORE } from '@bh/collection-store';
 import { LITTER_FIELD_CONFIG } from '@bh/entity/config';
 import {  LitterPage } from '@bh/types';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import {FilterFieldConfig,  } from '@bh/superfield';
 import { page } from '@bh/page-store';
 import { LitterAvatarPipe } from '@breedpride/pipes';

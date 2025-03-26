@@ -1,5 +1,6 @@
 import { Validators } from '@angular/forms';
-import { FormFieldCode, ModelCodeType } from '@bh/consts';
+import { ModelCodeType } from '@bh/consts';
+import {FormFieldCode} from '@bh/windmill';
 import { DEFAULT_LIST } from '@bh/collection-view-change';
 import { byAny, NAME_FILTER, simpleFilterLookupField } from '@bh/filtering';
 import { EVENT_SPACE_SORT_CONFIG } from '@bh/collection-sorting';

@@ -9,7 +9,7 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { trackByFn } from '@bh/list';
 import { SpaceConfig } from '@bh/superfield';
 import { EditorComponentName,  } from '@bh/types';

@@ -1,6 +1,6 @@
 // import { FilterFieldConfig } from '@bh/superfield';
 import { merge } from 'lodash-es';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 
 //--------------------------------------------
 // String

@@ -5,7 +5,7 @@ import { FormFieldComponent } from '@bh/editing';
 import { NOTE_FIELD_CONFIG } from '@bh/entity/config';
 import { BPFormGroupInterface, FilterFieldConfig } from '@bh/superfield';
 // import { TwoFieldsRowComponent } from '@bp/two-fields-row-ui';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { HiddenDirective } from '@breedpride/070-core-directive-feature';
 
 @Component({

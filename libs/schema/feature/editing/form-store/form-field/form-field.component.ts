@@ -5,7 +5,7 @@ import {
   input,
 } from '@angular/core';
 import { FilterFieldConfig } from '@bh/superfield';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { HiddenDirective } from '@breedpride/070-core-directive-feature';
 import { ConfigToStoreDirective } from './config.directive';
 import { InputAutocompleteComponent } from './input-autocomplete/input-autocomplete.component';

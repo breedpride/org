@@ -1,4 +1,4 @@
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { merge } from 'lodash-es';
 //--------------------------------------------
 // Boolean

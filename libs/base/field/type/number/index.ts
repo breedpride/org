@@ -1,4 +1,4 @@
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 //--------------------------------------------
 // Number // TODO use Number instead of boolean
 //--------------------------------------------

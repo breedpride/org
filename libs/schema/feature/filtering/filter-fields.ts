@@ -1,8 +1,9 @@
-import { dictionaryValidator, FormFieldCode } from '@bh/consts';
+import { dictionaryValidator} from '@bh/consts';
 import { EmptyFieldConfig, FilterFieldConfig } from '@bh/superfield';
 
 import { merge } from 'lodash-es';
 import { simpleNameFilter } from '@bh/filter';
+import { FormFieldCode } from '@bh/windmill';
 
 export const MAIN_FILTER_NAME = 'mainFilter';
 

@@ -8,7 +8,7 @@ import { ME } from '@bh/filtering';
 import { getSpaceConfig } from '@bh/collection-store';
 
 import { FilterFieldConfig } from '@bh/superfield';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import {
   ACCOUNT_NOTE_SCHEMA,
   LITTER_NOTE_SCHEMA,

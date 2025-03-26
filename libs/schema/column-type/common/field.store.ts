@@ -1,6 +1,6 @@
 import { Signal } from '@angular/core';
 import { ValidatorFn } from '@angular/forms';
-import { FormFieldCode } from '@bh/consts';
+import { FormFieldCode } from '@bh/windmill';
 import { FilterFieldConfig} from './filter-store-state';
 import { FilterFn, InitFn, OnChangeFn } from './editing';
 
