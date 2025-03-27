@@ -35,9 +35,16 @@ export async function main(tableName: string) {
     return;
   }
 
-  console.log("FK Data:", fkData); // Це вже масив
-  const foreignKeys = fkData ?? [];
-  console.log("foreignKeys:", foreignKeys);
+  // Отримуємо RLS policies
+  const { data: rawPolicies, error: polError } = await db.rpc("get_table_policies", {
+    tablename: tableName,
+  });
+
+  if (polError) {
+    console.error("Помилка при отриманні RLS policies:", polError.message);
+    return;
+  }
+  const policies: any[] = rawPolicies ?? [];
 
   // Формуємо SQL
   const lines: string[] = [];
@@ -59,8 +66,22 @@ export async function main(tableName: string) {
     );
   }
 
-  const sql = `CREATE TABLE "${tableName}" (\n${lines.join(",\n")}\n);`;
+  const tableSql = `CREATE TABLE "${tableName}" (\n${lines.join(",\n")}\n);`;
 
-  console.log("SQL для створення таблиці:");
-  console.log(sql);
+  // Окремо policies:
+  const policyLines: string[] = [];
+  for (const pol of policies) {
+    const roles = pol.roles.map((r: string) => `"${r}"`).join(", ");
+    const permissive = pol.permissive?.toLowerCase() === "permissive" ? "PERMISSIVE" : "RESTRICTIVE";
+    let policySQL = `CREATE ${permissive} POLICY "${pol.policyname}" ON "${tableName}" FOR ${pol.cmd}`;
+    if (roles) policySQL += ` TO ${roles}`;
+    if (pol.qual) policySQL += ` USING (${pol.qual})`;
+    if (pol.with_check) policySQL += ` WITH CHECK (${pol.with_check})`;
+    policyLines.push(policySQL + ";");
+  }
+
+  const fullSql = [tableSql, ...policyLines].join("\n\n");
+
+  console.log("SQL для створення таблиці та політик:");
+  console.log(fullSql);
 }
