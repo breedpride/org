@@ -21,3 +21,8 @@ export async function main(
 export const _delimeter = '_';
 export const with_ = (s: string) => _delimeter + s;
 export const with_delimeter = (a: string, b: string) => a + with_(b);
+export function capitalize(str: string): string {
+  return str.length > 1
+    ? str[0].toUpperCase() + str.substring(1)
+    : str.toUpperCase();
+}
