@@ -1,4 +1,4 @@
-import {ComparisonType,LogicalOperatorType} from '@bh/consts';
+import {ComparisonType,LogicalOperatorType} from '@bh/windmill';
 import {FilterGroup,FilterValue,NullableFilterGroup} from './filter-group';
 import { FilterFn, FilterFnParam } from '../editing';
 

@@ -1,4 +1,4 @@
-import { ModelCodeType } from '@bh/consts';
+import { ModelCodeType } from '@bh/windmill';
 import {
   DEFAULT_GRAPH,
   DEFAULT_GRID,

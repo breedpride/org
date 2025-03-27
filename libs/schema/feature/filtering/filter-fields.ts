@@ -1,4 +1,4 @@
-import { dictionaryValidator} from '@bh/consts';
+import { dictionaryValidator} from '@bh/windmill';
 import { EmptyFieldConfig, FilterFieldConfig } from '@bh/superfield';
 
 import { merge } from 'lodash-es';

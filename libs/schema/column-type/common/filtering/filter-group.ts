@@ -1,4 +1,4 @@
-import { ComparisonType, LogicalOperatorType } from '@bh/consts';
+import { ComparisonType, LogicalOperatorType } from '@bh/windmill';
 
 export type FilterValue = string | number | boolean;
 

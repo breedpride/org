@@ -1,4 +1,4 @@
-import { ModelCodeType } from '@bh/consts';
+import { ModelCodeType } from '@bh/windmill';
 import { EmptyFieldConfig } from '@bh/superfield';
 import { DEFAULT_GRID } from '@bh/collection-view-change';
 import {

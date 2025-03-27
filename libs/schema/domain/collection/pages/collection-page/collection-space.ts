@@ -1,4 +1,4 @@
-import { ModelCodeType } from '@bh/consts';
+import { ModelCodeType } from '@bh/windmill';
 import { DEFAULT_GRID } from '@bh/collection-view-change';
 import { FIELD_NAMES_SPACE_MINIMUM, NAME_FILTER } from '@bh/filtering';
 import { getSpaceConfig } from '@bh/collection-store';

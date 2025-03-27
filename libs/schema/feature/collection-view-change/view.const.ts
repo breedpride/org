@@ -1,4 +1,4 @@
-import { ModelCodeType } from '@bh/consts';
+import { ModelCodeType } from '@bh/windmill';
 import { EntitiesView } from '@bh/superfield';
 export const LIST_ID = 'list';
 export const GRID_ID = 'grid';

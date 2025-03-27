@@ -1,5 +1,5 @@
 
-import { dictionaryValidator } from '@bh/consts';
+import { dictionaryValidator } from '@bh/windmill';
 import { FilterFieldConfig } from '@bh/superfield';
 import { merge } from 'lodash-es';
 import { merge as deepMerge } from 'ts-deepmerge';

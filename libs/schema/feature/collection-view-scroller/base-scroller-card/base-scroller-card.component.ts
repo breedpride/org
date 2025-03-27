@@ -6,7 +6,7 @@ import {
   inject,
   input,
 } from '@angular/core';
-import { ModelCodeType } from '@bh/consts';
+import { ModelCodeType } from '@bh/windmill';
 import { BPNavStore } from '@bh/nav-store';
 import { WithCreatioId } from '@bh/superfield';
 import { CardMode } from '@bh/types';

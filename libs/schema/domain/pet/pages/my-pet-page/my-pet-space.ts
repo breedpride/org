@@ -1,4 +1,4 @@
-import { ModelCodeType } from '@bh/consts';
+import { ModelCodeType } from '@bh/windmill';
 import { DEFAULT_LIST } from '@bh/collection-view-change';
 import { PET_DATE_FIELDS } from '@bh/entity/config';
 import {

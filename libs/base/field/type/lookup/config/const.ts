@@ -1,4 +1,4 @@
-import { dictionaryValidator, FormFieldCode } from '@bh/consts';
+import { dictionaryValidator, FormFieldCode } from '@bh/windmill';
 import {
   Code_DisplayField,
   DisplayNumber,

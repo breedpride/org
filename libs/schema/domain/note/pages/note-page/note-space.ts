@@ -1,4 +1,4 @@
-import {  ModelCodeType } from '@bh/consts';
+import {  ModelCodeType } from '@bh/windmill';
 import { FormFieldCode } from '@bh/windmill';
 import { DEFAULT_GRID } from '@bh/collection-view-change';
 import { NOTE_ENTITY_COLUMNS, NOTE_FIELD_CONFIG } from '@bh/entity/config';
