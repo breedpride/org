@@ -76,7 +76,6 @@
       ],
       "@bh/column-type/string": ["libs/schema/column-type/string/index.ts"],
       "@bh/column-type/webtext": ["libs/schema/column-type/webtext/index.ts"],
-      "@bh/consts": ["libs/schema/bh/consts/index.ts"],
       "@bh/counter": ["libs/schema/ui/counter-ui/index.ts"],
       "@bh/db/config": ["libs/schema/db/config/index.ts"],
       "@bh/editing": ["libs/schema/feature/editing/index.ts"],
