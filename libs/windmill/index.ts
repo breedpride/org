@@ -17,6 +17,7 @@
 // export * from './f/supabase/create_table_from_object.deno';
 // export * from './f/supabase/deno_init.deno';
 export * from './f/supabase/enums_consts.deno';
+export * from './f/consts/index';
 // export * from './f/supabase/insert.deno';
 // export * from './u/annamaliyenko/bullish_script';
 // export * from './u/annamaliyenko/important_script';
