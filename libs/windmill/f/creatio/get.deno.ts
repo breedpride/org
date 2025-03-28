@@ -16,6 +16,7 @@ export async function main(url: string) {
   if (json === undefined) {
     throw new Error("No data found");
   }
+  console.log(json);
   if (json.result.isSuccess) {
     if ( json.result.isSerializedData) {
         return JSON.parse(json.result.data);
