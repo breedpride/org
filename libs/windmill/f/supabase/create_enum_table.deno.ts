@@ -56,7 +56,7 @@ export async function main(
   // Якщо таблиця існує, видаляємо її
   if (exists) {
     const { error: dropError } = await db.rpc("drop_table", {
-      table_name: tableName,
+      tablename: tableName,
     });
     if (dropError) {
       console.error("Помилка при видаленні таблиці:", dropError);

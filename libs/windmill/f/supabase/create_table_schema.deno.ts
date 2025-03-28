@@ -1,7 +1,20 @@
+import * as wmill from "npm:windmill-client@1.475.1";
 import { supabase } from "/f/supabase/deno_init.deno.ts";
 
 export async function main(tableName: string) {
   const db = await supabase;
+  // 🔍 Перевіряємо, чи таблиця існує
+  const { data: existsCheck, error: checkErr } = await db.rpc("table_exists", {
+    tablename: tableName,
+  });
+
+  if (checkErr) throw new Error("❌ Не вдалося перевірити існування таблиці");
+
+  const exists = existsCheck === true;
+  if (!exists) {
+    console.warn(`⚠️ Таблиця "${tableName}" не існує — пропускаємо генерацію SQL`);
+    return;
+  }
 
   // Отримуємо опис стовпців
   const { data: columns, error: colError } = await db.rpc("get_table_columns", {
@@ -23,7 +36,9 @@ export async function main(tableName: string) {
     return;
   }
 
-  const pkList = pkCols.map((c: { column_name: string }) => `"${c.column_name}"`);
+  const pkList = pkCols.map(
+    (c: { column_name: string }) => `"${c.column_name}"`
+  );
 
   // Отримуємо foreign keys
   const { data: fkData, error: fkError } = await db.rpc("get_foreign_keys", {
@@ -36,52 +51,75 @@ export async function main(tableName: string) {
   }
 
   // Отримуємо RLS policies
-  const { data: rawPolicies, error: polError } = await db.rpc("get_table_policies", {
-    tablename: tableName,
-  });
+  const { data: rawPolicies, error: polError } = await db.rpc(
+    "get_table_policies",
+    {
+      tablename: tableName,
+    }
+  );
 
   if (polError) {
     console.error("Помилка при отриманні RLS policies:", polError.message);
     return;
   }
-  const policies: any[] = rawPolicies ?? [];
 
-  // Формуємо SQL
-  const lines: string[] = [];
+  const raw = rawPolicies ?? {};
+  const policies = raw.policies ?? [];
+  const rlsEnabled = raw.rls_enabled === true;
+
+  // Формуємо список колонок
+  const columnLines: string[] = [];
 
   for (const col of columns) {
     let line = `  "${col.column_name}" ${col.data_type}`;
     if (col.is_nullable === "NO") line += " NOT NULL";
     if (col.column_default) line += ` DEFAULT ${col.column_default}`;
-    lines.push(line);
+    columnLines.push(line);
   }
 
   if (pkList.length) {
-    lines.push(`  PRIMARY KEY (${pkList.join(", ")})`);
+    columnLines.push(`  PRIMARY KEY (${pkList.join(", ")})`);
   }
 
   for (const fk of fkData ?? []) {
-    lines.push(
+    columnLines.push(
       `  FOREIGN KEY ("${fk.column_name}") REFERENCES "${fk.foreign_table}"("${fk.foreign_column}")`
     );
   }
 
-  const tableSql = `CREATE TABLE "${tableName}" (\n${lines.join(",\n")}\n);`;
+  // Формуємо CREATE TABLE
+  const tableSql = `CREATE TABLE "${tableName}" (\n${columnLines.join(",\n")}\n);`;
 
-  // Окремо policies:
+  // Формуємо ALTER TABLE для RLS
+  const rlsSql = (rlsEnabled || policies.length > 0)
+    ? `ALTER TABLE "${tableName}" ENABLE ROW LEVEL SECURITY;`
+    : "";
+
+  // Формуємо політики
   const policyLines: string[] = [];
   for (const pol of policies) {
     const roles = pol.roles.map((r: string) => `"${r}"`).join(", ");
-    const permissive = pol.permissive?.toLowerCase() === "permissive" ? "PERMISSIVE" : "RESTRICTIVE";
-    let policySQL = `CREATE ${permissive} POLICY "${pol.policyname}" ON "${tableName}" FOR ${pol.cmd}`;
+    let policySQL = `CREATE POLICY "${pol.policyname}" ON "${tableName}" FOR ${pol.cmd}`;
     if (roles) policySQL += ` TO ${roles}`;
     if (pol.qual) policySQL += ` USING (${pol.qual})`;
     if (pol.with_check) policySQL += ` WITH CHECK (${pol.with_check})`;
     policyLines.push(policySQL + ";");
   }
 
-  const fullSql = [tableSql, ...policyLines].join("\n\n");
+  // Збираємо фінальний SQL
+  const statements: string[] = [tableSql];
+
+  if (rlsSql) {
+    statements.push(rlsSql);
+  }
+
+  statements.push(...policyLines);
+
+  const fullSql = statements.join("\n\n");
 
   console.log("SQL для створення таблиці та політик:");
   console.log(fullSql);
+
+  const variablePath = `f/sql/${tableName}_sql`;
+  await wmill.setVariable(variablePath, fullSql, false);
 }
