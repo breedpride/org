@@ -17,11 +17,11 @@ export async function main(url: string) {
     throw new Error("No data found");
   }
   console.log(json);
-  if (json.result.isSuccess) {
-    if ( json.result.isSerializedData) {
-        return JSON.parse(json.result.data);
-    }
-  }
+//   if (json.result.isSuccess) {
+//     if ( json.result.isSerializedData) {
+//         return JSON.parse(json.result.data);
+//     }
+//   }
 
   return json;
 }
