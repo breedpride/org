@@ -2,17 +2,6 @@ summary: f/generator/create_schema_meta_data
 description: ''
 value:
   modules:
-    - id: i
-      summary: Create enums
-      value:
-        type: rawscript
-        content: '!inline create_enums.inline_script.deno.ts'
-        input_transforms:
-          x:
-            type: static
-            value: ''
-        lock: '!inline create_enums.inline_script.lock'
-        language: deno
     - id: d
       summary: Delete data from config table
       value:
@@ -22,6 +11,14 @@ value:
         lock: '!inline delete_data_from_config_table.inline_script.lock'
         language: deno
       continue_on_error: false
+    - id: i
+      summary: Create enums
+      value:
+        type: rawscript
+        content: '!inline create_enums.inline_script.deno.ts'
+        input_transforms: {}
+        lock: '!inline create_enums.inline_script.lock'
+        language: deno
     - id: e
       summary: Add base data types
       value:
@@ -58,7 +55,7 @@ value:
         lock: '!inline generate_fields_config_for_schemas.inline_script.lock'
         language: deno
 schema:
-  $schema: https://json-schema.org/draft/2020-12/schema
+  $schema: 'https://json-schema.org/draft/2020-12/schema'
   type: object
   order: []
   properties: {}
