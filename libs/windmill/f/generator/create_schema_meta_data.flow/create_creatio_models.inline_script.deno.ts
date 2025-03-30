@@ -1,4 +1,4 @@
-import { merge } from "npm:ts-deepmerge";
+import { merge } from 'npm:lodash-es';
 import * as wmill from "npm:windmill-client@1.475.1";
 import { with_ } from "/f/common/fn_string.deno.ts";
 import { supabase } from "/f/supabase/deno_init.deno.ts";
@@ -89,11 +89,13 @@ export async function main(processedSchemaList: string[]) {
     const entitiesColumns: string[] = data[0].data.entitiesColumns;
 
     const fieldsConfigEntries = Object.entries(fieldsConfig)
-      .map(
-        ([key, value]) =>
-          `${key}: ${JSON.stringify(merge({}, EmptyFieldConfig, value))}`
-      )
+      .map(([key, value]) => {
+        const k = { ...EmptyFieldConfig, ...value };
+        return `${key}: ${stringifyObjectWithoutQuotes(k)}`;
+      })
       .join(",\n  ");
+
+    console.log(fieldsConfigEntries);
 
     const entitiesColumnsEntries = entitiesColumns
       .map((column) => `"${column}"`)
@@ -114,7 +116,7 @@ export const ${schemaName.toUpperCase()}_ENTITY_COLUMNS = [
 
 export const ${schemaName.toUpperCase()}_DATE_FIELDS = [];
 
-export const [, , ${schemaName.toUpperCase()}_SCHEMA] = createInjectionToken(() => ({
+export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => ({
   ${dataEntries}
 }));
 `.trim();
@@ -171,4 +173,22 @@ async function createBunScript(path: string, content: string, summary: string) {
     console.error("Помилка при створенні скрипту:", error);
     throw error;
   }
+}
+
+// Функція для форматування об'єкта без лапок навколо ключів
+function stringifyObjectWithoutQuotes(obj: any): string {
+  return '{ ' + Object.entries(obj)
+    .map(([key, value]) => {
+      // Якщо значення - функція, зберігаємо її у вигляді строки
+      if (typeof value === 'function') {
+        return `${key}: ${value.toString()}`;
+      }
+      // Якщо значення - об'єкт, рекурсивно викликаємо цю ж функцію
+      if (typeof value === 'object' && value !== null) {
+        return `${key}: ${stringifyObjectWithoutQuotes(value)}`;
+      }
+      // Інакше форматуючи як просте значення
+      return `${key}: ${JSON.stringify(value)}`;
+    })
+    .join(', ') + ' }';
 }
