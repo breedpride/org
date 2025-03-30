@@ -2,7 +2,7 @@ import isArray from 'lodash-es/isArray';
 import { UnionToIntersection } from 'ts-essentials';
 
 type Contact_Schema = {
-    Id: string;
+      Id: string;
   Age: number;
   Job: Job;
   Url: string;
@@ -47,24 +47,24 @@ type Contact_Schema = {
   IsEmailConfirmed: boolean;
   IsNonActualEmail: boolean;
   VerificationStatus: VerificationStatus
-  };
+    };
 
-  export type Contact = Partial<Contact_Schema>;
-  export function Contact<T extends Partial<Contact>>(config: T): T;
-  export function Contact<T extends Partial<Contact>[]>(
+    export type Contact = Partial<Contact_Schema>;
+    export function Contact<T extends Partial<Contact>>(config: T): T;
+    export function Contact<T extends Partial<Contact>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Contact<T extends Partial<Contact> | Partial<Contact>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Contact<T extends Partial<Contact> | Partial<Contact>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type ContactCommunication_Schema = {
-    Id: string;
+      Id: string;
   Number: string;
   Contact: Contact;
   Primary: boolean;
@@ -73,24 +73,24 @@ type ContactCommunication_Schema = {
   SearchNumber: string;
   DateSetNonActual: Date;
   CommunicationType: CommunicationType
-  };
+    };
 
-  export type ContactCommunication = Partial<ContactCommunication_Schema>;
-  export function ContactCommunication<T extends Partial<ContactCommunication>>(config: T): T;
-  export function ContactCommunication<T extends Partial<ContactCommunication>[]>(
+    export type ContactCommunication = Partial<ContactCommunication_Schema>;
+    export function ContactCommunication<T extends Partial<ContactCommunication>>(config: T): T;
+    export function ContactCommunication<T extends Partial<ContactCommunication>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function ContactCommunication<T extends Partial<ContactCommunication> | Partial<ContactCommunication>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function ContactCommunication<T extends Partial<ContactCommunication> | Partial<ContactCommunication>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type ContactAddress_Schema = {
-    Id: string;
+      Id: string;
   Zip: string;
   City: City;
   Region: Region;
@@ -104,67 +104,67 @@ type ContactAddress_Schema = {
   ModifiedOn: Date;
   AddressType: AddressType;
   FullAddress: string
-  };
+    };
 
-  export type ContactAddress = Partial<ContactAddress_Schema>;
-  export function ContactAddress<T extends Partial<ContactAddress>>(config: T): T;
-  export function ContactAddress<T extends Partial<ContactAddress>[]>(
+    export type ContactAddress = Partial<ContactAddress_Schema>;
+    export function ContactAddress<T extends Partial<ContactAddress>>(config: T): T;
+    export function ContactAddress<T extends Partial<ContactAddress>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function ContactAddress<T extends Partial<ContactAddress> | Partial<ContactAddress>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function ContactAddress<T extends Partial<ContactAddress> | Partial<ContactAddress>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type ContactFirebaseUser_Schema = {
-    Id: string;
+      Id: string;
   Email: string;
   Contact: Contact;
   Referral: Referral;
   FirebaseUId: string;
   FirebaseAuthProvider: FirebaseAuthProvider
-  };
+    };
 
-  export type ContactFirebaseUser = Partial<ContactFirebaseUser_Schema>;
-  export function ContactFirebaseUser<T extends Partial<ContactFirebaseUser>>(config: T): T;
-  export function ContactFirebaseUser<T extends Partial<ContactFirebaseUser>[]>(
+    export type ContactFirebaseUser = Partial<ContactFirebaseUser_Schema>;
+    export function ContactFirebaseUser<T extends Partial<ContactFirebaseUser>>(config: T): T;
+    export function ContactFirebaseUser<T extends Partial<ContactFirebaseUser>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function ContactFirebaseUser<T extends Partial<ContactFirebaseUser> | Partial<ContactFirebaseUser>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function ContactFirebaseUser<T extends Partial<ContactFirebaseUser> | Partial<ContactFirebaseUser>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type ContactSynonym_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Contact: Contact
-  };
+    };
 
-  export type ContactSynonym = Partial<ContactSynonym_Schema>;
-  export function ContactSynonym<T extends Partial<ContactSynonym>>(config: T): T;
-  export function ContactSynonym<T extends Partial<ContactSynonym>[]>(
+    export type ContactSynonym = Partial<ContactSynonym_Schema>;
+    export function ContactSynonym<T extends Partial<ContactSynonym>>(config: T): T;
+    export function ContactSynonym<T extends Partial<ContactSynonym>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function ContactSynonym<T extends Partial<ContactSynonym> | Partial<ContactSynonym>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function ContactSynonym<T extends Partial<ContactSynonym> | Partial<ContactSynonym>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Pet_Schema = {
-    Id: string;
+      Id: string;
   COI: number;
   Sex: Sex;
   Url: string;
@@ -205,24 +205,24 @@ type Pet_Schema = {
   InbreedingPercent: number;
   VerificationStatus: VerificationStatus;
   RatingPlacementInBreed: number
-  };
+    };
 
-  export type Pet = Partial<Pet_Schema>;
-  export function Pet<T extends Partial<Pet>>(config: T): T;
-  export function Pet<T extends Partial<Pet>[]>(
+    export type Pet = Partial<Pet_Schema>;
+    export function Pet<T extends Partial<Pet>>(config: T): T;
+    export function Pet<T extends Partial<Pet>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Pet<T extends Partial<Pet> | Partial<Pet>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Pet<T extends Partial<Pet> | Partial<Pet>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type TitleInPet_Schema = {
-    Id: string;
+      Id: string;
   Pet: Pet;
   Date: Date;
   Title: Title;
@@ -231,24 +231,24 @@ type TitleInPet_Schema = {
   RawTitle: string;
   Description: string;
   IsConfirmed: boolean
-  };
+    };
 
-  export type TitleInPet = Partial<TitleInPet_Schema>;
-  export function TitleInPet<T extends Partial<TitleInPet>>(config: T): T;
-  export function TitleInPet<T extends Partial<TitleInPet>[]>(
+    export type TitleInPet = Partial<TitleInPet_Schema>;
+    export function TitleInPet<T extends Partial<TitleInPet>>(config: T): T;
+    export function TitleInPet<T extends Partial<TitleInPet>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function TitleInPet<T extends Partial<TitleInPet> | Partial<TitleInPet>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function TitleInPet<T extends Partial<TitleInPet> | Partial<TitleInPet>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetHealthExamResult_Schema = {
-    Id: string;
+      Id: string;
   Pet: Pet;
   Date: Date;
   CreatedBy: Contact;
@@ -257,24 +257,24 @@ type PetHealthExamResult_Schema = {
   ModifiedOn: Date;
   HealthExamObject: HealthExamObject;
   HealthExamResult: HealthExamResult
-  };
+    };
 
-  export type PetHealthExamResult = Partial<PetHealthExamResult_Schema>;
-  export function PetHealthExamResult<T extends Partial<PetHealthExamResult>>(config: T): T;
-  export function PetHealthExamResult<T extends Partial<PetHealthExamResult>[]>(
+    export type PetHealthExamResult = Partial<PetHealthExamResult_Schema>;
+    export function PetHealthExamResult<T extends Partial<PetHealthExamResult>>(config: T): T;
+    export function PetHealthExamResult<T extends Partial<PetHealthExamResult>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetHealthExamResult<T extends Partial<PetHealthExamResult> | Partial<PetHealthExamResult>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetHealthExamResult<T extends Partial<PetHealthExamResult> | Partial<PetHealthExamResult>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetService_Schema = {
-    Id: string;
+      Id: string;
   Pet: Pet;
   Date: Date;
   Price: number;
@@ -285,24 +285,24 @@ type PetService_Schema = {
   ModifiedOn: Date;
   ServiceType: PetServiceType;
   PetServiceStatus: PetServiceStatus
-  };
+    };
 
-  export type PetService = Partial<PetService_Schema>;
-  export function PetService<T extends Partial<PetService>>(config: T): T;
-  export function PetService<T extends Partial<PetService>[]>(
+    export type PetService = Partial<PetService_Schema>;
+    export function PetService<T extends Partial<PetService>>(config: T): T;
+    export function PetService<T extends Partial<PetService>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetService<T extends Partial<PetService> | Partial<PetService>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetService<T extends Partial<PetService> | Partial<PetService>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetInProject_Schema = {
-    Id: string;
+      Id: string;
   Pet: Pet;
   Code: string;
   Date: Date;
@@ -320,24 +320,24 @@ type PetInProject_Schema = {
   ModifiedOn: Date;
   Qualification: PetQualification;
   TempProjectName: string
-  };
+    };
 
-  export type PetInProject = Partial<PetInProject_Schema>;
-  export function PetInProject<T extends Partial<PetInProject>>(config: T): T;
-  export function PetInProject<T extends Partial<PetInProject>[]>(
+    export type PetInProject = Partial<PetInProject_Schema>;
+    export function PetInProject<T extends Partial<PetInProject>>(config: T): T;
+    export function PetInProject<T extends Partial<PetInProject>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetInProject<T extends Partial<PetInProject> | Partial<PetInProject>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetInProject<T extends Partial<PetInProject> | Partial<PetInProject>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetIdentifier_Schema = {
-    Id: string;
+      Id: string;
   Pet: Pet;
   Date: Date;
   Value: string;
@@ -352,24 +352,24 @@ type PetIdentifier_Schema = {
   ModifiedOn: Date;
   IsProcessed: boolean;
   PetIdentifierType: PetIdentifierType
-  };
+    };
 
-  export type PetIdentifier = Partial<PetIdentifier_Schema>;
-  export function PetIdentifier<T extends Partial<PetIdentifier>>(config: T): T;
-  export function PetIdentifier<T extends Partial<PetIdentifier>[]>(
+    export type PetIdentifier = Partial<PetIdentifier_Schema>;
+    export function PetIdentifier<T extends Partial<PetIdentifier>>(config: T): T;
+    export function PetIdentifier<T extends Partial<PetIdentifier>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetIdentifier<T extends Partial<PetIdentifier> | Partial<PetIdentifier>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetIdentifier<T extends Partial<PetIdentifier> | Partial<PetIdentifier>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetMeasurement_Schema = {
-    Id: string;
+      Id: string;
   Day: number;
   Pet: Pet;
   Date: Date;
@@ -377,24 +377,24 @@ type PetMeasurement_Schema = {
   Value: number;
   MeasurementType: MeasurementType;
   ActiveSynchronization: boolean
-  };
+    };
 
-  export type PetMeasurement = Partial<PetMeasurement_Schema>;
-  export function PetMeasurement<T extends Partial<PetMeasurement>>(config: T): T;
-  export function PetMeasurement<T extends Partial<PetMeasurement>[]>(
+    export type PetMeasurement = Partial<PetMeasurement_Schema>;
+    export function PetMeasurement<T extends Partial<PetMeasurement>>(config: T): T;
+    export function PetMeasurement<T extends Partial<PetMeasurement>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetMeasurement<T extends Partial<PetMeasurement> | Partial<PetMeasurement>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetMeasurement<T extends Partial<PetMeasurement> | Partial<PetMeasurement>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetServiceInLitter_Schema = {
-    Id: string;
+      Id: string;
   Date: Date;
   Price: number;
   Litter: Litter;
@@ -405,24 +405,24 @@ type PetServiceInLitter_Schema = {
   ModifiedOn: Date;
   ServiceType: PetServiceType;
   PetServiceStatus: PetServiceStatus
-  };
+    };
 
-  export type PetServiceInLitter = Partial<PetServiceInLitter_Schema>;
-  export function PetServiceInLitter<T extends Partial<PetServiceInLitter>>(config: T): T;
-  export function PetServiceInLitter<T extends Partial<PetServiceInLitter>[]>(
+    export type PetServiceInLitter = Partial<PetServiceInLitter_Schema>;
+    export function PetServiceInLitter<T extends Partial<PetServiceInLitter>>(config: T): T;
+    export function PetServiceInLitter<T extends Partial<PetServiceInLitter>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetServiceInLitter<T extends Partial<PetServiceInLitter> | Partial<PetServiceInLitter>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetServiceInLitter<T extends Partial<PetServiceInLitter> | Partial<PetServiceInLitter>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Litter_Schema = {
-    Id: string;
+      Id: string;
   Url: string;
   Name: string;
   Cover: Cover;
@@ -445,24 +445,24 @@ type Litter_Schema = {
   DateOfBirth: Date;
   FemaleAmount: number;
   MatingPeriod: Period
-  };
+    };
 
-  export type Litter = Partial<Litter_Schema>;
-  export function Litter<T extends Partial<Litter>>(config: T): T;
-  export function Litter<T extends Partial<Litter>[]>(
+    export type Litter = Partial<Litter_Schema>;
+    export function Litter<T extends Partial<Litter>>(config: T): T;
+    export function Litter<T extends Partial<Litter>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Litter<T extends Partial<Litter> | Partial<Litter>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Litter<T extends Partial<Litter> | Partial<Litter>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Breed_Schema = {
-    Id: string;
+      Id: string;
   Url: string;
   Name: string;
   Cover: Cover;
@@ -489,24 +489,24 @@ type Breed_Schema = {
   DifferByCoatColor: boolean;
   AchievementProgress: number;
   DifferByBodyFeature: boolean
-  };
+    };
 
-  export type Breed = Partial<Breed_Schema>;
-  export function Breed<T extends Partial<Breed>>(config: T): T;
-  export function Breed<T extends Partial<Breed>[]>(
+    export type Breed = Partial<Breed_Schema>;
+    export function Breed<T extends Partial<Breed>>(config: T): T;
+    export function Breed<T extends Partial<Breed>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Breed<T extends Partial<Breed> | Partial<Breed>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Breed<T extends Partial<Breed> | Partial<Breed>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Project_Schema = {
-    Id: string;
+      Id: string;
   Url: string;
   Name: string;
   Type: ProjectType;
@@ -530,24 +530,24 @@ type Project_Schema = {
   ModifiedOn: Date;
   ParentProject: Project;
   ActualCompletion: number
-  };
+    };
 
-  export type Project = Partial<Project_Schema>;
-  export function Project<T extends Partial<Project>>(config: T): T;
-  export function Project<T extends Partial<Project>[]>(
+    export type Project = Partial<Project_Schema>;
+    export function Project<T extends Partial<Project>>(config: T): T;
+    export function Project<T extends Partial<Project>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Project<T extends Partial<Project> | Partial<Project>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Project<T extends Partial<Project> | Partial<Project>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Post_Schema = {
-    Id: string;
+      Id: string;
   Url: string;
   Date: Date;
   Name: string;
@@ -568,24 +568,24 @@ type Post_Schema = {
   ModifiedOn: Date;
   Participants: string;
   PublicationDate: Date
-  };
+    };
 
-  export type Post = Partial<Post_Schema>;
-  export function Post<T extends Partial<Post>>(config: T): T;
-  export function Post<T extends Partial<Post>[]>(
+    export type Post = Partial<Post_Schema>;
+    export function Post<T extends Partial<Post>>(config: T): T;
+    export function Post<T extends Partial<Post>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Post<T extends Partial<Post> | Partial<Post>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Post<T extends Partial<Post> | Partial<Post>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type AccountReview_Schema = {
-    Id: string;
+      Id: string;
   test: string;
   Rating: number;
   Review: string;
@@ -596,24 +596,24 @@ type AccountReview_Schema = {
   ModifiedBy: Contact;
   ModifiedOn: Date;
   OrderNumber: number
-  };
+    };
 
-  export type AccountReview = Partial<AccountReview_Schema>;
-  export function AccountReview<T extends Partial<AccountReview>>(config: T): T;
-  export function AccountReview<T extends Partial<AccountReview>[]>(
+    export type AccountReview = Partial<AccountReview_Schema>;
+    export function AccountReview<T extends Partial<AccountReview>>(config: T): T;
+    export function AccountReview<T extends Partial<AccountReview>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function AccountReview<T extends Partial<AccountReview> | Partial<AccountReview>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function AccountReview<T extends Partial<AccountReview> | Partial<AccountReview>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type BreedprideCollection_Schema = {
-    Id: string;
+      Id: string;
   Url: string;
   Auto: boolean;
   Name: string;
@@ -629,24 +629,24 @@ type BreedprideCollection_Schema = {
   ModifiedBy: Contact;
   ModifiedOn: Date;
   UpdateDate: Date
-  };
+    };
 
-  export type BreedprideCollection = Partial<BreedprideCollection_Schema>;
-  export function BreedprideCollection<T extends Partial<BreedprideCollection>>(config: T): T;
-  export function BreedprideCollection<T extends Partial<BreedprideCollection>[]>(
+    export type BreedprideCollection = Partial<BreedprideCollection_Schema>;
+    export function BreedprideCollection<T extends Partial<BreedprideCollection>>(config: T): T;
+    export function BreedprideCollection<T extends Partial<BreedprideCollection>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function BreedprideCollection<T extends Partial<BreedprideCollection> | Partial<BreedprideCollection>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function BreedprideCollection<T extends Partial<BreedprideCollection> | Partial<BreedprideCollection>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type BreedprideCollectionEntity_Schema = {
-    Id: string;
+      Id: string;
   Pet: Pet;
   Event: Event;
   Account: Account;
@@ -657,24 +657,24 @@ type BreedprideCollectionEntity_Schema = {
   Collection: BreedprideCollection;
   ModifiedBy: Contact;
   ModifiedOn: Date
-  };
+    };
 
-  export type BreedprideCollectionEntity = Partial<BreedprideCollectionEntity_Schema>;
-  export function BreedprideCollectionEntity<T extends Partial<BreedprideCollectionEntity>>(config: T): T;
-  export function BreedprideCollectionEntity<T extends Partial<BreedprideCollectionEntity>[]>(
+    export type BreedprideCollectionEntity = Partial<BreedprideCollectionEntity_Schema>;
+    export function BreedprideCollectionEntity<T extends Partial<BreedprideCollectionEntity>>(config: T): T;
+    export function BreedprideCollectionEntity<T extends Partial<BreedprideCollectionEntity>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function BreedprideCollectionEntity<T extends Partial<BreedprideCollectionEntity> | Partial<BreedprideCollectionEntity>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function BreedprideCollectionEntity<T extends Partial<BreedprideCollectionEntity> | Partial<BreedprideCollectionEntity>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Event_Schema = {
-    Id: string;
+      Id: string;
   Url: string;
   City: City;
   Name: string;
@@ -698,24 +698,24 @@ type Event_Schema = {
   ModifiedOn: Date;
   RecipientCount: number;
   LastActualizeDate: Date
-  };
+    };
 
-  export type Event = Partial<Event_Schema>;
-  export function Event<T extends Partial<Event>>(config: T): T;
-  export function Event<T extends Partial<Event>[]>(
+    export type Event = Partial<Event_Schema>;
+    export function Event<T extends Partial<Event>>(config: T): T;
+    export function Event<T extends Partial<Event>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Event<T extends Partial<Event> | Partial<Event>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Event<T extends Partial<Event> | Partial<Event>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Cover_Schema = {
-    Id: string;
+      Id: string;
   Url: string;
   Name: string;
   Type: CoverType;
@@ -728,24 +728,24 @@ type Cover_Schema = {
   ModifiedBy: Contact;
   ModifiedOn: Date;
   RedirectUrl: string
-  };
+    };
 
-  export type Cover = Partial<Cover_Schema>;
-  export function Cover<T extends Partial<Cover>>(config: T): T;
-  export function Cover<T extends Partial<Cover>[]>(
+    export type Cover = Partial<Cover_Schema>;
+    export function Cover<T extends Partial<Cover>>(config: T): T;
+    export function Cover<T extends Partial<Cover>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Cover<T extends Partial<Cover> | Partial<Cover>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Cover<T extends Partial<Cover> | Partial<Cover>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Note_Schema = {
-    Id: string;
+      Id: string;
   Pet: Pet;
   Name: string;
   Breed: Breed;
@@ -763,48 +763,48 @@ type Note_Schema = {
   ModifiedBy: Contact;
   ModifiedOn: Date;
   EntitySchema: EntitySchemaLookup
-  };
+    };
 
-  export type Note = Partial<Note_Schema>;
-  export function Note<T extends Partial<Note>>(config: T): T;
-  export function Note<T extends Partial<Note>[]>(
+    export type Note = Partial<Note_Schema>;
+    export function Note<T extends Partial<Note>>(config: T): T;
+    export function Note<T extends Partial<Note>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Note<T extends Partial<Note> | Partial<Note>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Note<T extends Partial<Note> | Partial<Note>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type ContactSalutationType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   CreatedBy: Contact;
   CreatedOn: Date;
   ModifiedBy: Contact;
   ModifiedOn: Date;
   Description: string
-  };
+    };
 
-  export type ContactSalutationType = Partial<ContactSalutationType_Schema>;
-  export function ContactSalutationType<T extends Partial<ContactSalutationType>>(config: T): T;
-  export function ContactSalutationType<T extends Partial<ContactSalutationType>[]>(
+    export type ContactSalutationType = Partial<ContactSalutationType_Schema>;
+    export function ContactSalutationType<T extends Partial<ContactSalutationType>>(config: T): T;
+    export function ContactSalutationType<T extends Partial<ContactSalutationType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function ContactSalutationType<T extends Partial<ContactSalutationType> | Partial<ContactSalutationType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function ContactSalutationType<T extends Partial<ContactSalutationType> | Partial<ContactSalutationType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Gender_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Order: number;
   CreatedBy: Contact;
@@ -812,24 +812,24 @@ type Gender_Schema = {
   ModifiedBy: Contact;
   ModifiedOn: Date;
   Description: string
-  };
+    };
 
-  export type Gender = Partial<Gender_Schema>;
-  export function Gender<T extends Partial<Gender>>(config: T): T;
-  export function Gender<T extends Partial<Gender>[]>(
+    export type Gender = Partial<Gender_Schema>;
+    export function Gender<T extends Partial<Gender>>(config: T): T;
+    export function Gender<T extends Partial<Gender>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Gender<T extends Partial<Gender> | Partial<Gender>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Gender<T extends Partial<Gender> | Partial<Gender>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Account_Schema = {
-    Id: string;
+      Id: string;
   Url: string;
   Web: string;
   Zip: string;
@@ -870,91 +870,91 @@ type Account_Schema = {
   VerificationStatus: VerificationStatus;
   CompanyFoundationDate: Date;
   RatingPlacementInBreed: number
-  };
+    };
 
-  export type Account = Partial<Account_Schema>;
-  export function Account<T extends Partial<Account>>(config: T): T;
-  export function Account<T extends Partial<Account>[]>(
+    export type Account = Partial<Account_Schema>;
+    export function Account<T extends Partial<Account>>(config: T): T;
+    export function Account<T extends Partial<Account>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Account<T extends Partial<Account> | Partial<Account>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Account<T extends Partial<Account> | Partial<Account>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type ContactDecisionRole_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   CreatedBy: Contact;
   CreatedOn: Date;
   ModifiedBy: Contact;
   ModifiedOn: Date;
   Description: string
-  };
+    };
 
-  export type ContactDecisionRole = Partial<ContactDecisionRole_Schema>;
-  export function ContactDecisionRole<T extends Partial<ContactDecisionRole>>(config: T): T;
-  export function ContactDecisionRole<T extends Partial<ContactDecisionRole>[]>(
+    export type ContactDecisionRole = Partial<ContactDecisionRole_Schema>;
+    export function ContactDecisionRole<T extends Partial<ContactDecisionRole>>(config: T): T;
+    export function ContactDecisionRole<T extends Partial<ContactDecisionRole>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function ContactDecisionRole<T extends Partial<ContactDecisionRole> | Partial<ContactDecisionRole>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function ContactDecisionRole<T extends Partial<ContactDecisionRole> | Partial<ContactDecisionRole>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Job_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type Job = Partial<Job_Schema>;
-  export function Job<T extends Partial<Job>>(config: T): T;
-  export function Job<T extends Partial<Job>[]>(
+    export type Job = Partial<Job_Schema>;
+    export function Job<T extends Partial<Job>>(config: T): T;
+    export function Job<T extends Partial<Job>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Job<T extends Partial<Job> | Partial<Job>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Job<T extends Partial<Job> | Partial<Job>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type AddressType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Color: string;
   ForAccount: boolean;
   ForContact: boolean;
   Description: string
-  };
+    };
 
-  export type AddressType = Partial<AddressType_Schema>;
-  export function AddressType<T extends Partial<AddressType>>(config: T): T;
-  export function AddressType<T extends Partial<AddressType>[]>(
+    export type AddressType = Partial<AddressType_Schema>;
+    export function AddressType<T extends Partial<AddressType>>(config: T): T;
+    export function AddressType<T extends Partial<AddressType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function AddressType<T extends Partial<AddressType> | Partial<AddressType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function AddressType<T extends Partial<AddressType> | Partial<AddressType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type City_Schema = {
-    Id: string;
+      Id: string;
   Dem: number;
   Name: string;
   Region: Region;
@@ -971,24 +971,24 @@ type City_Schema = {
   Description: string;
   AlternateNames: string;
   GeoNamesTimeZone: GeoNamesTimeZone
-  };
+    };
 
-  export type City = Partial<City_Schema>;
-  export function City<T extends Partial<City>>(config: T): T;
-  export function City<T extends Partial<City>[]>(
+    export type City = Partial<City_Schema>;
+    export function City<T extends Partial<City>>(config: T): T;
+    export function City<T extends Partial<City>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function City<T extends Partial<City> | Partial<City>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function City<T extends Partial<City> | Partial<City>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Region_Schema = {
-    Id: string;
+      Id: string;
   Dem: number;
   Code: string;
   Name: string;
@@ -1005,24 +1005,24 @@ type Region_Schema = {
   AlternateNames: string;
   GeoNamesTimeZone: GeoNamesTimeZone;
   RegionAdmin1Code: string
-  };
+    };
 
-  export type Region = Partial<Region_Schema>;
-  export function Region<T extends Partial<Region>>(config: T): T;
-  export function Region<T extends Partial<Region>[]>(
+    export type Region = Partial<Region_Schema>;
+    export function Region<T extends Partial<Region>>(config: T): T;
+    export function Region<T extends Partial<Region>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Region<T extends Partial<Region> | Partial<Region>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Region<T extends Partial<Region> | Partial<Region>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Country_Schema = {
-    Id: string;
+      Id: string;
   Dem: number;
   Url: string;
   Code: string;
@@ -1042,130 +1042,130 @@ type Country_Schema = {
   AlternateNames: string;
   GeoNamesTimeZone: GeoNamesTimeZone;
   GeoNamesCountryCode: string
-  };
+    };
 
-  export type Country = Partial<Country_Schema>;
-  export function Country<T extends Partial<Country>>(config: T): T;
-  export function Country<T extends Partial<Country>[]>(
+    export type Country = Partial<Country_Schema>;
+    export function Country<T extends Partial<Country>>(config: T): T;
+    export function Country<T extends Partial<Country>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Country<T extends Partial<Country> | Partial<Country>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Country<T extends Partial<Country> | Partial<Country>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type SysLanguage_Schema = {
-    Id: string;
+      Id: string;
   Code: string;
   Name: string;
   IsUsed: boolean;
   Description: string;
   SysCultureDefId: string
-  };
+    };
 
-  export type SysLanguage = Partial<SysLanguage_Schema>;
-  export function SysLanguage<T extends Partial<SysLanguage>>(config: T): T;
-  export function SysLanguage<T extends Partial<SysLanguage>[]>(
+    export type SysLanguage = Partial<SysLanguage_Schema>;
+    export function SysLanguage<T extends Partial<SysLanguage>>(config: T): T;
+    export function SysLanguage<T extends Partial<SysLanguage>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function SysLanguage<T extends Partial<SysLanguage> | Partial<SysLanguage>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function SysLanguage<T extends Partial<SysLanguage> | Partial<SysLanguage>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type VerificationStatus_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type VerificationStatus = Partial<VerificationStatus_Schema>;
-  export function VerificationStatus<T extends Partial<VerificationStatus>>(config: T): T;
-  export function VerificationStatus<T extends Partial<VerificationStatus>[]>(
+    export type VerificationStatus = Partial<VerificationStatus_Schema>;
+    export function VerificationStatus<T extends Partial<VerificationStatus>>(config: T): T;
+    export function VerificationStatus<T extends Partial<VerificationStatus>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function VerificationStatus<T extends Partial<VerificationStatus> | Partial<VerificationStatus>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function VerificationStatus<T extends Partial<VerificationStatus> | Partial<VerificationStatus>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type CommunicationType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string;
   DisplayFormat: string;
   UseforAccounts: boolean;
   UseforContacts: boolean
-  };
+    };
 
-  export type CommunicationType = Partial<CommunicationType_Schema>;
-  export function CommunicationType<T extends Partial<CommunicationType>>(config: T): T;
-  export function CommunicationType<T extends Partial<CommunicationType>[]>(
+    export type CommunicationType = Partial<CommunicationType_Schema>;
+    export function CommunicationType<T extends Partial<CommunicationType>>(config: T): T;
+    export function CommunicationType<T extends Partial<CommunicationType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function CommunicationType<T extends Partial<CommunicationType> | Partial<CommunicationType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function CommunicationType<T extends Partial<CommunicationType> | Partial<CommunicationType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type FirebaseAuthProvider_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type FirebaseAuthProvider = Partial<FirebaseAuthProvider_Schema>;
-  export function FirebaseAuthProvider<T extends Partial<FirebaseAuthProvider>>(config: T): T;
-  export function FirebaseAuthProvider<T extends Partial<FirebaseAuthProvider>[]>(
+    export type FirebaseAuthProvider = Partial<FirebaseAuthProvider_Schema>;
+    export function FirebaseAuthProvider<T extends Partial<FirebaseAuthProvider>>(config: T): T;
+    export function FirebaseAuthProvider<T extends Partial<FirebaseAuthProvider>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function FirebaseAuthProvider<T extends Partial<FirebaseAuthProvider> | Partial<FirebaseAuthProvider>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function FirebaseAuthProvider<T extends Partial<FirebaseAuthProvider> | Partial<FirebaseAuthProvider>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Referral_Schema = {
-    Id: string;
+      Id: string;
   Code: string;
   Contact: Contact
-  };
+    };
 
-  export type Referral = Partial<Referral_Schema>;
-  export function Referral<T extends Partial<Referral>>(config: T): T;
-  export function Referral<T extends Partial<Referral>[]>(
+    export type Referral = Partial<Referral_Schema>;
+    export function Referral<T extends Partial<Referral>>(config: T): T;
+    export function Referral<T extends Partial<Referral>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Referral<T extends Partial<Referral> | Partial<Referral>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Referral<T extends Partial<Referral> | Partial<Referral>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetType_Schema = {
-    Id: string;
+      Id: string;
   Url: string;
   Name: string;
   AvatarUrl: string;
@@ -1177,152 +1177,152 @@ type PetType_Schema = {
   ProfileCount: number;
   PetProfileCount: number;
   OrganizationCount: number
-  };
+    };
 
-  export type PetType = Partial<PetType_Schema>;
-  export function PetType<T extends Partial<PetType>>(config: T): T;
-  export function PetType<T extends Partial<PetType>[]>(
+    export type PetType = Partial<PetType_Schema>;
+    export function PetType<T extends Partial<PetType>>(config: T): T;
+    export function PetType<T extends Partial<PetType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetType<T extends Partial<PetType> | Partial<PetType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetType<T extends Partial<PetType> | Partial<PetType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Sex_Schema = {
-    Id: string;
+      Id: string;
   Code: string;
   Name: string;
   Gender: Gender;
   PetType: PetType;
   Description: string
-  };
+    };
 
-  export type Sex = Partial<Sex_Schema>;
-  export function Sex<T extends Partial<Sex>>(config: T): T;
-  export function Sex<T extends Partial<Sex>[]>(
+    export type Sex = Partial<Sex_Schema>;
+    export function Sex<T extends Partial<Sex>>(config: T): T;
+    export function Sex<T extends Partial<Sex>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Sex<T extends Partial<Sex> | Partial<Sex>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Sex<T extends Partial<Sex> | Partial<Sex>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetStatus_Schema = {
-    Id: string;
+      Id: string;
   Code: string;
   Name: string;
   PetType: PetType;
   Description: string
-  };
+    };
 
-  export type PetStatus = Partial<PetStatus_Schema>;
-  export function PetStatus<T extends Partial<PetStatus>>(config: T): T;
-  export function PetStatus<T extends Partial<PetStatus>[]>(
+    export type PetStatus = Partial<PetStatus_Schema>;
+    export function PetStatus<T extends Partial<PetStatus>>(config: T): T;
+    export function PetStatus<T extends Partial<PetStatus>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetStatus<T extends Partial<PetStatus> | Partial<PetStatus>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetStatus<T extends Partial<PetStatus> | Partial<PetStatus>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type CoatType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   PetType: PetType;
   Description: string
-  };
+    };
 
-  export type CoatType = Partial<CoatType_Schema>;
-  export function CoatType<T extends Partial<CoatType>>(config: T): T;
-  export function CoatType<T extends Partial<CoatType>[]>(
+    export type CoatType = Partial<CoatType_Schema>;
+    export function CoatType<T extends Partial<CoatType>>(config: T): T;
+    export function CoatType<T extends Partial<CoatType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function CoatType<T extends Partial<CoatType> | Partial<CoatType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function CoatType<T extends Partial<CoatType> | Partial<CoatType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type CoatColor_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   PetType: PetType;
   Description: string
-  };
+    };
 
-  export type CoatColor = Partial<CoatColor_Schema>;
-  export function CoatColor<T extends Partial<CoatColor>>(config: T): T;
-  export function CoatColor<T extends Partial<CoatColor>[]>(
+    export type CoatColor = Partial<CoatColor_Schema>;
+    export function CoatColor<T extends Partial<CoatColor>>(config: T): T;
+    export function CoatColor<T extends Partial<CoatColor>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function CoatColor<T extends Partial<CoatColor> | Partial<CoatColor>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function CoatColor<T extends Partial<CoatColor> | Partial<CoatColor>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetSize_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   PetType: PetType;
   Description: string
-  };
+    };
 
-  export type PetSize = Partial<PetSize_Schema>;
-  export function PetSize<T extends Partial<PetSize>>(config: T): T;
-  export function PetSize<T extends Partial<PetSize>[]>(
+    export type PetSize = Partial<PetSize_Schema>;
+    export function PetSize<T extends Partial<PetSize>>(config: T): T;
+    export function PetSize<T extends Partial<PetSize>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetSize<T extends Partial<PetSize> | Partial<PetSize>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetSize<T extends Partial<PetSize> | Partial<PetSize>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type BodyFeature_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type BodyFeature = Partial<BodyFeature_Schema>;
-  export function BodyFeature<T extends Partial<BodyFeature>>(config: T): T;
-  export function BodyFeature<T extends Partial<BodyFeature>[]>(
+    export type BodyFeature = Partial<BodyFeature_Schema>;
+    export function BodyFeature<T extends Partial<BodyFeature>>(config: T): T;
+    export function BodyFeature<T extends Partial<BodyFeature>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function BodyFeature<T extends Partial<BodyFeature> | Partial<BodyFeature>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function BodyFeature<T extends Partial<BodyFeature> | Partial<BodyFeature>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type BreedDivision_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Breed: Breed;
   IsMain: boolean;
@@ -1332,24 +1332,24 @@ type BreedDivision_Schema = {
   DivisionByColor: boolean;
   DivisionByCoatType: boolean;
   DivisionByBodyFeature: boolean
-  };
+    };
 
-  export type BreedDivision = Partial<BreedDivision_Schema>;
-  export function BreedDivision<T extends Partial<BreedDivision>>(config: T): T;
-  export function BreedDivision<T extends Partial<BreedDivision>[]>(
+    export type BreedDivision = Partial<BreedDivision_Schema>;
+    export function BreedDivision<T extends Partial<BreedDivision>>(config: T): T;
+    export function BreedDivision<T extends Partial<BreedDivision>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function BreedDivision<T extends Partial<BreedDivision> | Partial<BreedDivision>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function BreedDivision<T extends Partial<BreedDivision> | Partial<BreedDivision>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PublicData_Schema = {
-    Id: string;
+      Id: string;
   Pet: Pet;
   Name: string;
   Breed: Breed;
@@ -1371,109 +1371,109 @@ type PublicData_Schema = {
   EntityName: string;
   ModifiedBy: Contact;
   ModifiedOn: Date
-  };
+    };
 
-  export type PublicData = Partial<PublicData_Schema>;
-  export function PublicData<T extends Partial<PublicData>>(config: T): T;
-  export function PublicData<T extends Partial<PublicData>[]>(
+    export type PublicData = Partial<PublicData_Schema>;
+    export function PublicData<T extends Partial<PublicData>>(config: T): T;
+    export function PublicData<T extends Partial<PublicData>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PublicData<T extends Partial<PublicData> | Partial<PublicData>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PublicData<T extends Partial<PublicData> | Partial<PublicData>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Title_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Rating: number;
   PetType: PetType;
   Provider: Account;
   Description: string
-  };
+    };
 
-  export type Title = Partial<Title_Schema>;
-  export function Title<T extends Partial<Title>>(config: T): T;
-  export function Title<T extends Partial<Title>[]>(
+    export type Title = Partial<Title_Schema>;
+    export function Title<T extends Partial<Title>>(config: T): T;
+    export function Title<T extends Partial<Title>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Title<T extends Partial<Title> | Partial<Title>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Title<T extends Partial<Title> | Partial<Title>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type HealthExamObject_Schema = {
-    Id: string;
+      Id: string;
   Code: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type HealthExamObject = Partial<HealthExamObject_Schema>;
-  export function HealthExamObject<T extends Partial<HealthExamObject>>(config: T): T;
-  export function HealthExamObject<T extends Partial<HealthExamObject>[]>(
+    export type HealthExamObject = Partial<HealthExamObject_Schema>;
+    export function HealthExamObject<T extends Partial<HealthExamObject>>(config: T): T;
+    export function HealthExamObject<T extends Partial<HealthExamObject>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function HealthExamObject<T extends Partial<HealthExamObject> | Partial<HealthExamObject>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function HealthExamObject<T extends Partial<HealthExamObject> | Partial<HealthExamObject>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type HealthExamResult_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Object: HealthExamObject;
   Description: string
-  };
+    };
 
-  export type HealthExamResult = Partial<HealthExamResult_Schema>;
-  export function HealthExamResult<T extends Partial<HealthExamResult>>(config: T): T;
-  export function HealthExamResult<T extends Partial<HealthExamResult>[]>(
+    export type HealthExamResult = Partial<HealthExamResult_Schema>;
+    export function HealthExamResult<T extends Partial<HealthExamResult>>(config: T): T;
+    export function HealthExamResult<T extends Partial<HealthExamResult>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function HealthExamResult<T extends Partial<HealthExamResult> | Partial<HealthExamResult>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function HealthExamResult<T extends Partial<HealthExamResult> | Partial<HealthExamResult>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetServiceType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type PetServiceType = Partial<PetServiceType_Schema>;
-  export function PetServiceType<T extends Partial<PetServiceType>>(config: T): T;
-  export function PetServiceType<T extends Partial<PetServiceType>[]>(
+    export type PetServiceType = Partial<PetServiceType_Schema>;
+    export function PetServiceType<T extends Partial<PetServiceType>>(config: T): T;
+    export function PetServiceType<T extends Partial<PetServiceType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetServiceType<T extends Partial<PetServiceType> | Partial<PetServiceType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetServiceType<T extends Partial<PetServiceType> | Partial<PetServiceType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Currency_Schema = {
-    Id: string;
+      Id: string;
   Code: string;
   Name: string;
   Rate: number;
@@ -1487,44 +1487,44 @@ type Currency_Schema = {
   Description: string;
   RecalcDirection: number;
   CurrecySymbolPosition: number
-  };
+    };
 
-  export type Currency = Partial<Currency_Schema>;
-  export function Currency<T extends Partial<Currency>>(config: T): T;
-  export function Currency<T extends Partial<Currency>[]>(
+    export type Currency = Partial<Currency_Schema>;
+    export function Currency<T extends Partial<Currency>>(config: T): T;
+    export function Currency<T extends Partial<Currency>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Currency<T extends Partial<Currency> | Partial<Currency>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Currency<T extends Partial<Currency> | Partial<Currency>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetServiceStatus_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type PetServiceStatus = Partial<PetServiceStatus_Schema>;
-  export function PetServiceStatus<T extends Partial<PetServiceStatus>>(config: T): T;
-  export function PetServiceStatus<T extends Partial<PetServiceStatus>[]>(
+    export type PetServiceStatus = Partial<PetServiceStatus_Schema>;
+    export function PetServiceStatus<T extends Partial<PetServiceStatus>>(config: T): T;
+    export function PetServiceStatus<T extends Partial<PetServiceStatus>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetServiceStatus<T extends Partial<PetServiceStatus> | Partial<PetServiceStatus>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetServiceStatus<T extends Partial<PetServiceStatus> | Partial<PetServiceStatus>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetClass_Schema = {
-    Id: string;
+      Id: string;
   Code: number;
   Name: string;
   AgeTo: number;
@@ -1532,175 +1532,175 @@ type PetClass_Schema = {
   PetType: PetType;
   Provider: Account;
   Description: string
-  };
+    };
 
-  export type PetClass = Partial<PetClass_Schema>;
-  export function PetClass<T extends Partial<PetClass>>(config: T): T;
-  export function PetClass<T extends Partial<PetClass>[]>(
+    export type PetClass = Partial<PetClass_Schema>;
+    export function PetClass<T extends Partial<PetClass>>(config: T): T;
+    export function PetClass<T extends Partial<PetClass>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetClass<T extends Partial<PetClass> | Partial<PetClass>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetClass<T extends Partial<PetClass> | Partial<PetClass>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Place_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type Place = Partial<Place_Schema>;
-  export function Place<T extends Partial<Place>>(config: T): T;
-  export function Place<T extends Partial<Place>[]>(
+    export type Place = Partial<Place_Schema>;
+    export function Place<T extends Partial<Place>>(config: T): T;
+    export function Place<T extends Partial<Place>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Place<T extends Partial<Place> | Partial<Place>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Place<T extends Partial<Place> | Partial<Place>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetQualification_Schema = {
-    Id: string;
+      Id: string;
   Code: number;
   Name: string;
   PetType: PetType;
   Provider: Account;
   Description: string
-  };
+    };
 
-  export type PetQualification = Partial<PetQualification_Schema>;
-  export function PetQualification<T extends Partial<PetQualification>>(config: T): T;
-  export function PetQualification<T extends Partial<PetQualification>[]>(
+    export type PetQualification = Partial<PetQualification_Schema>;
+    export function PetQualification<T extends Partial<PetQualification>>(config: T): T;
+    export function PetQualification<T extends Partial<PetQualification>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetQualification<T extends Partial<PetQualification> | Partial<PetQualification>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetQualification<T extends Partial<PetQualification> | Partial<PetQualification>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PetIdentifierType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   IsPublic: boolean;
   Description: string
-  };
+    };
 
-  export type PetIdentifierType = Partial<PetIdentifierType_Schema>;
-  export function PetIdentifierType<T extends Partial<PetIdentifierType>>(config: T): T;
-  export function PetIdentifierType<T extends Partial<PetIdentifierType>[]>(
+    export type PetIdentifierType = Partial<PetIdentifierType_Schema>;
+    export function PetIdentifierType<T extends Partial<PetIdentifierType>>(config: T): T;
+    export function PetIdentifierType<T extends Partial<PetIdentifierType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PetIdentifierType<T extends Partial<PetIdentifierType> | Partial<PetIdentifierType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PetIdentifierType<T extends Partial<PetIdentifierType> | Partial<PetIdentifierType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Studbook_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Type: StudbookType;
   Status: StudbookStatus;
   Account: Account;
   Description: string;
   AlternateNames: string
-  };
+    };
 
-  export type Studbook = Partial<Studbook_Schema>;
-  export function Studbook<T extends Partial<Studbook>>(config: T): T;
-  export function Studbook<T extends Partial<Studbook>[]>(
+    export type Studbook = Partial<Studbook_Schema>;
+    export function Studbook<T extends Partial<Studbook>>(config: T): T;
+    export function Studbook<T extends Partial<Studbook>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Studbook<T extends Partial<Studbook> | Partial<Studbook>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Studbook<T extends Partial<Studbook> | Partial<Studbook>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type DataSource_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Domain: string;
   Priority: number;
   Description: string
-  };
+    };
 
-  export type DataSource = Partial<DataSource_Schema>;
-  export function DataSource<T extends Partial<DataSource>>(config: T): T;
-  export function DataSource<T extends Partial<DataSource>[]>(
+    export type DataSource = Partial<DataSource_Schema>;
+    export function DataSource<T extends Partial<DataSource>>(config: T): T;
+    export function DataSource<T extends Partial<DataSource>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function DataSource<T extends Partial<DataSource> | Partial<DataSource>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function DataSource<T extends Partial<DataSource> | Partial<DataSource>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type MeasurementType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type MeasurementType = Partial<MeasurementType_Schema>;
-  export function MeasurementType<T extends Partial<MeasurementType>>(config: T): T;
-  export function MeasurementType<T extends Partial<MeasurementType>[]>(
+    export type MeasurementType = Partial<MeasurementType_Schema>;
+    export function MeasurementType<T extends Partial<MeasurementType>>(config: T): T;
+    export function MeasurementType<T extends Partial<MeasurementType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function MeasurementType<T extends Partial<MeasurementType> | Partial<MeasurementType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function MeasurementType<T extends Partial<MeasurementType> | Partial<MeasurementType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Unit_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   ShortName: string;
   Description: string
-  };
+    };
 
-  export type Unit = Partial<Unit_Schema>;
-  export function Unit<T extends Partial<Unit>>(config: T): T;
-  export function Unit<T extends Partial<Unit>[]>(
+    export type Unit = Partial<Unit_Schema>;
+    export function Unit<T extends Partial<Unit>>(config: T): T;
+    export function Unit<T extends Partial<Unit>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Unit<T extends Partial<Unit> | Partial<Unit>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Unit<T extends Partial<Unit> | Partial<Unit>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Period_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Year: Period;
   Parent: Period;
@@ -1709,147 +1709,147 @@ type Period_Schema = {
   StartDate: Date;
   PeriodType: PeriodType;
   Description: string
-  };
+    };
 
-  export type Period = Partial<Period_Schema>;
-  export function Period<T extends Partial<Period>>(config: T): T;
-  export function Period<T extends Partial<Period>[]>(
+    export type Period = Partial<Period_Schema>;
+    export function Period<T extends Partial<Period>>(config: T): T;
+    export function Period<T extends Partial<Period>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Period<T extends Partial<Period> | Partial<Period>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Period<T extends Partial<Period> | Partial<Period>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type LitterStatus_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Order: number;
   Description: string
-  };
+    };
 
-  export type LitterStatus = Partial<LitterStatus_Schema>;
-  export function LitterStatus<T extends Partial<LitterStatus>>(config: T): T;
-  export function LitterStatus<T extends Partial<LitterStatus>[]>(
+    export type LitterStatus = Partial<LitterStatus_Schema>;
+    export function LitterStatus<T extends Partial<LitterStatus>>(config: T): T;
+    export function LitterStatus<T extends Partial<LitterStatus>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function LitterStatus<T extends Partial<LitterStatus> | Partial<LitterStatus>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function LitterStatus<T extends Partial<LitterStatus> | Partial<LitterStatus>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Letter_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type Letter = Partial<Letter_Schema>;
-  export function Letter<T extends Partial<Letter>>(config: T): T;
-  export function Letter<T extends Partial<Letter>[]>(
+    export type Letter = Partial<Letter_Schema>;
+    export function Letter<T extends Partial<Letter>>(config: T): T;
+    export function Letter<T extends Partial<Letter>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Letter<T extends Partial<Letter> | Partial<Letter>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Letter<T extends Partial<Letter> | Partial<Letter>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type BreedCategory_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type BreedCategory = Partial<BreedCategory_Schema>;
-  export function BreedCategory<T extends Partial<BreedCategory>>(config: T): T;
-  export function BreedCategory<T extends Partial<BreedCategory>[]>(
+    export type BreedCategory = Partial<BreedCategory_Schema>;
+    export function BreedCategory<T extends Partial<BreedCategory>>(config: T): T;
+    export function BreedCategory<T extends Partial<BreedCategory>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function BreedCategory<T extends Partial<BreedCategory> | Partial<BreedCategory>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function BreedCategory<T extends Partial<BreedCategory> | Partial<BreedCategory>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type ProjectType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type ProjectType = Partial<ProjectType_Schema>;
-  export function ProjectType<T extends Partial<ProjectType>>(config: T): T;
-  export function ProjectType<T extends Partial<ProjectType>[]>(
+    export type ProjectType = Partial<ProjectType_Schema>;
+    export function ProjectType<T extends Partial<ProjectType>>(config: T): T;
+    export function ProjectType<T extends Partial<ProjectType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function ProjectType<T extends Partial<ProjectType> | Partial<ProjectType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function ProjectType<T extends Partial<ProjectType> | Partial<ProjectType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type ProjectStatus_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   IsFinal: boolean;
   Description: string
-  };
+    };
 
-  export type ProjectStatus = Partial<ProjectStatus_Schema>;
-  export function ProjectStatus<T extends Partial<ProjectStatus>>(config: T): T;
-  export function ProjectStatus<T extends Partial<ProjectStatus>[]>(
+    export type ProjectStatus = Partial<ProjectStatus_Schema>;
+    export function ProjectStatus<T extends Partial<ProjectStatus>>(config: T): T;
+    export function ProjectStatus<T extends Partial<ProjectStatus>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function ProjectStatus<T extends Partial<ProjectStatus> | Partial<ProjectStatus>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function ProjectStatus<T extends Partial<ProjectStatus> | Partial<ProjectStatus>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type ProjectCategory_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   EventType: EventType;
   Description: string
-  };
+    };
 
-  export type ProjectCategory = Partial<ProjectCategory_Schema>;
-  export function ProjectCategory<T extends Partial<ProjectCategory>>(config: T): T;
-  export function ProjectCategory<T extends Partial<ProjectCategory>[]>(
+    export type ProjectCategory = Partial<ProjectCategory_Schema>;
+    export function ProjectCategory<T extends Partial<ProjectCategory>>(config: T): T;
+    export function ProjectCategory<T extends Partial<ProjectCategory>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function ProjectCategory<T extends Partial<ProjectCategory> | Partial<ProjectCategory>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function ProjectCategory<T extends Partial<ProjectCategory> | Partial<ProjectCategory>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PostType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   CreatedBy: Contact;
   CreatedOn: Date;
@@ -1857,96 +1857,96 @@ type PostType_Schema = {
   ModifiedOn: Date;
   Description: string;
   TemplateText: string
-  };
+    };
 
-  export type PostType = Partial<PostType_Schema>;
-  export function PostType<T extends Partial<PostType>>(config: T): T;
-  export function PostType<T extends Partial<PostType>[]>(
+    export type PostType = Partial<PostType_Schema>;
+    export function PostType<T extends Partial<PostType>>(config: T): T;
+    export function PostType<T extends Partial<PostType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PostType<T extends Partial<PostType> | Partial<PostType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PostType<T extends Partial<PostType> | Partial<PostType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PostState_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   CreatedBy: Contact;
   CreatedOn: Date;
   ModifiedBy: Contact;
   ModifiedOn: Date;
   Description: string
-  };
+    };
 
-  export type PostState = Partial<PostState_Schema>;
-  export function PostState<T extends Partial<PostState>>(config: T): T;
-  export function PostState<T extends Partial<PostState>[]>(
+    export type PostState = Partial<PostState_Schema>;
+    export function PostState<T extends Partial<PostState>>(config: T): T;
+    export function PostState<T extends Partial<PostState>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PostState<T extends Partial<PostState> | Partial<PostState>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PostState<T extends Partial<PostState> | Partial<PostState>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type BreedprideCollectionType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   CreatedBy: Contact;
   CreatedOn: Date;
   ModifiedBy: Contact;
   ModifiedOn: Date;
   Description: string
-  };
+    };
 
-  export type BreedprideCollectionType = Partial<BreedprideCollectionType_Schema>;
-  export function BreedprideCollectionType<T extends Partial<BreedprideCollectionType>>(config: T): T;
-  export function BreedprideCollectionType<T extends Partial<BreedprideCollectionType>[]>(
+    export type BreedprideCollectionType = Partial<BreedprideCollectionType_Schema>;
+    export function BreedprideCollectionType<T extends Partial<BreedprideCollectionType>>(config: T): T;
+    export function BreedprideCollectionType<T extends Partial<BreedprideCollectionType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function BreedprideCollectionType<T extends Partial<BreedprideCollectionType> | Partial<BreedprideCollectionType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function BreedprideCollectionType<T extends Partial<BreedprideCollectionType> | Partial<BreedprideCollectionType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type EventType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   CreatedBy: Contact;
   CreatedOn: Date;
   ModifiedBy: Contact;
   ModifiedOn: Date;
   Description: string
-  };
+    };
 
-  export type EventType = Partial<EventType_Schema>;
-  export function EventType<T extends Partial<EventType>>(config: T): T;
-  export function EventType<T extends Partial<EventType>[]>(
+    export type EventType = Partial<EventType_Schema>;
+    export function EventType<T extends Partial<EventType>>(config: T): T;
+    export function EventType<T extends Partial<EventType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function EventType<T extends Partial<EventType> | Partial<EventType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function EventType<T extends Partial<EventType> | Partial<EventType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type EventStatus_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Color: string;
   CreatedBy: Contact;
@@ -1954,87 +1954,87 @@ type EventStatus_Schema = {
   ModifiedBy: Contact;
   ModifiedOn: Date;
   Description: string
-  };
+    };
 
-  export type EventStatus = Partial<EventStatus_Schema>;
-  export function EventStatus<T extends Partial<EventStatus>>(config: T): T;
-  export function EventStatus<T extends Partial<EventStatus>[]>(
+    export type EventStatus = Partial<EventStatus_Schema>;
+    export function EventStatus<T extends Partial<EventStatus>>(config: T): T;
+    export function EventStatus<T extends Partial<EventStatus>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function EventStatus<T extends Partial<EventStatus> | Partial<EventStatus>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function EventStatus<T extends Partial<EventStatus> | Partial<EventStatus>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type Territory_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type Territory = Partial<Territory_Schema>;
-  export function Territory<T extends Partial<Territory>>(config: T): T;
-  export function Territory<T extends Partial<Territory>[]>(
+    export type Territory = Partial<Territory_Schema>;
+    export function Territory<T extends Partial<Territory>>(config: T): T;
+    export function Territory<T extends Partial<Territory>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function Territory<T extends Partial<Territory> | Partial<Territory>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function Territory<T extends Partial<Territory> | Partial<Territory>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type AccountIndustry_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   PetType: PetType;
   Description: string
-  };
+    };
 
-  export type AccountIndustry = Partial<AccountIndustry_Schema>;
-  export function AccountIndustry<T extends Partial<AccountIndustry>>(config: T): T;
-  export function AccountIndustry<T extends Partial<AccountIndustry>[]>(
+    export type AccountIndustry = Partial<AccountIndustry_Schema>;
+    export function AccountIndustry<T extends Partial<AccountIndustry>>(config: T): T;
+    export function AccountIndustry<T extends Partial<AccountIndustry>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function AccountIndustry<T extends Partial<AccountIndustry> | Partial<AccountIndustry>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function AccountIndustry<T extends Partial<AccountIndustry> | Partial<AccountIndustry>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type CoverType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   System: boolean;
   Priority: number;
   Description: string
-  };
+    };
 
-  export type CoverType = Partial<CoverType_Schema>;
-  export function CoverType<T extends Partial<CoverType>>(config: T): T;
-  export function CoverType<T extends Partial<CoverType>[]>(
+    export type CoverType = Partial<CoverType_Schema>;
+    export function CoverType<T extends Partial<CoverType>>(config: T): T;
+    export function CoverType<T extends Partial<CoverType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function CoverType<T extends Partial<CoverType> | Partial<CoverType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function CoverType<T extends Partial<CoverType> | Partial<CoverType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type EntitySchemaLookup_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   IsPublic: boolean;
   CreatedBy: Contact;
@@ -2043,126 +2043,126 @@ type EntitySchemaLookup_Schema = {
   ModifiedOn: Date;
   PublicName: string;
   Description: string
-  };
+    };
 
-  export type EntitySchemaLookup = Partial<EntitySchemaLookup_Schema>;
-  export function EntitySchemaLookup<T extends Partial<EntitySchemaLookup>>(config: T): T;
-  export function EntitySchemaLookup<T extends Partial<EntitySchemaLookup>[]>(
+    export type EntitySchemaLookup = Partial<EntitySchemaLookup_Schema>;
+    export function EntitySchemaLookup<T extends Partial<EntitySchemaLookup>>(config: T): T;
+    export function EntitySchemaLookup<T extends Partial<EntitySchemaLookup>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function EntitySchemaLookup<T extends Partial<EntitySchemaLookup> | Partial<EntitySchemaLookup>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function EntitySchemaLookup<T extends Partial<EntitySchemaLookup> | Partial<EntitySchemaLookup>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type AccountOwnership_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Country: Country;
   Description: string
-  };
+    };
 
-  export type AccountOwnership = Partial<AccountOwnership_Schema>;
-  export function AccountOwnership<T extends Partial<AccountOwnership>>(config: T): T;
-  export function AccountOwnership<T extends Partial<AccountOwnership>[]>(
+    export type AccountOwnership = Partial<AccountOwnership_Schema>;
+    export function AccountOwnership<T extends Partial<AccountOwnership>>(config: T): T;
+    export function AccountOwnership<T extends Partial<AccountOwnership>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function AccountOwnership<T extends Partial<AccountOwnership> | Partial<AccountOwnership>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function AccountOwnership<T extends Partial<AccountOwnership> | Partial<AccountOwnership>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type AccountType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string;
   RawDataModel: string
-  };
+    };
 
-  export type AccountType = Partial<AccountType_Schema>;
-  export function AccountType<T extends Partial<AccountType>>(config: T): T;
-  export function AccountType<T extends Partial<AccountType>[]>(
+    export type AccountType = Partial<AccountType_Schema>;
+    export function AccountType<T extends Partial<AccountType>>(config: T): T;
+    export function AccountType<T extends Partial<AccountType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function AccountType<T extends Partial<AccountType> | Partial<AccountType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function AccountType<T extends Partial<AccountType> | Partial<AccountType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type AccountCategory_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type AccountCategory = Partial<AccountCategory_Schema>;
-  export function AccountCategory<T extends Partial<AccountCategory>>(config: T): T;
-  export function AccountCategory<T extends Partial<AccountCategory>[]>(
+    export type AccountCategory = Partial<AccountCategory_Schema>;
+    export function AccountCategory<T extends Partial<AccountCategory>>(config: T): T;
+    export function AccountCategory<T extends Partial<AccountCategory>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function AccountCategory<T extends Partial<AccountCategory> | Partial<AccountCategory>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function AccountCategory<T extends Partial<AccountCategory> | Partial<AccountCategory>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type AccountStatus_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type AccountStatus = Partial<AccountStatus_Schema>;
-  export function AccountStatus<T extends Partial<AccountStatus>>(config: T): T;
-  export function AccountStatus<T extends Partial<AccountStatus>[]>(
+    export type AccountStatus = Partial<AccountStatus_Schema>;
+    export function AccountStatus<T extends Partial<AccountStatus>>(config: T): T;
+    export function AccountStatus<T extends Partial<AccountStatus>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function AccountStatus<T extends Partial<AccountStatus> | Partial<AccountStatus>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function AccountStatus<T extends Partial<AccountStatus> | Partial<AccountStatus>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type AffixType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type AffixType = Partial<AffixType_Schema>;
-  export function AffixType<T extends Partial<AffixType>>(config: T): T;
-  export function AffixType<T extends Partial<AffixType>[]>(
+    export type AffixType = Partial<AffixType_Schema>;
+    export function AffixType<T extends Partial<AffixType>>(config: T): T;
+    export function AffixType<T extends Partial<AffixType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function AffixType<T extends Partial<AffixType> | Partial<AffixType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function AffixType<T extends Partial<AffixType> | Partial<AffixType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type TimeZone_Schema = {
-    Id: string;
+      Id: string;
   Code: string;
   Name: string;
   Offset: string;
@@ -2172,46 +2172,46 @@ type TimeZone_Schema = {
   ModifiedOn: Date;
   Description: string;
   CodeAmerican: string
-  };
+    };
 
-  export type TimeZone = Partial<TimeZone_Schema>;
-  export function TimeZone<T extends Partial<TimeZone>>(config: T): T;
-  export function TimeZone<T extends Partial<TimeZone>[]>(
+    export type TimeZone = Partial<TimeZone_Schema>;
+    export function TimeZone<T extends Partial<TimeZone>>(config: T): T;
+    export function TimeZone<T extends Partial<TimeZone>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function TimeZone<T extends Partial<TimeZone> | Partial<TimeZone>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function TimeZone<T extends Partial<TimeZone> | Partial<TimeZone>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type GeoNamesTimeZone_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   GMTOffset: number;
   CountryCode: string;
   Description: string
-  };
+    };
 
-  export type GeoNamesTimeZone = Partial<GeoNamesTimeZone_Schema>;
-  export function GeoNamesTimeZone<T extends Partial<GeoNamesTimeZone>>(config: T): T;
-  export function GeoNamesTimeZone<T extends Partial<GeoNamesTimeZone>[]>(
+    export type GeoNamesTimeZone = Partial<GeoNamesTimeZone_Schema>;
+    export function GeoNamesTimeZone<T extends Partial<GeoNamesTimeZone>>(config: T): T;
+    export function GeoNamesTimeZone<T extends Partial<GeoNamesTimeZone>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function GeoNamesTimeZone<T extends Partial<GeoNamesTimeZone> | Partial<GeoNamesTimeZone>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function GeoNamesTimeZone<T extends Partial<GeoNamesTimeZone> | Partial<GeoNamesTimeZone>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type BreedStandard_Schema = {
-    Id: string;
+      Id: string;
   Code: string;
   Link: string;
   Name: string;
@@ -2225,166 +2225,166 @@ type BreedStandard_Schema = {
   Subsection: BreedSubsection;
   WorkingTrial: boolean;
   HasVariableDivisions: boolean
-  };
+    };
 
-  export type BreedStandard = Partial<BreedStandard_Schema>;
-  export function BreedStandard<T extends Partial<BreedStandard>>(config: T): T;
-  export function BreedStandard<T extends Partial<BreedStandard>[]>(
+    export type BreedStandard = Partial<BreedStandard_Schema>;
+    export function BreedStandard<T extends Partial<BreedStandard>>(config: T): T;
+    export function BreedStandard<T extends Partial<BreedStandard>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function BreedStandard<T extends Partial<BreedStandard> | Partial<BreedStandard>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function BreedStandard<T extends Partial<BreedStandard> | Partial<BreedStandard>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type StudbookStatus_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type StudbookStatus = Partial<StudbookStatus_Schema>;
-  export function StudbookStatus<T extends Partial<StudbookStatus>>(config: T): T;
-  export function StudbookStatus<T extends Partial<StudbookStatus>[]>(
+    export type StudbookStatus = Partial<StudbookStatus_Schema>;
+    export function StudbookStatus<T extends Partial<StudbookStatus>>(config: T): T;
+    export function StudbookStatus<T extends Partial<StudbookStatus>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function StudbookStatus<T extends Partial<StudbookStatus> | Partial<StudbookStatus>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function StudbookStatus<T extends Partial<StudbookStatus> | Partial<StudbookStatus>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type StudbookType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type StudbookType = Partial<StudbookType_Schema>;
-  export function StudbookType<T extends Partial<StudbookType>>(config: T): T;
-  export function StudbookType<T extends Partial<StudbookType>[]>(
+    export type StudbookType = Partial<StudbookType_Schema>;
+    export function StudbookType<T extends Partial<StudbookType>>(config: T): T;
+    export function StudbookType<T extends Partial<StudbookType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function StudbookType<T extends Partial<StudbookType> | Partial<StudbookType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function StudbookType<T extends Partial<StudbookType> | Partial<StudbookType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type PeriodType_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Description: string
-  };
+    };
 
-  export type PeriodType = Partial<PeriodType_Schema>;
-  export function PeriodType<T extends Partial<PeriodType>>(config: T): T;
-  export function PeriodType<T extends Partial<PeriodType>[]>(
+    export type PeriodType = Partial<PeriodType_Schema>;
+    export function PeriodType<T extends Partial<PeriodType>>(config: T): T;
+    export function PeriodType<T extends Partial<PeriodType>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function PeriodType<T extends Partial<PeriodType> | Partial<PeriodType>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function PeriodType<T extends Partial<PeriodType> | Partial<PeriodType>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type BreedSubsection_Schema = {
-    Id: string;
+      Id: string;
   Code: number;
   Name: string;
   BreedGroup: BreedGroup;
   Description: string;
   BreedSection: BreedSection
-  };
+    };
 
-  export type BreedSubsection = Partial<BreedSubsection_Schema>;
-  export function BreedSubsection<T extends Partial<BreedSubsection>>(config: T): T;
-  export function BreedSubsection<T extends Partial<BreedSubsection>[]>(
+    export type BreedSubsection = Partial<BreedSubsection_Schema>;
+    export function BreedSubsection<T extends Partial<BreedSubsection>>(config: T): T;
+    export function BreedSubsection<T extends Partial<BreedSubsection>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function BreedSubsection<T extends Partial<BreedSubsection> | Partial<BreedSubsection>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function BreedSubsection<T extends Partial<BreedSubsection> | Partial<BreedSubsection>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type BreedSection_Schema = {
-    Id: string;
+      Id: string;
   Code: number;
   Name: string;
   BreedGroup: BreedGroup;
   Description: string
-  };
+    };
 
-  export type BreedSection = Partial<BreedSection_Schema>;
-  export function BreedSection<T extends Partial<BreedSection>>(config: T): T;
-  export function BreedSection<T extends Partial<BreedSection>[]>(
+    export type BreedSection = Partial<BreedSection_Schema>;
+    export function BreedSection<T extends Partial<BreedSection>>(config: T): T;
+    export function BreedSection<T extends Partial<BreedSection>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function BreedSection<T extends Partial<BreedSection> | Partial<BreedSection>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function BreedSection<T extends Partial<BreedSection> | Partial<BreedSection>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type BreedGroup_Schema = {
-    Id: string;
+      Id: string;
   Code: number;
   Name: string;
   Provider: Account;
   Description: string
-  };
+    };
 
-  export type BreedGroup = Partial<BreedGroup_Schema>;
-  export function BreedGroup<T extends Partial<BreedGroup>>(config: T): T;
-  export function BreedGroup<T extends Partial<BreedGroup>[]>(
+    export type BreedGroup = Partial<BreedGroup_Schema>;
+    export function BreedGroup<T extends Partial<BreedGroup>>(config: T): T;
+    export function BreedGroup<T extends Partial<BreedGroup>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function BreedGroup<T extends Partial<BreedGroup> | Partial<BreedGroup>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function BreedGroup<T extends Partial<BreedGroup> | Partial<BreedGroup>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
 
 type BreedStandardStatus_Schema = {
-    Id: string;
+      Id: string;
   Name: string;
   Provider: Account;
   Description: string
-  };
+    };
 
-  export type BreedStandardStatus = Partial<BreedStandardStatus_Schema>;
-  export function BreedStandardStatus<T extends Partial<BreedStandardStatus>>(config: T): T;
-  export function BreedStandardStatus<T extends Partial<BreedStandardStatus>[]>(
+    export type BreedStandardStatus = Partial<BreedStandardStatus_Schema>;
+    export function BreedStandardStatus<T extends Partial<BreedStandardStatus>>(config: T): T;
+    export function BreedStandardStatus<T extends Partial<BreedStandardStatus>[]>(
       config: T
-  ): UnionToIntersection<T[number]>;
-  export function BreedStandardStatus<T extends Partial<BreedStandardStatus> | Partial<BreedStandardStatus>[]>(
+    ): UnionToIntersection<T[number]>;
+    export function BreedStandardStatus<T extends Partial<BreedStandardStatus> | Partial<BreedStandardStatus>[]>(
       config: T
-  ): any {
+    ): any {
       if (Array.isArray(config)) {
-          return config.reduce((acc, item) => ({ ...acc, ...item }), {});
+        return config.reduce((acc, item) => ({ ...acc, ...item }), {});
       }
-      return { ...config };
-  }
+    return { ...config };
+    }
