@@ -1,3 +1,4 @@
+import { merge } from "npm:ts-deepmerge";
 import * as wmill from "npm:windmill-client@1.475.1";
 import { with_ } from "/f/common/fn_string.deno.ts";
 import { supabase } from "/f/supabase/deno_init.deno.ts";
@@ -8,6 +9,40 @@ const workspace = "breedhub";
 const typeImports = `import isArray from 'lodash-es/isArray';
 import { UnionToIntersection } from 'ts-essentials';`;
 const fieldsImports = `import {createInjectionToken} from 'ngxtension/create-injection-token';`;
+
+export const EmptyFieldConfig = {
+  type: "field",
+  id: "",
+  rows: 0,
+  component: 2,
+  dateFields: [],
+  displayField: "",
+  displayValue: () => "",
+  entitiesColumns: [],
+  entitySchemaName: "",
+  placeholder: "",
+  sortConfig: [],
+  fieldsConfig: {},
+  // SortField[];
+  model: "",
+  validators: [],
+  // ValidatorFn[];
+
+  // parse: (value: any) => null,
+  columnClass: "",
+  columnNgClass: "",
+  hidden: () => false,
+  readonly: true,
+  isRequired: false,
+  filterFn: () => null,
+  getFilter: () => null,
+  filterConfig: [],
+  icon: "",
+  initBeforeChangeFn: () => null,
+  initFn: () => null,
+  onChange: () => null,
+  isPublic: true,
+};
 
 export async function main(processedSchemaList: string[]) {
   const db = await supabase;
@@ -54,7 +89,10 @@ export async function main(processedSchemaList: string[]) {
     const entitiesColumns: string[] = data[0].data.entitiesColumns;
 
     const fieldsConfigEntries = Object.entries(fieldsConfig)
-      .map(([key, value]) => `${key}: ${JSON.stringify(value)}`)
+      .map(
+        ([key, value]) =>
+          `${key}: ${JSON.stringify(merge({}, EmptyFieldConfig, value))}`
+      )
       .join(",\n  ");
 
     const entitiesColumnsEntries = entitiesColumns
@@ -66,17 +104,17 @@ export async function main(processedSchemaList: string[]) {
       .join(",\n  ");
 
     const fieldsCode = `
-export const ${schemaName}_FIELD_CONFIG = {
+export const ${schemaName.toUpperCase()}_FIELD_CONFIG = {
   ${fieldsConfigEntries}
 } as const;
 
-export const ${schemaName}_ENTITY_COLUMNS = [
+export const ${schemaName.toUpperCase()}_ENTITY_COLUMNS = [
   ${entitiesColumnsEntries}
 ];
 
-export const ${schemaName}_DATE_FIELDS = [];
+export const ${schemaName.toUpperCase()}_DATE_FIELDS = [];
 
-export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => ({
+export const [, , ${schemaName.toUpperCase()}_SCHEMA] = createInjectionToken(() => ({
   ${dataEntries}
 }));
 `.trim();
