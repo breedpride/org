@@ -18,6 +18,8 @@
 // export * from './f/supabase/deno_init.deno';
 export * from './f/supabase/enums_consts.deno';
 export * from './f/consts/index';
+export * from './f/creatio/model_fields';
+export * from './f/creatio/model_types';
 // export * from './f/supabase/insert.deno';
 // export * from './u/annamaliyenko/bullish_script';
 // export * from './u/annamaliyenko/important_script';
