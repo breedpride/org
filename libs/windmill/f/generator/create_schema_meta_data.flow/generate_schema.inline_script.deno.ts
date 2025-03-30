@@ -1,6 +1,6 @@
 import * as wmill from "npm:windmill-client@1.475.1";
-import { supabase } from "/f/supabase/deno_init.deno.ts";
 import { main as getCreatioSchema } from "/f/creatio/get_schema.deno.ts";
+import { supabase } from "/f/supabase/deno_init.deno.ts";
 
 const schemaListString = await wmill.getVariable(
   "f/generator/starter_schem_list"
@@ -72,9 +72,9 @@ async function processSchema(schemaName: string, response: SchemaResponse[]) {
       await db.from("config").insert([
         {
           id: field.referenceSchema + "_Lookup",
-          self_data: fieldSelfData,
+          self_data: { ...fieldSelfData, type: field.referenceSchema },
           type: "Field",
-          deps: [schema.schemaName + "_" + "Config"],
+          deps: [field.referenceSchema + "_" + "Config"],
         },
       ]);
       fieldDeps.push(field.referenceSchema + "_Lookup");
@@ -148,8 +148,5 @@ export async function generateSchema(schema: string) {
 
 export async function main() {
   await generateSchema(schemaList[0].name);
+  return processedSchemaList;
 }
-
-export const flow_output = {
-  processedSchemaList,
-};

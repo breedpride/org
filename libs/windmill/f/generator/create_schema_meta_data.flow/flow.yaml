@@ -50,9 +50,20 @@ value:
         content: '!inline generate_fields_config_for_schemas.inline_script.deno.ts'
         input_transforms:
           processedSchemaList:
-            type: static
-            value: []
+            type: javascript
+            expr: results.g
         lock: '!inline generate_fields_config_for_schemas.inline_script.lock'
+        language: deno
+    - id: j
+      summary: Create creatio models
+      value:
+        type: rawscript
+        content: '!inline create_creatio_models.inline_script.deno.ts'
+        input_transforms:
+          processedSchemaList:
+            type: javascript
+            expr: results.g
+        lock: '!inline create_creatio_models.inline_script.lock'
         language: deno
 schema:
   $schema: 'https://json-schema.org/draft/2020-12/schema'

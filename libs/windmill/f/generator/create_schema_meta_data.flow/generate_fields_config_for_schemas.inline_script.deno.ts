@@ -1,6 +1,6 @@
 import { compact, isArray, uniq } from "npm:lodash-es";
-import { supabase } from "/f/supabase/deno_init.deno.ts";
 import { with_ } from "/f/common/fn_string.deno.ts";
+import { supabase } from "/f/supabase/deno_init.deno.ts";
 import { ConfigType } from "/f/supabase/enums_consts.deno.ts";
 // TODO - check name or id
 export const getColumns = (fieldsConfig: Record<string, any>) =>
@@ -17,6 +17,7 @@ export const getColumns = (fieldsConfig: Record<string, any>) =>
   );
 
 export async function main(processedSchemaList: string[]) {
+  console.log("processedSchemaList", processedSchemaList);
   await new Promise((resolve) => setTimeout(resolve, 15000));
   const db = await supabase;
   for (let i = 0; i < processedSchemaList.length; i++) {
@@ -32,15 +33,18 @@ export async function main(processedSchemaList: string[]) {
       throw new Error(`Помилка запиту до Supabase: ${error.message}`);
     }
     for (let j = 0; j < configRecords.length; j++) {
-      const prop = configRecords[j].id.split(".")[1].split(with_(ConfigType.Field))[0];
+      const prop = configRecords[j].id
+        .split(".")[1]
+        .split(with_(ConfigType.Field))[0];
       fieldsConfig[prop] = configRecords[j].data;
     }
+    // console.log("fieldsConfig", fieldsConfig);
     const entitiesColumns = getColumns(fieldsConfig);
     await db.from("config").insert([
       {
         id: processedSchemaList[i] + with_(ConfigType.SchemaName),
         self_data: { fieldsConfig, entitiesColumns },
-        deps: [processedSchemaList[i] + with_(ConfigType.SchemaName)],
+        deps: [processedSchemaList[i] + with_(ConfigType.Lookup)],
         type: ConfigType.SchemaName,
       },
     ]);

@@ -26,6 +26,7 @@ export const ConfigType = {
   FieldProperty: "FieldProperty",
   SchemaConfig: "SchemaConfig",
   Config: "Config",
+  Lookup: "Lookup",
 } as const;
 
 export type ConfigType = (typeof ConfigType)[keyof typeof ConfigType];
