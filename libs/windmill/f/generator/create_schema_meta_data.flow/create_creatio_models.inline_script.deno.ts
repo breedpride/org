@@ -101,9 +101,12 @@ export async function main(processedSchemaList: string[]) {
       .map((column) => `"${column}"`)
       .join(",\n  ");
 
-    const dataEntries = Object.entries(data[0].data)
+    const dataCropped = removeProperties(data[0].data, ["fieldsConfig", "entitiesColumns"]);
+    const dataFull = { ...dataCropped, fieldsConfig: schemaName.toUpperCase() + "_FIELD_CONFIG", entitiesColumns: schemaName.toUpperCase() + "_ENTITY_COLUMNS" };
+    const dataEntries = Object.entries(dataFull)
       .map(([key, value]) => `${key}: ${JSON.stringify(value)}`)
       .join(",\n  ");
+
 
     const fieldsCode = `
 export const ${schemaName.toUpperCase()}_FIELD_CONFIG = {
@@ -177,18 +180,48 @@ async function createBunScript(path: string, content: string, summary: string) {
 
 // Функція для форматування об'єкта без лапок навколо ключів
 function stringifyObjectWithoutQuotes(obj: any): string {
-  return '{ ' + Object.entries(obj)
-    .map(([key, value]) => {
-      // Якщо значення - функція, зберігаємо її у вигляді строки
-      if (typeof value === 'function') {
-        return `${key}: ${value.toString()}`;
-      }
-      // Якщо значення - об'єкт, рекурсивно викликаємо цю ж функцію
-      if (typeof value === 'object' && value !== null) {
-        return `${key}: ${stringifyObjectWithoutQuotes(value)}`;
-      }
-      // Інакше форматуючи як просте значення
-      return `${key}: ${JSON.stringify(value)}`;
-    })
-    .join(', ') + ' }';
+  if (Array.isArray(obj)) {
+    // Якщо це масив, повертаємо його у вигляді рядка без змін
+    return `[${obj.map(item => stringifyObjectWithoutQuotes(item)).join(', ')}]`;
+  }
+
+  if (typeof obj === 'object' && obj !== null) {
+    // Перевірка на порожній об'єкт
+    const entries = Object.entries(obj);
+    if (entries.length === 0) {
+      return '{}'; // Порожній об'єкт без пробілу
+    }
+
+    return '{ ' + entries
+      .map(([key, value]) => {
+        // Якщо значення - функція, зберігаємо її у вигляді строки
+        if (typeof value === 'function') {
+          return `${key}: ${value.toString()}`;
+        }
+        // Якщо значення - вкладений об'єкт, рекурсивно викликаємо цю ж функцію
+        if (typeof value === 'object' && value !== null) {
+          return `${key}: ${stringifyObjectWithoutQuotes(value)}`;
+        }
+        // Інакше форматуючи як просте значення
+        return `${key}: ${JSON.stringify(value)}`;
+      })
+      .join(', ') + ' }';
+  }
+
+  // Повертаємо просте значення як рядок
+  return JSON.stringify(obj);
+}
+
+function removeProperties<T extends Record<string, any>>(obj: T, properties: string[]): T {
+  // Створюємо копію об'єкта, щоб не змінювати оригінал
+  const result = { ...obj };
+
+  // Видаляємо властивості, якщо вони існують
+  properties.forEach((prop) => {
+    if (prop in result) {
+      delete result[prop];
+    }
+  });
+
+  return result;
 }
