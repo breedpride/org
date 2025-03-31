@@ -92,12 +92,9 @@
         "libs/schema/column-type/common/identifying/index.ts"
       ],
       "@bh/list": ["libs/schema/view/list/index.ts"],
-      "@bh/naming": ["libs/schema/column-type/common/naming/index.ts"],
       "@bh/nav-store": ["libs/schema/store/nav-store/index.ts"],
       "@bh/page-store": ["libs/schema/page/store/index.ts"],
       "@bh/post": ["libs/schema/domain/post/index.ts"],
-      "@bh/privacy": ["libs/schema/column-type/common/privacy/index.ts"],
-      "@bh/requiring": ["libs/schema/column-type/common/requiring/index.ts"],
       "@bh/rxdb": ["libs/schema/token/rxdb/index.ts"],
       "@bh/schemating": ["libs/schema/feature/schemating/index.ts"],
       "@bh/space-ui": ["libs/schema/space/space-ui/index.ts"],
@@ -109,7 +106,6 @@
       "@bh/user-store": ["libs/schema/store/user-store/index.ts"],
       "@bh/utils": ["libs/schema/common/utils/index.ts"],
       "@bh/viewport": ["libs/schema/ui/viewport-ui/index.ts"],
-      "@bh/visibility": ["libs/schema/column-type/common/visibility/index.ts"],
       "@bp/auth-store": ["libs/schema/store/auth-store/index.ts"],
       "@bp/cell/confirm-dialog-ui": [
         "libs/schema/ui/confirm-dialog-ui/index.ts"
