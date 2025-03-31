@@ -84,12 +84,12 @@
       "@bh/entity/consts": ["libs/schema/entity/consts/index.ts"],
       "@bh/field-store": ["libs/schema/field/store/index.ts"],
       "@bh/field/config": ["libs/schema/field/config/index.ts"],
-      "@bh/filter": ["libs/schema/column-type/common/filtering/index.ts"],
+      "@bh/filter": ["libs/windmill/index.ts"],
       "@bh/filtering": ["libs/schema/feature/filtering/index.ts"],
-      "@bh/form": ["libs/schema/column-type/common/editing/form/index.ts"],
-      "@bh/iconing": ["libs/schema/column-type/common/iconing/index.ts"],
+      "@bh/form": ["libs/windmill/index.ts"],
+      "@bh/iconing": ["libs/windmill/index.ts"],
       "@bh/identifying": [
-        "libs/schema/column-type/common/identifying/index.ts"
+        "libs/windmill/index.ts"
       ],
       "@bh/list": ["libs/schema/view/list/index.ts"],
       "@bh/nav-store": ["libs/schema/store/nav-store/index.ts"],
@@ -100,7 +100,7 @@
       "@bh/space-ui": ["libs/schema/space/space-ui/index.ts"],
       "@bh/space-url": ["libs/schema/space/url/index.ts"],
       "@bh/store-feature": ["libs/schema/feature/common/index.ts"],
-      "@bh/superfield": ["libs/schema/column-type/common/index.ts"],
+      "@bh/superfield": ["libs/windmill/index.ts"],
       "@bh/types": ["libs/schema/bh/types/index.ts"],
       "@bh/user": ["libs/schema/domain/user/index.ts"],
       "@bh/user-store": ["libs/schema/store/user-store/index.ts"],

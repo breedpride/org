@@ -1,6 +1,6 @@
 import { FilterFieldConfig } from './filter-store-state';
 
-import { EntitiesView } from './viewing';
+import { EntitiesView } from './collection';
 
 export interface ColumnField extends FilterFieldConfig {
   class?: string;
