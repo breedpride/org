@@ -1,5 +1,5 @@
-import { Injector } from '@angular/core';
-import { EditorComponentName } from './unsorted';
+import { type Injector } from '@angular/core';
+import { EditorComponentName } from '@bh/windmill';
 
 export interface EditorConfig {
   injector: Injector;

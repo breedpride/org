@@ -9,7 +9,7 @@ import {
 import { ModelCodeType } from '@bh/windmill';
 import { BPNavStore } from '@bh/nav-store';
 import { WithCreatioId } from '@bh/superfield';
-import { CardMode } from '@bh/types';
+import { CardMode } from '@bh/windmill';
 import { injectSpaceStore } from '@bh/collection-store';
 @Component({
   selector: 'bp-scroller-card',

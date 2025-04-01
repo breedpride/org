@@ -3,7 +3,7 @@ import {
   Component,
   input,
 } from '@angular/core';
-import { CardMode } from '@bh/types';
+import { CardMode } from '@bh/windmill';
 import { GridViewComponent } from './grid/grid-view.component';
 import { ListViewComponent } from './list/list-view.component';
 import { TableViewComponent } from './table/table-view.component';

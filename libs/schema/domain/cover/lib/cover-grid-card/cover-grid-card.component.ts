@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Cover } from '@bh/entity/config';
-import { CardMode } from '@bh/types';
+import { CardMode } from '@bh/windmill';
 import { ContextMenuComponent } from '@breedpride/menu';
 import { EntityGridCardWrapperComponent } from '@breedpride/wrapper';
 import { MenuItem } from 'primeng/api';

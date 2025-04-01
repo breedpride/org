@@ -11,7 +11,7 @@ import {
 
 import { SideBarStore } from '@bh/store-feature';
 import { WithCreatioId } from '@bh/superfield';
-import { CardMode,  } from '@bh/types';
+import { CardMode  } from '@bh/windmill';
 import { PageStore } from '@bh/page-store';
 import { ScrollerLazyLoadEvent } from 'primeng/scroller';
 import { injectSpaceStore } from '@bh/collection-store';

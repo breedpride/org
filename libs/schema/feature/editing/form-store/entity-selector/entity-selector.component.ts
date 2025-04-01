@@ -14,7 +14,7 @@ import { injectFiltersStore } from '@bh/collection-filtration';
 import { trackByFn } from '@bh/list';
 import { chunkArray } from '@breedpride/api';
 import { EntitiesCounterComponent } from '@bh/counter';
-import { CardMode } from '@bh/types';
+import { CardMode } from '@bh/windmill';
 import { SpaceScrollerComponent } from '@bh/collection-view-scroller';
 import { MediaStore } from '@bp/media-store';
 import { toObservableSignal } from 'ngxtension/to-observable-signal';

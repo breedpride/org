@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormFieldCode } from '@bh/windmill';
 import { trackByFn } from '@bh/list';
 import { SpaceConfig } from '@bh/superfield';
-import { EditorComponentName,  } from '@bh/types';
+import { EditorComponentName } from '@bh/windmill';
 import { ConfirmDialogComponent } from '@bp/cell/confirm-dialog-ui';
 import { ConfirmationService, MessageService, SortEvent } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
