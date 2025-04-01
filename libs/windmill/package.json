@@ -5,13 +5,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean:locks": "./clean-locks.sh"
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@ngrx/signals": "19.0.0",
     "@supabase/supabase-js": "^2.49.1",
     "lodash-es": "^4.17.21",
     "ts-deepmerge": "^7.0.2",

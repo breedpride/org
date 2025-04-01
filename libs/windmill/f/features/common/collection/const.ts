@@ -1,5 +1,5 @@
 import {  type } from "@ngrx/signals";
-import { WithType } from "../typing";
+import { WithType } from "../typing.ts";
 import { WithId } from '../identifying/with-id';
 
 

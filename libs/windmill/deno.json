@@ -10,6 +10,7 @@
     "/f/": "./f/",
     "/u/": "./u/",
     "npm:@supabase/supabase-js": "npm:@supabase/supabase-js@2",
-    "npm:windmill-client": "npm:windmill-client@1.475.1"
+    "npm:windmill-client": "npm:windmill-client@1.475.1",
+    "@ngrx/signals": "npm:@ngrx/signals@19.0.0"
   }
 }
