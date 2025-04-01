@@ -17,6 +17,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "noEmit":true,
     "esModuleInterop": true,
     "paths": {
       "@bh/windmill": ["libs/windmill/index.ts"],

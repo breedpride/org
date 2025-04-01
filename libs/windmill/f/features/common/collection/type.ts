@@ -1,4 +1,4 @@
-import { ModelCodeType } from '@bh/windmill';
+import { ModelCodeType } from '../../../consts/view-model-code';
 
 export type ViewStrategy = 'modal' | 'sidebar' | 'publicPage' | 'none';
 export type EntitiesView = {
