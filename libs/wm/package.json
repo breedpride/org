@@ -1,0 +1,15 @@
+{
+  "name": "windmill-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pull": "sh ./scripts/pull_workspaces.sh ./workspaces",
+    "push": "sh ./scripts/push_workspaces.sh ./workspaces",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.7.0"
+}

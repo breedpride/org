@@ -1,0 +1,11 @@
+# spec: https://github.com/windmill-labs/windmill/blob/main/cli/conf.ts
+defaultTs: bun
+includes:
+  - f/**
+excludes: ["f/app_custom/*"]
+codebases: []
+skipVariables: true
+skipResources: true
+skipSecrets: true
+includeSchedules: false
+includeTriggers: false
