@@ -44,5 +44,6 @@
     "**/*.inline_script.lock": true,
     "**/*.meta.yaml": true
   },
+  "deno.enable": true,
 
 }
