@@ -95,7 +95,7 @@ export async function main(processedSchemaList: string[]) {
       })
       .join(",\n  ");
 
-    console.log(fieldsConfigEntries);
+    // console.log(fieldsConfigEntries);
 
     const entitiesColumnsEntries = entitiesColumns
       .map((column) => `"${column}"`)
@@ -104,9 +104,16 @@ export async function main(processedSchemaList: string[]) {
     const dataCropped = removeProperties(data[0].data, ["fieldsConfig", "entitiesColumns"]);
     const dataFull = { ...dataCropped, fieldsConfig: schemaName.toUpperCase() + "_FIELD_CONFIG", entitiesColumns: schemaName.toUpperCase() + "_ENTITY_COLUMNS" };
     const dataEntries = Object.entries(dataFull)
-      .map(([key, value]) => `${key}: ${JSON.stringify(value)}`)
+      .map(([key, value]) => {
+        // Якщо значення є ім'ям змінної (не число, не рядок, не масив, не об'єкт), залишаємо без лапок
+        if (typeof value === 'string' && /^[A-Z_]+$/.test(value)) {
+          return `${key}: ${value}`;
+        }
+        // Інакше перетворюємо в строку
+        return `${key}: ${JSON.stringify(value)}`;
+      })
       .join(",\n  ");
-
+    console.log('dataEntries: ', dataEntries);
 
     const fieldsCode = `
 export const ${schemaName.toUpperCase()}_FIELD_CONFIG = {
@@ -123,8 +130,6 @@ export const [, , ${schemaName}_SCHEMA] = createInjectionToken(() => ({
   ${dataEntries}
 }));
 `.trim();
-
-    console.log("!!!!!!fieldsCode", fieldsCode);
     fieldsModelList[schemaName] = fieldsCode;
   }
 

@@ -89,6 +89,6 @@
       "unitTestRunner": "vitest",
       "e2eTestRunner": "playwright"
     },
-    "@nx/js:library": { "buildable": true }
+    "@nx/js:library": { "buildable": false }
   }
 }

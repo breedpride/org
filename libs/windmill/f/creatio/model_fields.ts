@@ -92,8 +92,8 @@ export const [, , Contact_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Contact",
-  fieldsConfig: "CONTACT_FIELD_CONFIG",
-  entitiesColumns: "CONTACT_ENTITY_COLUMNS"
+  fieldsConfig: CONTACT_FIELD_CONFIG,
+  entitiesColumns: CONTACT_ENTITY_COLUMNS
 }));
 
 export const CONTACTCOMMUNICATION_FIELD_CONFIG = {
@@ -118,8 +118,8 @@ export const CONTACTCOMMUNICATION_ENTITY_COLUMNS = [
 export const CONTACTCOMMUNICATION_DATE_FIELDS = [];
 
 export const [, , ContactCommunication_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "CONTACTCOMMUNICATION_FIELD_CONFIG",
-  entitiesColumns: "CONTACTCOMMUNICATION_ENTITY_COLUMNS"
+  fieldsConfig: CONTACTCOMMUNICATION_FIELD_CONFIG,
+  entitiesColumns: CONTACTCOMMUNICATION_ENTITY_COLUMNS
 }));
 
 export const CONTACTADDRESS_FIELD_CONFIG = {
@@ -159,8 +159,8 @@ export const CONTACTADDRESS_ENTITY_COLUMNS = [
 export const CONTACTADDRESS_DATE_FIELDS = [];
 
 export const [, , ContactAddress_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "CONTACTADDRESS_FIELD_CONFIG",
-  entitiesColumns: "CONTACTADDRESS_ENTITY_COLUMNS"
+  fieldsConfig: CONTACTADDRESS_FIELD_CONFIG,
+  entitiesColumns: CONTACTADDRESS_ENTITY_COLUMNS
 }));
 
 export const CONTACTFIREBASEUSER_FIELD_CONFIG = {
@@ -184,8 +184,8 @@ export const CONTACTFIREBASEUSER_ENTITY_COLUMNS = [
 export const CONTACTFIREBASEUSER_DATE_FIELDS = [];
 
 export const [, , ContactFirebaseUser_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "CONTACTFIREBASEUSER_FIELD_CONFIG",
-  entitiesColumns: "CONTACTFIREBASEUSER_ENTITY_COLUMNS"
+  fieldsConfig: CONTACTFIREBASEUSER_FIELD_CONFIG,
+  entitiesColumns: CONTACTFIREBASEUSER_ENTITY_COLUMNS
 }));
 
 export const CONTACTSYNONYM_FIELD_CONFIG = {
@@ -202,8 +202,8 @@ export const CONTACTSYNONYM_ENTITY_COLUMNS = [
 export const CONTACTSYNONYM_DATE_FIELDS = [];
 
 export const [, , ContactSynonym_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "CONTACTSYNONYM_FIELD_CONFIG",
-  entitiesColumns: "CONTACTSYNONYM_ENTITY_COLUMNS"
+  fieldsConfig: CONTACTSYNONYM_FIELD_CONFIG,
+  entitiesColumns: CONTACTSYNONYM_ENTITY_COLUMNS
 }));
 
 export const PET_FIELD_CONFIG = {
@@ -312,8 +312,8 @@ export const [, , Pet_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Pet",
-  fieldsConfig: "PET_FIELD_CONFIG",
-  entitiesColumns: "PET_ENTITY_COLUMNS"
+  fieldsConfig: PET_FIELD_CONFIG,
+  entitiesColumns: PET_ENTITY_COLUMNS
 }));
 
 export const TITLEINPET_FIELD_CONFIG = {
@@ -350,8 +350,8 @@ export const [, , TitleInPet_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Title",
   entitySchemaName: "TitleInPet",
-  fieldsConfig: "TITLEINPET_FIELD_CONFIG",
-  entitiesColumns: "TITLEINPET_ENTITY_COLUMNS"
+  fieldsConfig: TITLEINPET_FIELD_CONFIG,
+  entitiesColumns: TITLEINPET_ENTITY_COLUMNS
 }));
 
 export const PETHEALTHEXAMRESULT_FIELD_CONFIG = {
@@ -382,8 +382,8 @@ export const PETHEALTHEXAMRESULT_ENTITY_COLUMNS = [
 export const PETHEALTHEXAMRESULT_DATE_FIELDS = [];
 
 export const [, , PetHealthExamResult_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "PETHEALTHEXAMRESULT_FIELD_CONFIG",
-  entitiesColumns: "PETHEALTHEXAMRESULT_ENTITY_COLUMNS"
+  fieldsConfig: PETHEALTHEXAMRESULT_FIELD_CONFIG,
+  entitiesColumns: PETHEALTHEXAMRESULT_ENTITY_COLUMNS
 }));
 
 export const PETSERVICE_FIELD_CONFIG = {
@@ -418,8 +418,8 @@ export const PETSERVICE_ENTITY_COLUMNS = [
 export const PETSERVICE_DATE_FIELDS = [];
 
 export const [, , PetService_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "PETSERVICE_FIELD_CONFIG",
-  entitiesColumns: "PETSERVICE_ENTITY_COLUMNS"
+  fieldsConfig: PETSERVICE_FIELD_CONFIG,
+  entitiesColumns: PETSERVICE_ENTITY_COLUMNS
 }));
 
 export const PETINPROJECT_FIELD_CONFIG = {
@@ -467,8 +467,8 @@ export const PETINPROJECT_ENTITY_COLUMNS = [
 export const PETINPROJECT_DATE_FIELDS = [];
 
 export const [, , PetInProject_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "PETINPROJECT_FIELD_CONFIG",
-  entitiesColumns: "PETINPROJECT_ENTITY_COLUMNS"
+  fieldsConfig: PETINPROJECT_FIELD_CONFIG,
+  entitiesColumns: PETINPROJECT_ENTITY_COLUMNS
 }));
 
 export const PETIDENTIFIER_FIELD_CONFIG = {
@@ -507,8 +507,8 @@ export const PETIDENTIFIER_ENTITY_COLUMNS = [
 export const PETIDENTIFIER_DATE_FIELDS = [];
 
 export const [, , PetIdentifier_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "PETIDENTIFIER_FIELD_CONFIG",
-  entitiesColumns: "PETIDENTIFIER_ENTITY_COLUMNS"
+  fieldsConfig: PETIDENTIFIER_FIELD_CONFIG,
+  entitiesColumns: PETIDENTIFIER_ENTITY_COLUMNS
 }));
 
 export const PETMEASUREMENT_FIELD_CONFIG = {
@@ -534,8 +534,8 @@ export const PETMEASUREMENT_ENTITY_COLUMNS = [
 export const PETMEASUREMENT_DATE_FIELDS = [];
 
 export const [, , PetMeasurement_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "PETMEASUREMENT_FIELD_CONFIG",
-  entitiesColumns: "PETMEASUREMENT_ENTITY_COLUMNS"
+  fieldsConfig: PETMEASUREMENT_FIELD_CONFIG,
+  entitiesColumns: PETMEASUREMENT_ENTITY_COLUMNS
 }));
 
 export const PETSERVICEINLITTER_FIELD_CONFIG = {
@@ -570,8 +570,8 @@ export const PETSERVICEINLITTER_ENTITY_COLUMNS = [
 export const PETSERVICEINLITTER_DATE_FIELDS = [];
 
 export const [, , PetServiceInLitter_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "PETSERVICEINLITTER_FIELD_CONFIG",
-  entitiesColumns: "PETSERVICEINLITTER_ENTITY_COLUMNS"
+  fieldsConfig: PETSERVICEINLITTER_FIELD_CONFIG,
+  entitiesColumns: PETSERVICEINLITTER_ENTITY_COLUMNS
 }));
 
 export const LITTER_FIELD_CONFIG = {
@@ -638,8 +638,8 @@ export const [, , Litter_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Litter",
-  fieldsConfig: "LITTER_FIELD_CONFIG",
-  entitiesColumns: "LITTER_ENTITY_COLUMNS"
+  fieldsConfig: LITTER_FIELD_CONFIG,
+  entitiesColumns: LITTER_ENTITY_COLUMNS
 }));
 
 export const BREED_FIELD_CONFIG = {
@@ -704,8 +704,8 @@ export const [, , Breed_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Breed",
-  fieldsConfig: "BREED_FIELD_CONFIG",
-  entitiesColumns: "BREED_ENTITY_COLUMNS"
+  fieldsConfig: BREED_FIELD_CONFIG,
+  entitiesColumns: BREED_ENTITY_COLUMNS
 }));
 
 export const PROJECT_FIELD_CONFIG = {
@@ -775,8 +775,8 @@ export const [, , Project_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Project",
-  fieldsConfig: "PROJECT_FIELD_CONFIG",
-  entitiesColumns: "PROJECT_ENTITY_COLUMNS"
+  fieldsConfig: PROJECT_FIELD_CONFIG,
+  entitiesColumns: PROJECT_ENTITY_COLUMNS
 }));
 
 export const POST_FIELD_CONFIG = {
@@ -835,8 +835,8 @@ export const [, , Post_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Post",
-  fieldsConfig: "POST_FIELD_CONFIG",
-  entitiesColumns: "POST_ENTITY_COLUMNS"
+  fieldsConfig: POST_FIELD_CONFIG,
+  entitiesColumns: POST_ENTITY_COLUMNS
 }));
 
 export const ACCOUNTREVIEW_FIELD_CONFIG = {
@@ -867,8 +867,8 @@ export const ACCOUNTREVIEW_ENTITY_COLUMNS = [
 export const ACCOUNTREVIEW_DATE_FIELDS = [];
 
 export const [, , AccountReview_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "ACCOUNTREVIEW_FIELD_CONFIG",
-  entitiesColumns: "ACCOUNTREVIEW_ENTITY_COLUMNS"
+  fieldsConfig: ACCOUNTREVIEW_FIELD_CONFIG,
+  entitiesColumns: ACCOUNTREVIEW_ENTITY_COLUMNS
 }));
 
 export const BREEDPRIDECOLLECTION_FIELD_CONFIG = {
@@ -916,8 +916,8 @@ export const [, , BreedprideCollection_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "BreedprideCollection",
-  fieldsConfig: "BREEDPRIDECOLLECTION_FIELD_CONFIG",
-  entitiesColumns: "BREEDPRIDECOLLECTION_ENTITY_COLUMNS"
+  fieldsConfig: BREEDPRIDECOLLECTION_FIELD_CONFIG,
+  entitiesColumns: BREEDPRIDECOLLECTION_ENTITY_COLUMNS
 }));
 
 export const BREEDPRIDECOLLECTIONENTITY_FIELD_CONFIG = {
@@ -954,8 +954,8 @@ export const BREEDPRIDECOLLECTIONENTITY_ENTITY_COLUMNS = [
 export const BREEDPRIDECOLLECTIONENTITY_DATE_FIELDS = [];
 
 export const [, , BreedprideCollectionEntity_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "BREEDPRIDECOLLECTIONENTITY_FIELD_CONFIG",
-  entitiesColumns: "BREEDPRIDECOLLECTIONENTITY_ENTITY_COLUMNS"
+  fieldsConfig: BREEDPRIDECOLLECTIONENTITY_FIELD_CONFIG,
+  entitiesColumns: BREEDPRIDECOLLECTIONENTITY_ENTITY_COLUMNS
 }));
 
 export const EVENT_FIELD_CONFIG = {
@@ -1029,8 +1029,8 @@ export const [, , Event_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Event",
-  fieldsConfig: "EVENT_FIELD_CONFIG",
-  entitiesColumns: "EVENT_ENTITY_COLUMNS"
+  fieldsConfig: EVENT_FIELD_CONFIG,
+  entitiesColumns: EVENT_ENTITY_COLUMNS
 }));
 
 export const COVER_FIELD_CONFIG = {
@@ -1075,8 +1075,8 @@ export const [, , Cover_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Cover",
-  fieldsConfig: "COVER_FIELD_CONFIG",
-  entitiesColumns: "COVER_ENTITY_COLUMNS"
+  fieldsConfig: COVER_FIELD_CONFIG,
+  entitiesColumns: COVER_ENTITY_COLUMNS
 }));
 
 export const NOTE_FIELD_CONFIG = {
@@ -1130,8 +1130,8 @@ export const NOTE_ENTITY_COLUMNS = [
 export const NOTE_DATE_FIELDS = [];
 
 export const [, , Note_SCHEMA] = createInjectionToken(() => ({
-  fieldsConfig: "NOTE_FIELD_CONFIG",
-  entitiesColumns: "NOTE_ENTITY_COLUMNS"
+  fieldsConfig: NOTE_FIELD_CONFIG,
+  entitiesColumns: NOTE_ENTITY_COLUMNS
 }));
 
 export const CONTACTSALUTATIONTYPE_FIELD_CONFIG = {
@@ -1164,8 +1164,8 @@ export const [, , ContactSalutationType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "ContactSalutationType",
-  fieldsConfig: "CONTACTSALUTATIONTYPE_FIELD_CONFIG",
-  entitiesColumns: "CONTACTSALUTATIONTYPE_ENTITY_COLUMNS"
+  fieldsConfig: CONTACTSALUTATIONTYPE_FIELD_CONFIG,
+  entitiesColumns: CONTACTSALUTATIONTYPE_ENTITY_COLUMNS
 }));
 
 export const GENDER_FIELD_CONFIG = {
@@ -1199,8 +1199,8 @@ export const [, , Gender_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Gender",
-  fieldsConfig: "GENDER_FIELD_CONFIG",
-  entitiesColumns: "GENDER_ENTITY_COLUMNS"
+  fieldsConfig: GENDER_FIELD_CONFIG,
+  entitiesColumns: GENDER_ENTITY_COLUMNS
 }));
 
 export const ACCOUNT_FIELD_CONFIG = {
@@ -1299,8 +1299,8 @@ export const [, , Account_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Account",
-  fieldsConfig: "ACCOUNT_FIELD_CONFIG",
-  entitiesColumns: "ACCOUNT_ENTITY_COLUMNS"
+  fieldsConfig: ACCOUNT_FIELD_CONFIG,
+  entitiesColumns: ACCOUNT_ENTITY_COLUMNS
 }));
 
 export const CONTACTDECISIONROLE_FIELD_CONFIG = {
@@ -1333,8 +1333,8 @@ export const [, , ContactDecisionRole_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "ContactDecisionRole",
-  fieldsConfig: "CONTACTDECISIONROLE_FIELD_CONFIG",
-  entitiesColumns: "CONTACTDECISIONROLE_ENTITY_COLUMNS"
+  fieldsConfig: CONTACTDECISIONROLE_FIELD_CONFIG,
+  entitiesColumns: CONTACTDECISIONROLE_ENTITY_COLUMNS
 }));
 
 export const JOB_FIELD_CONFIG = {
@@ -1359,8 +1359,8 @@ export const [, , Job_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Job",
-  fieldsConfig: "JOB_FIELD_CONFIG",
-  entitiesColumns: "JOB_ENTITY_COLUMNS"
+  fieldsConfig: JOB_FIELD_CONFIG,
+  entitiesColumns: JOB_ENTITY_COLUMNS
 }));
 
 export const ADDRESSTYPE_FIELD_CONFIG = {
@@ -1388,8 +1388,8 @@ export const [, , AddressType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "AddressType",
-  fieldsConfig: "ADDRESSTYPE_FIELD_CONFIG",
-  entitiesColumns: "ADDRESSTYPE_ENTITY_COLUMNS"
+  fieldsConfig: ADDRESSTYPE_FIELD_CONFIG,
+  entitiesColumns: ADDRESSTYPE_ENTITY_COLUMNS
 }));
 
 export const CITY_FIELD_CONFIG = {
@@ -1440,8 +1440,8 @@ export const [, , City_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "City",
-  fieldsConfig: "CITY_FIELD_CONFIG",
-  entitiesColumns: "CITY_ENTITY_COLUMNS"
+  fieldsConfig: CITY_FIELD_CONFIG,
+  entitiesColumns: CITY_ENTITY_COLUMNS
 }));
 
 export const REGION_FIELD_CONFIG = {
@@ -1490,8 +1490,8 @@ export const [, , Region_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Region",
-  fieldsConfig: "REGION_FIELD_CONFIG",
-  entitiesColumns: "REGION_ENTITY_COLUMNS"
+  fieldsConfig: REGION_FIELD_CONFIG,
+  entitiesColumns: REGION_ENTITY_COLUMNS
 }));
 
 export const COUNTRY_FIELD_CONFIG = {
@@ -1543,8 +1543,8 @@ export const [, , Country_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Country",
-  fieldsConfig: "COUNTRY_FIELD_CONFIG",
-  entitiesColumns: "COUNTRY_ENTITY_COLUMNS"
+  fieldsConfig: COUNTRY_FIELD_CONFIG,
+  entitiesColumns: COUNTRY_ENTITY_COLUMNS
 }));
 
 export const SYSLANGUAGE_FIELD_CONFIG = {
@@ -1572,8 +1572,8 @@ export const [, , SysLanguage_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "SysLanguage",
-  fieldsConfig: "SYSLANGUAGE_FIELD_CONFIG",
-  entitiesColumns: "SYSLANGUAGE_ENTITY_COLUMNS"
+  fieldsConfig: SYSLANGUAGE_FIELD_CONFIG,
+  entitiesColumns: SYSLANGUAGE_ENTITY_COLUMNS
 }));
 
 export const VERIFICATIONSTATUS_FIELD_CONFIG = {
@@ -1598,8 +1598,8 @@ export const [, , VerificationStatus_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "VerificationStatus",
-  fieldsConfig: "VERIFICATIONSTATUS_FIELD_CONFIG",
-  entitiesColumns: "VERIFICATIONSTATUS_ENTITY_COLUMNS"
+  fieldsConfig: VERIFICATIONSTATUS_FIELD_CONFIG,
+  entitiesColumns: VERIFICATIONSTATUS_ENTITY_COLUMNS
 }));
 
 export const COMMUNICATIONTYPE_FIELD_CONFIG = {
@@ -1627,8 +1627,8 @@ export const [, , CommunicationType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "CommunicationType",
-  fieldsConfig: "COMMUNICATIONTYPE_FIELD_CONFIG",
-  entitiesColumns: "COMMUNICATIONTYPE_ENTITY_COLUMNS"
+  fieldsConfig: COMMUNICATIONTYPE_FIELD_CONFIG,
+  entitiesColumns: COMMUNICATIONTYPE_ENTITY_COLUMNS
 }));
 
 export const FIREBASEAUTHPROVIDER_FIELD_CONFIG = {
@@ -1653,8 +1653,8 @@ export const [, , FirebaseAuthProvider_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "FirebaseAuthProvider",
-  fieldsConfig: "FIREBASEAUTHPROVIDER_FIELD_CONFIG",
-  entitiesColumns: "FIREBASEAUTHPROVIDER_ENTITY_COLUMNS"
+  fieldsConfig: FIREBASEAUTHPROVIDER_FIELD_CONFIG,
+  entitiesColumns: FIREBASEAUTHPROVIDER_ENTITY_COLUMNS
 }));
 
 export const REFERRAL_FIELD_CONFIG = {
@@ -1681,8 +1681,8 @@ export const [, , Referral_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Code",
   entitySchemaName: "Referral",
-  fieldsConfig: "REFERRAL_FIELD_CONFIG",
-  entitiesColumns: "REFERRAL_ENTITY_COLUMNS"
+  fieldsConfig: REFERRAL_FIELD_CONFIG,
+  entitiesColumns: REFERRAL_ENTITY_COLUMNS
 }));
 
 export const PETTYPE_FIELD_CONFIG = {
@@ -1718,8 +1718,8 @@ export const [, , PetType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PetType",
-  fieldsConfig: "PETTYPE_FIELD_CONFIG",
-  entitiesColumns: "PETTYPE_ENTITY_COLUMNS"
+  fieldsConfig: PETTYPE_FIELD_CONFIG,
+  entitiesColumns: PETTYPE_ENTITY_COLUMNS
 }));
 
 export const SEX_FIELD_CONFIG = {
@@ -1751,8 +1751,8 @@ export const [, , Sex_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Sex",
-  fieldsConfig: "SEX_FIELD_CONFIG",
-  entitiesColumns: "SEX_ENTITY_COLUMNS"
+  fieldsConfig: SEX_FIELD_CONFIG,
+  entitiesColumns: SEX_ENTITY_COLUMNS
 }));
 
 export const PETSTATUS_FIELD_CONFIG = {
@@ -1781,8 +1781,8 @@ export const [, , PetStatus_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PetStatus",
-  fieldsConfig: "PETSTATUS_FIELD_CONFIG",
-  entitiesColumns: "PETSTATUS_ENTITY_COLUMNS"
+  fieldsConfig: PETSTATUS_FIELD_CONFIG,
+  entitiesColumns: PETSTATUS_ENTITY_COLUMNS
 }));
 
 export const COATTYPE_FIELD_CONFIG = {
@@ -1810,8 +1810,8 @@ export const [, , CoatType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "CoatType",
-  fieldsConfig: "COATTYPE_FIELD_CONFIG",
-  entitiesColumns: "COATTYPE_ENTITY_COLUMNS"
+  fieldsConfig: COATTYPE_FIELD_CONFIG,
+  entitiesColumns: COATTYPE_ENTITY_COLUMNS
 }));
 
 export const COATCOLOR_FIELD_CONFIG = {
@@ -1839,8 +1839,8 @@ export const [, , CoatColor_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "CoatColor",
-  fieldsConfig: "COATCOLOR_FIELD_CONFIG",
-  entitiesColumns: "COATCOLOR_ENTITY_COLUMNS"
+  fieldsConfig: COATCOLOR_FIELD_CONFIG,
+  entitiesColumns: COATCOLOR_ENTITY_COLUMNS
 }));
 
 export const PETSIZE_FIELD_CONFIG = {
@@ -1868,8 +1868,8 @@ export const [, , PetSize_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PetSize",
-  fieldsConfig: "PETSIZE_FIELD_CONFIG",
-  entitiesColumns: "PETSIZE_ENTITY_COLUMNS"
+  fieldsConfig: PETSIZE_FIELD_CONFIG,
+  entitiesColumns: PETSIZE_ENTITY_COLUMNS
 }));
 
 export const BODYFEATURE_FIELD_CONFIG = {
@@ -1894,8 +1894,8 @@ export const [, , BodyFeature_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "BodyFeature",
-  fieldsConfig: "BODYFEATURE_FIELD_CONFIG",
-  entitiesColumns: "BODYFEATURE_ENTITY_COLUMNS"
+  fieldsConfig: BODYFEATURE_FIELD_CONFIG,
+  entitiesColumns: BODYFEATURE_ENTITY_COLUMNS
 }));
 
 export const BREEDDIVISION_FIELD_CONFIG = {
@@ -1931,8 +1931,8 @@ export const [, , BreedDivision_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "BreedDivision",
-  fieldsConfig: "BREEDDIVISION_FIELD_CONFIG",
-  entitiesColumns: "BREEDDIVISION_ENTITY_COLUMNS"
+  fieldsConfig: BREEDDIVISION_FIELD_CONFIG,
+  entitiesColumns: BREEDDIVISION_ENTITY_COLUMNS
 }));
 
 export const PUBLICDATA_FIELD_CONFIG = {
@@ -2000,8 +2000,8 @@ export const [, , PublicData_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PublicData",
-  fieldsConfig: "PUBLICDATA_FIELD_CONFIG",
-  entitiesColumns: "PUBLICDATA_ENTITY_COLUMNS"
+  fieldsConfig: PUBLICDATA_FIELD_CONFIG,
+  entitiesColumns: PUBLICDATA_ENTITY_COLUMNS
 }));
 
 export const TITLE_FIELD_CONFIG = {
@@ -2033,8 +2033,8 @@ export const [, , Title_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Title",
-  fieldsConfig: "TITLE_FIELD_CONFIG",
-  entitiesColumns: "TITLE_ENTITY_COLUMNS"
+  fieldsConfig: TITLE_FIELD_CONFIG,
+  entitiesColumns: TITLE_ENTITY_COLUMNS
 }));
 
 export const HEALTHEXAMOBJECT_FIELD_CONFIG = {
@@ -2060,8 +2060,8 @@ export const [, , HealthExamObject_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "HealthExamObject",
-  fieldsConfig: "HEALTHEXAMOBJECT_FIELD_CONFIG",
-  entitiesColumns: "HEALTHEXAMOBJECT_ENTITY_COLUMNS"
+  fieldsConfig: HEALTHEXAMOBJECT_FIELD_CONFIG,
+  entitiesColumns: HEALTHEXAMOBJECT_ENTITY_COLUMNS
 }));
 
 export const HEALTHEXAMRESULT_FIELD_CONFIG = {
@@ -2089,8 +2089,8 @@ export const [, , HealthExamResult_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "HealthExamResult",
-  fieldsConfig: "HEALTHEXAMRESULT_FIELD_CONFIG",
-  entitiesColumns: "HEALTHEXAMRESULT_ENTITY_COLUMNS"
+  fieldsConfig: HEALTHEXAMRESULT_FIELD_CONFIG,
+  entitiesColumns: HEALTHEXAMRESULT_ENTITY_COLUMNS
 }));
 
 export const PETSERVICETYPE_FIELD_CONFIG = {
@@ -2115,8 +2115,8 @@ export const [, , PetServiceType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PetServiceType",
-  fieldsConfig: "PETSERVICETYPE_FIELD_CONFIG",
-  entitiesColumns: "PETSERVICETYPE_ENTITY_COLUMNS"
+  fieldsConfig: PETSERVICETYPE_FIELD_CONFIG,
+  entitiesColumns: PETSERVICETYPE_ENTITY_COLUMNS
 }));
 
 export const CURRENCY_FIELD_CONFIG = {
@@ -2156,8 +2156,8 @@ export const [, , Currency_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Currency",
-  fieldsConfig: "CURRENCY_FIELD_CONFIG",
-  entitiesColumns: "CURRENCY_ENTITY_COLUMNS"
+  fieldsConfig: CURRENCY_FIELD_CONFIG,
+  entitiesColumns: CURRENCY_ENTITY_COLUMNS
 }));
 
 export const PETSERVICESTATUS_FIELD_CONFIG = {
@@ -2182,8 +2182,8 @@ export const [, , PetServiceStatus_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PetServiceStatus",
-  fieldsConfig: "PETSERVICESTATUS_FIELD_CONFIG",
-  entitiesColumns: "PETSERVICESTATUS_ENTITY_COLUMNS"
+  fieldsConfig: PETSERVICESTATUS_FIELD_CONFIG,
+  entitiesColumns: PETSERVICESTATUS_ENTITY_COLUMNS
 }));
 
 export const PETCLASS_FIELD_CONFIG = {
@@ -2217,8 +2217,8 @@ export const [, , PetClass_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PetClass",
-  fieldsConfig: "PETCLASS_FIELD_CONFIG",
-  entitiesColumns: "PETCLASS_ENTITY_COLUMNS"
+  fieldsConfig: PETCLASS_FIELD_CONFIG,
+  entitiesColumns: PETCLASS_ENTITY_COLUMNS
 }));
 
 export const PLACE_FIELD_CONFIG = {
@@ -2243,8 +2243,8 @@ export const [, , Place_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Place",
-  fieldsConfig: "PLACE_FIELD_CONFIG",
-  entitiesColumns: "PLACE_ENTITY_COLUMNS"
+  fieldsConfig: PLACE_FIELD_CONFIG,
+  entitiesColumns: PLACE_ENTITY_COLUMNS
 }));
 
 export const PETQUALIFICATION_FIELD_CONFIG = {
@@ -2276,8 +2276,8 @@ export const [, , PetQualification_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PetQualification",
-  fieldsConfig: "PETQUALIFICATION_FIELD_CONFIG",
-  entitiesColumns: "PETQUALIFICATION_ENTITY_COLUMNS"
+  fieldsConfig: PETQUALIFICATION_FIELD_CONFIG,
+  entitiesColumns: PETQUALIFICATION_ENTITY_COLUMNS
 }));
 
 export const PETIDENTIFIERTYPE_FIELD_CONFIG = {
@@ -2303,8 +2303,8 @@ export const [, , PetIdentifierType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PetIdentifierType",
-  fieldsConfig: "PETIDENTIFIERTYPE_FIELD_CONFIG",
-  entitiesColumns: "PETIDENTIFIERTYPE_ENTITY_COLUMNS"
+  fieldsConfig: PETIDENTIFIERTYPE_FIELD_CONFIG,
+  entitiesColumns: PETIDENTIFIERTYPE_ENTITY_COLUMNS
 }));
 
 export const STUDBOOK_FIELD_CONFIG = {
@@ -2339,8 +2339,8 @@ export const [, , Studbook_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Studbook",
-  fieldsConfig: "STUDBOOK_FIELD_CONFIG",
-  entitiesColumns: "STUDBOOK_ENTITY_COLUMNS"
+  fieldsConfig: STUDBOOK_FIELD_CONFIG,
+  entitiesColumns: STUDBOOK_ENTITY_COLUMNS
 }));
 
 export const DATASOURCE_FIELD_CONFIG = {
@@ -2367,8 +2367,8 @@ export const [, , DataSource_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "DataSource",
-  fieldsConfig: "DATASOURCE_FIELD_CONFIG",
-  entitiesColumns: "DATASOURCE_ENTITY_COLUMNS"
+  fieldsConfig: DATASOURCE_FIELD_CONFIG,
+  entitiesColumns: DATASOURCE_ENTITY_COLUMNS
 }));
 
 export const MEASUREMENTTYPE_FIELD_CONFIG = {
@@ -2393,8 +2393,8 @@ export const [, , MeasurementType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "MeasurementType",
-  fieldsConfig: "MEASUREMENTTYPE_FIELD_CONFIG",
-  entitiesColumns: "MEASUREMENTTYPE_ENTITY_COLUMNS"
+  fieldsConfig: MEASUREMENTTYPE_FIELD_CONFIG,
+  entitiesColumns: MEASUREMENTTYPE_ENTITY_COLUMNS
 }));
 
 export const UNIT_FIELD_CONFIG = {
@@ -2420,8 +2420,8 @@ export const [, , Unit_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Unit",
-  fieldsConfig: "UNIT_FIELD_CONFIG",
-  entitiesColumns: "UNIT_ENTITY_COLUMNS"
+  fieldsConfig: UNIT_FIELD_CONFIG,
+  entitiesColumns: UNIT_ENTITY_COLUMNS
 }));
 
 export const PERIOD_FIELD_CONFIG = {
@@ -2460,8 +2460,8 @@ export const [, , Period_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Period",
-  fieldsConfig: "PERIOD_FIELD_CONFIG",
-  entitiesColumns: "PERIOD_ENTITY_COLUMNS"
+  fieldsConfig: PERIOD_FIELD_CONFIG,
+  entitiesColumns: PERIOD_ENTITY_COLUMNS
 }));
 
 export const LITTERSTATUS_FIELD_CONFIG = {
@@ -2487,8 +2487,8 @@ export const [, , LitterStatus_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "LitterStatus",
-  fieldsConfig: "LITTERSTATUS_FIELD_CONFIG",
-  entitiesColumns: "LITTERSTATUS_ENTITY_COLUMNS"
+  fieldsConfig: LITTERSTATUS_FIELD_CONFIG,
+  entitiesColumns: LITTERSTATUS_ENTITY_COLUMNS
 }));
 
 export const LETTER_FIELD_CONFIG = {
@@ -2513,8 +2513,8 @@ export const [, , Letter_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Letter",
-  fieldsConfig: "LETTER_FIELD_CONFIG",
-  entitiesColumns: "LETTER_ENTITY_COLUMNS"
+  fieldsConfig: LETTER_FIELD_CONFIG,
+  entitiesColumns: LETTER_ENTITY_COLUMNS
 }));
 
 export const BREEDCATEGORY_FIELD_CONFIG = {
@@ -2539,8 +2539,8 @@ export const [, , BreedCategory_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "BreedCategory",
-  fieldsConfig: "BREEDCATEGORY_FIELD_CONFIG",
-  entitiesColumns: "BREEDCATEGORY_ENTITY_COLUMNS"
+  fieldsConfig: BREEDCATEGORY_FIELD_CONFIG,
+  entitiesColumns: BREEDCATEGORY_ENTITY_COLUMNS
 }));
 
 export const PROJECTTYPE_FIELD_CONFIG = {
@@ -2565,8 +2565,8 @@ export const [, , ProjectType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "ProjectType",
-  fieldsConfig: "PROJECTTYPE_FIELD_CONFIG",
-  entitiesColumns: "PROJECTTYPE_ENTITY_COLUMNS"
+  fieldsConfig: PROJECTTYPE_FIELD_CONFIG,
+  entitiesColumns: PROJECTTYPE_ENTITY_COLUMNS
 }));
 
 export const PROJECTSTATUS_FIELD_CONFIG = {
@@ -2592,8 +2592,8 @@ export const [, , ProjectStatus_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "ProjectStatus",
-  fieldsConfig: "PROJECTSTATUS_FIELD_CONFIG",
-  entitiesColumns: "PROJECTSTATUS_ENTITY_COLUMNS"
+  fieldsConfig: PROJECTSTATUS_FIELD_CONFIG,
+  entitiesColumns: PROJECTSTATUS_ENTITY_COLUMNS
 }));
 
 export const PROJECTCATEGORY_FIELD_CONFIG = {
@@ -2621,8 +2621,8 @@ export const [, , ProjectCategory_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "ProjectCategory",
-  fieldsConfig: "PROJECTCATEGORY_FIELD_CONFIG",
-  entitiesColumns: "PROJECTCATEGORY_ENTITY_COLUMNS"
+  fieldsConfig: PROJECTCATEGORY_FIELD_CONFIG,
+  entitiesColumns: PROJECTCATEGORY_ENTITY_COLUMNS
 }));
 
 export const POSTTYPE_FIELD_CONFIG = {
@@ -2656,8 +2656,8 @@ export const [, , PostType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PostType",
-  fieldsConfig: "POSTTYPE_FIELD_CONFIG",
-  entitiesColumns: "POSTTYPE_ENTITY_COLUMNS"
+  fieldsConfig: POSTTYPE_FIELD_CONFIG,
+  entitiesColumns: POSTTYPE_ENTITY_COLUMNS
 }));
 
 export const POSTSTATE_FIELD_CONFIG = {
@@ -2690,8 +2690,8 @@ export const [, , PostState_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PostState",
-  fieldsConfig: "POSTSTATE_FIELD_CONFIG",
-  entitiesColumns: "POSTSTATE_ENTITY_COLUMNS"
+  fieldsConfig: POSTSTATE_FIELD_CONFIG,
+  entitiesColumns: POSTSTATE_ENTITY_COLUMNS
 }));
 
 export const BREEDPRIDECOLLECTIONTYPE_FIELD_CONFIG = {
@@ -2724,8 +2724,8 @@ export const [, , BreedprideCollectionType_SCHEMA] = createInjectionToken(() => 
   validators: [],
   displayField: "Name",
   entitySchemaName: "BreedprideCollectionType",
-  fieldsConfig: "BREEDPRIDECOLLECTIONTYPE_FIELD_CONFIG",
-  entitiesColumns: "BREEDPRIDECOLLECTIONTYPE_ENTITY_COLUMNS"
+  fieldsConfig: BREEDPRIDECOLLECTIONTYPE_FIELD_CONFIG,
+  entitiesColumns: BREEDPRIDECOLLECTIONTYPE_ENTITY_COLUMNS
 }));
 
 export const EVENTTYPE_FIELD_CONFIG = {
@@ -2758,8 +2758,8 @@ export const [, , EventType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "EventType",
-  fieldsConfig: "EVENTTYPE_FIELD_CONFIG",
-  entitiesColumns: "EVENTTYPE_ENTITY_COLUMNS"
+  fieldsConfig: EVENTTYPE_FIELD_CONFIG,
+  entitiesColumns: EVENTTYPE_ENTITY_COLUMNS
 }));
 
 export const EVENTSTATUS_FIELD_CONFIG = {
@@ -2793,8 +2793,8 @@ export const [, , EventStatus_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "EventStatus",
-  fieldsConfig: "EVENTSTATUS_FIELD_CONFIG",
-  entitiesColumns: "EVENTSTATUS_ENTITY_COLUMNS"
+  fieldsConfig: EVENTSTATUS_FIELD_CONFIG,
+  entitiesColumns: EVENTSTATUS_ENTITY_COLUMNS
 }));
 
 export const TERRITORY_FIELD_CONFIG = {
@@ -2819,8 +2819,8 @@ export const [, , Territory_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "Territory",
-  fieldsConfig: "TERRITORY_FIELD_CONFIG",
-  entitiesColumns: "TERRITORY_ENTITY_COLUMNS"
+  fieldsConfig: TERRITORY_FIELD_CONFIG,
+  entitiesColumns: TERRITORY_ENTITY_COLUMNS
 }));
 
 export const ACCOUNTINDUSTRY_FIELD_CONFIG = {
@@ -2848,8 +2848,8 @@ export const [, , AccountIndustry_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "AccountIndustry",
-  fieldsConfig: "ACCOUNTINDUSTRY_FIELD_CONFIG",
-  entitiesColumns: "ACCOUNTINDUSTRY_ENTITY_COLUMNS"
+  fieldsConfig: ACCOUNTINDUSTRY_FIELD_CONFIG,
+  entitiesColumns: ACCOUNTINDUSTRY_ENTITY_COLUMNS
 }));
 
 export const COVERTYPE_FIELD_CONFIG = {
@@ -2876,8 +2876,8 @@ export const [, , CoverType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "CoverType",
-  fieldsConfig: "COVERTYPE_FIELD_CONFIG",
-  entitiesColumns: "COVERTYPE_ENTITY_COLUMNS"
+  fieldsConfig: COVERTYPE_FIELD_CONFIG,
+  entitiesColumns: COVERTYPE_ENTITY_COLUMNS
 }));
 
 export const ENTITYSCHEMALOOKUP_FIELD_CONFIG = {
@@ -2912,8 +2912,8 @@ export const [, , EntitySchemaLookup_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "EntitySchemaLookup",
-  fieldsConfig: "ENTITYSCHEMALOOKUP_FIELD_CONFIG",
-  entitiesColumns: "ENTITYSCHEMALOOKUP_ENTITY_COLUMNS"
+  fieldsConfig: ENTITYSCHEMALOOKUP_FIELD_CONFIG,
+  entitiesColumns: ENTITYSCHEMALOOKUP_ENTITY_COLUMNS
 }));
 
 export const ACCOUNTOWNERSHIP_FIELD_CONFIG = {
@@ -2941,8 +2941,8 @@ export const [, , AccountOwnership_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "AccountOwnership",
-  fieldsConfig: "ACCOUNTOWNERSHIP_FIELD_CONFIG",
-  entitiesColumns: "ACCOUNTOWNERSHIP_ENTITY_COLUMNS"
+  fieldsConfig: ACCOUNTOWNERSHIP_FIELD_CONFIG,
+  entitiesColumns: ACCOUNTOWNERSHIP_ENTITY_COLUMNS
 }));
 
 export const ACCOUNTTYPE_FIELD_CONFIG = {
@@ -2968,8 +2968,8 @@ export const [, , AccountType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "AccountType",
-  fieldsConfig: "ACCOUNTTYPE_FIELD_CONFIG",
-  entitiesColumns: "ACCOUNTTYPE_ENTITY_COLUMNS"
+  fieldsConfig: ACCOUNTTYPE_FIELD_CONFIG,
+  entitiesColumns: ACCOUNTTYPE_ENTITY_COLUMNS
 }));
 
 export const ACCOUNTCATEGORY_FIELD_CONFIG = {
@@ -2994,8 +2994,8 @@ export const [, , AccountCategory_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "AccountCategory",
-  fieldsConfig: "ACCOUNTCATEGORY_FIELD_CONFIG",
-  entitiesColumns: "ACCOUNTCATEGORY_ENTITY_COLUMNS"
+  fieldsConfig: ACCOUNTCATEGORY_FIELD_CONFIG,
+  entitiesColumns: ACCOUNTCATEGORY_ENTITY_COLUMNS
 }));
 
 export const ACCOUNTSTATUS_FIELD_CONFIG = {
@@ -3020,8 +3020,8 @@ export const [, , AccountStatus_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "AccountStatus",
-  fieldsConfig: "ACCOUNTSTATUS_FIELD_CONFIG",
-  entitiesColumns: "ACCOUNTSTATUS_ENTITY_COLUMNS"
+  fieldsConfig: ACCOUNTSTATUS_FIELD_CONFIG,
+  entitiesColumns: ACCOUNTSTATUS_ENTITY_COLUMNS
 }));
 
 export const AFFIXTYPE_FIELD_CONFIG = {
@@ -3046,8 +3046,8 @@ export const [, , AffixType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "AffixType",
-  fieldsConfig: "AFFIXTYPE_FIELD_CONFIG",
-  entitiesColumns: "AFFIXTYPE_ENTITY_COLUMNS"
+  fieldsConfig: AFFIXTYPE_FIELD_CONFIG,
+  entitiesColumns: AFFIXTYPE_ENTITY_COLUMNS
 }));
 
 export const TIMEZONE_FIELD_CONFIG = {
@@ -3083,8 +3083,8 @@ export const [, , TimeZone_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "TimeZone",
-  fieldsConfig: "TIMEZONE_FIELD_CONFIG",
-  entitiesColumns: "TIMEZONE_ENTITY_COLUMNS"
+  fieldsConfig: TIMEZONE_FIELD_CONFIG,
+  entitiesColumns: TIMEZONE_ENTITY_COLUMNS
 }));
 
 export const GEONAMESTIMEZONE_FIELD_CONFIG = {
@@ -3111,8 +3111,8 @@ export const [, , GeoNamesTimeZone_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "GeoNamesTimeZone",
-  fieldsConfig: "GEONAMESTIMEZONE_FIELD_CONFIG",
-  entitiesColumns: "GEONAMESTIMEZONE_ENTITY_COLUMNS"
+  fieldsConfig: GEONAMESTIMEZONE_FIELD_CONFIG,
+  entitiesColumns: GEONAMESTIMEZONE_ENTITY_COLUMNS
 }));
 
 export const BREEDSTANDARD_FIELD_CONFIG = {
@@ -3160,8 +3160,8 @@ export const [, , BreedStandard_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "BreedStandard",
-  fieldsConfig: "BREEDSTANDARD_FIELD_CONFIG",
-  entitiesColumns: "BREEDSTANDARD_ENTITY_COLUMNS"
+  fieldsConfig: BREEDSTANDARD_FIELD_CONFIG,
+  entitiesColumns: BREEDSTANDARD_ENTITY_COLUMNS
 }));
 
 export const STUDBOOKSTATUS_FIELD_CONFIG = {
@@ -3186,8 +3186,8 @@ export const [, , StudbookStatus_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "StudbookStatus",
-  fieldsConfig: "STUDBOOKSTATUS_FIELD_CONFIG",
-  entitiesColumns: "STUDBOOKSTATUS_ENTITY_COLUMNS"
+  fieldsConfig: STUDBOOKSTATUS_FIELD_CONFIG,
+  entitiesColumns: STUDBOOKSTATUS_ENTITY_COLUMNS
 }));
 
 export const STUDBOOKTYPE_FIELD_CONFIG = {
@@ -3212,8 +3212,8 @@ export const [, , StudbookType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "StudbookType",
-  fieldsConfig: "STUDBOOKTYPE_FIELD_CONFIG",
-  entitiesColumns: "STUDBOOKTYPE_ENTITY_COLUMNS"
+  fieldsConfig: STUDBOOKTYPE_FIELD_CONFIG,
+  entitiesColumns: STUDBOOKTYPE_ENTITY_COLUMNS
 }));
 
 export const PERIODTYPE_FIELD_CONFIG = {
@@ -3238,8 +3238,8 @@ export const [, , PeriodType_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "PeriodType",
-  fieldsConfig: "PERIODTYPE_FIELD_CONFIG",
-  entitiesColumns: "PERIODTYPE_ENTITY_COLUMNS"
+  fieldsConfig: PERIODTYPE_FIELD_CONFIG,
+  entitiesColumns: PERIODTYPE_ENTITY_COLUMNS
 }));
 
 export const BREEDSUBSECTION_FIELD_CONFIG = {
@@ -3271,8 +3271,8 @@ export const [, , BreedSubsection_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "BreedSubsection",
-  fieldsConfig: "BREEDSUBSECTION_FIELD_CONFIG",
-  entitiesColumns: "BREEDSUBSECTION_ENTITY_COLUMNS"
+  fieldsConfig: BREEDSUBSECTION_FIELD_CONFIG,
+  entitiesColumns: BREEDSUBSECTION_ENTITY_COLUMNS
 }));
 
 export const BREEDSECTION_FIELD_CONFIG = {
@@ -3301,8 +3301,8 @@ export const [, , BreedSection_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "BreedSection",
-  fieldsConfig: "BREEDSECTION_FIELD_CONFIG",
-  entitiesColumns: "BREEDSECTION_ENTITY_COLUMNS"
+  fieldsConfig: BREEDSECTION_FIELD_CONFIG,
+  entitiesColumns: BREEDSECTION_ENTITY_COLUMNS
 }));
 
 export const BREEDGROUP_FIELD_CONFIG = {
@@ -3331,8 +3331,8 @@ export const [, , BreedGroup_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "BreedGroup",
-  fieldsConfig: "BREEDGROUP_FIELD_CONFIG",
-  entitiesColumns: "BREEDGROUP_ENTITY_COLUMNS"
+  fieldsConfig: BREEDGROUP_FIELD_CONFIG,
+  entitiesColumns: BREEDGROUP_ENTITY_COLUMNS
 }));
 
 export const BREEDSTANDARDSTATUS_FIELD_CONFIG = {
@@ -3360,6 +3360,6 @@ export const [, , BreedStandardStatus_SCHEMA] = createInjectionToken(() => ({
   validators: [],
   displayField: "Name",
   entitySchemaName: "BreedStandardStatus",
-  fieldsConfig: "BREEDSTANDARDSTATUS_FIELD_CONFIG",
-  entitiesColumns: "BREEDSTANDARDSTATUS_ENTITY_COLUMNS"
+  fieldsConfig: BREEDSTANDARDSTATUS_FIELD_CONFIG,
+  entitiesColumns: BREEDSTANDARDSTATUS_ENTITY_COLUMNS
 }));
