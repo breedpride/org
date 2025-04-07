@@ -6,7 +6,10 @@
   "scripts": {
     "pull": "sh ./scripts/pull_workspaces.sh ./workspaces",
     "push": "sh ./scripts/push_workspaces.sh ./workspaces",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "sh libs/wm/scripts/preinstall.sh",
+    "postinstall": "sh libs/wm/scripts/postinstall.sh",
+    "wmill:sync": "cd windmill/sync && wmill sync pull"
   },
   "keywords": [],
   "author": "",

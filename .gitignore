@@ -48,3 +48,4 @@ vitest.config.*.timestamp*
 .codegpt
 firebase-debug.log
 .env
+token-replace.txt
