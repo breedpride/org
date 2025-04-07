@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "allowImportingTsExtensions": true,
-    "strict": true,
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "bundler"
+    "strict": true
   },
   "imports": {
     "/f/": "./f/",

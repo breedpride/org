@@ -1,4 +1,4 @@
-defaultTs: bun
+defaultTs: deno
 includes:
   - f/**
 excludes: []

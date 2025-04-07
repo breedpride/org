@@ -1,3 +1,6 @@
 {
-  "tasks": {}
+  "tasks": {},
+  "fmt": {
+    "semiColons": false
+  }
 }

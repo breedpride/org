@@ -1,5 +1,5 @@
 # spec: https://github.com/windmill-labs/windmill/blob/main/cli/conf.ts
-defaultTs: bun
+defaultTs: deno
 includes:
   - f/**
 excludes: ["f/app_custom/*"]
