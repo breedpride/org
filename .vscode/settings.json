@@ -45,5 +45,6 @@
     "**/*.meta.yaml": true
   },
   "deno.enable": true,
+  "nxConsole.generateAiAgentRules": true,
 
 }
