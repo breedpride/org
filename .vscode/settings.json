@@ -21,5 +21,6 @@
     "activityBar.background": "#262C42",
     "titleBar.activeBackground": "#363E5D",
     "titleBar.activeForeground": "#F9FAFC"
-  }
+  },
+  "nxConsole.generateAiAgentRules": true
 }

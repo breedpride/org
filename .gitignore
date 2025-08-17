@@ -48,3 +48,5 @@ vitest.config.*.timestamp*
 .codegpt
 firebase-debug.log
 .env
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
